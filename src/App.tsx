@@ -1,16 +1,20 @@
+import { Suspense, lazy } from 'react';
 import { useReveal } from './hooks/useReveal';
 import { Navbar } from './components/layout/Navbar';
 import { Hero } from './components/layout/Hero';
 import { TrustBar } from './components/layout/TrustBar';
-import { UseCaseGrid } from './components/layout/UseCaseGrid';
-import { SectionVision } from './components/layout/SectionVision';
-import { SectionText } from './components/layout/SectionText';
-import { SectionImage } from './components/layout/SectionImage';
-import { Methodology } from './components/layout/Methodology';
-import { Deployment } from './components/layout/Deployment';
-import { CTASection } from './components/layout/CTASection';
-import { Footer } from './components/layout/Footer';
 import { FxDebugPanel, FxProvider } from './components/fx';
+import { SectionLoader } from './components/ui/SectionLoader';
+
+// Lazy load below-the-fold sections
+const UseCaseGrid = lazy(() => import('./components/layout/UseCaseGrid').then(m => ({ default: m.UseCaseGrid })));
+const SectionVision = lazy(() => import('./components/layout/SectionVision').then(m => ({ default: m.SectionVision })));
+const SectionText = lazy(() => import('./components/layout/SectionText').then(m => ({ default: m.SectionText })));
+const SectionImage = lazy(() => import('./components/layout/SectionImage').then(m => ({ default: m.SectionImage })));
+const Methodology = lazy(() => import('./components/layout/Methodology').then(m => ({ default: m.Methodology })));
+const Deployment = lazy(() => import('./components/layout/Deployment').then(m => ({ default: m.Deployment })));
+const CTASection = lazy(() => import('./components/layout/CTASection').then(m => ({ default: m.CTASection })));
+const Footer = lazy(() => import('./components/layout/Footer').then(m => ({ default: m.Footer })));
 
 export function App() {
     // Initialize reveal animations
@@ -26,20 +30,22 @@ export function App() {
                 <Hero />
                 <TrustBar />
 
-                {/* 1. Catalog / Use Cases */}
-                <UseCaseGrid />
+                <Suspense fallback={<SectionLoader />}>
+                    {/* 1. Catalog / Use Cases */}
+                    <UseCaseGrid />
 
-                {/* 2. Deep Dive Sections */}
-                <SectionVision />
-                <SectionText />
-                <SectionImage />
+                    {/* 2. Deep Dive Sections */}
+                    <SectionVision />
+                    <SectionText />
+                    <SectionImage />
 
-                {/* 3. Deployment & Methodology */}
-                <Deployment />
-                <Methodology />
+                    {/* 3. Deployment & Methodology */}
+                    <Deployment />
+                    <Methodology />
 
-                <CTASection />
-                <Footer />
+                    <CTASection />
+                    <Footer />
+                </Suspense>
 
                 {/* Debug Panel - visible with ?fxdebug=1 */}
                 <FxDebugPanel />

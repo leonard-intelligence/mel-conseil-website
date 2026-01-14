@@ -6,7 +6,7 @@ import { ArrowUpRight } from "lucide-react";
 // Map some default images for categories if they don't have specifics
 // For now we'll adhere to a simple logic or random allocation to avoid broken images
 const DEFAULT_IMAGES = [
-    'assets/illu-1.png', 'assets/illu-2.png', 'assets/illu-3.png', 'assets/illu-4.png', 'assets/illu-5.png'
+    'assets/illu-1.webp', 'assets/illu-2.webp', 'assets/illu-3.webp', 'assets/illu-4.webp', 'assets/illu-5.webp'
 ];
 
 export function UseCaseGrid() {
