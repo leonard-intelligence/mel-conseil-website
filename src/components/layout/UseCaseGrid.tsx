@@ -15,29 +15,24 @@ export function UseCaseGrid() {
     const activeCategory = CATALOGUE.find(c => c.id === activeTabId) || CATALOGUE[0];
 
     return (
-        <section className="catalogue-section py-24 bg-black reveal delay-200 border-b border-white/10">
-            <div className="section-header centered mb-12 px-6 text-center">
-                <h2 className="text-4xl font-bold mb-4 font-mono">CATALOGUE STRATÉGIQUE</h2>
-                <p className="text-muted-foreground max-w-2xl mx-auto">
-                    Nos solutions IA souveraines classées par domaines d'application.
-                </p>
-            </div>
+        <section className="catalogue-section py-24 bg-black reveal delay-200 border-b border-white/10" id="solutions">
+
 
             {/* Scrollable Tabs */}
-            <div className="sticky top-20 z-40 bg-black/80 backdrop-blur-md border-y border-white/10 mb-12">
+            <div className="sticky top-[60px] z-40 bg-black/80 backdrop-blur-md mb-12">
                 <div className="flex flex-wrap justify-center py-4 px-6 gap-2 max-w-7xl mx-auto">
                     {CATALOGUE.map((cat) => (
                         <button
                             key={cat.id}
                             onClick={() => setActiveTabId(cat.id)}
                             className={`
-                                flex items-center gap-2 px-4 py-2 border transition-all duration-300 font-mono text-xs uppercase tracking-wider
+                                flex items-center gap-3 px-6 py-3 border transition-all duration-300 font-mono text-sm uppercase tracking-wider
                                 ${activeTabId === cat.id
-                                    ? 'border-brand-blue text-white bg-white/5'
-                                    : 'border-white/10 text-gray-400 hover:text-white hover:bg-white/5 hover:border-white/20'}
+                                    ? 'border-brand-blue text-white bg-brand-blue/10 shadow-[0_0_20px_-5px_rgba(var(--brand-blue-rgb),0.3)]'
+                                    : 'border-white/5 text-gray-400 hover:text-white hover:bg-white/5 hover:border-white/20'}
                             `}
                         >
-                            <span className="text-base">{cat.emoji}</span>
+                            <span className="text-xl">{cat.emoji}</span>
                             {cat.label}
                         </button>
                     ))}
@@ -64,7 +59,7 @@ export function UseCaseGrid() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {activeCategory.items.map((item, index) => (
-                            <TechCard key={index} className="flex flex-col h-full group border border-white/10 bg-black p-0 transition-all duration-500">
+                            <TechCard key={index} className="flex flex-col h-full group bg-black p-0 transition-all duration-500">
                                 {/* Large Square/Rect Image Area */}
                                 <div className="aspect-square w-full overflow-hidden relative border-white/10 bg-gray-900/50">
                                     <TechCardImage
@@ -77,7 +72,7 @@ export function UseCaseGrid() {
                                         <ArrowUpRight className="w-4 h-4 text-white" />
                                     </div>
                                 </div>
-                                <div className="px-8 pb-8 flex flex-col flex-grow">
+                                <div className="px-8 pb-8 pt-6 flex flex-col flex-grow">
                                     <h4 className="text-xl font-bold mb-3 font-mono text-white group-hover:text-brand-blue transition-colors">
                                         {item.title}
                                     </h4>

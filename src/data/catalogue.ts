@@ -13,190 +13,80 @@ export interface CatalogueCategory {
 
 export const CATALOGUE: CatalogueCategory[] = [
     {
+        id: 'strategy',
+        label: 'Stratégie, Gouvernance & Infrastructure',
+        emoji: '🏗️',
+        description: 'Bâtir des fondations souveraines, éthiques et conformes (AI Act) pour une IA durable.',
+        items: [
+            { title: 'Cartographie AI Act', description: 'Inventaire des IA et classification des risques selon la loi européenne.' },
+            { title: 'Gouvernance des données', description: 'Gestion des droits d\'accès et sécurisation des systèmes RAG.' },
+            { title: 'Rédaction Charte IA', description: 'Définition des règles d\'usage éthique pour les collaborateurs.' },
+            { title: 'Collecte Data CSRD', description: 'Extraction et consolidation de données RSE depuis sources multiples.' },
+            { title: 'Déploiement Souverain', description: 'Installation de modèles Open Source (Llama, Mistral) On-Premise ou Cloud SecNumCloud.' },
+            { title: 'Dimensionnement Infra', description: 'Conseil sur l\'achat de GPU et l\'architecture technique optimale.' },
+            { title: 'Fine-tuning sur mesure', description: 'Adaptation de modèles (SLM) au "langage" et aux spécificités de l\'entreprise.' },
+            { title: 'Analyse des Biais', description: 'Audit automatique pour détecter les biais discriminatoires (RH, Crédit).' }
+        ]
+    },
+    {
         id: 'knowledge',
-        label: 'Knowledge Management & RAG',
-        emoji: '🔍',
-        description: 'Transformer la documentation passive en base de connaissance active sans exposer les secrets industriels.',
+        label: 'Moteurs de Recherche & Savoir',
+        emoji: '🧠',
+        description: 'Transformer la documentation passive en intelligence active et accessible instantanément.',
         items: [
-            { title: 'Moteur de recherche unifié', description: 'Interrogation en langage naturel de l\'ensemble du fonds documentaire (NAS, Sharepoint) avec citations.' },
-            { title: 'Assistant technique', description: 'Réponse immédiate sur procédures de réparation pour techniciens terrain (accès hors ligne).' },
-            { title: 'Recherche historique Support', description: 'Capitalisation sur les incidents résolus pour accélérer le support niveau 1/2.' },
-            { title: 'Base de connaissance Chatbot', description: 'Chatbot interne sourcé exclusivement sur les données validées (zéro hallucination).' },
-            { title: 'Assistant appels d\'offres', description: 'RAG sur les réponses passées + génération de premiers jets adaptés au cahier des charges.' }
-        ]
-    },
-    {
-        id: 'legal',
-        label: 'Juridique & Conformité',
-        emoji: '⚖️',
-        description: 'Sécuriser l\'analyse contractuelle et gagner du temps sur la veille.',
-        items: [
-            { title: 'Analyse & Audit de contrats', description: 'Extraction et synthèse des clauses (résiliation, pénalités) sur des lots massifs.' },
-            { title: 'Comparateur sémantique', description: 'Analyse des écarts de fond et de risques entre deux versions d\'un contrat.' },
-            { title: 'Génération de contrats', description: 'Création de premiers jets sécurisés basés sur les modèles validés du cabinet.' },
-            { title: 'Veille réglementaire', description: 'Suivi des évolutions légales (JO, Directives) avec alertes d\'impact métier.' }
-        ]
-    },
-    {
-        id: 'finance',
-        label: 'Finance & Comptabilité',
-        emoji: '💴',
-        description: 'Réduire la charge de saisie manuelle et sécuriser les données financières.',
-        items: [
-            { title: 'Extraction IDP Factures', description: 'Lecture intelligente, extraction des champs (TVA, SIRET) et export vers l\'ERP.' },
-            { title: 'Recouvrement intelligent', description: 'Génération de relances personnalisées selon le profil payeur pour réduire le DSO.' },
-            { title: 'Détection d\'anomalies', description: 'Audit continu pour repérer doublons ou montants atypiques (prévention fraude).' }
+            { title: 'Moteur de recherche unifié', description: 'Interrogation en langage naturel de tout le fonds documentaire (Sharepoint, NAS).' },
+            { title: 'Assistant Technique', description: 'Réponse immédiate sur procédures de maintenance pour techniciens terrain.' },
+            { title: 'Recherche Historique Support', description: 'Capitalisation sur les incidents résolus pour accélérer le niveau 1/2.' },
+            { title: 'Chatbot Service Client', description: 'Filtrage et qualification automatique des demandes (24/7).' },
+            { title: 'Bot FAQ Interne', description: 'Réponses instantanées aux questions récurrentes (RH, IT, Procédures).' },
+            { title: 'Assistant Appels d\'Offres', description: 'Génération de premiers jets basés sur les réussites passées et le cahier des charges.' },
+            { title: 'Génération de Quiz', description: 'Création automatique de tests de connaissances à partir de PDF de formation.' }
         ]
     },
     {
         id: 'documents',
-        label: 'Traitement Documents (IDP)',
+        label: 'Analyse Documentaire & Support',
         emoji: '📄',
-        description: 'Extraire la donnée bloquée dans des documents non structurés à grande échelle.',
+        description: 'Automatiser le traitement des flux administratifs, juridiques et financiers.',
         items: [
-            { title: 'OCR Intelligent', description: 'Transformation de documents scannés en données structurées (JSON/XML).' },
-            { title: 'Classification automatique', description: 'L\'IA analyse la pièce jointe entrante et la route vers le bon service.' },
-            { title: 'Résumé documents longs', description: 'Synthèse structurée de rapports annuels ou études techniques (100+ pages).' },
-            { title: 'Vérification de complétude', description: 'Contrôle automatique de la présence des pièces obligatoires dans un dossier.' }
+            { title: 'OCR Intelligent (IDP)', description: 'Transformation de documents scannés/factures en données structurées (JSON/ERP).' },
+            { title: 'Classification Automatique', description: 'Tri et routage automatique des emails et pièces jointes entrants.' },
+            { title: 'Analyse de Contrats', description: 'Extraction des clauses à risques et synthèse juridique accélérée.' },
+            { title: 'Comparateur Sémantique', description: 'Détection fine des écarts de fond entre deux versions d\'un document.' },
+            { title: 'Extraction Factures', description: 'Lecture automatique, vérification TVA/SIRET et export comptable.' },
+            { title: 'Recouvrement Intelligent', description: 'Relances hyper-personnalisées pour réduire les délais de paiement.' },
+            { title: 'Matching CV', description: 'Analyse objective des compétences et pré-qualification des candidats.' },
+            { title: 'Vérification Complétude', description: 'Contrôle automatique de la présence des pièces obligatoires dans un dossier.' }
         ]
     },
     {
-        id: 'industry',
-        label: 'Industrie & Supply Chain',
-        emoji: '⚙️',
-        description: 'Optimiser les opérations et sécuriser le savoir-faire technique.',
-        items: [
-            { title: 'Assistant Maintenance', description: 'Aide au diagnostic via tablettes durcies connectées à la documentation locale.' },
-            { title: 'Analyse prédictive stock', description: 'Recommandations de réapprovisionnement basées sur l\'historique.' },
-            { title: 'Risques fournisseurs', description: 'Analyse automatique des rapports financiers et actualités des partenaires.' },
-            { title: 'Fiches techniques', description: 'Création automatisée de documentation produit multilingue.' }
-        ]
-    },
-    {
-        id: 'rh',
-        label: 'RH & Recrutement',
-        emoji: '👥',
-        description: 'Gérer la masse administrative en respectant strictement le RGPD.',
-        items: [
-            { title: 'Matching & Analyse CV', description: 'Extraction des compétences et pré-qualification sans biais.' },
-            { title: 'Fiches de Poste & Annonces', description: 'Rédaction rapide et inclusive des offres d\'emploi.' },
-            { title: 'Onboarding Assistant', description: 'Chatbot d\'accueil pour les nouveaux arrivants (procédures, culture).' },
-            { title: 'Assistant Évaluations', description: 'Aide à la formalisation des entretiens annuels.' }
-        ]
-    },
-    {
-        id: 'rse',
-        label: 'RSE & ESG',
-        emoji: '🌱',
-        description: 'Collecter la donnée et garantir l\'éthique des contenus.',
-        items: [
-            { title: 'Collecte Data CSRD', description: 'Extraction de données depuis factures énergétiques et rapports divers.' },
-            { title: 'Rédaction Rapport RSE', description: 'Génération des textes narratifs à partir des KPI consolidés.' },
-            { title: 'Analyse des Biais', description: 'Audit automatique des offres d\'emploi pour détecter les biais discriminatoires.' }
-        ]
-    },
-    {
-        id: 'sales',
-        label: 'Commercial & Ventes',
-        emoji: '📈',
-        description: 'Hyper-personnalisation de l\'approche commerciale sans exposer le fichier client.',
-        items: [
-            { title: 'Préparation de RDV', description: 'Synthèse "360°" du prospect avant l\'appel.' },
-            { title: 'Propositions Commerciales', description: 'Génération sur-mesure à partir des briques existantes.' },
-            { title: 'Analyse Voice of Customer', description: 'Analyse des sentiments dans les emails ou transcriptions d\'appels.' }
-        ]
-    },
-    {
-        id: 'health',
-        label: 'Santé & Healthcare',
-        emoji: '🏥',
-        description: 'Réduire la charge administrative des soignants en conformité HDS.',
-        items: [
-            { title: 'Synthèse dossiers patients', description: 'Résumé structuré de l\'historique pour le médecin.' },
-            { title: 'Aide au codage PMSI', description: 'Suggestion des codes actes à partir des comptes-rendus.' },
-            { title: 'Assistant documentation', description: 'Génération de CR de consultation via dictée vocale locale.' },
-            { title: 'Anonymisation recherche', description: 'Dé-identification forte des données patients pour la recherche clinique.' }
-        ]
-    },
-    {
-        id: 'public',
-        label: 'Secteur Public',
-        emoji: '🏛️',
-        description: 'Efficacité administrative et souveraineté numérique.',
-        items: [
-            { title: 'Assistant agent public', description: 'Accès instantané aux procédures et textes réglementaires.' },
-            { title: 'Analyse courriers citoyens', description: 'Classification et pré-rédaction de réponses.' },
-            { title: 'Aide rédaction admin', description: 'Génération d\'arrêtés et délibérations conformes.' },
-            { title: 'Pré-instruction dossiers', description: 'Vérification automatique de complétude (urbanisme, aides).' }
-        ]
-    },
-    {
-        id: 'bank',
-        label: 'Banque & Assurance',
-        emoji: '🏦',
-        description: 'Conformité, explicabilité et sécurité maximale.',
-        items: [
-            { title: 'Automatisation KYC', description: 'Extraction/Vérification des pièces justificatives.' },
-            { title: 'Synthèse crédit/sinistre', description: 'Résumé des pièces pour aide à la décision humaine.' },
-            { title: 'Veille réglementaire', description: 'Suivi ACPR/BCE et conformité DORA.' },
-            { title: 'Détection fraude doc', description: 'Analyse de cohérence des documents fournis.' }
-        ]
-    },
-    {
-        id: 'agents',
-        label: 'Agents IA & Workflows',
+        id: 'automation',
+        label: 'Agents Intelligents & Workflow',
         emoji: '🤖',
-        description: 'Automatiser des tâches complexes multimodales.',
+        description: 'Des agents autonomes qui exécutent des tâches complexes et multimodales.',
         items: [
-            { title: 'Agent Nettoyage Data', description: 'Scanne les serveurs, identifie les doublons et propose l\'archivage.' },
-            { title: 'Routeur intelligent', description: 'Réception -> Analyse -> Injection dans l\'outil métier.' },
-            { title: 'Agent Email', description: 'Brouillons de réponse et classification des urgences.' },
-            { title: 'Agent Préparateur', description: 'Dossier de briefing automatique avant RDV.' }
+            { title: 'Agent Nettoyage Data', description: 'Scan des serveurs, détection de doublons et archivage intelligent.' },
+            { title: 'Routeur Intelligent', description: 'Analyse d\'intentions complexes et dispatch vers les bons services.' },
+            { title: 'Assistant Commercial', description: 'Synthèse "360°" du prospect et préparation de dossier avant RDV.' },
+            { title: 'Rédaction Propositions', description: 'Génération de propales commerciales sur-mesure.' },
+            { title: 'Agent Email', description: 'Brouillons de réponse contextuels et gestion de la boîte de réception.' },
+            { title: 'Analyse "Voice of Customer"', description: 'Détection de sentiments et tendances dans les interactions clients.' }
         ]
     },
     {
-        id: 'training',
-        label: 'Interfaces & Formation',
-        emoji: '💬',
-        description: 'Accès simplifié au savoir et montée en compétence.',
+        id: 'verticals',
+        label: 'Solutions Sectorielles & Métiers',
+        emoji: '🏥',
+        description: 'Des solutions expertes pour les exigences spécifiques (Santé, Industrie, Public, Banque).',
         items: [
-            { title: 'Bot FAQ Interne', description: 'Réponses aux questions récurrentes sur les process (RH/IT).' },
-            { title: 'Chatbot Service Client', description: 'Filtrage et qualification des demandes niveau 1.' },
-            { title: 'Génération de Quiz', description: 'Création automatique d\'évaluations depuis supports PDF.' }
-        ]
-    },
-    {
-        id: 'infra',
-        label: 'Infrastructure & LLMOps',
-        emoji: '🏗️',
-        description: 'Déployer et maintenir l\'IA chez le client ou sur un cloud souverain.',
-        items: [
-            { title: 'Dimensionnement Hardware', description: 'Conseil achat serveurs/GPU ou choix Cloud Souverain (OVH, NumSpot).' },
-            { title: 'Déploiement On-Premise', description: 'Installation sécurisée de modèles (Ollama, vLLM) dans le SI client.' },
-            { title: 'Optimisation (Quantization)', description: 'Faire tourner des modèles performants sur des infrastructures légères.' }
-        ]
-    },
-    {
-        id: 'finetuning',
-        label: 'Fine-tuning & SLM',
-        emoji: '🧠',
-        description: 'Une IA qui parle "le langage de l\'entreprise".',
-        items: [
-            { title: 'Création de SLM', description: 'Entraînement de petits modèles spécialisés sur corpus client.' },
-            { title: 'Adaptation style & ton', description: 'Ajustement du modèle pour l\'identité de marque.' },
-            { title: 'Performance ciblée', description: 'Rendre un petit modèle local aussi fort qu\'un GPT-4 sur une tâche précise.' }
-        ]
-    },
-    {
-        id: 'governance',
-        label: 'Gouvernance & AI Act',
-        emoji: '🔐',
-        description: 'Structurer l\'usage et se conformer à la loi européenne.',
-        items: [
-            { title: 'Rédaction Charte IA', description: 'Définition des règles d\'usage pour les employés.' },
-            { title: 'Cartographie AI Act', description: 'Inventaire des IA et classification des risques selon la loi.' },
-            { title: 'Gouvernance des données', description: 'Gestion des droits d\'accès pour les systèmes RAG.' },
-            { title: 'Acculturation Comex', description: 'Formation des dirigeants aux enjeux souverains.' }
+            { title: 'Synthèse Dossier Patient', description: 'Résumé structuré de l\'historique médical pour aide au diagnostic.' },
+            { title: 'Anonymisation Recherche', description: 'Dé-identification forte des données de santé (HDS) pour la recherche.' },
+            { title: 'Automatisation KYC', description: 'Vérification d\'identité et détection de fraude documentaire (Banque).' },
+            { title: 'Veille Réglementaire Bancaire', description: 'Suivi des directives (DORA, Bâle) et analyse d\'impact.' },
+            { title: 'Assistant Agent Public', description: 'Accès simplifié aux codes et règlements pour l\'instruction de dossiers.' },
+            { title: 'Traitement Courrier Citoyen', description: 'Réponses pré-rédigées aux requêtes administratives.' },
+            { title: 'Assistant Maintenance Ind.', description: 'Aide au diagnostic panne sur machine via documentation technique.' },
+            { title: 'Risques Fournisseurs', description: 'Analyse croisée de la santé financière et de la réputation des partenaires.' }
         ]
     }
 ];

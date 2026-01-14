@@ -33,9 +33,10 @@ export function Methodology() {
             <div className="max-w-7xl mx-auto px-6">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-16">
                     <div>
+                        <div className="absolute -inset-4 bg-blue-500/10 blur-3xl -z-10 rounded-full opacity-50" />
                         <span className="text-brand-blue font-mono text-sm tracking-widest uppercase mb-4 block">Processus</span>
-                        <h2 className="text-4xl font-bold font-display text-white">
-                            De l'idée à <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">l'impact</span>.
+                        <h2 className="text-4xl font-bold font-display text-white relative z-10">
+                            De l'idée à <span className="text-white">l'impact</span>.
                         </h2>
                     </div>
                     <p className="text-gray-400 max-w-md text-right hidden md:block">
@@ -48,11 +49,11 @@ export function Methodology() {
                     <div className="hidden md:block absolute top-8 left-0 right-0 h-px bg-white/10 -z-10 translate-y-1/2" />
 
                     {steps.map((step, i) => (
-                        <TechCard key={i} className="bg-black border border-white/10 p-6 group hover:-translate-y-2 transition-transform duration-500">
+                        <TechCard key={i} className="bg-black p-6 group transition-transform duration-500">
                             <div className="flex items-center justify-between mb-8">
                                 <span className={`font-mono text-4xl font-bold opacity-30 group-hover:opacity-100 transition-opacity ${i === 0 ? 'text-orange-500' :
-                                        i === 1 ? 'text-blue-500' :
-                                            i === 2 ? 'text-purple-500' : 'text-green-500'
+                                    i === 1 ? 'text-blue-500' :
+                                        i === 2 ? 'text-purple-500' : 'text-green-500'
                                     }`}>{step.num}</span>
                                 <span className="text-xs font-mono border border-white/10 px-2 py-1 rounded text-gray-500 group-hover:text-white transition-colors">{step.duration}</span>
                             </div>

@@ -3,7 +3,7 @@ import { TechCard } from "@/components/ui/TechCard";
 
 export function SectionImage() {
     return (
-        <section className="sections-container border-b border-border bg-black">
+        <section className="sections-container border-y border-border bg-black">
             <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[600px]">
 
                 {/* LEFT COLUMN: Main Visual - Spans 8 cols */}
@@ -20,12 +20,12 @@ export function SectionImage() {
 
                     {/* Central Image Area */}
                     <div className="absolute inset-0 z-0 flex items-center justify-center opacity-50 mix-blend-overlay pointer-events-none">
-                        <div className="w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-orange-900/20 via-black to-black" />
+                        <div className="w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/10 via-black to-black opacity-40" />
                     </div>
 
                     {/* Bottom Left Card */}
                     <div className="mt-auto relative z-10">
-                        <TechCard className="max-w-md bg-black/80 backdrop-blur-sm border border-border p-6 hover:border-orange-500/50 transition-colors group">
+                        <TechCard className="max-w-md bg-black/80 backdrop-blur-sm p-6 transition-colors group">
                             <div className="flex justify-between items-start mb-4">
                                 <div className="flex items-center gap-3">
                                     <h3 className="text-xl text-white font-mono">Flux-Pro</h3>
@@ -49,7 +49,12 @@ export function SectionImage() {
                 <div className="lg:col-span-4 flex flex-col">
 
                     {/* Top Description Block */}
-                    <div className="p-12 border-b border-border bg-zinc-900/20">
+                    <div className="p-12 border-b border-border bg-zinc-900/20 relative overflow-hidden group">
+                        <div className="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-40 transition-opacity pointer-events-none">
+                            <div className="text-[10px] font-mono text-white tracking-widest leading-none">
+                                /// CREATIVE /// GEN-AI ///
+                            </div>
+                        </div>
                         <p className="font-mono text-muted-foreground text-sm leading-relaxed mb-8">
                             Arrêtez les banques d'images. Générez des assets marketing uniques et haute qualité qui racontent votre histoire spécifique.
                         </p>
@@ -62,7 +67,7 @@ export function SectionImage() {
                     <div className="flex-1 flex flex-col">
                         <div className="flex-1 border-b border-border p-8 group hover:bg-white/5 transition-colors cursor-pointer relative">
                             <ArrowUpRight className="absolute top-8 right-8 text-white w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                            <div className="w-8 h-8 rounded bg-white/10 flex items-center justify-center mb-4 text-white">
+                            <div className="w-8 h-8 bg-black tech-strips border border-white/10 flex items-center justify-center mb-4 text-white">
                                 <Layers className="w-4 h-4" />
                             </div>
                             <h3 className="text-white font-mono text-lg mb-2">Mise en Scène Produit</h3>
@@ -71,7 +76,7 @@ export function SectionImage() {
 
                         <div className="flex-1 border-b border-border p-8 group hover:bg-white/5 transition-colors cursor-pointer relative">
                             <ArrowUpRight className="absolute top-8 right-8 text-white w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                            <div className="w-8 h-8 rounded bg-white/10 flex items-center justify-center mb-4 text-white">
+                            <div className="w-8 h-8 bg-black tech-strips border border-white/10 flex items-center justify-center mb-4 text-white">
                                 <ImageIcon className="w-4 h-4" />
                             </div>
                             <h3 className="text-white font-mono text-lg mb-2">Réseaux Sociaux</h3>

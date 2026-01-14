@@ -8,7 +8,7 @@ export function Solutions() {
                 <p className="subtitle">Nous résolvons des problèmes business, pas juste de la tech.</p>
             </div>
             <div className="solutions-grid">
-                <TechCard>
+                <TechCard className="bg-black p-6">
                     <div className="icon-wrapper blue mb-6 rounded-none bg-white/10 w-12 h-12 flex items-center justify-center text-2xl">💼</div>
                     <h3 className="text-xl font-bold mb-4">Pour les Sales</h3>
                     <ul className="space-y-3">
@@ -17,7 +17,7 @@ export function Solutions() {
                         <li className="text-sm text-muted-foreground"><strong className="text-white">Chatbots</strong> : Qualification 24/7 sur votre site.</li>
                     </ul>
                 </TechCard>
-                <TechCard>
+                <TechCard className="bg-black p-6">
                     <div className="icon-wrapper purple mb-6 rounded-none bg-white/10 w-12 h-12 flex items-center justify-center text-2xl">🎨</div>
                     <h3 className="text-xl font-bold mb-4">Pour le Marketing</h3>
                     <ul className="space-y-3">
@@ -26,7 +26,7 @@ export function Solutions() {
                         <li className="text-sm text-muted-foreground"><strong className="text-white">Reporting</strong> : Analyse de tendances automatique.</li>
                     </ul>
                 </TechCard>
-                <TechCard>
+                <TechCard className="bg-black p-6">
                     <div className="icon-wrapper green mb-6 rounded-none bg-white/10 w-12 h-12 flex items-center justify-center text-2xl">⚙️</div>
                     <h3 className="text-xl font-bold mb-4">Pour les Ops & RH</h3>
                     <ul className="space-y-3">

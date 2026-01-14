@@ -12,12 +12,12 @@ export function Navbar() {
                     <span className="tab-label">SOLUTIONS</span>
                     <span className="tab-number">01</span>
                 </a>
-                <a href="#agence" className="nav-tab">
-                    <span className="tab-label">AGENCE</span>
+                <a href="#expertises" className="nav-tab">
+                    <span className="tab-label">EXPERTISES</span>
                     <span className="tab-number">02</span>
                 </a>
-                <a href="#rd" className="nav-tab">
-                    <span className="tab-label">R&D</span>
+                <a href="#method" className="nav-tab">
+                    <span className="tab-label">MÉTHODOLOGIE</span>
                     <span className="tab-number">03</span>
                 </a>
             </div>

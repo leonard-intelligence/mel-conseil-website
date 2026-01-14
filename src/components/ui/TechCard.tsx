@@ -1,9 +1,24 @@
 import { cn } from "@/lib/utils";
-import React from "react";
+import React, { createContext, useContext, useState } from "react";
 import { FxImage } from "@/components/fx";
 import styles from "./TechCard.module.css";
 import { useFxConfig } from "@/components/fx/FxContext";
-import { useState } from "react";
+
+// Context to share hover state
+interface TechCardContextType {
+    isHovered: boolean;
+}
+
+const TechCardContext = createContext<TechCardContextType | undefined>(undefined);
+
+export const useTechCardContext = () => {
+    const context = useContext(TechCardContext);
+    if (!context) {
+        // Fallback for standalone usage if needed, or throw error
+        return { isHovered: false };
+    }
+    return context;
+};
 
 interface TechCardProps extends React.HTMLAttributes<HTMLDivElement> {
     children: React.ReactNode;
@@ -15,17 +30,22 @@ interface TechCardProps extends React.HTMLAttributes<HTMLDivElement> {
 export function TechCard({ children, className, ...props }: TechCardProps & { showMarkers?: boolean }) {
     // Determine if showMarkers is passed (even if unused by CSS module now, we strip it)
     const { showMarkers, ...domProps } = props as any;
+    const [isHovered, setIsHovered] = useState(false);
 
     return (
-        <div
-            className={cn(
-                styles.card,
-                className
-            )}
-            {...domProps}
-        >
-            {children}
-        </div>
+        <TechCardContext.Provider value={{ isHovered }}>
+            <div
+                className={cn(
+                    styles.card,
+                    className
+                )}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+                {...domProps}
+            >
+                {children}
+            </div>
+        </TechCardContext.Provider>
     );
 }
 
@@ -39,7 +59,8 @@ interface TechCardImageProps {
 
 // Image Wrapper with optional FX effects
 export const TechCardImage = ({ src, alt, className, useFx = true, layout = 'contained' }: TechCardImageProps) => {
-    const [isHovered, setIsHovered] = useState(false);
+    // Use context instead of local state
+    const { isHovered } = useTechCardContext();
     const globalConfig = useFxConfig();
 
     // Determine target shape: Flip global shape on hover
@@ -82,8 +103,7 @@ export const TechCardImage = ({ src, alt, className, useFx = true, layout = 'con
     return (
         <div
             className={cn(styles.imageWrapper, layout === 'full' && styles.imageWrapperFull, className)}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
+        // Local handlers removed, rely on parent context
         >
             {useFx ? (
                 <FxImage

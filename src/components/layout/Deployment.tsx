@@ -1,5 +1,9 @@
 import { TechCard, TechCardImage } from "@/components/ui/TechCard";
 import serverImage from "../../assets/abstract-network.png"; // Using available abstract asset
+import { DeploymentIcon } from "./DeploymentIcon";
+import iconShield from "../../assets/icon-shield.png";
+import iconCloud from "../../assets/icon-astrolab.png"; // Using astrolab for 'complex structure/cloud' metaphor
+import iconEdge from "../../assets/icon-loupe.png"; // Using loupe for 'edge/analysis' metaphor
 
 export function Deployment() {
     return (
@@ -16,31 +20,49 @@ export function Deployment() {
                         </p>
 
                         <div className="space-y-4">
-                            <TechCard className="bg-white/5 border border-white/10 p-6 hover:border-brand-blue/50 transition-colors cursor-default">
-                                <div className="flex items-center gap-4">
-                                    <div className="w-10 h-10 rounded bg-blue-500/20 text-blue-400 flex items-center justify-center text-xl">🏰</div>
-                                    <div>
-                                        <h4 className="text-white font-bold font-mono">On-Premise (Air-Gapped)</h4>
+                            <TechCard className="bg-white/5 p-0 !pb-0 transition-colors cursor-default group">
+                                <div className="flex items-stretch h-32">
+                                    <div className="w-32 h-full shrink-0 border-r border-white/10">
+                                        <DeploymentIcon
+                                            src={iconShield}
+                                            alt="On-Premise Icon"
+                                            className="w-full h-full"
+                                        />
+                                    </div>
+                                    <div className="p-6 flex flex-col justify-center">
+                                        <h4 className="text-white font-bold font-mono text-lg mb-1 group-hover:text-brand-blue transition-colors">On-Premise (Air-Gapped)</h4>
                                         <p className="text-sm text-gray-400">Installation sur vos serveurs physiques, sans aucun accès internet.</p>
                                     </div>
                                 </div>
                             </TechCard>
 
-                            <TechCard className="bg-white/5 border border-white/10 p-6 hover:border-purple-500/50 transition-colors cursor-default">
-                                <div className="flex items-center gap-4">
-                                    <div className="w-10 h-10 rounded bg-purple-500/20 text-purple-400 flex items-center justify-center text-xl">☁️</div>
-                                    <div>
-                                        <h4 className="text-white font-bold font-mono">Private Cloud (SecNumCloud)</h4>
+                            <TechCard className="bg-white/5 p-0 !pb-0 transition-colors cursor-default group">
+                                <div className="flex items-stretch h-32">
+                                    <div className="w-32 h-full shrink-0 border-r border-white/10">
+                                        <DeploymentIcon
+                                            src={iconCloud}
+                                            alt="Private Cloud Icon"
+                                            className="w-full h-full"
+                                        />
+                                    </div>
+                                    <div className="p-6 flex flex-col justify-center">
+                                        <h4 className="text-white font-bold font-mono text-lg mb-1 group-hover:text-brand-blue transition-colors">Private Cloud (SecNumCloud)</h4>
                                         <p className="text-sm text-gray-400">Déploiement sur instances dédiées (OVH, NumSpot, Outscale).</p>
                                     </div>
                                 </div>
                             </TechCard>
 
-                            <TechCard className="bg-white/5 border border-white/10 p-6 hover:border-green-500/50 transition-colors cursor-default">
-                                <div className="flex items-center gap-4">
-                                    <div className="w-10 h-10 rounded bg-green-500/20 text-green-400 flex items-center justify-center text-xl">⚡</div>
-                                    <div>
-                                        <h4 className="text-white font-bold font-mono">Edge AI</h4>
+                            <TechCard className="bg-white/5 p-0 !pb-0 transition-colors cursor-default group">
+                                <div className="flex items-stretch h-32">
+                                    <div className="w-32 h-full shrink-0 border-r border-white/10">
+                                        <DeploymentIcon
+                                            src={iconEdge}
+                                            alt="Edge AI Icon"
+                                            className="w-full h-full"
+                                        />
+                                    </div>
+                                    <div className="p-6 flex flex-col justify-center">
+                                        <h4 className="text-white font-bold font-mono text-lg mb-1 group-hover:text-brand-blue transition-colors">Edge AI</h4>
                                         <p className="text-sm text-gray-400">Inférence optimisée sur postes de travail ou équipements industriels.</p>
                                     </div>
                                 </div>

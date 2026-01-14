@@ -3,7 +3,7 @@ import { TechCard } from "@/components/ui/TechCard";
 
 export function SectionVision() {
     return (
-        <section className="sections-container border-b border-border bg-black">
+        <section className="sections-container border-y border-border bg-black">
             <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[600px]">
 
                 {/* LEFT COLUMN: Main Visual - Spans 8 cols */}
@@ -11,7 +11,7 @@ export function SectionVision() {
 
                     {/* Header Area */}
                     <div className="relative z-10 mb-12">
-                        <div className="text-brand-blue font-mono mb-2 text-lg">01 Vision.</div>
+                        <div className="text-blue-500 font-mono mb-2 text-lg">01 Vision.</div>
                         <h2 className="text-4xl md:text-5xl font-mono text-white max-w-2xl leading-tight">
                             Donnez des yeux à votre IA. <br />
                             <span className="text-muted-foreground">Analyse multimodale en temps réel.</span>
@@ -26,11 +26,11 @@ export function SectionVision() {
 
                     {/* Bottom Left Card */}
                     <div className="mt-auto relative z-10">
-                        <TechCard className="max-w-md bg-black/80 backdrop-blur-sm border border-border p-6 hover:border-brand-blue/50 transition-colors group">
+                        <TechCard className="max-w-md bg-black/80 backdrop-blur-sm p-6 transition-colors group">
                             <div className="flex justify-between items-start mb-4">
                                 <div className="flex items-center gap-3">
                                     <h3 className="text-xl text-white font-mono">Vision-1B</h3>
-                                    <span className="text-[10px] uppercase border border-brand-blue/30 text-brand-blue px-1 py-0.5">Live</span>
+                                    <span className="text-[10px] uppercase border border-blue-500/30 text-blue-500 px-1 py-0.5">Live</span>
                                 </div>
                                 <div className="flex items-center gap-2 text-xs font-mono uppercase text-muted-foreground">
                                     <Eye className="w-3 h-3" /> Suivi d'objets
@@ -51,7 +51,12 @@ export function SectionVision() {
                 <div className="lg:col-span-4 flex flex-col">
 
                     {/* Top Description Block */}
-                    <div className="p-12 border-b border-border bg-zinc-900/20">
+                    <div className="p-12 border-b border-border bg-zinc-900/20 relative overflow-hidden group">
+                        <div className="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-40 transition-opacity pointer-events-none">
+                            <div className="text-[10px] font-mono text-white tracking-widest leading-none">
+                                /// VISION /// DETECTION ///
+                            </div>
+                        </div>
                         <p className="font-mono text-muted-foreground text-sm leading-relaxed mb-8">
                             Du contrôle qualité industriel à l'analyse retail. Nos modèles de vision comprennent le monde, pas seulement les pixels.
                         </p>
@@ -64,7 +69,7 @@ export function SectionVision() {
                     <div className="flex-1 flex flex-col">
                         <div className="flex-1 border-b border-border p-8 group hover:bg-white/5 transition-colors cursor-pointer relative">
                             <ArrowUpRight className="absolute top-8 right-8 text-white w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                            <div className="w-8 h-8 rounded bg-white/10 flex items-center justify-center mb-4 text-white">
+                            <div className="w-8 h-8 bg-black tech-strips border border-white/10 flex items-center justify-center mb-4 text-white">
                                 <ScanFace className="w-4 h-4" />
                             </div>
                             <h3 className="text-white font-mono text-lg mb-2">Contrôle Qualité</h3>
@@ -73,7 +78,7 @@ export function SectionVision() {
 
                         <div className="flex-1 border-b border-border p-8 group hover:bg-white/5 transition-colors cursor-pointer relative">
                             <ArrowUpRight className="absolute top-8 right-8 text-white w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                            <div className="w-8 h-8 rounded bg-white/10 flex items-center justify-center mb-4 text-white">
+                            <div className="w-8 h-8 bg-black tech-strips border border-white/10 flex items-center justify-center mb-4 text-white">
                                 <Video className="w-4 h-4" />
                             </div>
                             <h3 className="text-white font-mono text-lg mb-2">Sécurité & Sûreté</h3>

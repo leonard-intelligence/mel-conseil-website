@@ -14,6 +14,7 @@ const SectionImage = lazy(() => import('./components/layout/SectionImage').then(
 const Methodology = lazy(() => import('./components/layout/Methodology').then(m => ({ default: m.Methodology })));
 const Deployment = lazy(() => import('./components/layout/Deployment').then(m => ({ default: m.Deployment })));
 const CTASection = lazy(() => import('./components/layout/CTASection').then(m => ({ default: m.CTASection })));
+const Contact = lazy(() => import('./components/layout/Contact').then(m => ({ default: m.Contact })));
 const Footer = lazy(() => import('./components/layout/Footer').then(m => ({ default: m.Footer })));
 
 export function App() {
@@ -35,15 +36,18 @@ export function App() {
                     <UseCaseGrid />
 
                     {/* 2. Deep Dive Sections */}
-                    <SectionVision />
-                    <SectionText />
-                    <SectionImage />
+                    <div id="expertises" className="flex flex-col gap-32 py-24">
+                        <SectionVision />
+                        <SectionText />
+                        <SectionImage />
+                    </div>
 
                     {/* 3. Deployment & Methodology */}
                     <Deployment />
                     <Methodology />
 
                     <CTASection />
+                    <Contact />
                     <Footer />
                 </Suspense>
 

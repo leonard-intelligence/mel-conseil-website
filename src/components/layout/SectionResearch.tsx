@@ -37,7 +37,7 @@ export function SectionResearch() {
 
                     {/* Bottom Left Card "Intellect 3" */}
                     <div className="mt-auto relative z-10">
-                        <TechCard className="max-w-md bg-black/80 backdrop-blur-sm border border-border p-6 hover:border-white transition-colors group">
+                        <TechCard className="max-w-md bg-black/80 backdrop-blur-sm p-6 transition-colors group">
                             <div className="flex justify-between items-start mb-4">
                                 <div className="flex items-center gap-3">
                                     <h3 className="text-xl text-white font-mono">Intellect 3</h3>
