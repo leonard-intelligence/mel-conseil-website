@@ -3,7 +3,7 @@ import { TechCard } from "@/components/ui/TechCard";
 
 export function SectionImage() {
     return (
-        <section className="sections-container border-y border-border bg-black">
+        <section className="sections-container border-y border-border bg-black" aria-labelledby="generation-heading">
             <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[600px]">
 
                 {/* LEFT COLUMN: Main Visual - Spans 8 cols */}
@@ -12,7 +12,7 @@ export function SectionImage() {
                     {/* Header Area */}
                     <div className="relative z-10 mb-12">
                         <div className="text-orange-500 font-mono mb-2 text-lg">03 Generation.</div>
-                        <h2 className="text-4xl md:text-5xl font-mono text-white max-w-2xl leading-tight">
+                        <h2 id="generation-heading" className="text-4xl md:text-5xl font-mono text-white max-w-2xl leading-tight">
                             Contenus créatifs infinis. <br />
                             <span className="text-muted-foreground">À votre image. À la demande.</span>
                         </h2>

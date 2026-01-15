@@ -3,7 +3,7 @@ import { TechCard } from "@/components/ui/TechCard";
 
 export function SectionText() {
     return (
-        <section className="sections-container border-y border-border bg-black">
+        <section className="sections-container border-y border-border bg-black" aria-labelledby="text-data-heading">
             <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[600px]">
 
                 {/* RIGHT COLUMN (Visual) placed LEFT here for alternating layout? 
@@ -56,7 +56,7 @@ export function SectionText() {
                     {/* Header Area */}
                     <div className="relative z-10 mb-12 text-right">
                         <div className="text-purple-500 font-mono mb-2 text-lg">02 Text & Data.</div>
-                        <h2 className="text-4xl md:text-5xl font-mono text-white leading-tight ml-auto max-w-2xl">
+                        <h2 id="text-data-heading" className="text-4xl md:text-5xl font-mono text-white leading-tight ml-auto max-w-2xl">
                             Valorisez le potentiel de <br />
                             <span className="text-muted-foreground">votre patrimoine documentaire.</span>
                         </h2>

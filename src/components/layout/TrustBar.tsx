@@ -14,13 +14,23 @@ export function TrustBar() {
     const duplicatedLogos = [...logos, ...logos];
 
     return (
-        <section className="backers-bar reveal delay-100">
+        <section className="backers-bar reveal delay-100" aria-label="Technologies et modèles partenaires">
             <div className="backers-grid">
-                <div className="backer-label">Propulsé par les meilleurs modèles.</div>
-                <div className="logos-scroll-container">
-                    <div className="logos-scroll-track">
+                <div className="backer-label" id="trust-bar-label">Propulsé par les meilleurs modèles.</div>
+                <div 
+                    className="logos-scroll-container" 
+                    role="list" 
+                    aria-labelledby="trust-bar-label"
+                >
+                    <div className="logos-scroll-track" aria-hidden="false">
                         {duplicatedLogos.map((logo, index) => (
-                            <div key={`${logo.name}-${index}`} className="backer-item" title={logo.name}>
+                            <div 
+                                key={`${logo.name}-${index}`} 
+                                className="backer-item" 
+                                title={logo.name}
+                                role="listitem"
+                                aria-label={logo.name}
+                            >
                                 <img
                                     src={logo.src}
                                     alt={logo.name}

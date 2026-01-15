@@ -29,13 +29,13 @@ export function Methodology() {
     ];
 
     return (
-        <section className="method-section py-24 bg-black border-b border-white/10 reveal" id="method">
+        <section className="method-section py-24 bg-black border-b border-white/10 reveal" id="method" aria-labelledby="method-heading">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-16">
                     <div>
-                        <div className="absolute -inset-4 bg-blue-500/10 blur-3xl -z-10 rounded-full opacity-50" />
+                        <div className="absolute -inset-4 bg-blue-500/10 blur-3xl -z-10 rounded-full opacity-50" aria-hidden="true" />
                         <span className="text-brand-blue font-mono text-sm tracking-widest uppercase mb-4 block">Processus</span>
-                        <h2 className="text-4xl font-bold font-display text-white relative z-10">
+                        <h2 id="method-heading" className="text-4xl font-bold font-display text-white relative z-10">
                             De l'idée à <span className="text-white">l'impact</span>.
                         </h2>
                     </div>

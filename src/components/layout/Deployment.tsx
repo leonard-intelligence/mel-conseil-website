@@ -7,12 +7,12 @@ import iconEdge from "../../assets/icon-loupe.png"; // Using loupe for 'edge/ana
 
 export function Deployment() {
     return (
-        <section className="deployment-section py-24 bg-black border-b border-white/10 reveal" id="deployment">
+        <section className="deployment-section py-24 bg-black border-b border-white/10 reveal" id="deployment" aria-labelledby="deployment-heading">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <div>
                         <span className="text-brand-blue font-mono text-sm tracking-widest uppercase mb-4 block">Infrastructure</span>
-                        <h2 className="text-4xl md:text-5xl font-bold mb-6 font-display text-white leading-tight">
+                        <h2 id="deployment-heading" className="text-4xl md:text-5xl font-bold mb-6 font-display text-white leading-tight">
                             Déploiement <span className="text-white/50">Souverain</span> & Sécurisé.
                         </h2>
                         <p className="text-gray-400 text-lg mb-12 leading-relaxed">

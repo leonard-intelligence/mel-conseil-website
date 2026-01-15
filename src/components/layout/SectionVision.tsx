@@ -3,7 +3,7 @@ import { TechCard } from "@/components/ui/TechCard";
 
 export function SectionVision() {
     return (
-        <section className="sections-container border-y border-border bg-black">
+        <section className="sections-container border-y border-border bg-black" aria-labelledby="vision-heading">
             <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[600px]">
 
                 {/* LEFT COLUMN: Main Visual - Spans 8 cols */}
@@ -12,7 +12,7 @@ export function SectionVision() {
                     {/* Header Area */}
                     <div className="relative z-10 mb-12">
                         <div className="text-blue-500 font-mono mb-2 text-lg">01 Vision.</div>
-                        <h2 className="text-4xl md:text-5xl font-mono text-white max-w-2xl leading-tight">
+                        <h2 id="vision-heading" className="text-4xl md:text-5xl font-mono text-white max-w-2xl leading-tight">
                             Donnez des yeux à votre IA. <br />
                             <span className="text-muted-foreground">Analyse multimodale en temps réel.</span>
                         </h2>
