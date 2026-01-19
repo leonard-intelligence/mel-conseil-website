@@ -1,12 +1,13 @@
 export function TrustBar() {
+    // Sovereign-first ordering: French/EU partners prominently featured (like Artefact & Sia Partners)
     const logos = [
-        { name: 'Mistral AI', src: '/assets/logos/mistral.svg' },
-        { name: 'OpenAI', src: '/assets/logos/openai.svg' },
-        { name: 'Meta', src: '/assets/logos/meta.svg' },
-        { name: 'Anthropic', src: '/assets/logos/anthropic.svg' },
-        { name: 'Gemini', src: '/assets/logos/gemini.svg' },
-        { name: 'Hugging Face', src: '/assets/logos/huggingface.svg' },
+        { name: 'Mistral AI', src: '/assets/logos/mistral.svg', sovereign: true },
+        { name: 'OVHcloud', src: '/assets/logos/ovhcloud.svg', sovereign: true },
+        { name: 'Hugging Face', src: '/assets/logos/huggingface.svg', sovereign: true },
+        { name: 'Meta Llama', src: '/assets/logos/meta.svg' },
         { name: 'NVIDIA', src: '/assets/logos/nvidia.svg' },
+        { name: 'Anthropic', src: '/assets/logos/anthropic.svg' },
+        { name: 'OpenAI', src: '/assets/logos/openai.svg' },
         { name: 'AssemblyAI', src: '/assets/logos/assemblyai.svg' },
     ];
 
@@ -16,7 +17,7 @@ export function TrustBar() {
     return (
         <section id="section-trustbar" className="backers-bar trustbar reveal delay-100" aria-label="Technologies et modèles partenaires">
             <div className="backers-grid trustbar__container">
-                <div className="backer-label trustbar__label" id="trustbar-label">Propulsé par les meilleurs modèles.</div>
+                <div className="backer-label trustbar__label" id="trustbar-label">Partenaires technologiques</div>
                 <div
                     className="logos-scroll-container trustbar__scroll"
                     role="list"

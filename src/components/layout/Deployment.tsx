@@ -11,13 +11,29 @@ export function Deployment() {
             <div className="max-w-7xl mx-auto px-6 deployment__container">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch deployment__grid">
                     <div className="deployment__content flex flex-col justify-center">
-                        <span className="text-brand-blue font-mono text-sm tracking-widest uppercase mb-4 block">Infrastructure</span>
+                        {/* AI Act compliance badge - like Sia Partners' regulatory focus */}
+                        <div className="flex items-center gap-3 mb-6">
+                            <span className="text-brand-blue font-mono text-sm tracking-widest uppercase">Infrastructure</span>
+                            <span className="text-[10px] font-mono px-2 py-1 border border-emerald-500/50 text-emerald-400 bg-emerald-500/10">
+                                CONFORME AI ACT
+                            </span>
+                        </div>
                         <h2 id="deployment-heading" className="text-4xl md:text-5xl font-bold mb-6 font-display text-white leading-tight deployment__heading">
-                            Déploiement <span className="text-white/50">Souverain</span> & Sécurisé.
+                            L'IA tourne <span className="text-emerald-400">chez vous</span>,<br />
+                            <span className="text-white/50">pas chez un tiers.</span>
                         </h2>
-                        <p className="text-gray-400 text-lg mb-12 leading-relaxed">
-                            Votre IA doit tourner chez vous. Nous maîtrisons l'art du déploiement sur infrastructures isolées, garantissant que vos données ne quittent jamais votre périmètre de confiance.
+                        <p className="text-gray-400 text-lg mb-8 leading-relaxed">
+                            Vos données sensibles ne doivent pas quitter votre périmètre. On déploie vos solutions IA sur <strong className="text-white">vos serveurs</strong> (on-premise) 
+                            ou sur un <strong className="text-emerald-400">cloud européen certifié</strong> — conformité AI Act et RGPD garantie.
                         </p>
+                        
+                        {/* Compliance indicators - like Sia Partners & Ekimetrics */}
+                        <div className="flex flex-wrap gap-3 mb-12">
+                            <span className="text-[11px] font-mono px-3 py-1.5 bg-white/5 border border-white/10 text-gray-400">🏛️ AI Act Ready</span>
+                            <span className="text-[11px] font-mono px-3 py-1.5 bg-white/5 border border-white/10 text-gray-400">🔒 RGPD Compliant</span>
+                            <span className="text-[11px] font-mono px-3 py-1.5 bg-white/5 border border-white/10 text-gray-400">☁️ SecNumCloud</span>
+                            <span className="text-[11px] font-mono px-3 py-1.5 bg-white/5 border border-white/10 text-gray-400">🏥 HDS Compatible</span>
+                        </div>
 
                         <div className="space-y-4 deployment__cards">
                             <TechCard id="deployment-card-1" className="bg-white/5 p-0 !pb-0 transition-colors cursor-default group deployment__card">
@@ -30,8 +46,8 @@ export function Deployment() {
                                         />
                                     </div>
                                     <div className="p-6 flex flex-col justify-center">
-                                        <h4 className="text-white font-bold font-mono text-lg mb-1 group-hover:text-brand-blue transition-colors">On-Premise (Air-Gapped)</h4>
-                                        <p className="text-sm text-gray-400">Installation sur vos serveurs physiques, sans aucun accès internet.</p>
+                                        <h4 className="text-white font-bold font-mono text-lg mb-1 group-hover:text-brand-blue transition-colors">Sur vos serveurs</h4>
+                                        <p className="text-sm text-gray-400">Installation locale, totalement isolée. Aucune connexion externe requise.</p>
                                     </div>
                                 </div>
                             </TechCard>
@@ -46,8 +62,8 @@ export function Deployment() {
                                         />
                                     </div>
                                     <div className="p-6 flex flex-col justify-center">
-                                        <h4 className="text-white font-bold font-mono text-lg mb-1 group-hover:text-brand-blue transition-colors">Private Cloud (SecNumCloud)</h4>
-                                        <p className="text-sm text-gray-400">Déploiement sur instances dédiées (OVH, NumSpot, Outscale).</p>
+                                        <h4 className="text-white font-bold font-mono text-lg mb-1 group-hover:text-brand-blue transition-colors">Cloud privé européen</h4>
+                                        <p className="text-sm text-gray-400">Infrastructure dédiée chez OVH, NumSpot ou Outscale (certifié SecNumCloud).</p>
                                     </div>
                                 </div>
                             </TechCard>
@@ -62,8 +78,8 @@ export function Deployment() {
                                         />
                                     </div>
                                     <div className="p-6 flex flex-col justify-center">
-                                        <h4 className="text-white font-bold font-mono text-lg mb-1 group-hover:text-brand-blue transition-colors">Edge AI</h4>
-                                        <p className="text-sm text-gray-400">Inférence optimisée sur postes de travail ou équipements industriels.</p>
+                                        <h4 className="text-white font-bold font-mono text-lg mb-1 group-hover:text-brand-blue transition-colors">IA embarquée</h4>
+                                        <p className="text-sm text-gray-400">Modèles légers sur postes de travail, tablettes ou équipements terrain.</p>
                                     </div>
                                 </div>
                             </TechCard>

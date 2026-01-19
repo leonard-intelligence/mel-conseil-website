@@ -11,8 +11,8 @@ export function Pillars() {
                         </div>
                     </div>
                     <div className="card-icon text-3xl mb-6">🎯</div>
-                    <h3 className="text-xl font-bold mb-4">Sur-Mesure "Métier"</h3>
-                    <p className="text-muted-foreground mb-6">Pas de gadget. Des copilotes et agents alignés sur vos process réels (Factures, RH, Juridique, Support).</p>
+                    <h3 className="text-xl font-bold mb-4">Conçu pour votre métier</h3>
+                    <p className="text-muted-foreground mb-6">Des assistants IA adaptés à vos processus : facturation, RH, juridique, support client. Pas de solution générique.</p>
                     <div className="tags flex gap-2">
                         <span className="bg-white/10 px-3 py-1 text-xs">ERP/CRM</span>
                         <span className="bg-white/10 px-3 py-1 text-xs">Slack/Teams</span>
@@ -27,8 +27,8 @@ export function Pillars() {
                             </div>
                         </div>
                         <div className="card-icon text-3xl mb-6">👁️</div>
-                        <h3 className="text-xl font-bold mb-4">Multimodal Natif</h3>
-                        <p className="text-muted-foreground">Texte, Image, Audio, Vidéo. Une IA qui voit, écoute et analyse tout.</p>
+                        <h3 className="text-xl font-bold mb-4">Texte, Image, Audio, Vidéo</h3>
+                        <p className="text-muted-foreground">Automatisez tous vos flux : documents, visuels, enregistrements, vidéos. Une seule équipe, toutes les modalités.</p>
                     </TechCard>
                     <TechCard className="card-auto p-8 border-emerald-500/30 bg-emerald-500/5 relative overflow-hidden group">
                         <div className="absolute top-0 right-0 p-4 opacity-30 group-hover:opacity-50 transition-opacity">
@@ -37,8 +37,8 @@ export function Pillars() {
                             </div>
                         </div>
                         <div className="card-icon text-3xl mb-6">🇪🇺</div>
-                        <h3 className="text-xl font-bold mb-4 text-emerald-400">Souveraineté Totale</h3>
-                        <p className="text-emerald-500/80">Déploiement <strong className="text-emerald-400">Local</strong> ou <strong className="text-emerald-400">Cloud UE</strong> dédié. Vos données ne fuitent jamais.</p>
+                        <h3 className="text-xl font-bold mb-4 text-emerald-400">Vos données restent chez vous</h3>
+                        <p className="text-emerald-500/80">Déploiement sur <strong className="text-emerald-400">vos serveurs</strong> ou <strong className="text-emerald-400">cloud européen</strong> dédié. Zéro transfert vers l'étranger.</p>
                     </TechCard>
                 </div>
             </div>
@@ -48,23 +48,23 @@ export function Pillars() {
                 <div className="float-tags left flex flex-col gap-4">
                     <div className="tag-pill bg-white/5 border border-white/10 rounded-full px-4 py-2 flex items-center gap-3">
                         <div className="tag-icon-wrapper orange w-8 h-8 rounded-full bg-orange-500/20 flex items-center justify-center">📉</div>
-                        <span className="text-sm">-40% Temps Admin</span>
+                        <span className="text-sm">−40% Temps Administratif</span>
                     </div>
                     <div className="tag-pill bg-white/5 border border-white/10 rounded-full px-4 py-2 flex items-center gap-3">
                         <div className="tag-icon-wrapper green w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center">🔒</div>
-                        <span className="text-sm">100% Privé</span>
+                        <span className="text-sm">100% Données Privées</span>
                     </div>
                     <div className="tag-pill bg-white/5 border border-white/10 rounded-full px-4 py-2 flex items-center gap-3">
                         <div className="tag-icon-wrapper blue w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center">⚡️</div>
-                        <span className="text-sm">Time-to-Value</span>
+                        <span className="text-sm">Valeur en 4 Semaines</span>
                     </div>
                 </div>
                 <div className="float-intro text-center">
                     <span className="intro-label block text-xs opacity-40 mb-4">— Pourquoi nous ?</span>
                     <h2 className="text-3xl font-bold leading-tight">
-                        L'IA qui délivre du <span className="highlight text-white">résultat</span>,<br />
-                        pas juste du rêve.<br />
-                        <span className="faded text-sm opacity-40 mt-4 block">Transparence. Souveraineté. Performance.</span>
+                        Du conseil à <span className="highlight text-white">l'industrialisation</span>,<br />
+                        on vous accompagne.<br />
+                        <span className="faded text-sm opacity-40 mt-4 block">Expertise. Souveraineté. Résultats mesurables.</span>
                     </h2>
                 </div>
                 <div className="float-tags right flex flex-col gap-4">
@@ -78,7 +78,7 @@ export function Pillars() {
                     </div>
                     <div className="tag-pill bg-white/5 border border-white/10 rounded-full px-4 py-2 flex items-center gap-3">
                         <div className="tag-icon-wrapper yellow w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center">⚖️</div>
-                        <span className="text-sm">Audit Logs</span>
+                        <span className="text-sm">Traçabilité Complète</span>
                     </div>
                 </div>
             </div>

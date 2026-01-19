@@ -65,6 +65,12 @@
     /* standard reset usually included */
   }
 
+  html,
+  body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
   body {
     font-family: var(--font-sans);
     background-color: var(--background);
@@ -310,7 +316,7 @@
 }
 
 .hero-content-wrapper {
-  max-width: 900px;
+  max-width: 1000px;
   position: relative;
   z-index: 10;
 }
@@ -358,6 +364,26 @@
 
 .hero-cta:hover {
   transform: translateY(-2px);
+}
+
+/* Secondary CTA - Competitor-inspired transparent style */
+.hero-cta-secondary {
+  background: transparent;
+  color: #fff;
+  padding: 12px 24px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.2s;
+}
+
+.hero-cta-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 
@@ -437,13 +463,11 @@
   margin-bottom: 48px;
 }
 
-/* Status Badge - Adapted to Dark/Sharp, OR Rounded if User considers it part of "Header/CTA aesthetics"? 
-   User said "CTA" and "Header". Status badge is usually a pill. I will keep it rounded to match the "Pill" vibe of the brand identity, but styled for dark mode. */
 .status-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.8);
   padding: 8px 16px;
   border-radius: 9999px;
   font-size: 0.8rem;

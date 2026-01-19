@@ -1,30 +1,32 @@
 import { TechCard } from "../ui/TechCard";
 
 export function Methodology() {
+    // Branded methodology like Artefact's "GenAI Factory" - positions us as industrialization experts
     const steps = [
         {
             num: "01",
-            title: "Cadrage & Audit",
-            desc: "Analyse technique et juridique. Identification des cas d'usage à fort ROI et qualification de la donnée.",
-            duration: "1-2 semaines"
+            title: "Diagnostic & Conformité",
+            desc: "On évalue vos besoins, vos données et votre niveau de risque AI Act. Vous repartez avec un plan d'action clair.",
+            duration: "1-2 semaines",
         },
         {
             num: "02",
-            title: "Prototypage (POC)",
-            desc: "Développement d'une solution fonctionnelle sur un périmètre restreint pour valider la faisabilité et la valeur.",
-            duration: "2-4 semaines"
+            title: "Prototype Rapide",
+            desc: "Un premier assistant IA fonctionnel, déployé sur votre infrastructure. Vous validez la valeur avant d'aller plus loin.",
+            duration: "2-4 semaines",
         },
         {
             num: "03",
             title: "Mise en Production",
-            desc: "Industrialisation, intégration SI, tests de charge et sécurisation (Red Teaming).",
-            duration: "1-3 mois"
+            desc: "Connexion à vos outils existants (ERP, CRM, emails). Tests de sécurité et montée en charge.",
+            duration: "1-3 mois",
+            tag: "SCALE"
         },
         {
             num: "04",
-            title: "Run & Amélioration",
-            desc: "Monitoring de la performance, fine-tuning continu et formation des équipes.",
-            duration: "Continu"
+            title: "Évolution & Autonomie",
+            desc: "On forme vos équipes, on optimise les performances. Vous gagnez en autonomie, on reste disponible.",
+            duration: "Continu",
         }
     ];
 
@@ -34,13 +36,18 @@ export function Methodology() {
                 <div className="flex flex-col md:flex-row justify-between items-end mb-16 methodology__header">
                     <div>
                         <div className="absolute -inset-4 bg-blue-500/10 blur-3xl -z-10 rounded-full opacity-50" aria-hidden="true" />
-                        <span className="text-brand-blue font-mono text-sm tracking-widest uppercase mb-4 block">Processus</span>
+                        {/* Branded methodology name like Artefact's GenAI Factory */}
+                        <span className="text-emerald-400 font-mono text-sm tracking-widest uppercase mb-4 block flex items-center gap-2">
+                            <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+                            Notre Approche
+                        </span>
                         <h2 id="methodology-heading" className="text-4xl font-bold font-display text-white relative z-10 methodology__heading">
-                            De l'idée à <span className="text-white">l'impact</span>.
+                            Du conseil au <span className="text-white">déploiement</span>.
                         </h2>
                     </div>
                     <p className="text-gray-400 max-w-md text-right hidden md:block">
-                        Une méthodologie éprouvée pour dérisquer vos projets IA<br /> et garantir une livraison rapide.
+                        Un accompagnement structuré pour <strong className="text-white">réduire les risques</strong>,<br />
+                        garantir la <strong className="text-emerald-400">conformité réglementaire</strong> et livrer de la valeur rapidement.
                     </p>
                 </div>
 
@@ -49,7 +56,7 @@ export function Methodology() {
                     <div className="hidden md:block absolute top-8 left-0 right-0 h-px bg-white/10 -z-10 translate-y-1/2" />
 
                     {steps.map((step, i) => (
-                        <TechCard key={i} className="bg-black p-6 group transition-transform duration-500">
+                        <TechCard key={i} className="bg-black p-6 group transition-transform duration-500 relative">
                             <div className="flex items-center justify-between mb-8">
                                 <span className={`font-mono text-4xl font-bold opacity-30 group-hover:opacity-100 transition-opacity ${i === 0 ? 'text-orange-500' :
                                     i === 1 ? 'text-blue-500' :

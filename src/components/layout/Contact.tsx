@@ -29,11 +29,11 @@ export function Contact() {
                 {/* Contact Info */}
                 <div className="contact__info">
                     <h2 id="contact-heading" className="text-4xl md:text-5xl font-bold font-mono uppercase text-white mb-6 contact__heading">
-                        Parlons <span className="text-brand-blue">Données.</span>
+                        Parlons de <span className="text-brand-blue">votre projet.</span>
                     </h2>
                     <p className="text-gray-400 text-lg mb-12 leading-relaxed font-sans">
-                        Vous avez un projet d'IA générative ou besoin d'un audit de souveraineté ?
-                        Nos experts sont là pour vous accompagner.
+                        Transformation IA, valorisation de vos données, déploiement souverain ?
+                        Décrivez-nous votre situation, un consultant vous répond sous 24h.
                     </p>
 
                     <div className="space-y-8">
@@ -44,7 +44,7 @@ export function Contact() {
                             <div>
                                 <h3 className="text-white font-bold mb-1 font-mono uppercase">Email</h3>
                                 <p className="text-gray-400 font-mono text-sm">contact@mel-conseil.com</p>
-                                <p className="text-gray-500 text-xs mt-1 font-mono">Réponse sous 24h ouvrées.</p>
+                                <p className="text-gray-500 text-xs mt-1 font-mono">Réponse garantie sous 24h.</p>
                             </div>
                         </div>
 
@@ -55,7 +55,7 @@ export function Contact() {
                             <div>
                                 <h3 className="text-white font-bold mb-1 font-mono uppercase">Bureaux</h3>
                                 <p className="text-gray-400 font-mono text-sm">Paris, France</p>
-                                <p className="text-gray-500 text-xs mt-1 font-mono">Disponibles en visio ou en présentiel.</p>
+                                <p className="text-gray-500 text-xs mt-1 font-mono">Visio ou présentiel selon vos préférences.</p>
                             </div>
                         </div>
                     </div>

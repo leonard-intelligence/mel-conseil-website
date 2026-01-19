@@ -27,19 +27,27 @@ export function Hero() {
             </div>
 
             <div className="hero-content-wrapper hero__content z-10 relative">
+                {/* Eyebrow - Competitor-inspired status indicator */}
+                <div className="status-badge hero__badge mb-6">
+                    <span className="dot"></span>
+                    <span>Expert Mistral AI · Infrastructure SecNumCloud</span>
+                </div>
+
                 <h1 id="hero-headline" className="hero-headline hero__headline">
-                    Expertise en IA Générative et Data pour<br />
-                    <span className="gradient-text hero__headline-accent">Entreprises Innovantes</span>
+                    L'IA Générative souveraine<br />
+                    <span className="gradient-text hero__headline-accent">pour votre entreprise.</span>
                 </h1>
 
                 <p className="hero-subtext hero__subtext">
-                    Texte, image, audio, vidéo. Automatisez vos opérations et fiabilisez l'analyse,
-                    sans exposer vos données (Local ou Cloud UE).
+                    Conseil et déploiement de solutions IA. Transformez vos processus métier sans exposer vos données sensibles.
                 </p>
 
                 <div className="action-group hero__actions">
                     <a href="#section-contact" id="hero-cta-primary" className="hero-cta hero__cta hero__cta--primary">
-                        PARLER À UN EXPERT →
+                        DEMANDER UNE DÉMO →
+                    </a>
+                    <a href="#section-solutions" id="hero-cta-secondary" className="hero-cta-secondary hero__cta hero__cta--secondary">
+                        VOIR LES CAS D'USAGE
                     </a>
                 </div>
             </div>

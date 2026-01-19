@@ -14,79 +14,84 @@ export interface CatalogueCategory {
 export const CATALOGUE: CatalogueCategory[] = [
     {
         id: 'strategy',
-        label: 'Stratégie, Gouvernance & Infrastructure',
-        emoji: '🏗️',
-        description: 'Bâtir des fondations souveraines, éthiques et conformes (AI Act) pour une IA durable.',
+        label: 'Stratégie, Gouvernance & Conformité',
+        emoji: '🏛️',
+        // Keywords: Sia Partners (AI Act, Compliance), Onepoint (Sovereignty), Ekimetrics (CSRD/Green)
+        description: 'Cadrage stratégique, conformité AI Act et gouvernance Data — les fondations pour réussir vos projets IA en toute sécurité.',
         items: [
-            { title: 'Cartographie AI Act', description: 'Inventaire des IA et classification des risques selon la loi européenne.' },
-            { title: 'Gouvernance des données', description: 'Gestion des droits d\'accès et sécurisation des systèmes RAG.' },
-            { title: 'Rédaction Charte IA', description: 'Définition des règles d\'usage éthique pour les collaborateurs.' },
-            { title: 'Collecte Data CSRD', description: 'Extraction et consolidation de données RSE depuis sources multiples.' },
-            { title: 'Déploiement Souverain', description: 'Installation de modèles Open Source (Llama, Mistral) On-Premise ou Cloud SecNumCloud.' },
-            { title: 'Dimensionnement Infra', description: 'Conseil sur l\'achat de GPU et l\'architecture technique optimale.' },
-            { title: 'Fine-tuning sur mesure', description: 'Adaptation de modèles (SLM) au "langage" et aux spécificités de l\'entreprise.' },
-            { title: 'Analyse des Biais', description: 'Audit automatique pour détecter les biais discriminatoires (RH, Crédit).' }
+            { title: 'Audit AI Act', description: 'On identifie vos systèmes IA, on évalue les risques et on vous donne un plan pour être conforme avant l\'échéance.' },
+            { title: 'Gouvernance des Données', description: 'Qui accède à quoi, comment les données circulent : on structure tout pour éviter les failles.' },
+            { title: 'Charte IA & Formation', description: 'Règles d\'usage claires pour vos équipes + formations pour monter en compétences rapidement.' },
+            { title: 'Reporting RSE Automatisé', description: 'Collecte et consolidation automatique de vos données ESG pour vos rapports extra-financiers.' },
+            { title: 'Déploiement Souverain', description: 'On installe les modèles IA (Mistral, Llama...) directement sur vos serveurs ou cloud européen.' },
+            { title: 'Infrastructure IA', description: 'On dimensionne vos serveurs GPU et on met en place les outils pour gérer vos modèles en production.' },
+            { title: 'IA Adaptée à Votre Métier', description: 'On entraîne des modèles compacts qui comprennent le vocabulaire et les règles de votre secteur.' },
+            { title: 'Détection des Biais', description: 'On vérifie que vos algorithmes RH, crédit ou assurance ne discriminent pas, avec des rapports clairs.' }
         ]
     },
     {
         id: 'knowledge',
-        label: 'Moteurs de Recherche & Savoir',
+        label: 'Base de Connaissances IA',
         emoji: '🧠',
-        description: 'Transformer la documentation passive en intelligence active et accessible instantanément.',
+        // Keywords: Illuin (NLP/Search), Artefact (Adoption), proprietary platform emphasis
+        description: 'Transformez vos documents en un assistant qui répond. Posez des questions en langage naturel, obtenez des réponses sourcées.',
         items: [
-            { title: 'Moteur de recherche unifié', description: 'Interrogation en langage naturel de tout le fonds documentaire (Sharepoint, NAS).' },
-            { title: 'Assistant Technique', description: 'Réponse immédiate sur procédures de maintenance pour techniciens terrain.' },
-            { title: 'Recherche Historique Support', description: 'Capitalisation sur les incidents résolus pour accélérer le niveau 1/2.' },
-            { title: 'Chatbot Service Client', description: 'Filtrage et qualification automatique des demandes (24/7).' },
-            { title: 'Bot FAQ Interne', description: 'Réponses instantanées aux questions récurrentes (RH, IT, Procédures).' },
-            { title: 'Assistant Appels d\'Offres', description: 'Génération de premiers jets basés sur les réussites passées et le cahier des charges.' },
-            { title: 'Génération de Quiz', description: 'Création automatique de tests de connaissances à partir de PDF de formation.' }
+            { title: 'Recherche Intelligente', description: 'Trouvez l\'info en tapant une question, pas des mots-clés. Fonctionne sur Sharepoint, Confluence, serveurs de fichiers.' },
+            { title: 'Assistant Technicien', description: 'Les procédures et fiches techniques accessibles en une question. Réponse en moins de 2 secondes.' },
+            { title: 'Support Augmenté', description: 'Les tickets passés alimentent une base qui aide le support à résoudre plus vite.' },
+            { title: 'Chatbot Client', description: 'Répond 24/7 aux questions fréquentes et transfère à un humain quand c\'est nécessaire.' },
+            { title: 'FAQ Automatique', description: 'Une base de connaissances qui se met à jour seule à partir des questions réellement posées.' },
+            { title: 'Aide Appels d\'Offres', description: 'Génère des réponses structurées en s\'appuyant sur vos références passées et le cahier des charges.' },
+            { title: 'Quiz Formation', description: 'Crée automatiquement des tests de connaissances à partir de vos supports (PDF, vidéos, présentations).' }
         ]
     },
     {
         id: 'documents',
-        label: 'Analyse Documentaire & Support',
+        label: 'Traitement de Documents',
         emoji: '📄',
-        description: 'Automatiser le traitement des flux administratifs, juridiques et financiers.',
+        // Keywords: Illuin (NLP, VLM), Artefact (automation), technical depth
+        description: 'Convertissez vos PDF, scans et emails en données exploitables. L\'IA lit, comprend et extrait ce qui compte.',
         items: [
-            { title: 'OCR Intelligent (IDP)', description: 'Transformation de documents scannés/factures en données structurées (JSON/ERP).' },
-            { title: 'Classification Automatique', description: 'Tri et routage automatique des emails et pièces jointes entrants.' },
-            { title: 'Analyse de Contrats', description: 'Extraction des clauses à risques et synthèse juridique accélérée.' },
-            { title: 'Comparateur Sémantique', description: 'Détection fine des écarts de fond entre deux versions d\'un document.' },
-            { title: 'Extraction Factures', description: 'Lecture automatique, vérification TVA/SIRET et export comptable.' },
-            { title: 'Recouvrement Intelligent', description: 'Relances hyper-personnalisées pour réduire les délais de paiement.' },
-            { title: 'Matching CV', description: 'Analyse objective des compétences et pré-qualification des candidats.' },
-            { title: 'Vérification Complétude', description: 'Contrôle automatique de la présence des pièces obligatoires dans un dossier.' }
+            { title: 'Lecture Intelligente', description: 'L\'IA lit vos documents complexes (factures, formulaires) et en extrait les données structurées automatiquement.' },
+            { title: 'Tri Automatique', description: 'Emails, courriers, pièces jointes : tout est classé et envoyé au bon endroit avec plus de 95% de précision.' },
+            { title: 'Analyse de Contrats', description: 'Détection des clauses importantes, des risques et des échéances. Des heures de lecture en quelques minutes.' },
+            { title: 'Comparaison de Versions', description: 'Identifie les changements de sens entre deux versions d\'un document, pas juste les mots modifiés.' },
+            { title: 'Traitement Factures', description: 'Lecture, vérification des données (TVA, SIRET), rapprochement commandes et export comptable automatique.' },
+            { title: 'Relances Intelligentes', description: 'Analyse le risque de chaque client et personnalise les relances pour améliorer vos délais de paiement.' },
+            { title: 'Analyse de CV', description: 'Évalue les candidatures sur des critères objectifs, sans biais, en respectant la réglementation AI Act.' },
+            { title: 'Vérification de Dossiers', description: 'Contrôle automatique que toutes les pièces requises sont présentes et valides (onboarding, conformité KYC).' }
         ]
     },
     {
         id: 'automation',
-        label: 'Agents Intelligents & Workflow',
+        label: 'Agents IA & Automatisation',
         emoji: '🤖',
-        description: 'Des agents autonomes qui exécutent des tâches complexes et multimodales.',
+        // Keywords: Artefact (GenAI Factory, Agents), Onepoint (Architecture), Illuin (Products)
+        description: 'Des assistants IA qui agissent pour vous — ils exécutent des tâches complexes en autonomie, sous votre supervision.',
         items: [
-            { title: 'Agent Nettoyage Data', description: 'Scan des serveurs, détection de doublons et archivage intelligent.' },
-            { title: 'Routeur Intelligent', description: 'Analyse d\'intentions complexes et dispatch vers les bons services.' },
-            { title: 'Assistant Commercial', description: 'Synthèse "360°" du prospect et préparation de dossier avant RDV.' },
-            { title: 'Rédaction Propositions', description: 'Génération de propales commerciales sur-mesure.' },
-            { title: 'Agent Email', description: 'Brouillons de réponse contextuels et gestion de la boîte de réception.' },
-            { title: 'Analyse "Voice of Customer"', description: 'Détection de sentiments et tendances dans les interactions clients.' }
+            { title: 'Qualité des Données', description: 'Un agent qui surveille vos bases, détecte les erreurs, supprime les doublons et archive ce qui doit l\'être.' },
+            { title: 'Routage Intelligent', description: 'Comprend les demandes (texte, voix, image) et les dirige vers le bon service. Plus de 90% résolus dès le premier contact.' },
+            { title: 'Copilote Commercial', description: 'Enrichit les fiches prospects, synthétise l\'historique CRM et prépare vos rendez-vous automatiquement.' },
+            { title: 'Propositions Commerciales', description: 'Génère des propositions personnalisées en s\'appuyant sur le brief client et vos références passées.' },
+            { title: 'Gestion des Emails', description: 'Trie votre boîte, prépare des brouillons de réponse et vous fait un résumé quotidien.' },
+            { title: 'Écoute Client', description: 'Analyse les retours clients, détecte les tendances et vous alerte quand quelque chose ne va pas.' }
         ]
     },
     {
         id: 'verticals',
-        label: 'Solutions Sectorielles & Métiers',
-        emoji: '🏥',
-        description: 'Des solutions expertes pour les exigences spécifiques (Santé, Industrie, Public, Banque).',
+        label: 'Solutions Sectorielles',
+        emoji: '🏛️',
+        // Keywords: Sia Partners (Banque/Assurance, Régulation), Onepoint (Public), Ekimetrics (Industries)
+        description: 'Des solutions pensées pour votre secteur — Santé, Banque, Secteur Public, Industrie. Conformes aux exigences spécifiques.',
         items: [
-            { title: 'Synthèse Dossier Patient', description: 'Résumé structuré de l\'historique médical pour aide au diagnostic.' },
-            { title: 'Anonymisation Recherche', description: 'Dé-identification forte des données de santé (HDS) pour la recherche.' },
-            { title: 'Automatisation KYC', description: 'Vérification d\'identité et détection de fraude documentaire (Banque).' },
-            { title: 'Veille Réglementaire Bancaire', description: 'Suivi des directives (DORA, Bâle) et analyse d\'impact.' },
-            { title: 'Assistant Agent Public', description: 'Accès simplifié aux codes et règlements pour l\'instruction de dossiers.' },
-            { title: 'Traitement Courrier Citoyen', description: 'Réponses pré-rédigées aux requêtes administratives.' },
-            { title: 'Assistant Maintenance Ind.', description: 'Aide au diagnostic panne sur machine via documentation technique.' },
-            { title: 'Risques Fournisseurs', description: 'Analyse croisée de la santé financière et de la réputation des partenaires.' }
+            { title: 'Synthèse Dossier Patient', description: 'Résumé structuré de l\'historique médical pour les praticiens. Hébergé sur infrastructure certifiée HDS.' },
+            { title: 'Anonymisation Santé', description: 'Supprime les informations personnelles des données de santé pour la recherche, en conformité RGPD.' },
+            { title: 'Vérification d\'Identité', description: 'Contrôle automatique des documents, détection de fraude et scoring de risque pour banques et assurances.' },
+            { title: 'Veille Réglementaire', description: 'Surveille les évolutions réglementaires (DORA, Bâle III...) et vous alerte sur les impacts pour votre activité.' },
+            { title: 'Assistant Agent Public', description: 'Aide les agents à trouver rapidement les textes de loi et procédures pour instruire les dossiers.' },
+            { title: 'Courrier Citoyen', description: 'Analyse les demandes des usagers, les classe et propose des réponses adaptées.' },
+            { title: 'Maintenance Industrielle', description: 'Aide au diagnostic des pannes en croisant la documentation technique et l\'historique des interventions.' },
+            { title: 'Évaluation Fournisseurs', description: 'Analyse la solidité financière, la réputation ESG et les risques de dépendance de vos fournisseurs.' }
         ]
     }
 ];
