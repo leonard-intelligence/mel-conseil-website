@@ -45,7 +45,7 @@ export function Methodology() {
                             Du conseil au <span className="text-white">déploiement</span>.
                         </h2>
                     </div>
-                    <p className="text-gray-400 max-w-md text-right hidden md:block">
+                    <p className="text-gray-400 max-w-lg text-right hidden md:block">
                         Un accompagnement structuré pour <strong className="text-white">réduire les risques</strong>,<br />
                         garantir la <strong className="text-emerald-400">conformité réglementaire</strong> et livrer de la valeur rapidement.
                     </p>

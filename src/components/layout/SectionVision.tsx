@@ -12,9 +12,9 @@ export function SectionVision() {
                     {/* Header Area */}
                     <div className="relative z-10 mb-12 expertise__header">
                         <div className="text-blue-500 font-mono mb-2 text-lg expertise__number expertise__number--01">01 Vision.</div>
-                        <h2 id="expertise-vision-heading" className="text-4xl md:text-5xl font-mono text-white max-w-2xl leading-tight expertise__heading">
-                            Donnez des yeux à votre IA. <br />
-                            <span className="text-muted-foreground expertise__heading-sub">Analyse multimodale en temps réel.</span>
+                        <h2 id="expertise-vision-heading" className="text-4xl md:text-5xl font-mono text-white max-w-4xl leading-tight expertise__heading">
+                            Donnez des yeux à vos datas.<br />
+                            <span className="text-muted-foreground expertise__heading-sub">Analyse visuelle souveraine en temps réel.</span>
                         </h2>
                     </div>
 
@@ -31,7 +31,7 @@ export function SectionVision() {
 
                     {/* Bottom Left Card */}
                     <div className="mt-auto relative z-10 expertise__card-wrapper">
-                        <div id="expertise-vision-card" className="max-w-md tech-panel p-6 group expertise__card">
+                        <div id="expertise-vision-card" className="max-w-lg tech-panel p-6 group expertise__card">
                             <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-3 expertise__card-header">
                                 <div className="flex items-center gap-2">
                                     <span className="relative flex h-2 w-2">
@@ -40,25 +40,25 @@ export function SectionVision() {
                                     </span>
                                     <span className="font-mono text-xs text-blue-400 tracking-widest">LIVE STREAM</span>
                                 </div>
-                                <span className="font-mono text-xs text-zinc-500 expertise__card-badge">VISION-1B v2.0</span>
+                                <span className="font-mono text-xs text-zinc-500 expertise__card-badge">MISTRAL LARGE 3 / MINISTRAL 3</span>
                             </div>
 
                             <div className="flex justify-between items-start mb-4">
-                                <h3 className="text-xl text-white font-mono expertise__card-title">Vision-1B</h3>
+                                <h3 className="text-xl text-white font-mono expertise__card-title">Vision Open Source / Local</h3>
                                 <div className="flex items-center gap-2 text-[10px] font-mono uppercase text-muted-foreground border border-white/10 px-2 py-1 rounded expertise__card-meta">
                                     <Eye className="w-3 h-3" /> Suivi d'objets
                                 </div>
                             </div>
 
                             <p className="text-zinc-400 text-sm font-mono leading-relaxed mb-6 expertise__card-description">
-                                Vision par ordinateur avancée capable de détecter les anomalies, suivre les stocks et assurer la conformité de sécurité sur les flux vidéo.
+                                Modèles de vision open source déployés sur votre infrastructure. Détection d'anomalies, suivi de stocks et conformité sécurité sans fuite de données.
                             </p>
 
                             <div className="grid grid-cols-2 gap-2 text-[10px] font-mono text-zinc-500 bg-white/5 p-3 rounded border border-white/5 expertise__card-stats">
                                 <div className="flex justify-between"><span>FPS</span><span className="text-white">60+</span></div>
-                                <div className="flex justify-between"><span>LATENCY</span><span className="text-blue-400">&lt;50ms</span></div>
-                                <div className="flex justify-between"><span>ACCURACY</span><span className="text-white">99.2%</span></div>
-                                <div className="flex justify-between"><span>STATUS</span><span className="text-green-400">ACTIVE</span></div>
+                                <div className="flex justify-between"><span>LATENCE</span><span className="text-blue-400">&lt;50ms</span></div>
+                                <div className="flex justify-between"><span>DONNÉES</span><span className="text-green-400">LOCALES</span></div>
+                                <div className="flex justify-between"><span>STATUT</span><span className="text-green-400">ACTIF</span></div>
                             </div>
                         </div>
                     </div>
@@ -75,10 +75,10 @@ export function SectionVision() {
                             </div>
                         </div>
                         <p className="font-mono text-muted-foreground text-sm leading-relaxed mb-8 expertise__text">
-                            Du contrôle qualité industriel à l'analyse retail. Nos modèles de vision comprennent le monde, pas seulement les pixels.
+                            Détection, segmentation et suivi d'objets en temps réel sur vos données visuelles.<br />Des modèles multimodaux qui comprennent le contexte et déployés localement pour garantir la confidentialité de vos images.
                         </p>
                         <button id="expertise-vision-cta" className="bg-white text-black font-mono font-bold uppercase px-6 py-3 text-sm flex items-center gap-2 hover:bg-gray-200 transition-colors w-full justify-center expertise__cta">
-                            Explorer les Cas Vision <ArrowUpRight className="w-4 h-4" />
+                            Voir les cas d'usage <ArrowUpRight className="w-4 h-4" />
                         </button>
                     </div>
 
@@ -89,8 +89,8 @@ export function SectionVision() {
                             <div className="w-8 h-8 bg-black tech-strips border border-white/10 flex items-center justify-center mb-4 text-white expertise__item-icon">
                                 <ScanFace className="w-4 h-4" />
                             </div>
-                            <h3 className="text-white font-mono text-lg mb-2 expertise__item-title">Contrôle Qualité</h3>
-                            <p className="text-muted-foreground text-sm font-mono expertise__item-description">Détection de défauts avec 99.9% de précision sur lignes de production.</p>
+                            <h3 className="text-white font-mono text-lg mb-2 expertise__item-title">Industrie & Qualité</h3>
+                            <p className="text-muted-foreground text-sm font-mono expertise__item-description">Détection de défauts sur lignes de production, comptage de stocks et conformité sécurité (EPI).</p>
                         </div>
 
                         <div id="expertise-vision-item-2" className="flex-1 border-b border-border p-8 group hover:bg-white/5 transition-colors cursor-pointer relative expertise__item">
@@ -98,8 +98,8 @@ export function SectionVision() {
                             <div className="w-8 h-8 bg-black tech-strips border border-white/10 flex items-center justify-center mb-4 text-white expertise__item-icon">
                                 <Video className="w-4 h-4" />
                             </div>
-                            <h3 className="text-white font-mono text-lg mb-2 expertise__item-title">Sécurité & Sûreté</h3>
-                            <p className="text-muted-foreground text-sm font-mono expertise__item-description">Détection automatisée d'intrusion et conformité EPI.</p>
+                            <h3 className="text-white font-mono text-lg mb-2 expertise__item-title">Retail & Espaces</h3>
+                            <p className="text-muted-foreground text-sm font-mono expertise__item-description">Analyse de fréquentation, parcours client et optimisation des espaces de vente.</p>
                         </div>
                     </div>
                 </div>

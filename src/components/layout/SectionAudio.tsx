@@ -15,10 +15,10 @@ export function SectionAudio() {
                             </div>
                         </div>
                         <p className="font-mono text-muted-foreground text-sm leading-relaxed mb-8 expertise__text">
-                            Transformez la voix et les sons en données structurées. Identification, séparation et analyse sémantique temps réel.
+                            Transformez la voix en données structurées avec des modèles open source auto-hébergés. Vos conversations restent confidentielles.
                         </p>
                         <button id="expertise-audio-cta" className="bg-white text-black font-mono font-bold uppercase px-6 py-3 text-sm flex items-center gap-2 hover:bg-gray-200 transition-colors w-full justify-center expertise__cta">
-                            Découvrir les Modèles Audio <ArrowUpRight className="w-4 h-4" />
+                            Découvrir l'audio souverain <ArrowUpRight className="w-4 h-4" />
                         </button>
                     </div>
 
@@ -48,9 +48,9 @@ export function SectionAudio() {
                     {/* Header Area */}
                     <div className="relative z-10 mb-12 text-right expertise__header">
                         <div className="text-cyan-500 font-mono mb-2 text-lg expertise__number expertise__number--04">04 Audio & Voice.</div>
-                        <h2 id="expertise-audio-heading" className="text-4xl md:text-5xl font-mono text-white leading-tight ml-auto max-w-2xl expertise__heading">
-                            Captez chaque nuance <br />
-                            <span className="text-muted-foreground expertise__heading-sub">de votre environnement sonore.</span>
+                        <h2 id="expertise-audio-heading" className="text-4xl md:text-5xl font-mono text-white leading-tight ml-auto max-w-4xl expertise__heading">
+                            Du son à l'insight.<br />
+                            <span className="text-muted-foreground expertise__heading-sub">Transcription et analyse 100% locale.</span>
                         </h2>
                     </div>
 
@@ -67,34 +67,34 @@ export function SectionAudio() {
 
                     {/* Bottom Right Card */}
                     <div className="mt-auto relative z-10 ml-auto expertise__card-wrapper">
-                        <div id="expertise-audio-card" className="max-w-md tech-panel p-6 group expertise__card">
+                        <div id="expertise-audio-card" className="max-w-lg tech-panel p-6 group expertise__card">
                             <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-3 expertise__card-header">
                                 <div className="flex items-center gap-2">
                                     <span className="relative flex h-2 w-2">
                                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
                                         <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
                                     </span>
-                                    <span className="font-mono text-xs text-cyan-400 tracking-widest">LIVE STREAM</span>
+                                    <span className="font-mono text-xs text-cyan-400 tracking-widest">ON-PREMISE</span>
                                 </div>
-                                <span className="font-mono text-xs text-zinc-500 expertise__card-badge">WHISPER-V3 TURBO</span>
+                                <span className="font-mono text-xs text-zinc-500 expertise__card-badge">WHISPER</span>
                             </div>
 
                             <div className="flex justify-between items-start mb-4">
-                                <h3 className="text-xl text-white font-mono expertise__card-title">Whisper-v3-Turbo</h3>
+                                <h3 className="text-xl text-white font-mono expertise__card-title">Transcription Locale</h3>
                                 <div className="flex items-center gap-2 text-[10px] font-mono uppercase text-muted-foreground border border-white/10 px-2 py-1 rounded expertise__card-meta">
-                                    <Mic className="w-3 h-3" /> Optimized
+                                    <Mic className="w-3 h-3" /> Optimisé
                                 </div>
                             </div>
 
                             <p className="text-zinc-400 text-sm font-mono leading-relaxed mb-6 expertise__card-description">
-                                Pipeline d'analyse audio temps réel capable d'identifier les locuteurs, les émotions et les intentions derrière les mots.
+                                Pipeline audio temps réel déployé sur votre infrastructure. Identification des locuteurs et analyse sémantique — vos données vocales restent chez vous.
                             </p>
 
                             <div className="grid grid-cols-2 gap-2 text-[10px] font-mono text-zinc-500 bg-white/5 p-3 rounded border border-white/5 expertise__card-stats">
-                                <div className="flex justify-between"><span>WER</span><span className="text-white">&lt;5%</span></div>
-                                <div className="flex justify-between"><span>DIARIZATION</span><span className="text-cyan-400">ON</span></div>
-                                <div className="flex justify-between"><span>LANGUAGES</span><span className="text-white">99+</span></div>
-                                <div className="flex justify-between"><span>STATUS</span><span className="text-green-400">ACTIVE</span></div>
+                                <div className="flex justify-between"><span>PRÉCISION</span><span className="text-white">&lt;5% WER</span></div>
+                                <div className="flex justify-between"><span>DIARISATION</span><span className="text-cyan-400">OUI</span></div>
+                                <div className="flex justify-between"><span>DONNÉES</span><span className="text-green-400">LOCALES</span></div>
+                                <div className="flex justify-between"><span>STATUT</span><span className="text-green-400">ACTIF</span></div>
                             </div>
                         </div>
                     </div>

@@ -65,7 +65,7 @@ export function UseCaseGrid() {
                                 <span className="text-3xl">{activeCategory.emoji}</span>
                                 <h3 className="text-2xl font-bold font-mono text-white">{activeCategory.label}</h3>
                             </div>
-                            <p className="text-gray-400 text-sm md:text-base max-w-2xl">{activeCategory.description}</p>
+                            <p className="text-gray-400 text-sm md:text-base max-w-4xl">{activeCategory.description}</p>
                         </div>
                         <div className="hidden md:block text-right">
                             <span className="font-mono text-4xl font-bold text-white/10">0{CATALOGUE.findIndex(c => c.id === activeTabId) + 1}</span>

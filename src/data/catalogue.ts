@@ -17,7 +17,7 @@ export const CATALOGUE: CatalogueCategory[] = [
         label: 'Stratégie, Gouvernance & Conformité',
         emoji: '🏛️',
         // Keywords: Sia Partners (AI Act, Compliance), Onepoint (Sovereignty), Ekimetrics (CSRD/Green)
-        description: 'Cadrage stratégique, conformité AI Act et gouvernance Data — les fondations pour réussir vos projets IA en toute sécurité.',
+        description: 'Cadrage stratégique, conformité AI Act et gouvernance Data — les fondations pour réussir vos projets IA en toute sécurité. De l\'audit de vos systèmes existants à la mise en conformité réglementaire, nous posons les bases d\'une IA responsable et pérenne.',
         items: [
             { title: 'Audit AI Act', description: 'On identifie vos systèmes IA, on évalue les risques et on vous donne un plan pour être conforme avant l\'échéance.' },
             { title: 'Gouvernance des Données', description: 'Qui accède à quoi, comment les données circulent : on structure tout pour éviter les failles.' },
@@ -34,7 +34,7 @@ export const CATALOGUE: CatalogueCategory[] = [
         label: 'Base de Connaissances IA',
         emoji: '🧠',
         // Keywords: Illuin (NLP/Search), Artefact (Adoption), proprietary platform emphasis
-        description: 'Transformez vos documents en un assistant qui répond. Posez des questions en langage naturel, obtenez des réponses sourcées.',
+        description: 'Transformez vos documents en un assistant intelligent qui répond instantanément. Posez vos questions en langage naturel, obtenez des réponses sourcées et vérifiables — fini les heures perdues à chercher l\'information.',
         items: [
             { title: 'Recherche Intelligente', description: 'Trouvez l\'info en tapant une question, pas des mots-clés. Fonctionne sur Sharepoint, Confluence, serveurs de fichiers.' },
             { title: 'Assistant Technicien', description: 'Les procédures et fiches techniques accessibles en une question. Réponse en moins de 2 secondes.' },
@@ -50,7 +50,7 @@ export const CATALOGUE: CatalogueCategory[] = [
         label: 'Traitement de Documents',
         emoji: '📄',
         // Keywords: Illuin (NLP, VLM), Artefact (automation), technical depth
-        description: 'Convertissez vos PDF, scans et emails en données exploitables. L\'IA lit, comprend et extrait ce qui compte.',
+        description: 'Convertissez vos PDF, scans et emails en données structurées et exploitables. L\'IA lit, analyse et génère des synthèses pertinentes — libérez vos équipes des tâches répétitives de saisie et de classement.',
         items: [
             { title: 'Lecture Intelligente', description: 'L\'IA lit vos documents complexes (factures, formulaires) et en extrait les données structurées automatiquement.' },
             { title: 'Tri Automatique', description: 'Emails, courriers, pièces jointes : tout est classé et envoyé au bon endroit avec plus de 95% de précision.' },
@@ -67,7 +67,7 @@ export const CATALOGUE: CatalogueCategory[] = [
         label: 'Agents IA & Automatisation',
         emoji: '🤖',
         // Keywords: Artefact (GenAI Factory, Agents), Onepoint (Architecture), Illuin (Products)
-        description: 'Des assistants IA qui agissent pour vous — ils exécutent des tâches complexes en autonomie, sous votre supervision.',
+        description: 'Des assistants IA qui agissent pour vous — ils orchestrent, exécutent et enchaînent des tâches complexes en autonomie, sous votre supervision. Plus qu\'un outil, un collaborateur numérique disponible 24/7.',
         items: [
             { title: 'Qualité des Données', description: 'Un agent qui surveille vos bases, détecte les erreurs, supprime les doublons et archive ce qui doit l\'être.' },
             { title: 'Routage Intelligent', description: 'Comprend les demandes (texte, voix, image) et les dirige vers le bon service. Plus de 90% résolus dès le premier contact.' },
@@ -82,7 +82,7 @@ export const CATALOGUE: CatalogueCategory[] = [
         label: 'Solutions Sectorielles',
         emoji: '🏛️',
         // Keywords: Sia Partners (Banque/Assurance, Régulation), Onepoint (Public), Ekimetrics (Industries)
-        description: 'Des solutions pensées pour votre secteur — Santé, Banque, Secteur Public, Industrie. Conformes aux exigences spécifiques.',
+        description: 'Des solutions conçues pour les exigences de votre secteur — Santé (HDS), Banque (DORA), Secteur Public, Industrie. Conformité réglementaire intégrée, vocabulaire métier maîtrisé, déploiement adapté à vos contraintes.',
         items: [
             { title: 'Synthèse Dossier Patient', description: 'Résumé structuré de l\'historique médical pour les praticiens. Hébergé sur infrastructure certifiée HDS.' },
             { title: 'Anonymisation Santé', description: 'Supprime les informations personnelles des données de santé pour la recherche, en conformité RGPD.' },

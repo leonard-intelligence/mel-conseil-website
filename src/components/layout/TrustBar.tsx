@@ -11,8 +11,8 @@ export function TrustBar() {
         { name: 'AssemblyAI', src: '/assets/logos/assemblyai.svg' },
     ];
 
-    // Duplicate logos for seamless infinite scroll
-    const duplicatedLogos = [...logos, ...logos];
+    // Triple for seamless infinite scroll
+    const duplicatedLogos = [...logos, ...logos, ...logos];
 
     return (
         <section id="section-trustbar" className="backers-bar trustbar reveal delay-100" aria-label="Technologies et modèles partenaires">

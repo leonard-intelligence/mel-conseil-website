@@ -12,9 +12,9 @@ export function SectionImage() {
                     {/* Header Area */}
                     <div className="relative z-10 mb-12 expertise__header">
                         <div className="text-orange-500 font-mono mb-2 text-lg expertise__number expertise__number--03">03 Generation.</div>
-                        <h2 id="expertise-image-heading" className="text-4xl md:text-5xl font-mono text-white max-w-2xl leading-tight expertise__heading">
-                            Contenus créatifs infinis. <br />
-                            <span className="text-muted-foreground expertise__heading-sub">À votre image. À la demande.</span>
+                        <h2 id="expertise-image-heading" className="text-4xl md:text-5xl font-mono text-white max-w-4xl leading-tight expertise__heading">
+                            Créez à grande échelle.<br />
+                            <span className="text-muted-foreground expertise__heading-sub">Sans dépendance, sans fuite de données.</span>
                         </h2>
                     </div>
 
@@ -31,7 +31,7 @@ export function SectionImage() {
 
                     {/* Bottom Left Card */}
                     <div className="mt-auto relative z-10 expertise__card-wrapper">
-                        <div id="expertise-image-card" className="max-w-md tech-panel p-6 group expertise__card">
+                        <div id="expertise-image-card" className="max-w-lg tech-panel p-6 group expertise__card">
                             <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-3 expertise__card-header">
                                 <div className="flex items-center gap-2">
                                     <span className="relative flex h-2 w-2">
@@ -40,11 +40,11 @@ export function SectionImage() {
                                     </span>
                                     <span className="font-mono text-xs text-green-400 tracking-widest">SYSTEM ONLINE</span>
                                 </div>
-                                <span className="font-mono text-xs text-zinc-500 expertise__card-badge">FLUX-PRO v1.0</span>
+                                <span className="font-mono text-xs text-zinc-500 expertise__card-badge">FLUX 2</span>
                             </div>
 
                             <div className="flex justify-between items-start mb-4">
-                                <h3 className="text-xl text-white font-mono expertise__card-title">Flux-Pro Gen_AI</h3>
+                                <h3 className="text-xl text-white font-mono expertise__card-title">Visuels On-Demand</h3>
                                 <div className="flex items-center gap-2 text-[10px] font-mono uppercase text-muted-foreground border border-white/10 px-2 py-1 rounded expertise__card-meta">
                                     <Paintbrush className="w-3 h-3" /> Génératif LoRA
                                 </div>

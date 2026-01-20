@@ -39,12 +39,12 @@ export function Hero() {
                 </h1>
 
                 <p className="hero-subtext hero__subtext">
-                    Conseil et déploiement de solutions IA. Transformez vos processus métier sans exposer vos données sensibles.
+                    Conseil et déploiement de solutions IA.<br />Transformez vos processus métier sans exposer vos données sensibles.
                 </p>
 
                 <div className="action-group hero__actions">
                     <a href="#section-contact" id="hero-cta-primary" className="hero-cta hero__cta hero__cta--primary">
-                        DEMANDER UNE DÉMO →
+                        PARLER À UN EXPERT →
                     </a>
                     <a href="#section-solutions" id="hero-cta-secondary" className="hero-cta-secondary hero__cta hero__cta--secondary">
                         VOIR LES CAS D'USAGE
