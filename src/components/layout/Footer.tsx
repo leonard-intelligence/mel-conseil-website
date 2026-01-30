@@ -11,16 +11,16 @@ export function Footer() {
                             alt="Leonard Intelligence"
                             className="h-8 mb-2"
                         />
-                        <p className="text-emerald-400 font-mono text-xs uppercase tracking-wider">
+                        <p className="text-[#E67E22] font-mono text-xs uppercase tracking-wider">
                             L'Intelligence Opérationnelle.
                         </p>
                     </div>
                     {/* Sovereign positioning statement like Onepoint */}
                     <div className="mt-4 md:mt-0 text-right">
-                        <a href="mailto:hello@leonardintelligence.com" className="text-white hover:text-emerald-400 transition-colors font-mono text-sm block mb-1">
+                        <a href="mailto:hello@leonardintelligence.com" className="text-white hover:text-[#E67E22] transition-colors font-mono text-sm block mb-1">
                             hello@leonardintelligence.com
                         </a>
-                        <p className="text-gray-500 font-mono text-[10px]">Marseille, France</p>
+                        <p className="text-gray-500 font-mono text-[10px]">France 🇫🇷</p>
                     </div>
                 </div>
 
@@ -86,8 +86,8 @@ export function Footer() {
                         © 2025 Leonard Intelligence. Tous droits réservés.
                     </div>
                     <div className="flex items-center gap-6">
-                        <span id="footer-status" className="flex items-center gap-2 text-emerald-400 font-mono text-xs">
-                            <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+                        <span id="footer-status" className="flex items-center gap-2 text-[#E67E22] font-mono text-xs">
+                            <span className="w-2 h-2 bg-[#E67E22] rounded-full animate-pulse"></span>
                             Systèmes opérationnels
                         </span>
                     </div>

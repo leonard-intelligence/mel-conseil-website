@@ -14,7 +14,7 @@ export function SectionPatrimoine() {
 
                     {/* Header */}
                     <div className="mb-8">
-                        <div className="text-amber-500 font-mono mb-2 text-lg">
+                        <div className="text-[#E67E22] font-mono mb-2 text-lg">
                             03 Mémoire d'Entreprise.
                         </div>
                         <h2
@@ -31,16 +31,16 @@ export function SectionPatrimoine() {
                         <div className="border border-white/20 bg-zinc-900/50 rounded-lg overflow-hidden">
                             {/* Chat header */}
                             <div className="flex items-center gap-3 px-5 py-3 bg-zinc-800/50 border-b border-white/10">
-                                <div className="w-8 h-8 bg-amber-500/20 rounded-full flex items-center justify-center">
-                                    <Sparkles className="w-4 h-4 text-amber-400" />
+                                <div className="w-8 h-8 bg-[#E67E22]/20 rounded-full flex items-center justify-center">
+                                    <Sparkles className="w-4 h-4 text-[#E67E22]" />
                                 </div>
                                 <div>
                                     <div className="font-mono text-xs text-white font-medium">Assistant Documentaire</div>
                                     <div className="font-mono text-[10px] text-white/40">47 documents connectés</div>
                                 </div>
                                 <div className="ml-auto flex items-center gap-2">
-                                    <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
-                                    <span className="font-mono text-[10px] text-emerald-400">En ligne</span>
+                                    <span className="w-2 h-2 bg-[#E67E22] rounded-full animate-pulse" />
+                                    <span className="font-mono text-[10px] text-[#E67E22]">En ligne</span>
                                 </div>
                             </div>
 
@@ -48,7 +48,7 @@ export function SectionPatrimoine() {
                             <div className="p-4 space-y-3">
                                 {/* User message */}
                                 <div className="flex justify-end">
-                                    <div className="bg-amber-500/20 border border-amber-500/30 rounded-xl rounded-br-sm px-4 py-2 max-w-xs">
+                                    <div className="bg-[#E67E22]/20 border border-[#E67E22]/30 rounded-xl rounded-br-sm px-4 py-2 max-w-xs">
                                         <p className="font-mono text-xs text-white">
                                             Comment calibrer la machine XR-500 ?
                                         </p>
@@ -59,15 +59,15 @@ export function SectionPatrimoine() {
                                 <div className="flex justify-start">
                                     <div className="bg-white/5 border border-white/10 rounded-xl rounded-bl-sm px-4 py-3 max-w-sm">
                                         <div className="flex items-center gap-2 mb-2">
-                                            <FileText className="w-3 h-3 text-amber-400" />
-                                            <span className="font-mono text-[10px] text-amber-400">Manuel XR-500, p.47</span>
+                                            <FileText className="w-3 h-3 text-[#E67E22]" />
+                                            <span className="font-mono text-[10px] text-[#E67E22]">Manuel XR-500, p.47</span>
                                         </div>
                                         <p className="font-mono text-xs text-white/80 leading-relaxed">
                                             Menu <span className="text-white">Paramètres → Calibration</span>. Lancez la séquence auto, attendez 3 cycles.
                                         </p>
                                         <div className="mt-2 pt-2 border-t border-white/5 flex items-center gap-3 text-[10px] font-mono text-white/40">
                                             <span>✓ 3 sources</span>
-                                            <span className="text-emerald-400">94%</span>
+                                            <span className="text-[#E67E22]">94%</span>
                                         </div>
                                     </div>
                                 </div>
@@ -94,7 +94,7 @@ export function SectionPatrimoine() {
                     {/* Feature Items */}
                     <div className="flex-1 flex flex-col">
                         <div className="flex-1 border-b border-white/10 p-8 group hover:bg-white/5 transition-colors cursor-pointer relative">
-                            <div className="w-8 h-8 bg-black border border-white/10 flex items-center justify-center mb-4 text-amber-400">
+                            <div className="w-8 h-8 bg-black border border-white/10 flex items-center justify-center mb-4 text-[#E67E22]">
                                 <BookOpen className="w-4 h-4" />
                             </div>
                             <h3 className="text-white font-mono text-lg mb-2 uppercase tracking-[-0.02em]">Procédures Indexées</h3>
@@ -102,7 +102,7 @@ export function SectionPatrimoine() {
                         </div>
 
                         <div className="flex-1 border-b border-white/10 p-8 group hover:bg-white/5 transition-colors cursor-pointer relative">
-                            <div className="w-8 h-8 bg-black border border-white/10 flex items-center justify-center mb-4 text-amber-400">
+                            <div className="w-8 h-8 bg-black border border-white/10 flex items-center justify-center mb-4 text-[#E67E22]">
                                 <MessageCircle className="w-4 h-4" />
                             </div>
                             <h3 className="text-white font-mono text-lg mb-2 uppercase tracking-[-0.02em]">Questions Naturelles</h3>
@@ -110,7 +110,7 @@ export function SectionPatrimoine() {
                         </div>
 
                         <div className="flex-1 p-8 group hover:bg-white/5 transition-colors cursor-pointer relative">
-                            <div className="w-8 h-8 bg-black border border-white/10 flex items-center justify-center mb-4 text-amber-400">
+                            <div className="w-8 h-8 bg-black border border-white/10 flex items-center justify-center mb-4 text-[#E67E22]">
                                 <FileText className="w-4 h-4" />
                             </div>
                             <h3 className="text-white font-mono text-lg mb-2 uppercase tracking-[-0.02em]">Sources Citées</h3>

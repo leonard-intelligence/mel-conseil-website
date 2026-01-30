@@ -30,7 +30,7 @@ export function SectionSecurity() {
                         <div className="w-32 h-32 border-2 border-blue-500/30 flex items-center justify-center">
                             <Shield className="w-16 h-16 text-blue-400" />
                         </div>
-                        <div className="absolute -top-2 -right-2 w-4 h-4 bg-emerald-400 rounded-full animate-pulse" />
+                        <div className="absolute -top-2 -right-2 w-4 h-4 bg-[#E67E22] rounded-full animate-pulse" />
                     </div>
                 </div>
             </div>
@@ -50,11 +50,11 @@ export function SectionSecurity() {
                     <span className="font-mono text-xs text-white uppercase tracking-wider">Héberg. UE</span>
                 </div>
                 <div className="p-6 border-r border-white/10 flex flex-col items-center justify-center text-center hover:bg-white/5 transition-colors">
-                    <Lock className="w-6 h-6 text-emerald-400 mb-3" />
+                    <Lock className="w-6 h-6 text-[#E67E22] mb-3" />
                     <span className="font-mono text-xs text-white uppercase tracking-wider">Cloud Act ✗</span>
                 </div>
                 <div className="p-6 border-r border-white/10 flex flex-col items-center justify-center text-center hover:bg-white/5 transition-colors">
-                    <CheckCircle className="w-6 h-6 text-emerald-400 mb-3" />
+                    <CheckCircle className="w-6 h-6 text-[#E67E22] mb-3" />
                     <span className="font-mono text-xs text-white uppercase tracking-wider">HDS Ready</span>
                 </div>
                 <div className="p-6 flex flex-col items-center justify-center text-center hover:bg-white/5 transition-colors">

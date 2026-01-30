@@ -4,10 +4,10 @@ export function StackSection() {
             <div className="absolute inset-0 bg-black z-0"></div>
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 <div className="mb-16">
-                    <span className="text-emerald-400 font-mono text-sm tracking-widest uppercase mb-4 block">
+                    <span className="text-[#E67E22] font-mono text-sm tracking-widest uppercase mb-4 block">
                         Infrastructure
                     </span>
-                    <h2 id="stack-heading" className="text-4xl font-bold font-serif text-white">
+                    <h2 id="stack-heading" className="text-4xl font-bold font-mono text-white">
                         Stack Technique & Intégrations
                     </h2>
                 </div>
@@ -53,7 +53,7 @@ export function StackSection() {
                             <span>AWS</span>
                             <span>OVH</span>
                             <span>Azure</span>
-                            <span className="text-emerald-500">SecNumCloud</span>
+                            <span className="text-[#E67E22]">SecNumCloud</span>
                         </div>
                     </div>
                 </div>

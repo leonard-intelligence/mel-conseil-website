@@ -26,7 +26,7 @@ export function Navbar() {
                     href="#section-solutions"
                     className="group flex items-center gap-3 px-6 h-full text-muted-foreground no-underline font-mono text-[0.85rem] border-r border-white/10 transition-all bg-white/[0.02] hover:bg-white/[0.08] hover:text-white"
                 >
-                    <span className="font-semibold tracking-tight">SOLUTIONS</span>
+                    <span className="font-normal tracking-tight">SOLUTIONS</span>
                     <span className="opacity-40 text-xs">01</span>
                 </a>
 
@@ -34,7 +34,7 @@ export function Navbar() {
                     href="#section-expertises"
                     className="group flex items-center gap-3 px-6 h-full text-muted-foreground no-underline font-mono text-[0.85rem] border-r border-white/10 transition-all bg-white/[0.02] hover:bg-white/[0.08] hover:text-white"
                 >
-                    <span className="font-semibold tracking-tight">EXPERTISES</span>
+                    <span className="font-normal tracking-tight">EXPERTISES</span>
                     <span className="opacity-40 text-xs">02</span>
                 </a>
 
@@ -42,7 +42,7 @@ export function Navbar() {
                     href="#section-methodology"
                     className="group flex items-center gap-3 px-6 h-full text-muted-foreground no-underline font-mono text-[0.85rem] border-r border-white/10 transition-all bg-white/[0.02] hover:bg-white/[0.08] hover:text-white"
                 >
-                    <span className="font-semibold tracking-tight">MÉTHODOLOGIE</span>
+                    <span className="font-normal tracking-tight">MÉTHODOLOGIE</span>
                     <span className="opacity-40 text-xs">03</span>
                 </a>
             </div>
@@ -52,7 +52,7 @@ export function Navbar() {
                 <a
                     href="#section-contact"
                     id="navbar-cta"
-                    className="bg-white text-black h-full flex items-center px-6 font-semibold no-underline text-[0.9rem] uppercase transition-colors hover:bg-gray-200"
+                    className="bg-white text-black h-full flex items-center px-6 font-normal no-underline text-[0.9rem] uppercase transition-colors hover:bg-gray-200"
                 >
                     CONTACT →
                 </a>

@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import "@fontsource-variable/jetbrains-mono";
+@import "@fontsource/geist-sans";
 
 /* ========== SHADCN TAILWIND CSS (inlined due to export compatibility) ========== */
 @theme inline {
@@ -108,42 +108,50 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Prime Intellect Palette - Dark Mode Default */
-  --background: oklch(0.1 0 0);
-  /* Black/Near Black */
-  --foreground: oklch(0.98 0 0);
-  /* White */
+  /* ========== LEONARD INTELLIGENCE DA PALETTE ========== */
+  /* Warm Grey Backgrounds */
+  --bg-primary: #1A1816;
+  --bg-secondary: #252220;
+  --bg-tertiary: #1F1D1B;
 
-  --card: oklch(0.1 0 0);
-  --card-foreground: oklch(0.98 0 0);
+  /* Accent Colors */
+  --accent-blue: oklch(0.58 0.23 259.59);
+  --accent-blue-light: #3B82F6;
+  --accent-orange: #E67E22;
+  --accent-orange-dark: #D35400;
+  --cta-chocolate: #3D2314;
+  --cta-chocolate-light: #4A2A1A;
+  --cta-sienna: #8B4513;
 
-  --popover: oklch(0.1 0 0);
-  --popover-foreground: oklch(0.98 0 0);
+  /* Shadcn Token Overrides - Warm Grey */
+  --background: #000000;
+  --foreground: #F5F5F5;
 
-  --primary: oklch(0.98 0 0);
-  /* White Primary */
-  --primary-foreground: oklch(0.1 0 0);
-  /* Black Text on Primary */
+  --card: #1A1816;
+  --card-foreground: #F5F5F5;
 
-  --secondary: oklch(0.2 0 0);
-  /* Dark Grey */
-  --secondary-foreground: oklch(0.98 0 0);
+  --popover: #1A1816;
+  --popover-foreground: #F5F5F5;
 
-  --muted: oklch(0.2 0 0);
-  --muted-foreground: oklch(0.6 0 0);
+  --primary: #FFFFFF;
+  --primary-foreground: #1A1816;
 
-  --accent: oklch(0.2 0 0);
-  --accent-foreground: oklch(0.98 0 0);
+  --secondary: #252220;
+  --secondary-foreground: #F5F5F5;
+
+  --muted: #252220;
+  --muted-foreground: #888580;
+
+  --accent: #252220;
+  --accent-foreground: #F5F5F5;
 
   --destructive: oklch(0.58 0.22 27);
 
-  --border: oklch(0.25 0 0);
-  /* Subtle Grid Border */
-  --input: oklch(0.25 0 0);
-  --ring: oklch(0.8 0 0);
+  --border: #333130;
+  --input: #333130;
+  --ring: #888580;
 
   --radius: 0rem;
-  /* GLOBAL SHARP CORNERS */
 
   /* TECHNICAL DESIGN SYSTEM TOKENS */
   --corner-color: rgba(255, 255, 255, 0.8);
@@ -154,7 +162,7 @@
 
 @theme inline {
   --font-mono: 'JetBrains Mono Variable', monospace;
-  --font-sans: 'Inter', sans-serif;
+  --font-sans: 'Geist Sans', sans-serif;
   /* Keep Inter for softer body text if needed, or use Mono for strict tech feel. Prime uses both. */
 }
 
@@ -177,10 +185,7 @@
     font-family: var(--font-sans);
     background-color: var(--background);
     color: var(--foreground);
-    background-image:
-      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-    background-size: 40px 40px;
+    /* Technical Grid Removed */
     /* Technical Grid */
   }
 }

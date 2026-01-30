@@ -9,7 +9,7 @@ export function SectionROI() {
         >
             {/* TOP ROW: Header spanning full width */}
             <div className="p-12 border-b border-white/10">
-                <div className="text-emerald-500 font-mono mb-2 text-lg">01 Productivité.</div>
+                <div className="text-[#E67E22] font-mono mb-2 text-lg">01 Productivité.</div>
                 <h2
                     id="roi-heading"
                     className="text-4xl md:text-5xl font-mono text-white max-w-2xl leading-tight uppercase tracking-[-0.02em]"
@@ -23,12 +23,12 @@ export function SectionROI() {
             <div className="grid grid-cols-2 lg:grid-cols-4">
 
                 {/* Card 1: Big Stat */}
-                <div className="p-8 border-r border-b border-white/10 bg-emerald-500/5 flex flex-col justify-between min-h-[200px]">
-                    <div className="w-10 h-10 border border-emerald-500/30 flex items-center justify-center mb-4">
-                        <TrendingDown className="w-5 h-5 text-emerald-400" />
+                <div className="p-8 border-r border-b border-white/10 bg-[#E67E22]/5 flex flex-col justify-between min-h-[200px]">
+                    <div className="w-10 h-10 border border-[#E67E22]/30 flex items-center justify-center mb-4">
+                        <TrendingDown className="w-5 h-5 text-[#E67E22]" />
                     </div>
                     <div>
-                        <div className="text-4xl font-mono font-bold text-emerald-400 mb-1">-40%</div>
+                        <div className="text-4xl font-mono font-bold text-[#E67E22] mb-1">-40%</div>
                         <div className="text-xs font-mono text-white/50 uppercase tracking-wider">Charge admin</div>
                     </div>
                 </div>
@@ -36,10 +36,10 @@ export function SectionROI() {
                 {/* Card 2: Big Stat */}
                 <div className="p-8 border-r border-b border-white/10 flex flex-col justify-between min-h-[200px]">
                     <div className="w-10 h-10 border border-white/10 flex items-center justify-center mb-4">
-                        <Zap className="w-5 h-5 text-emerald-400" />
+                        <Zap className="w-5 h-5 text-[#E67E22]" />
                     </div>
                     <div>
-                        <div className="text-4xl font-mono font-bold text-emerald-400 mb-1">+25%</div>
+                        <div className="text-4xl font-mono font-bold text-[#E67E22] mb-1">+25%</div>
                         <div className="text-xs font-mono text-white/50 uppercase tracking-wider">Productivité</div>
                     </div>
                 </div>
@@ -47,10 +47,10 @@ export function SectionROI() {
                 {/* Card 3: Big Stat */}
                 <div className="p-8 border-r border-b border-white/10 flex flex-col justify-between min-h-[200px]">
                     <div className="w-10 h-10 border border-white/10 flex items-center justify-center mb-4">
-                        <Clock className="w-5 h-5 text-emerald-400" />
+                        <Clock className="w-5 h-5 text-[#E67E22]" />
                     </div>
                     <div>
-                        <div className="text-4xl font-mono font-bold text-emerald-400 mb-1">3 mois</div>
+                        <div className="text-4xl font-mono font-bold text-[#E67E22] mb-1">3 mois</div>
                         <div className="text-xs font-mono text-white/50 uppercase tracking-wider">ROI garanti</div>
                     </div>
                 </div>
@@ -64,7 +64,7 @@ export function SectionROI() {
 
                 {/* Card 5: Feature */}
                 <div className="p-8 border-r border-white/10 group hover:bg-white/5 transition-colors min-h-[180px]">
-                    <div className="w-8 h-8 bg-black border border-white/10 flex items-center justify-center mb-4 text-emerald-400">
+                    <div className="w-8 h-8 bg-black border border-white/10 flex items-center justify-center mb-4 text-[#E67E22]">
                         <FileText className="w-4 h-4" />
                     </div>
                     <h3 className="text-white font-mono text-sm mb-2 uppercase tracking-[-0.02em]">Saisie Automatisée</h3>
@@ -73,7 +73,7 @@ export function SectionROI() {
 
                 {/* Card 6: Feature */}
                 <div className="p-8 border-r border-white/10 group hover:bg-white/5 transition-colors min-h-[180px]">
-                    <div className="w-8 h-8 bg-black border border-white/10 flex items-center justify-center mb-4 text-emerald-400">
+                    <div className="w-8 h-8 bg-black border border-white/10 flex items-center justify-center mb-4 text-[#E67E22]">
                         <Mail className="w-4 h-4" />
                     </div>
                     <h3 className="text-white font-mono text-sm mb-2 uppercase tracking-[-0.02em]">Emails Triés</h3>
@@ -82,7 +82,7 @@ export function SectionROI() {
 
                 {/* Card 7: Feature */}
                 <div className="p-8 border-r border-white/10 group hover:bg-white/5 transition-colors min-h-[180px]">
-                    <div className="w-8 h-8 bg-black border border-white/10 flex items-center justify-center mb-4 text-emerald-400">
+                    <div className="w-8 h-8 bg-black border border-white/10 flex items-center justify-center mb-4 text-[#E67E22]">
                         <Workflow className="w-4 h-4" />
                     </div>
                     <h3 className="text-white font-mono text-sm mb-2 uppercase tracking-[-0.02em]">Workflows</h3>
@@ -90,8 +90,8 @@ export function SectionROI() {
                 </div>
 
                 {/* Card 8: CTA hint */}
-                <div className="p-8 bg-emerald-500/10 group hover:bg-emerald-500/20 transition-colors flex items-center justify-center min-h-[180px]">
-                    <span className="font-mono text-xs text-emerald-400 uppercase tracking-widest">/// MODULE ROI ///</span>
+                <div className="p-8 bg-[#E67E22]/10 group hover:bg-[#E67E22]/20 transition-colors flex items-center justify-center min-h-[180px]">
+                    <span className="font-mono text-xs text-[#E67E22] uppercase tracking-widest">/// MODULE ROI ///</span>
                 </div>
             </div>
         </section>

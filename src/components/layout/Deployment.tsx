@@ -14,19 +14,19 @@ export function Deployment() {
                         {/* AI Act compliance badge - like Sia Partners' regulatory focus */}
                         <div className="flex items-center gap-3 mb-6">
                             <span className="text-brand-blue font-mono text-sm tracking-widest uppercase">Infrastructure</span>
-                            <span className="text-[10px] font-mono px-2 py-1 border border-emerald-500/50 text-emerald-400 bg-emerald-500/10">
+                            <span className="text-[10px] font-mono px-2 py-1 border border-[#E67E22]/50 text-[#E67E22] bg-[#E67E22]/10">
                                 CONFORME AI ACT
                             </span>
                         </div>
                         <h2 id="deployment-heading" className="text-4xl md:text-5xl font-bold mb-6 font-display text-white leading-tight deployment__heading">
-                            L'IA tourne <span className="text-emerald-400">chez vous</span>,<br />
+                            L'IA tourne <span className="text-[#E67E22]">chez vous</span>,<br />
                             <span className="text-white/50">pas chez un tiers.</span>
                         </h2>
                         <p className="text-gray-400 text-lg mb-8 leading-relaxed">
-                            Vos données sensibles ne doivent pas quitter votre périmètre. On déploie vos solutions IA sur <strong className="text-white">vos serveurs</strong> (on-premise) 
-                            ou sur un <strong className="text-emerald-400">cloud européen certifié</strong> — conformité AI Act et RGPD garantie.
+                            Vos données sensibles ne doivent pas quitter votre périmètre. On déploie vos solutions IA sur <strong className="text-white">vos serveurs</strong> (on-premise)
+                            ou sur un <strong className="text-[#E67E22]">cloud européen certifié</strong> — conformité AI Act et RGPD garantie.
                         </p>
-                        
+
                         {/* Compliance indicators - like Sia Partners & Ekimetrics */}
                         <div className="flex flex-wrap gap-3 mb-12">
                             <span className="text-[11px] font-mono px-3 py-1.5 bg-white/5 border border-white/10 text-gray-400">🏛️ AI Act Ready</span>
@@ -97,7 +97,7 @@ export function Deployment() {
                             {/* Overlay UI elements to make it look 'tech' */}
                             <div id="deployment-panel" className="absolute top-10 left-10 right-10 tech-panel p-6 deployment__panel bg-black/80 backdrop-blur-md border border-white/10 max-w-xs ml-auto mr-auto lg:mr-0 lg:ml-10">
                                 <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
-                                    <span className="font-mono text-xs text-green-400">● SYSTEM ONLINE</span>
+                                    <span className="font-mono text-xs text-[#E67E22]">● SYSTEM ONLINE</span>
                                     <span className="font-mono text-xs text-gray-500">UNK-800 X1</span>
                                 </div>
                                 <div className="space-y-2 font-mono text-xs text-gray-300">

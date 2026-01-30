@@ -54,7 +54,7 @@ export function UseCaseGrid() {
                                 </div>
 
                                 <div className="mt-auto border-t border-white/10 pt-4">
-                                    <div className="flex items-center gap-2 mb-3 text-emerald-400 text-xs font-mono uppercase tracking-widest">
+                                    <div className="flex items-center gap-2 mb-3 text-[#E67E22] text-xs font-mono uppercase tracking-widest">
                                         <TrendingUp className="w-3 h-3" /> Résultats
                                     </div>
                                     <div className="grid grid-cols-2 gap-4">

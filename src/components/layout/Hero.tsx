@@ -1,6 +1,6 @@
 
 
-import { useState } from 'react';
+
 import { FxImage } from '../fx/FxImage';
 import { useFxConfig } from '../fx/FxContext';
 import { TrustBar } from './TrustBar';
@@ -8,9 +8,7 @@ import { TrustBar } from './TrustBar';
 export function Hero() {
     const config = useFxConfig();
 
-    // TEST: Toggle for Hero A/B testing (Door vs Unicorn)
-    // TODO: REMOVE THIS STATE AND BUTTON BEFORE PRODUCTION
-    const [isUnicornMode, setIsUnicornMode] = useState(false);
+
 
     return (
         /* Root Container: Full Viewport Height, Vertical Column */
@@ -32,8 +30,8 @@ export function Hero() {
                         <div className="lg:col-span-7 flex flex-col items-start text-left">
 
                             {/* Status Badge */}
-                            <div className="inline-flex items-center gap-2 bg-black/80 px-4 py-2 rounded-full text-[0.8rem] font-mono border border-white/10 mb-10 text-teal-100">
-                                <span className="w-1.5 h-1.5 bg-teal-400 rounded-full animate-pulse"></span>
+                            <div className="inline-flex items-center gap-2 bg-black/80 px-4 py-2 rounded-full text-[0.8rem] font-mono border border-white/10 mb-10 text-[#E67E22]">
+                                <span className="w-1.5 h-1.5 bg-[#E67E22] rounded-full animate-pulse"></span>
                                 <span>Expert Mistral AI · Infrastructure SecNumCloud</span>
                             </div>
 
@@ -42,7 +40,7 @@ export function Hero() {
                                 <span className="text-white/70">IA souveraine.<br />Sur-mesure.</span>
                             </h1>
 
-                            <h2 className="font-mono text-xl text-emerald-400 mb-6 tracking-wide">
+                            <h2 className="font-mono text-xl text-[#E67E22] mb-6 tracking-wide">
                                 TEXTE. IMAGE. AUDIO. VIDÉO.
                             </h2>
 
@@ -55,14 +53,14 @@ export function Hero() {
                                 <a
                                     href="#section-contact"
                                     id="hero-cta-primary"
-                                    className="bg-white text-black px-6 py-3 font-mono font-semibold uppercase text-base inline-block transition-transform hover:-translate-y-0.5 shadow-lg"
+                                    className="bg-[#3D2314] text-[#E67E22] border border-[#8B4513] px-6 py-3 font-mono font-semibold uppercase text-base inline-block transition-all hover:bg-[#4A2A1A] hover:-translate-y-0.5 shadow-lg"
                                 >
                                     DEMANDER UN AUDIT
                                 </a>
                                 <a
                                     href="#section-solutions"
                                     id="hero-cta-secondary"
-                                    className="bg-transparent text-white px-6 py-3 font-mono font-medium text-[0.85rem] uppercase inline-block border border-white/30 transition-all hover:bg-white/10 hover:border-white/50"
+                                    className="bg-transparent text-[#E67E22] px-6 py-3 font-mono font-medium text-[0.85rem] uppercase inline-block border border-[#E67E22]/50 transition-all hover:bg-[#E67E22]/10 hover:border-[#E67E22]"
                                 >
                                     EXPLORER NOS SOLUTIONS
                                 </a>

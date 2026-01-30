@@ -30,15 +30,15 @@ export function Pillars() {
                         <h3 className="text-xl font-bold mb-4">Texte, Image, Audio, Vidéo</h3>
                         <p className="text-muted-foreground">Automatisez tous vos flux : documents, visuels, enregistrements, vidéos. Une seule équipe, toutes les modalités.</p>
                     </TechCard>
-                    <TechCard className="card-auto p-8 border-emerald-500/30 bg-emerald-500/5 relative overflow-hidden group">
+                    <TechCard className="card-auto p-8 border-[#E67E22]/30 bg-[#E67E22]/5 relative overflow-hidden group">
                         <div className="absolute top-0 right-0 p-4 opacity-30 group-hover:opacity-50 transition-opacity">
-                            <div className="text-[10px] font-mono text-emerald-400 tracking-widest leading-none">
+                            <div className="text-[10px] font-mono text-[#E67E22] tracking-widest leading-none">
                                 /// SECURE /// SOUVERAIN ///
                             </div>
                         </div>
                         <div className="card-icon text-3xl mb-6">🇪🇺</div>
-                        <h3 className="text-xl font-bold mb-4 text-emerald-400">Vos données restent chez vous</h3>
-                        <p className="text-emerald-500/80">Déploiement sur <strong className="text-emerald-400">vos serveurs</strong> ou <strong className="text-emerald-400">cloud européen</strong> dédié. Zéro transfert vers l'étranger.</p>
+                        <h3 className="text-xl font-bold mb-4 text-[#E67E22]">Vos données restent chez vous</h3>
+                        <p className="text-[#E67E22]/80">Déploiement sur <strong className="text-[#E67E22]">vos serveurs</strong> ou <strong className="text-[#E67E22]">cloud européen</strong> dédié. Zéro transfert vers l'étranger.</p>
                     </TechCard>
                 </div>
             </div>
@@ -51,7 +51,7 @@ export function Pillars() {
                         <span className="text-sm">−40% Temps Administratif</span>
                     </div>
                     <div className="tag-pill bg-white/5 border border-white/10 rounded-full px-4 py-2 flex items-center gap-3">
-                        <div className="tag-icon-wrapper green w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center">🔒</div>
+                        <div className="tag-icon-wrapper green w-8 h-8 rounded-full bg-[#E67E22]/20 flex items-center justify-center">🔒</div>
                         <span className="text-sm">100% Données Privées</span>
                     </div>
                     <div className="tag-pill bg-white/5 border border-white/10 rounded-full px-4 py-2 flex items-center gap-3">
@@ -69,15 +69,15 @@ export function Pillars() {
                 </div>
                 <div className="float-tags right flex flex-col gap-4">
                     <div className="tag-pill bg-white/5 border border-white/10 rounded-full px-4 py-2 flex items-center gap-3">
-                        <div className="tag-icon-wrapper purple w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center">🏰</div>
+                        <div className="tag-icon-wrapper purple w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center">🏰</div>
                         <span className="text-sm">On-Premises</span>
                     </div>
                     <div className="tag-pill bg-white/5 border border-white/10 rounded-full px-4 py-2 flex items-center gap-3">
-                        <div className="tag-icon-wrapper pink w-8 h-8 rounded-full bg-pink-500/20 flex items-center justify-center">👁️</div>
+                        <div className="tag-icon-wrapper pink w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center">👁️</div>
                         <span className="text-sm">Multimodal</span>
                     </div>
                     <div className="tag-pill bg-white/5 border border-white/10 rounded-full px-4 py-2 flex items-center gap-3">
-                        <div className="tag-icon-wrapper yellow w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center">⚖️</div>
+                        <div className="tag-icon-wrapper yellow w-8 h-8 rounded-full bg-[#E67E22]/20 flex items-center justify-center">⚖️</div>
                         <span className="text-sm">Traçabilité Complète</span>
                     </div>
                 </div>

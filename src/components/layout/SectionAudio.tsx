@@ -44,7 +44,7 @@ export function SectionAudio() {
                 <div className="lg:col-span-8 relative p-12 flex flex-col justify-between overflow-hidden order-1 lg:order-2">
                     {/* Header Area */}
                     <div className="relative z-10 mb-12 text-right">
-                        <div className="text-cyan-500 font-mono mb-2 text-lg">03 Audio & Signal.</div>
+                        <div className="text-blue-500 font-mono mb-2 text-lg">03 Audio & Signal.</div>
                         <h2 id="expertise-audio-heading" className="text-4xl md:text-5xl font-mono text-white leading-tight ml-auto max-w-4xl uppercase tracking-[-0.02em]">
                             Pour les centres d'appels<br />
                             <span className="text-muted-foreground">et l'industrie.</span>
@@ -68,10 +68,10 @@ export function SectionAudio() {
                             <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-3">
                                 <div className="flex items-center gap-2">
                                     <span className="relative flex h-2 w-2">
-                                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                                        <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+                                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                                        <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
                                     </span>
-                                    <span className="font-mono text-xs text-cyan-400 tracking-widest">STACK TECHNIQUE</span>
+                                    <span className="font-mono text-xs text-blue-400 tracking-widest">STACK TECHNIQUE</span>
                                 </div>
                                 <span className="font-mono text-xs text-zinc-500">AUDIO</span>
                             </div>
@@ -86,9 +86,9 @@ export function SectionAudio() {
 
                             <div className="grid grid-cols-2 gap-2 text-[10px] font-mono text-zinc-500 bg-white/5 p-3 rounded border border-white/5">
                                 <div className="flex justify-between"><span>PRÉCISION</span><span className="text-white">&lt;5% WER</span></div>
-                                <div className="flex justify-between"><span>MULTILINGUE</span><span className="text-cyan-400">OUI</span></div>
-                                <div className="flex justify-between"><span>LATENCE</span><span className="text-green-400">FAIBLE</span></div>
-                                <div className="flex justify-between"><span>STATUS</span><span className="text-green-400">ONLINE</span></div>
+                                <div className="flex justify-between"><span>MULTILINGUE</span><span className="text-blue-400">OUI</span></div>
+                                <div className="flex justify-between"><span>LATENCE</span><span className="text-[#E67E22]">FAIBLE</span></div>
+                                <div className="flex justify-between"><span>STATUS</span><span className="text-[#E67E22]">ONLINE</span></div>
                             </div>
                         </div>
                     </div>

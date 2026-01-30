@@ -4,7 +4,7 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { Label } from "../ui/label";
-import { Mail, MapPin, Send, CheckCircle2 } from "lucide-react";
+import { Mail, Send, CheckCircle2 } from "lucide-react";
 
 export function Contact() {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -48,16 +48,6 @@ export function Contact() {
                             </div>
                         </div>
 
-                        <div className="flex items-start gap-4 group">
-                            <div className="p-3 bg-white/5 border border-white/10 group-hover:bg-white/10 transition-colors">
-                                <MapPin className="w-6 h-6 text-blue-500" />
-                            </div>
-                            <div>
-                                <h3 className="text-white font-bold mb-1 font-mono uppercase">Bureaux</h3>
-                                <p className="text-gray-400 font-mono text-sm">Paris, France</p>
-                                <p className="text-gray-500 text-xs mt-1 font-mono">Visio ou présentiel selon vos préférences.</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -71,7 +61,7 @@ export function Contact() {
 
                     {isSent ? (
                         <div className="h-full flex flex-col items-center justify-center text-center py-12">
-                            <CheckCircle2 className="w-16 h-16 text-green-500 mb-6" />
+                            <CheckCircle2 className="w-16 h-16 text-[#E67E22] mb-6" />
                             <h3 className="text-2xl font-bold font-mono text-white mb-2 uppercase">Message envoyé</h3>
                             <p className="text-gray-400 font-sans">
                                 Merci de nous avoir contactés. Nous reviendrons vers vous très rapidement.
@@ -119,7 +109,7 @@ export function Contact() {
 
                             <Button
                                 type="submit"
-                                className="w-full bg-white text-black hover:bg-gray-200 font-bold font-mono h-14 text-sm uppercase rounded-none tracking-wider"
+                                className="w-full bg-white text-[#3D2314] hover:bg-[#F5F5F5] font-bold font-mono h-14 text-sm uppercase rounded-none tracking-wider border border-[#3D2314] transition-all"
                                 disabled={isSubmitting}
                             >
                                 {isSubmitting ? (
