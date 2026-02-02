@@ -17,12 +17,12 @@ const Footer = lazy(() => import('./components/layout/Footer').then(m => ({ defa
 // Lazy load Legal pages
 
 // Component to conditionally render layout based on route
-function AppLayout({ showContent }: { showContent: boolean }) {
+function AppLayout() {
     const location = useLocation();
     const isLegalPage = location.pathname === '/cgv' || location.pathname === '/mentions-legales';
 
     return (
-        <div className={`min-h-screen bg-background text-foreground font-sans transition-opacity duration-500 ${showContent ? 'opacity-100' : 'opacity-0'}`}>
+        <div className="min-h-screen bg-background text-foreground font-sans">
             {/* Light Gradient Overlay */}
             <div className="gradient-overlay"></div>
 
@@ -54,15 +54,23 @@ function AppLayout({ showContent }: { showContent: boolean }) {
 }
 
 export default function App() {
-    const [splashComplete, setSplashComplete] = useState(false);
-    const [showSite, setShowSite] = useState(false);
+    const [splashComplete, setSplashComplete] = useState(() => {
+        // Check if splash has already been shown in this session
+        if (typeof window !== 'undefined') {
+            return sessionStorage.getItem('splash_shown') === 'true';
+        }
+        return false;
+    });
 
     const handleExitStart = useCallback(() => {
-        setShowSite(true); // Reveal site when exit animation starts
+        // No-op now as content is always visible
     }, []);
 
     const handleSplashComplete = useCallback(() => {
         setSplashComplete(true);
+        if (typeof window !== 'undefined') {
+            sessionStorage.setItem('splash_shown', 'true');
+        }
     }, []);
 
     return (
@@ -72,7 +80,8 @@ export default function App() {
                 {!splashComplete && <SplashScreen onExitStart={handleExitStart} onComplete={handleSplashComplete} />}
 
                 {/* Main App Content */}
-                <AppLayout showContent={showSite} />
+                {/* Main App Content */}
+                <AppLayout />
             </Router>
         </FxProvider>
     );

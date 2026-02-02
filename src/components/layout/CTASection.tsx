@@ -30,7 +30,7 @@ export function CTASection() {
                     <p className="text-xs text-gray-500 font-mono mb-6 uppercase tracking-wider">Conformité & Certifications</p>
                     <div className="flex flex-wrap justify-center gap-8 items-center">
                         <div className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
-                            <DotIcon icon={leonardIcons.scale} size={16} fillColor="#E67E22" />
+                            <DotIcon icon={leonardIcons.aiActReady} size={16} fillColor="#E67E22" />
                             <span className="font-mono text-xs">AI ACT READY</span>
                         </div>
                         <div className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">

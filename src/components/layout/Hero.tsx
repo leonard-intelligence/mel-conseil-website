@@ -7,7 +7,12 @@ import { TrustBar } from './TrustBar';
 
 export function Hero() {
     const config = useFxConfig();
-    const [animationPhase, setAnimationPhase] = useState<'intro' | 'content'>('intro');
+    const [animationPhase, setAnimationPhase] = useState<'intro' | 'content'>(() => {
+        if (typeof window !== 'undefined' && sessionStorage.getItem('splash_shown') === 'true') {
+            return 'content';
+        }
+        return 'intro';
+    });
 
     useEffect(() => {
         // Sequence: 1.5s of illustration with effects, then transition to content
@@ -55,7 +60,7 @@ export function Hero() {
                             </h2>
 
                             <p className="font-mono text-[1rem] lg:text-[1.1rem] text-white/90 leading-relaxed max-w-xl mb-10 lg:mb-12 drop-shadow-lg font-medium pr-4">
-                                Intégration IA complète. Vos données restent chez vous.
+                                L'IA qui fonctionne chez vous, pas en Californie. Vos données, votre infrastructure, vos règles.
                                 Open-source prioritaire, propriétaire si nécessaire. Déploiement sur-mesure.
                             </p>
 

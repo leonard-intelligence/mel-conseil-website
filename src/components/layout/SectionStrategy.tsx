@@ -26,7 +26,7 @@ export function SectionStrategy() {
                     href="#section-contact"
                     className="group inline-flex items-center gap-3 bg-[#E67E22] hover:bg-[#D35400] text-[#3D2314] px-8 py-4 font-mono font-semibold uppercase text-sm transition-all hover:-translate-y-0.5 border border-[#E67E22]"
                 >
-                    <DotIcon icon={leonardIcons.automatisation} size={16} fillColor="#3D2314" />
+
                     Prendre l'avantage
                     <div className="group-hover:translate-x-1 transition-transform">
                         <DotIcon icon={leonardIcons.arrowRight} size={16} fillColor="#3D2314" />
@@ -72,8 +72,8 @@ export function SectionStrategy() {
                 {/* Progress bar card - spans 2 cols */}
                 <div className="col-span-2 lg:col-span-2 p-6 border-t border-r border-white/10">
                     <div className="flex items-center justify-between mb-3">
-                        <span className="font-mono text-xs text-white/80 uppercase">Fenêtre d'opportunité</span>
-                        <span className="font-mono text-xs text-[#E67E22]">35%</span>
+                        <span className="font-mono text-xs text-white/80 uppercase">Temps avant saturation</span>
+                        <span className="font-mono text-xs text-[#E67E22]">18 mois</span>
                     </div>
                     <div className="h-3 bg-white/10 rounded-full overflow-hidden">
                         <div className="h-full bg-gradient-to-r from-[#D35400] via-[#E67E22] to-[#FF9F43] w-[35%] rounded-full animate-pulse" />

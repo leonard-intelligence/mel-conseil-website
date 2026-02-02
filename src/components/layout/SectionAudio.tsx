@@ -15,7 +15,7 @@ export function SectionAudio() {
                             </div>
                         </div>
                         <p className="font-mono text-gray-400 text-sm leading-relaxed mb-8">
-                            Pour les centres d'appels et l'industrie. Valorisez vos flux audio avec une précision humaine.
+                            Pour les centres d'appels et l'industrie. Ne perdez plus aucune information orale.
                         </p>
                     </div>
 

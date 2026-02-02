@@ -73,7 +73,7 @@ export function SectionVision() {
                             </div>
                         </div>
                         <p className="font-mono text-muted-foreground text-sm leading-relaxed mb-8">
-                            De l'analyse de défauts industriels à la création automatisée de visuels marketing. Une approche complète de l'intelligence visuelle.
+                            De l'analyse de défauts industriels à la création automatisée de visuels marketing. Si ça se voit, on peut l'automatiser.
                         </p>
                     </div>
 

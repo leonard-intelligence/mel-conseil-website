@@ -34,7 +34,7 @@ export function SplashScreen({ onExitStart, onComplete }: SplashScreenProps) {
 
     return (
         <div
-            className={`fixed inset-0 z-[200] flex items-center justify-center pointer-events-none ${phase === 'exiting' ? 'bg-transparent' : 'bg-black'
+            className={`fixed inset-0 z-[200] flex items-center justify-center pointer-events-none transition-colors duration-700 ${phase === 'exiting' ? 'bg-transparent' : 'bg-black'
                 }`}
         >
             <div
