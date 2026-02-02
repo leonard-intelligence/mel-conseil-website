@@ -1,5 +1,7 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { contactSignal } from '@/lib/contactSignal';
+import { clsx } from 'clsx';
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
@@ -9,6 +11,45 @@ import { DotIcon, leonardIcons } from "@/components/ui/LeonardIcons";
 export function Contact() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSent, setIsSent] = useState(false);
+    const [selectedInterests, setSelectedInterests] = useState<string[]>([]);
+    const [message, setMessage] = useState("");
+
+    const interests = [
+        "Visual Intelligence",
+        "Language & Process",
+        "Audio & Signal",
+        "Video Intelligence",
+        "Stratégie IA"
+    ];
+
+    const toggleInterest = (interest: string) => {
+        setSelectedInterests(prev =>
+            prev.includes(interest)
+                ? prev.filter(i => i !== interest)
+                : [...prev, interest]
+        );
+    };
+
+    useEffect(() => {
+        return contactSignal.subscribe((subject) => {
+            // 1. Scroll to contact section
+            const contactSection = document.getElementById('section-contact');
+            if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+            }
+
+            // 2. Select the interest tag
+            setSelectedInterests(prev => {
+                if (!prev.includes(subject)) {
+                    return [...prev, subject];
+                }
+                return prev;
+            });
+
+            // 3. Optional: Highlight effect or focus?
+            // For now, selecting the tag is enough visual feedback.
+        });
+    }, []);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -97,10 +138,38 @@ export function Contact() {
                                 <Input id="company" placeholder="MetaCortex" className="bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-[#E67E22] rounded-none h-12 font-mono input-animate" />
                             </div>
 
+                            <div className="space-y-4">
+                                <Label className="text-gray-300 font-mono uppercase text-xs">Je suis intéressé par</Label>
+                                <div className="flex flex-wrap gap-2">
+                                    {interests.map((interest) => (
+                                        <button
+                                            key={interest}
+                                            type="button"
+                                            onClick={() => toggleInterest(interest)}
+                                            className={clsx(
+                                                "font-mono text-xs px-3 py-2 border transition-all duration-200 uppercase tracking-wide",
+                                                selectedInterests.includes(interest)
+                                                    ? "bg-[#E67E22] border-[#E67E22] text-white"
+                                                    : "bg-transparent border-white/10 text-gray-400 hover:border-white/30 hover:text-white"
+                                            )}
+                                        >
+                                            {selectedInterests.includes(interest) && (
+                                                <span className="mr-2 inline-block">✓</span>
+                                            )}
+                                            {interest}
+                                        </button>
+                                    ))}
+                                </div>
+                                {/* Hidden input for form submission if needed */}
+                                <input type="hidden" name="interests" value={selectedInterests.join(',')} />
+                            </div>
+
                             <div className="space-y-2">
                                 <Label htmlFor="message" className="text-gray-300 font-mono uppercase text-xs">Message</Label>
                                 <Textarea
                                     id="message"
+                                    value={message}
+                                    onChange={(e) => setMessage(e.target.value)}
                                     placeholder="Je cherche à automatiser un flux complexe : extraction de données sur documents scannés (LLM), analyse et qualification des photos jointes (Vision), et injection propre en base de données SQL. Le volume devient ingérable manuellement..."
                                     className="min-h-[120px] bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-[#E67E22] rounded-none font-mono input-animate"
                                     required

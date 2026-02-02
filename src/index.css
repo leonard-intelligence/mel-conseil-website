@@ -179,7 +179,8 @@
 
   body {
     overflow-x: hidden;
-    max-width: 100vw;
+    max-width: 1920px;
+    margin-inline: auto;
   }
 
   body {

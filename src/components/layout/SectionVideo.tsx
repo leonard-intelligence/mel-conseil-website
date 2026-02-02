@@ -1,5 +1,7 @@
 import { DotIcon, leonardIcons } from "@/components/ui/LeonardIcons";
 import { TechIllustration } from "@/components/ui/TechIllustration";
+import { contactSignal } from "@/lib/contactSignal";
+import { Button } from "@/components/ui/button";
 
 export function SectionVideo() {
     return (
@@ -74,12 +76,23 @@ export function SectionVideo() {
                         <p className="font-mono text-muted-foreground text-sm leading-relaxed mb-8">
                             Automatisation de la production vidéo, avatars interactifs pour la formation et le support. L'image en mouvement.
                         </p>
+
+                        <Button
+                            variant="outline"
+                            className="text-[#E67E22] border-[#E67E22]/50 hover:bg-[#E67E22]/10 hover:text-[#E67E22] font-mono text-xs uppercase tracking-wider mb-2"
+                            onClick={() => contactSignal.trigger('Video Intelligence')}
+                        >
+                            <span className="flex items-center gap-2">
+                                Discuter de ce sujet
+                                <DotIcon icon={leonardIcons.arrowRight} size={14} fillColor="currentColor" />
+                            </span>
+                        </Button>
                     </div>
 
                     {/* Research Items List */}
                     <div className="flex-1 flex flex-col">
                         <div id="expertise-video-item-1" className="flex-1 border-b border-white/10 p-8 group hover:bg-white/5 transition-colors relative reveal-left stagger-1 hover-lift">
-                            <div className="w-8 h-8 bg-black border border-white/10 flex items-center justify-center mb-4 text-white bg-pattern-diagonal icon-bounce">
+                            <div className="w-8 h-8 bg-black border border-white/10 flex items-center justify-center mb-4 text-white icon-bounce">
                                 <DotIcon icon={leonardIcons.avatarsIA} size={20} fillColor="white" />
                             </div>
                             <h3 className="text-white font-mono text-lg mb-2 uppercase tracking-[-0.02em]">Avatars IA</h3>
@@ -87,7 +100,7 @@ export function SectionVideo() {
                         </div>
 
                         <div id="expertise-video-item-2" className="flex-1 p-8 group hover:bg-white/5 transition-colors relative reveal-left stagger-2 hover-lift">
-                            <div className="w-8 h-8 bg-black border border-white/10 flex items-center justify-center mb-4 text-white bg-pattern-diagonal icon-bounce">
+                            <div className="w-8 h-8 bg-black border border-white/10 flex items-center justify-center mb-4 text-white icon-bounce">
                                 <DotIcon icon={leonardIcons.productionAutomatisee} size={20} fillColor="white" />
                             </div>
                             <h3 className="text-white font-mono text-lg mb-2 uppercase tracking-[-0.02em]">Production Automatisée</h3>

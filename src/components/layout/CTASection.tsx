@@ -15,11 +15,11 @@ export function CTASection() {
                 </p>
 
                 <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-                    <a href="#section-contact" id="cta-btn-primary" className="group relative px-8 h-14 flex items-center justify-center bg-[#3D2314] text-[#E67E22] border border-[#8B4513] font-mono font-semibold uppercase text-lg hover:bg-[#4A2A1A] transition-all w-full md:w-auto">
+                    <a href="#section-contact" id="cta-btn-primary" className="group relative px-8 h-14 flex items-center justify-center bg-[#E67E22] text-white border border-[#E67E22] font-mono font-semibold uppercase text-lg hover:bg-white hover:text-[#E67E22] transition-colors duration-300 w-full md:w-auto">
                         <span className="flex items-center gap-3">
                             RÉSERVER UN CRÉNEAU
                             <div className="group-hover:translate-x-1 transition-transform">
-                                <DotIcon icon={leonardIcons.arrowRight} size={20} fillColor="#E67E22" />
+                                <DotIcon icon={leonardIcons.arrowRight} size={20} fillColor="currentColor" />
                             </div>
                         </span>
                     </a>
@@ -37,10 +37,7 @@ export function CTASection() {
                             <DotIcon icon={leonardIcons.rgpdCompliant} size={16} fillColor="#E67E22" />
                             <span className="font-mono text-xs">RGPD COMPLIANT</span>
                         </div>
-                        <div className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
-                            <DotIcon icon={leonardIcons.secNumCloud} size={16} fillColor="#E67E22" />
-                            <span className="font-mono text-xs">SecNumCloud</span>
-                        </div>
+
                         <div className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
                             <DotIcon icon={leonardIcons.hdsReady} size={16} fillColor="#E67E22" />
                             <span className="font-mono text-xs">HDS COMPATIBLE</span>

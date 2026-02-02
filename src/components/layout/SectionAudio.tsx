@@ -1,5 +1,7 @@
 import { DotIcon, leonardIcons } from "@/components/ui/LeonardIcons";
 import { TechIllustration } from "@/components/ui/TechIllustration";
+import { contactSignal } from "@/lib/contactSignal";
+import { Button } from "@/components/ui/button";
 
 export function SectionAudio() {
     return (
@@ -17,11 +19,22 @@ export function SectionAudio() {
                         <p className="font-mono text-gray-400 text-sm leading-relaxed mb-8">
                             Pour les centres d'appels et l'industrie. Ne perdez plus aucune information orale.
                         </p>
+
+                        <Button
+                            variant="outline"
+                            className="text-[#E67E22] border-[#E67E22]/50 hover:bg-[#E67E22]/10 hover:text-[#E67E22] font-mono text-xs uppercase tracking-wider mb-2"
+                            onClick={() => contactSignal.trigger('Audio & Signal')}
+                        >
+                            <span className="flex items-center gap-2">
+                                Discuter de ce sujet
+                                <DotIcon icon={leonardIcons.arrowRight} size={14} fillColor="currentColor" />
+                            </span>
+                        </Button>
                     </div>
 
                     <div className="flex-1 flex flex-col">
                         <div id="expertise-audio-item-1" className="flex-1 border-b border-white/10 p-8 group hover:bg-white/5 transition-colors relative reveal-right stagger-1 hover-lift">
-                            <div className="w-8 h-8 bg-black border border-white/10 flex items-center justify-center mb-4 text-white bg-pattern-diagonal icon-bounce">
+                            <div className="w-8 h-8 bg-black border border-white/10 flex items-center justify-center mb-4 text-white icon-bounce">
                                 <DotIcon icon={leonardIcons.speechToText} size={20} fillColor="white" />
                             </div>
                             <h3 className="text-white font-mono text-lg mb-2 uppercase tracking-[-0.02em]">Speech-to-Text</h3>
@@ -29,7 +42,7 @@ export function SectionAudio() {
                         </div>
 
                         <div id="expertise-audio-item-2" className="flex-1 p-8 group hover:bg-white/5 transition-colors relative reveal-right stagger-2 hover-lift">
-                            <div className="w-8 h-8 bg-black border border-white/10 flex items-center justify-center mb-4 text-white bg-pattern-diagonal">
+                            <div className="w-8 h-8 bg-black border border-white/10 flex items-center justify-center mb-4 text-white">
                                 <DotIcon icon={leonardIcons.textToSpeech} size={20} fillColor="white" />
                             </div>
                             <h3 className="text-white font-mono text-lg mb-2 uppercase tracking-[-0.02em]">Audio Generation (TTS)</h3>
@@ -44,7 +57,7 @@ export function SectionAudio() {
                     <div className="relative z-10 mb-12 reveal-left">
                         <div className="text-[#E67E22] font-mono mb-2 text-lg">03 Audio & Signal.</div>
                         <h2 id="expertise-audio-heading" className="text-4xl md:text-5xl font-mono text-white leading-tight max-w-4xl uppercase tracking-[-0.02em]">
-                            <span className="text-zinc-500">Pour les centres d'appels</span><br />
+                            <span className="text-zinc-400">Pour les centres d'appels</span><br />
                             et l'industrie.
                         </h2>
                     </div>

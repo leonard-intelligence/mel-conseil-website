@@ -34,15 +34,15 @@ export function Hero() {
         >
 
             {/* UPPER TIER: Main Visual & Content Area (Flex Grow) */}
-            <div className="relative flex-grow flex items-center w-full">
+            <div className="relative flex-grow flex items-end w-full">
 
-                {/* Content Layer */}
-                <div className={`container mx-auto px-6 z-20 relative w-full pt-32 lg:pt-20 pb-12 transition-all duration-1000 ${animationPhase === 'intro' ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
+                {/* Content Layer - Constrained by Container */}
+                <div className={`container mx-auto z-20 relative w-full transition-all duration-1000 ${animationPhase === 'intro' ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
                     }`}>
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 w-full">
 
-                        {/* LEFT COLUMN: Content */}
-                        <div className="lg:col-span-7 flex flex-col items-start text-left">
+                        {/* LEFT COLUMN: Content - Added padding here since parent container padding was removed */}
+                        <div className="lg:col-span-7 flex flex-col items-start text-left pl-6 pb-12 pt-32 lg:pt-20">
 
                             {/* Status Badge */}
                             <div className="inline-flex items-center gap-2 bg-black/80 px-4 py-2 rounded-full text-[0.8rem] font-mono border border-white/10 mb-8 lg:mb-10 text-[#E67E22]">
@@ -68,7 +68,7 @@ export function Hero() {
                                 <a
                                     href="#section-contact"
                                     id="hero-cta-primary"
-                                    className="bg-[#3D2314] text-[#E67E22] border border-[#8B4513] px-6 py-3 font-mono font-semibold uppercase text-base inline-block transition-all hover:bg-[#4A2A1A] hover:-translate-y-0.5 shadow-lg text-center"
+                                    className="bg-[#E67E22] text-white border border-[#E67E22] px-6 py-3 font-mono font-semibold uppercase text-base inline-block transition-all hover:bg-white hover:text-[#E67E22] hover:-translate-y-0.5 shadow-lg shadow-orange-500/20 text-center"
                                 >
                                     DEMANDER UN AUDIT
                                 </a>
@@ -82,28 +82,30 @@ export function Hero() {
                             </div>
                         </div>
 
-
-                        {/* RIGHT COLUMN: Visual (Hero Image) - Desktop layout (Licorne 3 Special Style) */}
-                        <div className="hidden lg:block absolute bottom-0 right-0 w-[55vw] h-[90vh] z-10 pointer-events-none translate-x-[10%] translate-y-[5%]">
-                            <FxImage
-                                src={'/assets/hero-concepts/licorne 3.png'}
-                                alt="Visualisation abstraite de l'intelligence artificielle"
-                                className="w-full h-full"
-                                style={{ width: '100%', height: '100%' }}
-                                imgStyle={{
-                                    width: '100%',
-                                    height: '100%',
-                                    objectFit: 'contain',
-                                    objectPosition: 'bottom right'
-                                }}
-                                config={config.fxConfig || {
-                                    fitMode: 'contain',
-                                    duotone: { enabled: true, colorA: '#000000', colorB: '#ffffff', strength: 1 },
-                                    interaction: { enabled: true, mode: 'shape', variant: 'push', radius: 0.15, softness: 0.5, activeSize: 15 }
-                                }}
-                            />
-                        </div>
+                        {/* Empty Spacer Column to maintain Grid Shape for Text */}
+                        <div className="hidden lg:block lg:col-span-5"></div>
                     </div>
+                </div>
+
+                {/* RIGHT COLUMN: Visual (Hero Image) - Absolute Positioned Flush Right/Bottom */}
+                <div className="hidden lg:block absolute bottom-0 right-0 h-full w-[50%] z-10 pointer-events-none">
+                    <FxImage
+                        src={'/assets/hero-concepts/licorne 3.png'}
+                        alt="Visualisation abstraite de l'intelligence artificielle"
+                        className="w-full h-full"
+                        style={{ width: '100%', height: '100%' }}
+                        imgStyle={{
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'contain',
+                            objectPosition: 'bottom right'
+                        }}
+                        config={config.fxConfig || {
+                            fitMode: 'contain',
+                            duotone: { enabled: true, colorA: '#000000', colorB: '#ffffff', strength: 1 },
+                            interaction: { enabled: true, mode: 'shape', variant: 'push', radius: 0.15, softness: 0.5, activeSize: 15 }
+                        }}
+                    />
                 </div>
 
                 {/* MOBILE OVERLAY - Door illustration with FX effects */}
