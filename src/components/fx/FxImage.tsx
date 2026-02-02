@@ -321,9 +321,11 @@ export function FxImage({ src, depthSrc, alt = '', className = '', config, style
         gl.uniform1f(uniforms.u_containerAspect, containerAspect);
         gl.uniform1f(uniforms.u_imageAspect, imageAspect);
 
-        // Fit Mode: 0 = Cover, 1 = Height
-        const fitMode = currentConfig.fitMode === 'height' ? 1 : 0;
-        gl.uniform1i(uniforms.u_fitMode, fitMode);
+        // Fit Mode: 0 = Cover, 1 = Height, 2 = Contain
+        let fitInt = 0;
+        if (currentConfig.fitMode === 'height') fitInt = 1;
+        else if (currentConfig.fitMode === 'contain') fitInt = 2;
+        gl.uniform1i(uniforms.u_fitMode, fitInt);
 
         // Calculate Object Position from imgStyle
         let objPosX = 0.5;
@@ -336,27 +338,37 @@ export function FxImage({ src, depthSrc, alt = '', className = '', config, style
             // Helper to parse keywords
             const parsePos = (val: string, isX: boolean) => {
                 if (val === 'center') return 0.5;
-                if (val === 'left' && isX) return 0.0;
-                if (val === 'right' && isX) return 1.0;
-                if (val === 'top' && !isX) return 0.0;
-                if (val === 'bottom' && !isX) return 1.0;
-                // Percentages could be handled but sticking to simple keywords for now
+                if (isX) {
+                    if (val === 'left') return 0.0;
+                    if (val === 'right') return 1.0;
+                } else {
+                    if (val === 'top') return 0.0;
+                    if (val === 'bottom') return 1.0;
+                }
                 if (val.endsWith('%')) return parseFloat(val) / 100;
-                return 0.5; // Default fallback
+                return null; // No match for this axis
             }
 
-            if (parts.length === 1) {
-                // one value: applied to both? CSS says center if omitted.
-                // usually 'left' implies 'left center'.
-                // Let's try to detect if it's x or y keyword
-                if (['top', 'bottom'].includes(parts[0])) { objPosY = parsePos(parts[0], false); }
-                else { objPosX = parsePos(parts[0], true); }
-            } else if (parts.length >= 2) {
-                // Assume order is X Y unless keywords dictate otherwise? CSS allows swap if keywords.
-                // Simplified: First part X, second Y, unless explicit
-                objPosX = parsePos(parts[0], true);
-                objPosY = parsePos(parts[1], false);
-            }
+            // Identify which part is X and which is Y
+            parts.forEach(p => {
+                const xVal = parsePos(p, true);
+                const yVal = parsePos(p, false);
+
+                // If it's explicitly a Y keyword
+                if (['top', 'bottom'].includes(p)) objPosY = yVal ?? objPosY;
+                // If it's explicitly an X keyword
+                else if (['left', 'right'].includes(p)) objPosX = xVal ?? objPosX;
+                // If it's a percentage or center, assign based on first-available
+                else {
+                    if (p === 'center') { /* already default 0.5 */ }
+                    else if (p.endsWith('%')) {
+                        // First numeric value is X in CSS unless specified
+                        // Simple heuristic for now
+                        if (parts.indexOf(p) === 0) objPosX = xVal ?? objPosX;
+                        else objPosY = yVal ?? objPosY;
+                    }
+                }
+            });
         }
         gl.uniform2f(uniforms.u_objectPosition, objPosX, objPosY);
 

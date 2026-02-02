@@ -5,7 +5,7 @@ export function Navbar() {
     return (
         <nav
             id="section-navbar"
-            className="fixed top-0 left-0 w-full flex justify-between items-center h-[60px] bg-black/50 backdrop-blur-md border-b border-white/10 z-[100] p-0 reveal delay-100"
+            className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-[1920px] flex justify-between items-center h-[60px] bg-black/50 backdrop-blur-md border-b border-white/10 z-[100] p-0 reveal delay-100"
             aria-label="Navigation principale"
         >
             {/* Branding Area */}

@@ -29,7 +29,7 @@ export function Hero() {
         /* Replaced .hero-section with direct styles */
         <section
             id="section-hero"
-            className="relative min-h-[100dvh] w-full flex flex-col group bg-pattern-grid overflow-hidden"
+            className="relative h-[100dvh] max-h-[850px] w-full flex flex-col group bg-pattern-grid overflow-hidden"
             aria-label="Introduction"
         >
 
@@ -82,13 +82,13 @@ export function Hero() {
                             </div>
                         </div>
 
-                        {/* Empty Spacer Column to maintain Grid Shape for Text */}
+                        {/* Grid Spacer to maintain text alignment */}
                         <div className="hidden lg:block lg:col-span-5"></div>
                     </div>
                 </div>
 
-                {/* RIGHT COLUMN: Visual (Hero Image) - Absolute Positioned Flush Right/Bottom */}
-                <div className="hidden lg:block absolute bottom-0 right-0 h-full w-[50%] z-10 pointer-events-none">
+                {/* RIGHT COLUMN: Visual (Hero Image) - Properly anchored to bottom-right. Managed by fixed 'contain' mode in shader */}
+                <div className="hidden lg:block absolute bottom-0 right-0 h-[90%] w-[65%] z-10 pointer-events-none">
                     <FxImage
                         src={'/assets/hero-concepts/licorne 3.png'}
                         alt="Visualisation abstraite de l'intelligence artificielle"

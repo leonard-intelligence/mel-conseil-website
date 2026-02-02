@@ -124,9 +124,25 @@ vec4 getCoverColor(vec2 uv) {
         }
         return texture2D(u_image, projectUV);
 
+    } else if (u_fitMode == 2) { // Contain
+        // Fit both width and height, keeping aspect ratio
+        vec2 containRatio = vec2(1.0);
+        if (u_containerAspect > u_imageAspect) {
+            containRatio.x = u_imageAspect / u_containerAspect;
+        } else {
+            containRatio.y = u_containerAspect / u_imageAspect;
+        }
+        
+        vec2 projectUV = (uv - u_objectPosition * (1.0 - containRatio)) / containRatio;
+        
+        if (projectUV.x < 0.0 || projectUV.x > 1.0 || projectUV.y < 0.0 || projectUV.y > 1.0) {
+            return vec4(0.0);
+        }
+        return texture2D(u_image, projectUV);
+        
     } else { // Default Cover (0)
         // Ratio here is "Coverage per Screen Unit"
-        ratio = vec2(
+        vec2 ratio = vec2(
             min((u_containerAspect / u_imageAspect), 1.0),
             min((u_imageAspect / u_containerAspect), 1.0)
         );

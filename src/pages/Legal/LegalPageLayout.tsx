@@ -16,7 +16,7 @@ export function LegalPageLayout({ title, lastUpdate, children }: LegalPageLayout
     return (
         <div className="min-h-screen bg-black">
             {/* Header with Logo */}
-            <header className="fixed top-0 left-0 w-full bg-black/80 backdrop-blur-md border-b border-white/10 z-50">
+            <header className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-[1920px] bg-black/80 backdrop-blur-md border-b border-white/10 z-50">
                 <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
                     <Link
                         to="/"
