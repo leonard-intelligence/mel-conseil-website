@@ -29,7 +29,7 @@ export function Footer() {
 
                     {/* Expertise */}
                     <nav aria-label="Expertises" className="flex flex-col">
-                        <h4 className="font-mono font-semibold text-white mb-6 uppercase text-xs tracking-wider">Expertises</h4>
+                        <h4 className="font-mono font-medium text-white mb-6 uppercase text-xs tracking-wider">Expertises</h4>
                         <ul className="space-y-3 text-gray-500 font-mono text-xs">
                             <li className="hover:text-white transition-colors">Visual Intelligence</li>
                             <li className="hover:text-white transition-colors">Language & Process</li>
@@ -40,7 +40,7 @@ export function Footer() {
 
                     {/* Industries */}
                     <nav aria-label="Secteurs" className="flex flex-col">
-                        <h4 className="font-mono font-semibold text-white mb-6 uppercase text-xs tracking-wider">Secteurs</h4>
+                        <h4 className="font-mono font-medium text-white mb-6 uppercase text-xs tracking-wider">Secteurs</h4>
                         <ul className="space-y-3 text-gray-500 font-mono text-xs">
                             <li className="hover:text-white transition-colors">Retail & E-commerce</li>
                             <li className="hover:text-white transition-colors">Industrie & Qualité</li>
@@ -50,7 +50,7 @@ export function Footer() {
 
                     {/* Resources */}
                     <nav aria-label="Liens utiles" className="flex flex-col">
-                        <h4 className="font-mono font-semibold text-white mb-6 uppercase text-xs tracking-wider">Liens</h4>
+                        <h4 className="font-mono font-medium text-white mb-6 uppercase text-xs tracking-wider">Liens</h4>
                         <ul className="space-y-3 text-gray-500 font-mono text-xs">
                             <li>
                                 <a
@@ -74,7 +74,7 @@ export function Footer() {
 
                     {/* Company */}
                     <div className="flex flex-col">
-                        <h4 className="font-mono font-semibold text-white mb-6 uppercase text-xs tracking-wider">Audit</h4>
+                        <h4 className="font-mono font-medium text-white mb-6 uppercase text-xs tracking-wider">Audit</h4>
                         <p className="text-gray-500 font-mono text-xs mb-4">
                             Identification des opportunités d'automatisation pour votre entreprise.
                         </p>

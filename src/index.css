@@ -214,8 +214,12 @@
   }
 
   to {
-    transform: translateX(calc(-100% / 3));
+    transform: translateX(-50%);
   }
+}
+
+.animate-marquee {
+  animation: scroll-rtl 20s linear infinite;
 }
 
 /* TECHNICAL PATTERNS */

@@ -8,7 +8,7 @@ interface SectionProps {
 function Section({ title, children }: SectionProps) {
     return (
         <section className="group">
-            <h2 className="text-lg md:text-xl font-semibold text-white mb-4 flex items-center gap-3">
+            <h2 className="text-lg md:text-xl font-medium text-white mb-4 flex items-center gap-3">
                 <span className="w-1 h-6 bg-[#E67E22] rounded-full opacity-80 group-hover:opacity-100 transition-opacity"></span>
                 {title}
             </h2>
@@ -29,7 +29,7 @@ export function CGV() {
                     Les présentes Conditions Générales de Vente (ci-après "CGV") déterminent
                     les droits et obligations des parties dans le cadre de la vente de
                     prestations de services proposées par{' '}
-                    <strong className="text-white">Leonard Intelligence</strong> (ci-après le
+                    <span className="text-white font-medium">Leonard Intelligence</span> (ci-après le
                     "Prestataire").
                 </p>
             </Section>
@@ -51,7 +51,7 @@ export function CGV() {
             <Section title="Article 3 - Devis et Commandes">
                 <p>
                     Le Prestataire établit un devis gratuit pour toute prestation. Le devis
-                    est valable pour une durée de <strong className="text-white">30 jours</strong> à
+                    est valable pour une durée de <span className="text-white font-medium">30 jours</span> à
                     compter de sa date d'émission.
                 </p>
                 <p className="mt-4">
@@ -76,7 +76,7 @@ export function CGV() {
                 </p>
                 <div className="mt-4 p-4 bg-white/5 rounded-lg border border-white/10">
                     <p className="text-sm text-gray-400">
-                        <strong className="text-white">⚠️ Retard de paiement :</strong> Tout
+                        <span className="text-white font-medium">⚠️ Retard de paiement :</span> Tout
                         retard entraînera l'exigibilité immédiate de la totalité des sommes
                         dues, ainsi que l'application de pénalités de retard (3× le taux
                         d'intérêt légal) et une indemnité forfaitaire de 40€.
@@ -89,7 +89,7 @@ export function CGV() {
                     Le Prestataire s'engage à apporter tout le soin et la diligence
                     nécessaires à la fourniture d'une prestation de qualité conformément aux
                     usages de la profession et à l'état de l'art. Il ne répond que d'une{' '}
-                    <strong className="text-white">obligation de moyens</strong>.
+                    <span className="text-white font-medium">obligation de moyens</span>.
                 </p>
             </Section>
 
@@ -112,7 +112,7 @@ export function CGV() {
                     informations, documents, et données de toute nature provenant de l'autre
                     partie, dont elle aurait eu connaissance à l'occasion de l'exécution du
                     contrat. Cette obligation perdure pendant l'exécution du contrat et
-                    pendant une durée de <strong className="text-white">2 ans</strong> après son
+                    pendant une durée de <span className="text-white font-medium">2 ans</span> après son
                     expiration.
                 </p>
             </Section>
@@ -134,7 +134,7 @@ export function CGV() {
             <Section title="Article 9 - Droit applicable et Juridiction">
                 <p>
                     Les présentes CGV sont soumises au{' '}
-                    <strong className="text-white">droit français</strong>. Tout litige relatif
+                    <span className="text-white font-medium">droit français</span>. Tout litige relatif
                     à leur interprétation et/ou à leur exécution relève des tribunaux
                     compétents du ressort du siège social du Prestataire.
                 </p>

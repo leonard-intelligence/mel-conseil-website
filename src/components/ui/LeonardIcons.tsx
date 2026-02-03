@@ -165,21 +165,7 @@ export const leonardIcons: Record<string, LeonardIconDefinition> = {
             [1, 1, 1, 1, 1, 1, 1, 1],
         ]
     },
-    cloudActFree: {
-        name: "Cloud Act Free",
-        category: "Conformité & Certifications",
-        description: "Hors juridiction US - barré",
-        pattern: [
-            [0, 0, 1, 1, 1, 1, 0, 0],
-            [0, 1, 1, 0, 0, 1, 1, 0],
-            [1, 1, 0, 0, 0, 0, 1, 1],
-            [1, 1, 0, 1, 1, 0, 1, 1],
-            [1, 1, 0, 1, 1, 0, 1, 1],
-            [1, 1, 0, 1, 1, 0, 1, 1],
-            [0, 1, 1, 1, 1, 1, 1, 0],
-            [0, 0, 1, 1, 1, 1, 0, 0],
-        ]
-    },
+
     onPremise: {
         name: "On-Premise",
         category: "Conformité & Certifications",

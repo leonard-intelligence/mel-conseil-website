@@ -10,7 +10,7 @@ export function Navbar() {
         >
             {/* Branding Area */}
             <div className="flex items-center h-full">
-                <div className="px-6 font-mono font-semibold text-lg -tracking-[0.05em] flex items-center h-full border-r border-white/10">
+                <div className="px-6 font-mono font-medium text-lg -tracking-[0.05em] flex items-center h-full border-r border-white/10">
                     <a href="/" className="flex items-center gap-1" aria-label="Retour à l'accueil">
                         <img
                             src={logo}
@@ -56,7 +56,7 @@ export function Navbar() {
                 <a
                     href="#section-contact"
                     id="navbar-cta"
-                    className="cta-contact-btn text-white h-full flex items-center px-6 font-semibold no-underline text-[0.9rem] uppercase transition-all duration-300"
+                    className="cta-contact-btn text-white h-full flex items-center px-6 font-medium no-underline text-[0.9rem] uppercase transition-all duration-300"
                 >
                     CONTACT <span className="cta-arrow ml-2">→</span>
                 </a>

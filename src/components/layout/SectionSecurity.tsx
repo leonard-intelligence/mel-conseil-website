@@ -20,7 +20,7 @@ export function SectionSecurity() {
                         pas de chez vous.
                     </h2>
                     <p className="font-mono text-sm text-gray-400 leading-relaxed max-w-md">
-                        Déploiement local ou cloud privé européen. Zéro dépendance aux géants américains. Cloud Act ? Pas concerné.
+                        Déploiement local ou cloud privé européen. Zéro dépendance aux géants américains.
                     </p>
                 </div>
 
@@ -48,7 +48,7 @@ export function SectionSecurity() {
                 `lg:grid-cols-5` would be better if Tailwind supports it (it usually does or we can use generic).
                 But let's just remove the block first. 
             */}
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                 <div className="p-6 border-r border-white/10 flex flex-col items-center justify-center text-center hover:bg-white/5 transition-colors">
                     <div className="mb-3">
                         <DotIcon icon={leonardIcons.rgpdCompliant} size={24} fillColor="#E67E22" />
@@ -60,12 +60,6 @@ export function SectionSecurity() {
                         <DotIcon icon={leonardIcons.hebergementUE} size={24} fillColor="#E67E22" />
                     </div>
                     <span className="font-mono text-xs text-white uppercase tracking-wider">Héberg. UE</span>
-                </div>
-                <div className="p-6 border-r border-white/10 flex flex-col items-center justify-center text-center hover:bg-white/5 transition-colors">
-                    <div className="mb-3">
-                        <DotIcon icon={leonardIcons.cloudActFree} size={24} fillColor="#E67E22" />
-                    </div>
-                    <span className="font-mono text-xs text-white uppercase tracking-wider">Cloud Act ✗</span>
                 </div>
                 <div className="p-6 border-r border-white/10 flex flex-col items-center justify-center text-center hover:bg-white/5 transition-colors">
                     <div className="mb-3">

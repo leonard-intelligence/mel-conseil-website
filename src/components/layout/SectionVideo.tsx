@@ -79,7 +79,7 @@ export function SectionVideo() {
 
                         <Button
                             variant="outline"
-                            className="text-[#E67E22] border-[#E67E22]/50 hover:bg-[#E67E22]/10 hover:text-[#E67E22] font-mono text-xs uppercase tracking-wider mb-2"
+                            className="bg-black text-[#E67E22] border-[#E67E22]/50 hover:bg-[#E67E22] hover:text-black font-mono text-xs uppercase tracking-wider mb-2"
                             onClick={() => contactSignal.trigger('Video Intelligence')}
                         >
                             <span className="flex items-center gap-2">

@@ -24,7 +24,7 @@ export function SectionStrategy() {
                 {/* CTA in header */}
                 <a
                     href="#section-contact"
-                    className="group inline-flex items-center gap-3 bg-[#E67E22] hover:bg-[#D35400] text-[#3D2314] px-8 py-4 font-mono font-semibold uppercase text-sm transition-all hover:-translate-y-0.5 border border-[#E67E22]"
+                    className="group inline-flex items-center gap-3 bg-[#E67E22] hover:bg-[#D35400] text-[#3D2314] px-8 py-4 font-mono font-medium uppercase text-sm transition-all hover:-translate-y-0.5 border border-[#E67E22]"
                 >
 
                     Prendre l'avantage
@@ -40,14 +40,14 @@ export function SectionStrategy() {
                 {/* Large stat card - spans 2 cols */}
                 <div className="col-span-2 p-8 border-r border-white/10 bg-[#E67E22]/5 flex items-center gap-8">
                     <div className="text-center">
-                        <div className="font-mono text-6xl font-semibold text-white/30 mb-1">23%</div>
+                        <div className="font-mono text-6xl font-medium text-white/30 mb-1">23%</div>
                         <div className="text-xs font-mono text-white/40 uppercase">Aujourd'hui</div>
                     </div>
                     <div className="flex-1 flex items-center justify-center">
                         <DotIcon icon={leonardIcons.arrowRight} size={32} fillColor="#E67E22" />
                     </div>
                     <div className="text-center">
-                        <div className="font-mono text-6xl font-semibold text-[#E67E22] mb-1">80%</div>
+                        <div className="font-mono text-6xl font-medium text-[#E67E22] mb-1">80%</div>
                         <div className="text-xs font-mono text-[#E67E22] uppercase">2027</div>
                     </div>
                 </div>
@@ -57,7 +57,7 @@ export function SectionStrategy() {
                     <div className="mb-3">
                         <DotIcon icon={leonardIcons.users} size={20} fillColor="#E67E22" />
                     </div>
-                    <div className="font-mono text-2xl font-semibold text-white mb-1">58%</div>
+                    <div className="font-mono text-2xl font-medium text-white mb-1">58%</div>
                     <div className="text-xs font-mono text-zinc-400">Dirigeants convaincus</div>
                 </div>
 
@@ -65,7 +65,7 @@ export function SectionStrategy() {
                     <div className="mb-3">
                         <DotIcon icon={leonardIcons.performanceMonitor} size={20} fillColor="#E67E22" />
                     </div>
-                    <div className="font-mono text-2xl font-semibold text-white mb-1">2025-27</div>
+                    <div className="font-mono text-2xl font-medium text-white mb-1">2025-27</div>
                     <div className="text-xs font-mono text-zinc-400">Fenêtre critique</div>
                 </div>
 

@@ -690,8 +690,8 @@ export function FxImage({ src, depthSrc, alt = '', className = '', config, style
                     maxHeight: '100%',
                     width: 'auto',
                     height: 'auto',
-                    // Only hide image AFTER WebGL has drawn first frame (prevents white flash)
-                    visibility: (effectsActive && imageLoaded && isVisible && webglReady) ? 'hidden' : 'visible',
+                    // Hide image immediately if effects are active to prevent FOUC (Flash of Unstyled Content)
+                    visibility: (effectsActive) ? 'hidden' : 'visible',
                     pointerEvents: 'none', // Allow clicks to pass through to parent container
                     ...imgStyle,
                 }}

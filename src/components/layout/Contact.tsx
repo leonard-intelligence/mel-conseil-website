@@ -12,7 +12,19 @@ export function Contact() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSent, setIsSent] = useState(false);
     const [selectedInterests, setSelectedInterests] = useState<string[]>([]);
+
+    // Form State
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [email, setEmail] = useState("");
+    const [company, setCompany] = useState("");
     const [message, setMessage] = useState("");
+
+    // Validation
+    const isValid = firstName.trim() !== "" &&
+        lastName.trim() !== "" &&
+        email.trim() !== "" &&
+        message.trim() !== "";
 
     const interests = [
         "Visual Intelligence",
@@ -69,7 +81,7 @@ export function Contact() {
 
                 {/* Contact Info */}
                 <div>
-                    <h2 id="contact-heading" className="text-4xl md:text-5xl font-semibold font-mono uppercase text-white mb-6">
+                    <h2 id="contact-heading" className="text-4xl md:text-5xl font-medium font-mono uppercase text-white mb-6">
                         Parlons de <span className="text-[#E67E22]">votre projet.</span>
                     </h2>
                     <p className="text-gray-400 text-lg mb-12 leading-relaxed font-sans">
@@ -83,7 +95,7 @@ export function Contact() {
                                 <DotIcon icon={leonardIcons.emailsTries} size={24} fillColor="#E67E22" />
                             </div>
                             <div>
-                                <h3 className="text-white font-semibold mb-1 font-mono uppercase">Email</h3>
+                                <h3 className="text-white font-medium mb-1 font-mono uppercase">Email</h3>
                                 <p className="text-gray-400 font-mono text-sm">hello@leonardintelligence.com</p>
                                 <p className="text-gray-500 text-xs mt-1 font-mono">Réponse garantie sous 24h.</p>
                             </div>
@@ -103,7 +115,7 @@ export function Contact() {
                     {isSent ? (
                         <div className="h-full flex flex-col items-center justify-center text-center py-12">
                             <DotIcon icon={leonardIcons.check} size={64} fillColor="#E67E22" className="mb-6" />
-                            <h3 className="text-2xl font-semibold font-mono text-white mb-2 uppercase">Message envoyé</h3>
+                            <h3 className="text-2xl font-medium font-mono text-white mb-2 uppercase">Message envoyé</h3>
                             <p className="text-gray-400 font-sans">
                                 Merci de nous avoir contactés. Nous reviendrons vers vous très rapidement.
                             </p>
@@ -120,22 +132,50 @@ export function Contact() {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="space-y-2">
                                     <Label htmlFor="firstName" className="text-gray-300 font-mono uppercase text-xs">Prénom</Label>
-                                    <Input id="firstName" placeholder="Thomas" required className="bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-[#E67E22] rounded-none h-12 font-mono input-animate" />
+                                    <Input
+                                        id="firstName"
+                                        value={firstName}
+                                        onChange={(e) => setFirstName(e.target.value)}
+                                        placeholder="Thomas"
+                                        required
+                                        className="bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-[#E67E22] rounded-none h-12 font-mono input-animate"
+                                    />
                                 </div>
                                 <div className="space-y-2">
                                     <Label htmlFor="name" className="text-gray-300 font-mono uppercase text-xs">Nom</Label>
-                                    <Input id="name" placeholder="Anderson" required className="bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-[#E67E22] rounded-none h-12 font-mono input-animate" />
+                                    <Input
+                                        id="name"
+                                        value={lastName}
+                                        onChange={(e) => setLastName(e.target.value)}
+                                        placeholder="Anderson"
+                                        required
+                                        className="bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-[#E67E22] rounded-none h-12 font-mono input-animate"
+                                    />
                                 </div>
                             </div>
 
                             <div className="space-y-2">
                                 <Label htmlFor="email" className="text-gray-300 font-mono uppercase text-xs">Email professionnel</Label>
-                                <Input id="email" type="email" placeholder="t.anderson@metacortex.com" required className="bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-[#E67E22] rounded-none h-12 font-mono input-animate" />
+                                <Input
+                                    id="email"
+                                    type="email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    placeholder="t.anderson@metacortex.com"
+                                    required
+                                    className="bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-[#E67E22] rounded-none h-12 font-mono input-animate"
+                                />
                             </div>
 
                             <div className="space-y-2">
                                 <Label htmlFor="company" className="text-gray-300 font-mono uppercase text-xs">Entreprise</Label>
-                                <Input id="company" placeholder="MetaCortex" className="bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-[#E67E22] rounded-none h-12 font-mono input-animate" />
+                                <Input
+                                    id="company"
+                                    value={company}
+                                    onChange={(e) => setCompany(e.target.value)}
+                                    placeholder="MetaCortex"
+                                    className="bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-[#E67E22] rounded-none h-12 font-mono input-animate"
+                                />
                             </div>
 
                             <div className="space-y-4">
@@ -178,8 +218,13 @@ export function Contact() {
 
                             <Button
                                 type="submit"
-                                className="w-full bg-white text-[#3D2314] hover:bg-[#F5F5F5] font-semibold font-mono h-14 text-sm uppercase rounded-none tracking-wider border border-[#3D2314] transition-all"
-                                disabled={isSubmitting}
+                                className={clsx(
+                                    "w-full font-medium font-mono h-14 text-sm uppercase rounded-none tracking-wider border transition-all",
+                                    isValid
+                                        ? "bg-white text-[#3D2314] hover:bg-[#F5F5F5] border-[#3D2314]"
+                                        : "bg-white/10 text-white/60 border-white/20 cursor-not-allowed"
+                                )}
+                                disabled={isSubmitting || !isValid}
                             >
                                 {isSubmitting ? (
                                     "ENVOI EN COURS..."

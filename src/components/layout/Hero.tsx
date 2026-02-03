@@ -60,7 +60,7 @@ export function Hero() {
                             </h2>
 
                             <p className="font-mono text-[1rem] lg:text-[1.1rem] text-white/90 leading-relaxed max-w-xl mb-10 lg:mb-12 drop-shadow-lg font-medium pr-4">
-                                L'IA qui fonctionne chez vous, pas en Californie. Vos données, votre infrastructure, vos règles.
+                                L'IA qui fonctionne chez vous, pas aux États-Unis. Vos données, votre infrastructure, vos règles.<br />
                                 Open-source prioritaire, propriétaire si nécessaire. Déploiement sur-mesure.
                             </p>
 
@@ -68,7 +68,7 @@ export function Hero() {
                                 <a
                                     href="#section-contact"
                                     id="hero-cta-primary"
-                                    className="bg-[#E67E22] text-white border border-[#E67E22] px-6 py-3 font-mono font-semibold uppercase text-base inline-block transition-all hover:bg-white hover:text-[#E67E22] hover:-translate-y-0.5 shadow-lg shadow-orange-500/20 text-center"
+                                    className="bg-[#E67E22] text-white border border-[#E67E22] px-6 py-3 font-mono font-medium uppercase text-base inline-block transition-all hover:bg-white hover:text-[#E67E22] hover:-translate-y-0.5 shadow-lg shadow-orange-500/20 text-center"
                                 >
                                     DEMANDER UN AUDIT
                                 </a>

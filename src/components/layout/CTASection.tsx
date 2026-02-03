@@ -7,7 +7,7 @@ export function CTASection() {
 
             <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
                 {/* Sovereignty-focused headline like Onepoint */}
-                <h2 id="cta-heading" className="text-4xl md:text-5xl font-semibold font-mono text-white mb-6">
+                <h2 id="cta-heading" className="text-4xl md:text-5xl font-medium font-mono text-white mb-6">
                     Passez à l'action.
                 </h2>
                 <p className="text-xl text-gray-400 mb-12 font-light max-w-2xl mx-auto">
@@ -15,7 +15,7 @@ export function CTASection() {
                 </p>
 
                 <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-                    <a href="#section-contact" id="cta-btn-primary" className="group relative px-8 h-14 flex items-center justify-center bg-[#E67E22] text-white border border-[#E67E22] font-mono font-semibold uppercase text-lg hover:bg-white hover:text-[#E67E22] transition-colors duration-300 w-full md:w-auto">
+                    <a href="#section-contact" id="cta-btn-primary" className="group relative px-8 h-14 flex items-center justify-center bg-[#E67E22] text-white border border-[#E67E22] font-mono font-medium uppercase text-lg hover:bg-white hover:text-[#E67E22] transition-colors duration-300 w-full md:w-auto">
                         <span className="flex items-center gap-3">
                             RÉSERVER UN CRÉNEAU
                             <div className="group-hover:translate-x-1 transition-transform">
@@ -27,7 +27,7 @@ export function CTASection() {
 
                 {/* Enhanced compliance badges like Sia Partners */}
                 <div className="mt-16 pt-16 border-t border-white/5">
-                    <p className="text-xs text-gray-500 font-mono mb-6 uppercase tracking-wider">Conformité & Certifications</p>
+                    <p className="text-xs text-gray-500 font-mono mb-6 uppercase tracking-wider">Conformité</p>
                     <div className="flex flex-wrap justify-center gap-8 items-center">
                         <div className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
                             <DotIcon icon={leonardIcons.aiActReady} size={16} fillColor="#E67E22" />

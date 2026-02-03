@@ -56,7 +56,7 @@ export function LegalPageLayout({ title, lastUpdate, children }: LegalPageLayout
                 <div className="max-w-4xl mx-auto">
                     {/* Title Section */}
                     <div className="mb-12 pb-8 border-b border-white/10">
-                        <h1 className="text-3xl md:text-4xl font-semibold text-white mb-4">
+                        <h1 className="text-3xl md:text-4xl font-medium text-white mb-4">
                             {title}
                         </h1>
                         {lastUpdate && (

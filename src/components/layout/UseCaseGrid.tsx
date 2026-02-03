@@ -14,7 +14,7 @@ export function UseCaseGrid() {
                 {/* Header */}
                 <div className="flex flex-col md:flex-row justify-between items-end mb-8 md:mb-16">
                     <div>
-                        <h2 className="text-4xl font-semibold font-mono text-white mb-4">
+                        <h2 className="text-4xl font-medium font-mono text-white mb-4">
                             Impact Mesuré.
                         </h2>
                         <p className="text-gray-400 font-mono text-sm">
@@ -41,7 +41,7 @@ export function UseCaseGrid() {
                                     className="grayscale group-hover:grayscale-0 transition-all duration-700 opacity-80 group-hover:opacity-100"
                                 />
                                 <div className="absolute top-4 left-4">
-                                    <span className="font-mono text-xs font-semibold text-black bg-white px-2 py-1 uppercase tracking-wider">
+                                    <span className="font-mono text-xs font-medium text-black bg-white px-2 py-1 uppercase tracking-wider">
                                         CASE #{index + 1}
                                     </span>
                                 </div>
@@ -53,7 +53,7 @@ export function UseCaseGrid() {
                                     <h4 className="text-sm font-mono text-[#E67E22] uppercase tracking-wider mb-2">
                                         {item.sector}
                                     </h4>
-                                    <p className="text-white font-semibold text-lg leading-snug">
+                                    <p className="text-white font-medium text-lg leading-snug">
                                         {item.mission}
                                     </p>
                                 </div>
@@ -65,7 +65,7 @@ export function UseCaseGrid() {
                                     <div className="grid grid-cols-2 gap-4">
                                         {item.stats.map((stat, i) => (
                                             <div key={i}>
-                                                <div className="text-2xl font-semibold text-white font-mono">{stat.value}</div>
+                                                <div className="text-2xl font-medium text-white font-mono">{stat.value}</div>
                                                 <div className="text-[10px] text-gray-500 uppercase tracking-wider">{stat.label}</div>
                                             </div>
                                         ))}

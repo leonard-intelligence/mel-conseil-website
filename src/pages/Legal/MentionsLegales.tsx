@@ -8,7 +8,7 @@ interface SectionProps {
 function Section({ title, children }: SectionProps) {
     return (
         <section className="group">
-            <h2 className="text-lg md:text-xl font-semibold text-white mb-4 flex items-center gap-3">
+            <h2 className="text-lg md:text-xl font-medium text-white mb-4 flex items-center gap-3">
                 <span className="w-1 h-6 bg-[#E67E22] rounded-full opacity-80 group-hover:opacity-100 transition-opacity"></span>
                 {title}
             </h2>
@@ -39,7 +39,7 @@ export function MentionsLegales() {
             <Section title="1. Éditeur du site">
                 <p className="mb-6">
                     Le site leonardintelligence.com (ci-après le "Site") est édité par la
-                    société <strong className="text-white">Leonard Intelligence</strong>.
+                    société <span className="text-white font-medium">Leonard Intelligence</span>.
                 </p>
 
                 <div className="bg-white/5 rounded-xl p-5 border border-white/10 space-y-0">
@@ -99,7 +99,7 @@ export function MentionsLegales() {
 
                 <div className="mt-6 p-4 bg-[#E67E22]/10 rounded-lg border border-[#E67E22]/30">
                     <p className="text-sm">
-                        <strong className="text-white">Vos droits :</strong> Conformément à
+                        <span className="text-white font-medium">Vos droits :</span> Conformément à
                         la loi « informatique et libertés » et au RGPD, vous pouvez exercer
                         votre droit d'accès, de rectification, de suppression des données
                         vous concernant en contactant :{' '}
