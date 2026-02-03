@@ -1,11 +1,20 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import type { CSSProperties } from "react";
 import { TechCard, TechCardImage } from "../ui/TechCard";
 import { USE_CASES } from "../../data/catalogue";
 import { DotIcon, leonardIcons } from "@/components/ui/LeonardIcons";
+import { cn } from "@/lib/utils";
 
 export function UseCaseGrid() {
     const sectionRef = useRef<HTMLElement>(null);
+    const [activeTab, setActiveTab] = useState("All");
+
+    // Extract unique categories + 'All'
+    const categories = ["All", ...Array.from(new Set(USE_CASES.map(item => item.category || 'Other')))];
+
+    const filteredCases = activeTab === "All"
+        ? USE_CASES
+        : USE_CASES.filter(item => item.category === activeTab);
 
     return (
         <section ref={sectionRef} id="section-solutions" className="py-24 bg-transparent reveal delay-200 border-b border-white/10">
@@ -15,17 +24,35 @@ export function UseCaseGrid() {
                 <div className="flex flex-col md:flex-row justify-between items-end mb-8 md:mb-16">
                     <div>
                         <h2 className="text-4xl font-medium font-mono text-white mb-4">
-                            Impact Mesuré.
+                            Solutions AI.
                         </h2>
                         <p className="text-gray-400 font-mono text-sm">
                             Performance Monitor<span className="animate-pulse">_</span>
                         </p>
                     </div>
+
+                    {/* Tabs */}
+                    <div className="flex gap-4 mt-4 md:mt-0 overflow-x-auto pb-2 md:pb-0">
+                        {categories.map((cat) => (
+                            <button
+                                key={cat}
+                                onClick={() => setActiveTab(cat)}
+                                className={cn(
+                                    "px-4 py-2 text-xs font-mono uppercase tracking-wider transition-colors border border-transparent",
+                                    activeTab === cat
+                                        ? "bg-white/10 text-white border-white/20"
+                                        : "text-zinc-500 hover:text-white"
+                                )}
+                            >
+                                {cat}
+                            </button>
+                        ))}
+                    </div>
                 </div>
 
                 {/* Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {USE_CASES.map((item, index) => (
+                    {filteredCases.map((item, index) => (
                         <TechCard
                             key={index}
                             className="flex flex-col h-full group bg-black p-0 transition-all duration-500 border-white/10 hover:border-white/20"
@@ -40,37 +67,40 @@ export function UseCaseGrid() {
                                     useFx={false}
                                     className="grayscale group-hover:grayscale-0 transition-all duration-700 opacity-80 group-hover:opacity-100"
                                 />
-                                <div className="absolute top-4 left-4">
-                                    <span className="font-mono text-xs font-medium text-black bg-white px-2 py-1 uppercase tracking-wider">
-                                        CASE #{index + 1}
-                                    </span>
+                                <div className="absolute top-4 left-4 flex gap-2">
+                                    {item.tags?.map((tag, i) => (
+                                        <span key={i} className="font-mono text-[10px] font-medium text-white/80 bg-black/40 backdrop-blur-sm border border-white/10 px-2 py-1 uppercase tracking-wider">
+                                            {tag}
+                                        </span>
+                                    ))}
                                 </div>
                             </div>
 
                             {/* Content */}
-                            <div className="px-6 pb-6 pt-2 flex flex-col flex-grow">
-                                <div className="mb-4">
-                                    <h4 className="text-sm font-mono text-[#E67E22] uppercase tracking-wider mb-2">
+                            <div className="px-6 pb-6 pt-6 flex flex-col flex-grow">
+                                <div className="mb-6">
+                                    <h4 className="text-xs font-mono text-[#E67E22] uppercase tracking-wider mb-3">
                                         {item.sector}
                                     </h4>
-                                    <p className="text-white font-medium text-lg leading-snug">
+                                    <p className="text-zinc-300 font-normal text-base leading-relaxed">
                                         {item.mission}
                                     </p>
                                 </div>
 
-                                <div className="mt-auto border-t border-white/10 pt-4">
-                                    <div className="flex items-center gap-2 mb-3 text-[#E67E22] text-xs font-mono uppercase tracking-widest">
-                                        <DotIcon icon={leonardIcons.roi} size={12} fillColor="#E67E22" /> Résultats
-                                    </div>
-                                    <div className="grid grid-cols-2 gap-4">
-                                        {item.stats.map((stat, i) => (
-                                            <div key={i}>
-                                                <div className="text-2xl font-medium text-white font-mono">{stat.value}</div>
-                                                <div className="text-[10px] text-gray-500 uppercase tracking-wider">{stat.label}</div>
+                                {/* Footer Info / Features */}
+                                {item.features && (
+                                    <div className="mt-auto pt-4 border-t border-white/5 grid grid-cols-2 gap-y-2 gap-x-4">
+                                        {item.features.map((feat, i) => (
+                                            <div key={i} className="flex items-center gap-2 text-zinc-500 group-hover:text-zinc-400 transition-colors">
+                                                {/* Simple generic icon fallback */}
+                                                <div className="w-1 h-1 rounded-full bg-[#E67E22]" />
+                                                <span className="text-[10px] font-mono uppercase tracking-wide truncate">
+                                                    {feat.label}
+                                                </span>
                                             </div>
                                         ))}
                                     </div>
-                                </div>
+                                )}
                             </div>
                         </TechCard>
                     ))}

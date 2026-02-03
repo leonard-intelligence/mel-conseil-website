@@ -48,7 +48,7 @@ export function Methodology() {
                                 <div className="space-y-4">
                                     <h4 className="text-zinc-400 font-mono text-xs uppercase tracking-widest">Notre Priorité</h4>
                                     <p className="text-zinc-300 font-mono text-sm leading-relaxed">
-                                        Favoriser les solutions Open Source et locales pour garantir la confidentialité totale de vos données et l'indépendance technologique.
+                                        Favoriser les solutions Open Source et locales pour une confidentialité totale de vos données et l'indépendance technologique.
                                     </p>
                                 </div>
                                 <div className="space-y-4">
@@ -95,7 +95,7 @@ export function Methodology() {
 
                             <div className="space-y-6">
                                 <p className="text-zinc-400 font-mono text-sm leading-relaxed mb-6">
-                                    Nous connectons votre infrastructure à l'élite des modèles mondiaux. Une sélection rigoureuse et agnostique pour garantir l'excellence sur chaque modalité.
+                                    Nous connectons votre infrastructure à l'élite des modèles mondiaux. Une sélection rigoureuse et agnostique pour l'excellence sur chaque modalité.
                                 </p>
 
                                 <div className="grid grid-cols-2 gap-x-4 gap-y-6">

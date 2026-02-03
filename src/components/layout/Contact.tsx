@@ -97,7 +97,7 @@ export function Contact() {
                             <div>
                                 <h3 className="text-white font-medium mb-1 font-mono uppercase">Email</h3>
                                 <p className="text-gray-400 font-mono text-sm">hello@leonardintelligence.com</p>
-                                <p className="text-gray-500 text-xs mt-1 font-mono">Réponse garantie sous 24h.</p>
+                                <p className="text-gray-500 text-xs mt-1 font-mono">Réponse sous 24h.</p>
                             </div>
                         </div>
 

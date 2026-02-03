@@ -466,7 +466,7 @@ export const leonardIcons: Record<string, LeonardIconDefinition> = {
     roi: {
         name: "ROI",
         category: "Business & Process",
-        description: "Retour sur investissement garanti",
+        description: "Retour sur investissement",
         pattern: [
             [0, 0, 0, 1, 1, 0, 0, 0],
             [0, 0, 1, 1, 1, 1, 0, 0],
