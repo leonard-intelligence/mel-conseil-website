@@ -2,7 +2,6 @@ import { useRef, useState } from "react";
 import type { CSSProperties } from "react";
 import { TechCard, TechCardImage } from "../ui/TechCard";
 import { USE_CASES } from "../../data/catalogue";
-import { DotIcon, leonardIcons } from "@/components/ui/LeonardIcons";
 import { cn } from "@/lib/utils";
 
 export function UseCaseGrid() {
