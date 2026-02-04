@@ -1,4 +1,4 @@
-import { useLayoutEffect, ReactNode } from 'react';
+import { useLayoutEffect, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 

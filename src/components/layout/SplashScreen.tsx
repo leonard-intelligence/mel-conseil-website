@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { FxImage } from '../fx/FxImage';
-import { useFxConfig } from '../fx/FxContext';
 
 interface SplashScreenProps {
     onExitStart: () => void;
@@ -8,7 +7,6 @@ interface SplashScreenProps {
 }
 
 export function SplashScreen({ onExitStart, onComplete }: SplashScreenProps) {
-    const config = useFxConfig();
     const [phase, setPhase] = useState<'visible' | 'exiting' | 'done'>('visible');
 
     useEffect(() => {
@@ -52,7 +50,7 @@ export function SplashScreen({ onExitStart, onComplete }: SplashScreenProps) {
                         objectFit: 'contain',
                         objectPosition: 'center center'
                     }}
-                    config={config.fxConfig || {
+                    config={{
                         fitMode: 'contain',
                         duotone: { enabled: true, colorA: '#000000', colorB: '#ffffff', strength: 1 },
                         interaction: { enabled: true, mode: 'shape', variant: 'push', radius: 0.15, softness: 0.5, activeSize: 15 }
