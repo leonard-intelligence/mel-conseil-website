@@ -1,5 +1,6 @@
 import { DotIcon, leonardIcons } from "@/components/ui/LeonardIcons";
 import { useEffect, useState } from "react";
+import { KnowledgeBaseDemo } from "./KnowledgeBaseDemo";
 
 // --- Types & Data ---
 
@@ -248,7 +249,7 @@ export function SectionPatrimoine() {
                     {/* LEFT BENTO: Chat Interface */}
                     <div className="border-b lg:border-b-0 lg:border-r border-white/10 p-4 lg:p-12 bg-zinc-900/10 flex flex-col justify-center min-h-0 lg:min-h-[500px]">
                         <div className="mb-6 mt-8 lg:mt-0">
-                            <div className="text-xs font-mono text-[#E67E22] mb-2">/// DÉMO INTERACTIVE</div>
+                            <div className="text-xs font-mono text-[#E67E22] mb-2">/// INTERFACE CONVERSATIONNELLE</div>
                             <h3 className="text-white font-mono text-xl uppercase tracking-tight">Assistant Documentaire</h3>
                         </div>
 
@@ -256,21 +257,14 @@ export function SectionPatrimoine() {
                         <ChatInterface />
                     </div>
 
-                    {/* RIGHT BENTO: Placeholder */}
-                    <div className="p-12 b-zinc-900 flex flex-col justify-center items-center relative overflow-hidden group">
-                        <div className="absolute inset-0 bg-pattern-diagonal opacity-5"></div>
-
-                        <div className="border border-white/10 bg-white/5 rounded-2xl p-8 max-w-md w-full text-center relative z-10 backdrop-blur-sm">
-                            <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-4 border border-white/10 text-white/40">
-                                <span className="font-mono text-xl">+</span>
-                            </div>
-                            <h3 className="text-white font-mono text-lg mb-2">Prochain Module</h3>
-                            <p className="text-white/40 font-mono text-sm leading-relaxed">
-                                Espace réservé pour une future démonstration interactive.
-                                <br />
-                                <span className="text-[#E67E22] text-xs mt-2 block opacity-0 group-hover:opacity-100 transition-opacity">En attente de développement...</span>
-                            </p>
+                    {/* RIGHT BENTO: Knowledge Base Demo */}
+                    <div className="p-4 lg:p-12 b-zinc-900 flex flex-col justify-center relative min-h-0 lg:min-h-[500px]">
+                        <div className="mb-6 w-full max-w-[450px]">
+                            <div className="text-xs font-mono text-[#E67E22] mb-2">/// INDEXATION INTELLIGENTE</div>
+                            <h3 className="text-white font-mono text-xl uppercase tracking-tight">Base de Connaissances</h3>
                         </div>
+
+                        <KnowledgeBaseDemo />
                     </div>
                 </div>
             </div>

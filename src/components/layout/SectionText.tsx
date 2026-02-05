@@ -102,12 +102,12 @@ export function SectionText() {
                             </div>
 
                             <p className="text-zinc-400 text-sm font-mono leading-relaxed mb-6">
-                                Mistral · Llama · Claude · GPT-4 · LangChain · RAG
+                                Mistral · Llama · Claude · GPT · LangChain
                             </p>
 
                             <div className="grid grid-cols-2 gap-2 text-[10px] font-mono text-zinc-500 bg-white/5 p-3 rounded border border-white/5">
-                                <div className="flex justify-between"><span>CONTEXTE</span><span className="text-white">128k</span></div>
-                                <div className="flex justify-between"><span>SOUVERAIN</span><span className="text-[#E67E22]">OUI</span></div>
+                                <div className="flex justify-between"><span>CONTEXTE</span><span className="text-white">jusqu'à 1M</span></div>
+
                                 <div className="flex justify-between"><span>FINE-TUNE</span><span className="text-[#E67E22]">READY</span></div>
                                 <div className="flex justify-between"><span>STATUS</span><span className="text-[#E67E22]">ONLINE</span></div>
                             </div>

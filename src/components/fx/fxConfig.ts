@@ -49,10 +49,12 @@ export interface FxConfig {
     interaction: InteractionConfig;
 }
 
+import heroBg from '@/assets/images/backgrounds/hero-background.webp';
+
 export const FX_DEFAULTS: FxConfig = {
     enabled: true,
     order: ['beads', 'duotone'],
-    heroImage: '/assets/backgrounds/hero-background.png',
+    heroImage: heroBg,
     fitMode: 'height',
     beads: {
         enabled: true,

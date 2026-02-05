@@ -1,4 +1,5 @@
 import { DotIcon, leonardIcons } from "@/components/ui/LeonardIcons";
+import { DataSovereigntyDemo } from "./DataSovereigntyDemo";
 
 export function SectionSecurity() {
     return (
@@ -24,14 +25,9 @@ export function SectionSecurity() {
                     </p>
                 </div>
 
-                {/* Right: Shield Visual */}
-                <div className="lg:col-span-5 p-12 border-b border-white/10 flex items-center justify-center bg-[#E67E22]/5">
-                    <div className="relative">
-                        <div className="w-32 h-32 border-2 border-[#E67E22]/30 flex items-center justify-center">
-                            <DotIcon icon={leonardIcons.souveraineteNumerique} size={64} fillColor="#E67E22" />
-                        </div>
-                        <div className="absolute -top-2 -right-2 w-4 h-4 bg-[#E67E22] rounded-full animate-pulse" />
-                    </div>
+                {/* Right: Data Sovereignty Demo visually demonstrating 'No data leak' */}
+                <div className="lg:col-span-5 p-6 lg:p-12 border-b border-white/10 flex items-center justify-center bg-[#E67E22]/5">
+                    <DataSovereigntyDemo />
                 </div>
             </div>
 

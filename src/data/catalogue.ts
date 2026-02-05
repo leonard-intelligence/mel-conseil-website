@@ -31,14 +31,14 @@ import mark1 from '../assets/images/illustrations/illustration-marketing-incepti
 import mark2 from '../assets/images/illustrations/illustration-marketing-inception-02.png';
 import mark3 from '../assets/images/illustrations/illustration-marketing-inception-03.png';
 
-// 6. EXPERTISE TECHNIQUE (Theme: Blade Runner - High Tech)
-import tech1 from '../assets/images/illustrations/illustration-tech-blade-runner-01.png';
-import tech2 from '../assets/images/illustrations/illustration-tech-blade-runner-02.png';
-import tech3 from '../assets/images/illustrations/illustration-tech-blade-runner-03.png';
-import tech4 from '../assets/images/illustrations/illustration-tech-blade-runner-04.png';
-import tech5 from '../assets/images/illustrations/illustration-tech-blade-runner-01.png'; // Reusing 01
-import tech6 from '../assets/images/illustrations/illustration-tech-blade-runner-02.png'; // Reusing 02
-import tech7 from '../assets/images/illustrations/illustration-tech-blade-runner-03.png'; // Reusing 03
+// 6. EXPERTISE TECHNIQUE (New Themes)
+import code1 from '../assets/images/illustrations/illustration-expertise-codegen-01.png';
+import rag1 from '../assets/images/illustrations/illustration-expertise-rag-01.png';
+import agents1 from '../assets/images/illustrations/illustration-expertise-agents-01.png';
+import reason1 from '../assets/images/illustrations/illustration-expertise-reasoning-01.png';
+import extract1 from '../assets/images/illustrations/illustration-expertise-extraction-01.png';
+import embedded1 from '../assets/images/illustrations/illustration-expertise-embedded-01.png';
+import sec1 from '../assets/images/illustrations/illustration-expertise-security-01.png';
 
 // --- INFRASTRUCTURE & SÉCURITÉ (Catalogue fix, Infra2 ref) ---
 // Note: The previous image infra2 was defined but I need to ensure the ID matches.
@@ -303,7 +303,7 @@ export const USE_CASES: CatalogueItem[] = [
             { label: 'Refactoring', icon: 'code' },
             { label: 'Clean Code', icon: 'check-circle' }
         ],
-        image: tech1
+        image: code1
     },
     {
         id: 'tech-rag',
@@ -315,7 +315,7 @@ export const USE_CASES: CatalogueItem[] = [
             { label: 'Konwledge Graph', icon: 'share-2' },
             { label: 'Hybrid Search', icon: 'search' }
         ],
-        image: tech2
+        image: rag1
     },
     {
         id: 'tech-agents',
@@ -327,7 +327,7 @@ export const USE_CASES: CatalogueItem[] = [
             { label: 'Orchestration', icon: 'git-merge' },
             { label: 'Multi-Agent', icon: 'users' }
         ],
-        image: tech3
+        image: agents1
     },
     {
         id: 'tech-reasoning',
@@ -339,7 +339,7 @@ export const USE_CASES: CatalogueItem[] = [
             { label: 'Chain of Thought', icon: 'brain-circuit' },
             { label: 'Problem Solving', icon: 'puzzle' }
         ],
-        image: tech4
+        image: reason1
     },
     {
         id: 'tech-extraction',
@@ -351,7 +351,7 @@ export const USE_CASES: CatalogueItem[] = [
             { label: 'Schema Validation', icon: 'table' },
             { label: 'Haute Précision', icon: 'target' }
         ],
-        image: tech5
+        image: extract1
     },
     {
         id: 'tech-embedded',
@@ -363,7 +363,7 @@ export const USE_CASES: CatalogueItem[] = [
             { label: 'Quantization', icon: 'cpu' },
             { label: 'Low Latency', icon: 'zap' }
         ],
-        image: tech6
+        image: embedded1
     },
     {
         id: 'tech-security',
@@ -375,7 +375,7 @@ export const USE_CASES: CatalogueItem[] = [
             { label: 'Jailbreak Check', icon: 'shield' },
             { label: 'PII Protection', icon: 'lock' }
         ],
-        image: tech7
+        image: sec1
     }
 ];
 

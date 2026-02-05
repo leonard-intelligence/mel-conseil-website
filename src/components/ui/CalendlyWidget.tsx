@@ -1,6 +1,12 @@
 import { useEffect } from 'react';
 
-export function CalendlyWidget() {
+interface CalendlyWidgetProps {
+    className?: string;
+    style?: React.CSSProperties;
+    url?: string;
+}
+
+export function CalendlyWidget({ className, style, url = "https://calendly.com/leonard-intelligence" }: CalendlyWidgetProps) {
     useEffect(() => {
         const script = document.createElement('script');
         script.type = 'text/javascript';
@@ -14,11 +20,11 @@ export function CalendlyWidget() {
     }, []);
 
     return (
-        <div className="w-full mt-8 animate-fade-in">
+        <div className={`w-full ${className || 'mt-8 animate-fade-in'}`}>
             <div
                 className="calendly-inline-widget mx-auto"
-                data-url="https://calendly.com/leonard-intelligence"
-                style={{ minWidth: '320px', height: '700px' }}
+                data-url={url}
+                style={style || { minWidth: '320px', height: '550px' }}
             ></div>
         </div>
     );

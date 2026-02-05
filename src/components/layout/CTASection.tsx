@@ -1,11 +1,23 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { DotIcon, leonardIcons } from "@/components/ui/LeonardIcons";
 import { TechIllustration } from "@/components/ui/TechIllustration";
 import { CalendlyWidget } from "@/components/ui/CalendlyWidget";
+import { Modal } from "@/components/ui/Modal";
 import ctaBg from '@/assets/images/illustrations/illustration-conversation-night-01.png';
 
 export function CTASection() {
-    const [showCalendly, setShowCalendly] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isPreloaded, setIsPreloaded] = useState(false);
+
+    // Lazy preload strategy:
+    // Load the widget 2.5s after mount (when network is likely idle)
+    // This allows instant open without blocking initial page load
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsPreloaded(true);
+        }, 2500);
+        return () => clearTimeout(timer);
+    }, []);
 
     return (
         <section id="section-cta" className="py-32 bg-black relative overflow-hidden border-b border-white/10">
@@ -30,21 +42,33 @@ export function CTASection() {
                 </p>
 
                 <div className="flex flex-col items-center justify-center gap-6">
-                    {!showCalendly ? (
-                        <button
-                            onClick={() => setShowCalendly(true)}
-                            id="cta-btn-primary"
-                            className="group relative px-8 h-14 flex items-center justify-center bg-[#E67E22] text-white border border-[#E67E22] font-mono font-medium uppercase text-lg hover:bg-white hover:text-[#E67E22] transition-colors duration-300 w-full md:w-auto"
+                    <button
+                        onClick={() => setIsModalOpen(true)}
+                        id="cta-btn-primary"
+                        className="group relative px-8 h-14 flex items-center justify-center bg-[#E67E22] text-white border border-[#E67E22] font-mono font-medium uppercase text-lg hover:bg-white hover:text-[#E67E22] transition-colors duration-300 w-full md:w-auto"
+                    >
+                        <span className="flex items-center gap-3">
+                            RÉSERVER UN CRÉNEAU
+                            <div className="group-hover:translate-x-1 transition-transform">
+                                <DotIcon icon={leonardIcons.arrowRight} size={20} fillColor="currentColor" />
+                            </div>
+                        </span>
+                    </button>
+
+                    {/* Render if open OR preloaded (persisted) */}
+                    {(isModalOpen || isPreloaded) && (
+                        <Modal
+                            isOpen={isModalOpen}
+                            onClose={() => setIsModalOpen(false)}
+                            fullScreen
+                            persist
                         >
-                            <span className="flex items-center gap-3">
-                                RÉSERVER UN CRÉNEAU
-                                <div className="group-hover:translate-x-1 transition-transform">
-                                    <DotIcon icon={leonardIcons.arrowRight} size={20} fillColor="currentColor" />
-                                </div>
-                            </span>
-                        </button>
-                    ) : (
-                        <CalendlyWidget />
+                            <CalendlyWidget
+                                className="mt-0 h-full"
+                                style={{ minWidth: '320px', height: '100%' }}
+                                url="https://calendly.com/leonard-intelligence/30min"
+                            />
+                        </Modal>
                     )}
                 </div>
 

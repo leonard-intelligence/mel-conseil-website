@@ -1,14 +1,23 @@
+import mistralLogo from '@/assets/images/partners/mistral.svg';
+import ovhLogo from '@/assets/images/partners/ovhcloud.svg';
+import huggingFaceLogo from '@/assets/images/partners/huggingface.svg';
+import metaLogo from '@/assets/images/partners/meta.svg';
+import nvidiaLogo from '@/assets/images/partners/nvidia.svg';
+import anthropicLogo from '@/assets/images/partners/anthropic.svg';
+import openaiLogo from '@/assets/images/partners/openai.svg';
+import assemblyaiLogo from '@/assets/images/partners/assemblyai.svg';
+
 export function TrustBar() {
     // Sovereign-first ordering: French/EU partners prominently featured (like Artefact & Sia Partners)
     const logos = [
-        { name: 'Mistral AI', src: '/assets/logos/mistral.svg', sovereign: true },
-        { name: 'OVHcloud', src: '/assets/logos/ovhcloud.svg', sovereign: true },
-        { name: 'Hugging Face', src: '/assets/logos/huggingface.svg', sovereign: true },
-        { name: 'Meta Llama', src: '/assets/logos/meta.svg' },
-        { name: 'NVIDIA', src: '/assets/logos/nvidia.svg' },
-        { name: 'Anthropic', src: '/assets/logos/anthropic.svg' },
-        { name: 'OpenAI', src: '/assets/logos/openai.svg' },
-        { name: 'AssemblyAI', src: '/assets/logos/assemblyai.svg' },
+        { name: 'Mistral AI', src: mistralLogo, sovereign: true },
+        { name: 'OVHcloud', src: ovhLogo, sovereign: true },
+        { name: 'Hugging Face', src: huggingFaceLogo, sovereign: true },
+        { name: 'Meta Llama', src: metaLogo },
+        { name: 'NVIDIA', src: nvidiaLogo },
+        { name: 'Anthropic', src: anthropicLogo },
+        { name: 'OpenAI', src: openaiLogo },
+        { name: 'AssemblyAI', src: assemblyaiLogo },
     ];
 
     // Triple for seamless infinite scroll

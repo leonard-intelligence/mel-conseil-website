@@ -9,11 +9,13 @@ interface SEOProps {
     twitterHandle?: string;
 }
 
+import heroBg from '@/assets/images/backgrounds/hero-background.webp';
+
 export function SEO({
     title = "Leonard Intelligence - Experts IA & Automatisation",
     description = "Automatisez vos processus internes avec une IA souveraine et sécurisée. Texte, image, audio, vidéo. Déploiement Local ou Cloud UE.",
     canonical,
-    image = "/assets/hero_background.webp", // Default social share image
+    image = heroBg, // Default social share image
     type = "website",
     twitterHandle = "@leonardintelligence"
 }: SEOProps) {
