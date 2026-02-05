@@ -2,6 +2,8 @@ import { DotIcon, leonardIcons } from "@/components/ui/LeonardIcons";
 import { cn } from "@/lib/utils";
 import { LocalSovereigntyDemo } from "./LocalSovereigntyDemo";
 import { GlobalTechDemo } from "./GlobalTechDemo";
+import sovereigntyBg from "@/assets/images/illustrations/illustration-infra-dark-side.png";
+import performanceBg from "@/assets/images/illustrations/illustration-tech-blade-runner.png";
 
 export function Methodology() {
     return (
@@ -14,8 +16,8 @@ export function Methodology() {
                             <span className="w-2 h-2 bg-[#E67E22] rounded-full animate-pulse"></span>
                             Approche Sur-Mesure
                         </span>
-                        <h2 id="methodology-heading" className="text-4xl font-medium font-mono text-white relative z-10">
-                            Liberté <span className="text-[#E67E22]">Architecturale.</span>
+                        <h2 id="methodology-heading" className="text-4xl font-medium font-mono text-white relative z-10 uppercase">
+                            Vous décidez de votre <span className="text-[#E67E22]">architecture.</span>
                         </h2>
                     </div>
                     <p className="text-gray-400 max-w-lg text-right hidden md:block text-sm">
@@ -31,6 +33,14 @@ export function Methodology() {
                         {/* Header Row: Title (8) + Animation (4) */}
                         <div className="grid grid-cols-1 lg:grid-cols-12 overflow-hidden">
                             <div className="lg:col-span-8 relative border-r border-white/10 bg-[#121110]/20 p-12 flex flex-col justify-between group overflow-hidden">
+                                <div className="absolute inset-0 z-0">
+                                    <img
+                                        src={sovereigntyBg}
+                                        alt=""
+                                        className="w-full h-full object-cover opacity-10 group-hover:opacity-20 transition-opacity duration-700"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-r from-[#121110] via-transparent to-transparent opacity-80" />
+                                </div>
                                 <div className="absolute inset-0 bg-pattern-grid opacity-[0.03]" />
                                 <div className="absolute top-0 right-0 w-80 h-80 bg-[#E67E22]/5 blur-[120px] -z-10" />
 
@@ -102,6 +112,14 @@ export function Methodology() {
                             </div>
 
                             <div className="lg:col-span-8 relative bg-[#121110]/20 p-12 flex flex-col justify-between order-1 lg:order-2 group overflow-hidden">
+                                <div className="absolute inset-0 z-0">
+                                    <img
+                                        src={performanceBg}
+                                        alt=""
+                                        className="w-full h-full object-cover opacity-10 group-hover:opacity-20 transition-opacity duration-700"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-l from-[#121110] via-transparent to-transparent opacity-80" />
+                                </div>
                                 <div className="absolute inset-0 bg-pattern-grid opacity-[0.03]" />
                                 <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#E67E22]/5 blur-[120px] -z-10" />
 
