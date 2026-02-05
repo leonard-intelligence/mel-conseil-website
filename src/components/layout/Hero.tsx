@@ -48,32 +48,32 @@ export function Hero() {
                                 <span>Expert Mistral AI</span>
                             </div>
 
-                            <h1 id="hero-headline" className="font-mono text-4xl lg:text-[4rem] font-medium leading-[1.1] tracking-[-0.04em] mb-6 lg:mb-8 max-w-[950px] uppercase text-white drop-shadow-xl">
+                            <h1 id="hero-headline" className="font-mono text-[1.75rem] sm:text-4xl lg:text-[4rem] font-medium leading-[1.1] tracking-[-0.04em] mb-6 lg:mb-8 max-w-[950px] uppercase text-white drop-shadow-xl">
                                 Montez dans le train de l'IA,<br />
                                 <span className="text-white/70">sans compromettre vos données</span>
                             </h1>
 
-                            <h2 className="font-mono text-lg lg:text-xl text-[#E67E22] mb-6 tracking-wide">
+                            <p className="font-mono text-base lg:text-xl text-[#E67E22] mb-6 tracking-wide">
                                 TEXTE. IMAGE. AUDIO. VIDÉO.
-                            </h2>
+                            </p>
 
-                            <p className="text-[1rem] lg:text-[1.1rem] text-white/90 leading-relaxed max-w-xl mb-10 lg:mb-12 drop-shadow-lg font-normal pr-4">
+                            <p className="text-[0.9rem] lg:text-[1.1rem] text-white/90 leading-relaxed max-w-xl mb-10 lg:mb-12 drop-shadow-lg font-normal pr-4">
                                 L'IA qui fonctionne chez vous, pas aux États-Unis. Vos données, votre infrastructure, vos règles.<br />
                                 Open-source prioritaire, propriétaire si nécessaire. Déploiement sur-mesure.
                             </p>
 
-                            <div className="flex flex-col sm:flex-row gap-4 mt-2 w-full sm:w-auto">
+                            <div className="flex flex-row flex-wrap gap-2 mt-2 w-full sm:w-auto">
                                 <a
                                     href="#section-contact"
                                     id="hero-cta-primary"
-                                    className="bg-[#E67E22] text-white border border-[#E67E22] px-6 py-3 font-normal uppercase text-base inline-block transition-all hover:bg-white hover:text-[#E67E22] hover:-translate-y-0.5 shadow-lg shadow-orange-500/20 text-center"
+                                    className="bg-[#E67E22] text-white border border-[#E67E22] px-4 py-2.5 font-normal uppercase text-[0.7rem] sm:text-base inline-block transition-all hover:bg-white hover:text-[#E67E22] hover:-translate-y-0.5 shadow-lg shadow-orange-500/20 text-center whitespace-nowrap"
                                 >
                                     PARLONS DE VOTRE PROJET
                                 </a>
                                 <a
                                     href="#section-solutions"
                                     id="hero-cta-secondary"
-                                    className="bg-transparent text-[#E67E22] px-6 py-3 font-normal text-[0.85rem] uppercase inline-block border border-[#E67E22]/50 transition-all hover:bg-[#E67E22]/10 hover:border-[#E67E22] text-center"
+                                    className="bg-transparent text-[#E67E22] px-4 py-2.5 font-normal text-[0.7rem] sm:text-[0.85rem] uppercase inline-block border border-[#E67E22]/50 transition-all hover:bg-[#E67E22]/10 hover:border-[#E67E22] text-center whitespace-nowrap"
                                 >
                                     EXPLORER NOS SOLUTIONS
                                 </a>
@@ -89,7 +89,8 @@ export function Hero() {
                 <div className="hidden lg:block absolute bottom-0 right-0 h-[90%] w-[65%] z-10 pointer-events-none">
                     <FxImage
                         src={'/assets/hero-concepts/licorne 3.webp'}
-                        alt="Visualisation abstraite de l'intelligence artificielle"
+                        alt="Une licorne stylisée représentant la créativité de l'IA générative"
+                        loading="eager"
                         className="w-full h-full"
                         style={{ width: '100%', height: '100%' }}
                         imgStyle={{
@@ -111,7 +112,8 @@ export function Hero() {
                     }`}>
                     <FxImage
                         src={'/assets/hero-concepts/licorne 3.webp'}
-                        alt="Visualisation mobile"
+                        alt="Une licorne stylisée représentant la créativité de l'IA générative (version mobile)"
+                        loading="eager"
                         className="w-full h-full"
                         style={{ width: '100%', height: '100%' }}
                         imgStyle={{

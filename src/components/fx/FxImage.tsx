@@ -27,6 +27,7 @@ interface FxImageProps {
     style?: CSSProperties; // Container style
     imgStyle?: CSSProperties; // Inner Image style override
     clickRipples?: ClickRipple[]; // New: Click ripples for expanding zoom effect
+    loading?: "lazy" | "eager";
 }
 
 interface WebGLState {
@@ -119,7 +120,17 @@ function setupQuad(gl: WebGLRenderingContext, program: WebGLProgram) {
     gl.vertexAttribPointer(texLoc, 2, gl.FLOAT, false, 0, 0);
 }
 
-export function FxImage({ src, depthSrc, alt = '', className = '', config, style, imgStyle, clickRipples = [] }: FxImageProps) {
+export function FxImage({
+    src,
+    depthSrc,
+    alt = '',
+    className = '',
+    config,
+    style,
+    imgStyle,
+    clickRipples = [],
+    loading = "lazy"
+}: FxImageProps) {
     const containerRef = useRef<HTMLDivElement>(null);
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -684,6 +695,8 @@ export function FxImage({ src, depthSrc, alt = '', className = '', config, style
                 alt={alt}
                 crossOrigin="anonymous"
                 onLoad={handleImageLoad}
+                loading={loading}
+                decoding="async"
                 style={{
                     display: 'block',
                     maxWidth: '100%',

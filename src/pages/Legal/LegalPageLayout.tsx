@@ -1,21 +1,36 @@
 import { useLayoutEffect } from 'react';
 import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
+import { SEO } from '../../components/seo/SEO';
+import { JsonLd } from '../../components/seo/JsonLd';
 import logo from '@/assets/images/logos/leonard-logo-white.webp';
 
 interface LegalPageLayoutProps {
     title: string;
     lastUpdate?: string;
     children: ReactNode;
+    path: string;
 }
 
-export function LegalPageLayout({ title, lastUpdate, children }: LegalPageLayoutProps) {
+export function LegalPageLayout({ title, lastUpdate, children, path }: LegalPageLayoutProps) {
     useLayoutEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
     return (
         <div className="min-h-screen bg-black">
+            <SEO
+                title={`${title} | Leonard Intelligence`}
+                description={`Consultez les ${title.toLowerCase()} de Leonard Intelligence.`}
+                type="article"
+            />
+            <JsonLd
+                type="BreadcrumbList"
+                breadcrumbs={[
+                    { name: 'Accueil', item: '/' },
+                    { name: title, item: path }
+                ]}
+            />
             {/* Header with Logo */}
             <header className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-[1920px] bg-black/80 backdrop-blur-md border-b border-white/10 z-50">
                 <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">

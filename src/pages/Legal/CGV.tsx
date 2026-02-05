@@ -23,7 +23,7 @@ export function CGV() {
     const currentDate = new Date().toLocaleDateString('fr-FR');
 
     return (
-        <LegalPageLayout title="Conditions Générales de Vente" lastUpdate={currentDate}>
+        <LegalPageLayout title="Conditions Générales de Vente" lastUpdate={currentDate} path="/cgv">
             <Section title="Article 1 - Objet">
                 <p>
                     Les présentes Conditions Générales de Vente (ci-après "CGV") déterminent

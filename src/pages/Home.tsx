@@ -2,6 +2,8 @@ import { Suspense, lazy, useLayoutEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useReveal } from '../hooks/useReveal';
 import { Hero } from '../components/layout/Hero';
+import { SEO } from '../components/seo/SEO';
+import { JsonLd } from '../components/seo/JsonLd';
 
 import { SectionLoader } from '../components/ui/SectionLoader';
 
@@ -70,6 +72,8 @@ export function Home() {
 
     return (
         <main>
+            <SEO />
+            <JsonLd />
             <Hero />
 
             <Suspense fallback={<SectionLoader />}>

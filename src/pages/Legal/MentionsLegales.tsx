@@ -35,7 +35,7 @@ function InfoItem({ label, value }: InfoItemProps) {
 
 export function MentionsLegales() {
     return (
-        <LegalPageLayout title="Mentions Légales">
+        <LegalPageLayout title="Mentions Légales" path="/mentions-legales">
             <Section title="1. Éditeur du site">
                 <p className="mb-6">
                     Le site leonardintelligence.com (ci-après le "Site") est édité par la

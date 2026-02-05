@@ -8,6 +8,7 @@ interface TechIllustrationProps {
     overlayGradient?: string; // custom gradient class if needed, defaults to standard
     imageClassName?: string; // override image classes (e.g. for opacity)
     config?: Record<string, unknown>;
+    loading?: "lazy" | "eager";
 }
 
 export function TechIllustration({
@@ -15,7 +16,8 @@ export function TechIllustration({
     alt,
     className,
     aspectRatio = "aspect-video",
-    overlayGradient
+    overlayGradient,
+    loading = "lazy"
 }: TechIllustrationProps) {
     return (
         <div className={cn("relative overflow-hidden group w-full h-full", aspectRatio, className)}>
@@ -23,6 +25,8 @@ export function TechIllustration({
             <img
                 src={src}
                 alt={alt}
+                loading={loading}
+                decoding="async"
                 className={cn(
                     "w-full h-full object-cover transition-all duration-700 ease-out",
                     "opacity-50 group-hover:opacity-70",
