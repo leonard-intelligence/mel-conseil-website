@@ -18,6 +18,11 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      # Pass repo Variables or Secrets into the build (Vite inlines VITE_* at build time)
+      VITE_SITE_URL: ${{ vars.VITE_SITE_URL }}
+      VITE_MAILERLITE_FORM_URL: ${{ vars.VITE_MAILERLITE_FORM_URL }}
+      VITE_CALENDLY_URL: ${{ vars.VITE_CALENDLY_URL }}
 
     steps:
     - uses: actions/checkout@v4
