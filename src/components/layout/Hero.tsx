@@ -1,5 +1,3 @@
-
-
 import { useState, useEffect } from 'react';
 import { FxImage } from '../fx/FxImage';
 import { TrustBar } from './TrustBar';
@@ -24,8 +22,6 @@ export function Hero() {
         return () => clearTimeout(timer);
     }, []);
 
-
-
     return (
         /* Root Container: Full Viewport Height, Vertical Column */
         /* Replaced .hero-section with direct styles */
@@ -34,30 +30,33 @@ export function Hero() {
             className="relative min-h-[100dvh] w-full flex flex-col group bg-pattern-grid overflow-hidden"
             aria-label="Introduction"
         >
-
             {/* UPPER TIER: Main Visual & Content Area (Flex Grow) */}
             <div className="relative flex-grow flex items-end w-full">
-
                 {/* Content Layer - Constrained by Container */}
-                <div className={`container mx-auto z-20 relative w-full transition-all duration-1000 ${animationPhase === 'intro' ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
-                    }`}>
+                <div
+                    className={`container mx-auto z-20 relative w-full transition-all duration-1000 ${
+                        animationPhase === 'intro' ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
+                    }`}
+                >
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 w-full">
-
                         {/* LEFT COLUMN: Content - Added padding here since parent container padding was removed */}
                         <div className="lg:col-span-7 flex flex-col items-start text-left pl-6 pb-12 pt-32 lg:pt-20">
-
                             {/* Status Badge */}
                             <div className="inline-flex items-center gap-2 bg-black/80 px-4 py-2 rounded-full text-[0.8rem] border border-white/10 mb-8 lg:mb-10 text-[#E67E22]">
                                 <span className="w-1.5 h-1.5 bg-[#E67E22] rounded-full animate-pulse"></span>
                                 <span>Expert Mistral AI</span>
                             </div>
 
-                            <h1 id="hero-headline" className="font-mono text-[1.75rem] sm:text-4xl lg:text-[4rem] font-medium leading-[1.1] tracking-[-0.04em] mb-6 lg:mb-8 max-w-[950px] uppercase text-white drop-shadow-xl">
+                            <h1
+                                id="hero-headline"
+                                className="font-mono text-[1.75rem] sm:text-4xl lg:text-[4rem] font-medium leading-[1.1] tracking-[-0.04em] mb-6 lg:mb-8 max-w-[950px] uppercase text-white drop-shadow-xl"
+                            >
                                 L'IA opérationnelle pour les entreprises françaises.
                             </h1>
 
                             <p className="text-[0.9rem] lg:text-[1.1rem] text-white/90 leading-relaxed max-w-xl mb-10 lg:mb-12 drop-shadow-lg font-normal pr-4">
-                                Agents autonomes, automatisation, souveraineté des données. Déployé sur votre infrastructure.
+                                Agents autonomes, automatisation, souveraineté des données. Déployé sur votre
+                                infrastructure.
                             </p>
 
                             <div className="flex flex-row flex-wrap gap-4 mt-2 w-full sm:w-auto">
@@ -88,45 +87,63 @@ export function Hero() {
                         src={'/assets/hero-concepts/licorne 3.webp'}
                         alt="Une licorne stylisée représentant la créativité de l'IA générative"
                         loading="eager"
+                        fetchPriority="high"
                         className="w-full h-full"
                         style={{ width: '100%', height: '100%' }}
                         imgStyle={{
                             width: '100%',
                             height: '100%',
                             objectFit: 'contain',
-                            objectPosition: 'bottom right'
+                            objectPosition: 'bottom right',
                         }}
                         config={{
                             fitMode: 'contain',
                             duotone: { enabled: true, colorA: '#000000', colorB: '#ffffff', strength: 1 },
-                            interaction: { enabled: true, mode: 'shape', variant: 'push', radius: 0.15, softness: 0.5, activeSize: 15 }
+                            interaction: {
+                                enabled: true,
+                                mode: 'shape',
+                                variant: 'push',
+                                radius: 0.15,
+                                softness: 0.5,
+                                activeSize: 15,
+                            },
                         }}
                     />
                 </div>
 
                 {/* MOBILE OVERLAY - Door illustration with FX effects */}
-                <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[65%] max-w-[280px] aspect-[3/4] z-10 lg:hidden rounded-2xl overflow-hidden ${animationPhase === 'intro' ? 'animate-fade-in' : 'animate-hero-exit pointer-events-none'
-                    }`}>
+                <div
+                    className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[65%] max-w-[280px] aspect-[3/4] z-10 lg:hidden rounded-2xl overflow-hidden ${
+                        animationPhase === 'intro' ? 'animate-fade-in' : 'animate-hero-exit pointer-events-none'
+                    }`}
+                >
                     <FxImage
                         src={'/assets/hero-concepts/licorne 3.webp'}
                         alt="Une licorne stylisée représentant la créativité de l'IA générative (version mobile)"
                         loading="eager"
+                        fetchPriority="high"
                         className="w-full h-full"
                         style={{ width: '100%', height: '100%' }}
                         imgStyle={{
                             width: '100%',
                             height: '100%',
                             objectFit: 'cover',
-                            objectPosition: 'center center'
+                            objectPosition: 'center center',
                         }}
                         config={{
                             fitMode: 'cover',
                             duotone: { enabled: true, colorA: '#000000', colorB: '#ffffff', strength: 1 },
-                            interaction: { enabled: true, mode: 'shape', variant: 'push', radius: 0.15, softness: 0.5, activeSize: 15 }
+                            interaction: {
+                                enabled: true,
+                                mode: 'shape',
+                                variant: 'push',
+                                radius: 0.15,
+                                softness: 0.5,
+                                activeSize: 15,
+                            },
                         }}
                     />
                 </div>
-
             </div>
 
             {/* LOWER TIER: Footer Block (TrustBar) - Distinct Background */}

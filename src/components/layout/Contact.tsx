@@ -1,60 +1,66 @@
-
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { contactSignal } from '@/lib/contactSignal';
 import { clsx } from 'clsx';
-import { Button } from "../ui/button";
-import { Input } from "../ui/input";
-import { Textarea } from "../ui/textarea";
-import { Label } from "../ui/label";
-import { DotIcon, leonardIcons } from "@/components/ui/LeonardIcons";
-import { CalendlyWidget } from "@/components/ui/CalendlyWidget";
-import { Modal } from "@/components/ui/Modal";
+import { z } from 'zod';
+import { Button } from '../ui/button';
+import { Input } from '../ui/input';
+import { Textarea } from '../ui/textarea';
+import { Label } from '../ui/label';
+import { DotIcon, leonardIcons } from '@/components/ui/LeonardIcons';
+import { CalendlyWidget } from '@/components/ui/CalendlyWidget';
+import { Modal } from '@/components/ui/Modal';
 
-const MAILERLITE_FORM_URL = "https://assets.mailerlite.com/jsonp/2086225/forms/178403057009166301/subscribe";
+const MAILERLITE_FORM_URL =
+    import.meta.env.VITE_MAILERLITE_FORM_URL ||
+    'https://assets.mailerlite.com/jsonp/2086225/forms/178403057009166301/subscribe';
+const CALENDLY_URL = import.meta.env.VITE_CALENDLY_URL || 'https://calendly.com/leonard-intelligence/30min';
+
+// Rate limiting: minimum 10 seconds between submissions
+const SUBMIT_COOLDOWN_MS = 10_000;
+
+const contactSchema = z.object({
+    fullName: z.string().min(2, 'Le nom doit contenir au moins 2 caracteres'),
+    email: z.string().email('Veuillez entrer un email valide'),
+    company: z.string().optional(),
+    message: z
+        .string()
+        .min(10, 'Le message doit contenir au moins 10 caracteres')
+        .max(2000, 'Le message est trop long'),
+});
 
 export function Contact() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSent, setIsSent] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
     const [selectedInterests, setSelectedInterests] = useState<string[]>([]);
+    const lastSubmitRef = useRef(0);
 
     // UI State
     const [showForm, setShowForm] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [isPreloaded, setIsPreloaded] = useState(false);
 
     // Form State
-    const [fullName, setFullName] = useState("");
-    const [email, setEmail] = useState("");
-    const [company, setCompany] = useState("");
-    const [message, setMessage] = useState("");
+    const [fullName, setFullName] = useState('');
+    const [email, setEmail] = useState('');
+    const [company, setCompany] = useState('');
+    const [message, setMessage] = useState('');
 
-    // Lazy preload strategy for Calendly
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setIsPreloaded(true);
-        }, 2500);
-        return () => clearTimeout(timer);
-    }, []);
-
-    // Validation
-    const isValid = fullName.trim() !== "" &&
-        email.trim() !== "" &&
-        message.trim() !== "";
+    // Validation with Zod
+    const validation = contactSchema.safeParse({ fullName, email, company, message });
+    const isValid = validation.success;
 
     const interests = [
-        "Visual Intelligence",
-        "Language & Process",
-        "Audio & Signal",
-        "Video Intelligence",
-        "Stratégie IA"
+        'Visual Intelligence',
+        'Language & Process',
+        'Audio & Signal',
+        'Video Intelligence',
+        'Stratégie IA',
     ];
 
     const toggleInterest = (interest: string) => {
-        setSelectedInterests(prev =>
-            prev.includes(interest)
-                ? prev.filter(i => i !== interest)
-                : [...prev, interest]
+        setSelectedInterests((prev) =>
+            prev.includes(interest) ? prev.filter((i) => i !== interest) : [...prev, interest]
         );
     };
 
@@ -70,7 +76,7 @@ export function Contact() {
             setShowForm(true);
 
             // 3. Select the interest tag
-            setSelectedInterests(prev => {
+            setSelectedInterests((prev) => {
                 if (!prev.includes(subject)) {
                     return [...prev, subject];
                 }
@@ -81,8 +87,30 @@ export function Contact() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        setIsSubmitting(true);
+        setFieldErrors({});
         setError(null);
+
+        // Validate with Zod
+        const result = contactSchema.safeParse({ fullName, email, company, message });
+        if (!result.success) {
+            const errors: Record<string, string> = {};
+            result.error.issues.forEach((issue) => {
+                const field = issue.path[0] as string;
+                errors[field] = issue.message;
+            });
+            setFieldErrors(errors);
+            return;
+        }
+
+        // Rate limiting
+        const now = Date.now();
+        if (now - lastSubmitRef.current < SUBMIT_COOLDOWN_MS) {
+            setError('Veuillez patienter quelques secondes avant de renvoyer.');
+            return;
+        }
+        lastSubmitRef.current = now;
+
+        setIsSubmitting(true);
 
         try {
             // Split full name for MailerLite (simple split by first space)
@@ -91,31 +119,34 @@ export function Contact() {
             const lastName = nameParts.slice(1).join(' ') || '';
 
             // Build form data for MailerLite
+            // Note: 'country' and 'city' are used as custom field proxies for
+            // 'interests' and 'message' respectively, because MailerLite's JSONP
+            // endpoint only supports default subscriber fields. To use proper
+            // custom fields, migrate to the MailerLite API with a backend proxy.
             const formData = new FormData();
             formData.append('fields[email]', email);
             formData.append('fields[name]', firstName);
             formData.append('fields[last_name]', lastName);
             formData.append('fields[company]', company || '');
-            formData.append('fields[country]', selectedInterests.join(', '));
-            formData.append('fields[city]', message);
+            formData.append('fields[country]', selectedInterests.join(', ')); // proxy: interests
+            formData.append('fields[city]', message); // proxy: message
 
             await fetch(MAILERLITE_FORM_URL, {
                 method: 'POST',
                 body: formData,
-                mode: 'no-cors'
+                mode: 'no-cors',
             });
 
             setIsSent(true);
 
             // Reset form
-            setFullName("");
-            setEmail("");
-            setCompany("");
-            setMessage("");
+            setFullName('');
+            setEmail('');
+            setCompany('');
+            setMessage('');
             setSelectedInterests([]);
-
         } catch (err) {
-            console.error("Submission error:", err);
+            console.error('Submission error:', err);
             setError("Impossible d'envoyer le message. Veuillez réessayer.");
         } finally {
             setIsSubmitting(false);
@@ -125,31 +156,29 @@ export function Contact() {
     return (
         <section id="section-contact" className="py-24 bg-black relative border-t border-white/10 reveal-up">
             {/* Calendly Modal */}
-            {(isModalOpen || isPreloaded) && (
-                <Modal
-                    isOpen={isModalOpen}
-                    onClose={() => setIsModalOpen(false)}
-                    fullScreen
-                    persist
-                >
+            {isModalOpen && (
+                <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} fullScreen persist>
                     <CalendlyWidget
                         className="mt-0 h-full"
                         style={{ minWidth: '320px', height: '100%' }}
-                        url="https://calendly.com/leonard-intelligence/30min"
+                        url={CALENDLY_URL}
                     />
                 </Modal>
             )}
 
             <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16">
-
                 {/* Contact Info */}
                 <div>
-                    <h2 id="contact-heading" className="text-4xl md:text-5xl font-normal font-mono uppercase text-white mb-6">
-                        Avançons <br /><span className="text-[#E67E22]">ensemble.</span>
+                    <h2
+                        id="contact-heading"
+                        className="text-4xl md:text-5xl font-normal font-mono uppercase text-white mb-6"
+                    >
+                        Avançons <br />
+                        <span className="text-[#E67E22]">ensemble.</span>
                     </h2>
                     <p className="text-gray-400 text-lg mb-12 leading-relaxed font-sans">
-                        Transformation IA, valorisation de vos données, déploiement souverain ?
-                        Décrivez-nous votre situation, un consultant vous répond sous 24h.
+                        Transformation IA, valorisation de vos données, déploiement souverain ? Décrivez-nous votre
+                        situation, un consultant vous répond sous 24h.
                     </p>
 
                     <div className="space-y-8">
@@ -186,13 +215,11 @@ export function Contact() {
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
 
                 {/* Right Column: Choices or Form */}
                 <div id="contact-form-wrapper" className="relative min-h-[500px] flex flex-col justify-center">
-
                     {!showForm && !isSent ? (
                         <div className="grid grid-cols-2 gap-4 sm:gap-8 group/container mt-8">
                             {/* Option 1: Visio - The Direct Path */}
@@ -219,8 +246,12 @@ export function Contact() {
                                         </div>
 
                                         <div className="text-center space-y-1">
-                                            <p className="text-white font-mono text-sm uppercase tracking-wider">Guillaume</p>
-                                            <p className="text-[#E67E22] text-[10px] font-mono uppercase tracking-widest">Consultant IA</p>
+                                            <p className="text-white font-mono text-sm uppercase tracking-wider">
+                                                Guillaume
+                                            </p>
+                                            <p className="text-[#E67E22] text-[10px] font-mono uppercase tracking-widest">
+                                                Consultant IA
+                                            </p>
                                         </div>
                                     </div>
 
@@ -237,7 +268,11 @@ export function Contact() {
 
                                 <div className="mt-8 sm:mt-12 relative z-10 text-[8px] sm:text-[10px] font-mono uppercase tracking-[0.4em] text-gray-500 group-hover/item1:text-[#E67E22] transition-colors flex items-center gap-2">
                                     <span>Je prends rendez-vous</span>
-                                    <DotIcon icon={leonardIcons.arrowRight} size={12} className="text-[#3D2314] group-hover/item1:text-[#E67E22]" />
+                                    <DotIcon
+                                        icon={leonardIcons.arrowRight}
+                                        size={12}
+                                        className="text-[#3D2314] group-hover/item1:text-[#E67E22]"
+                                    />
                                 </div>
                             </button>
 
@@ -251,7 +286,11 @@ export function Contact() {
 
                                 <div className="relative z-10 w-full flex flex-col items-center space-y-8">
                                     <div className="w-16 h-16 sm:w-24 sm:h-24 flex items-center justify-center text-white/60 group-hover/item2:text-white transition-all duration-500">
-                                        <DotIcon icon={leonardIcons.solutionConversation} size={40} className="sm:size-[56px] group-hover/item2:translate-y-[-4px] transition-transform duration-500" />
+                                        <DotIcon
+                                            icon={leonardIcons.solutionConversation}
+                                            size={40}
+                                            className="sm:size-[56px] group-hover/item2:translate-y-[-4px] transition-transform duration-500"
+                                        />
                                     </div>
 
                                     <div className="space-y-4">
@@ -294,21 +333,32 @@ export function Contact() {
                             >
                                 ← Retour
                             </button>
-                            <form id="contact-form" onSubmit={handleSubmit} className="space-y-6">
+                            <form id="contact-form" onSubmit={handleSubmit} className="space-y-6" noValidate>
                                 <div className="space-y-2">
-                                    <Label htmlFor="fullName" className="text-gray-300 uppercase text-xs">Nom complet</Label>
+                                    <Label htmlFor="fullName" className="text-gray-300 uppercase text-xs">
+                                        Nom complet
+                                    </Label>
                                     <Input
                                         id="fullName"
                                         value={fullName}
                                         onChange={(e) => setFullName(e.target.value)}
                                         placeholder="Thomas Anderson"
                                         required
-                                        className="bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-[#E67E22] rounded-none h-12 input-animate"
+                                        aria-invalid={!!fieldErrors.fullName}
+                                        aria-describedby={fieldErrors.fullName ? 'fullName-error' : undefined}
+                                        className="bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-[#E67E22] focus-visible:ring-2 focus-visible:ring-[#E67E22] focus-visible:ring-offset-1 focus-visible:ring-offset-black rounded-none h-12 input-animate"
                                     />
+                                    {fieldErrors.fullName && (
+                                        <p id="fullName-error" className="text-red-400 text-xs" role="alert">
+                                            {fieldErrors.fullName}
+                                        </p>
+                                    )}
                                 </div>
 
                                 <div className="space-y-2">
-                                    <Label htmlFor="email" className="text-gray-300 uppercase text-xs">Email professionnel</Label>
+                                    <Label htmlFor="email" className="text-gray-300 uppercase text-xs">
+                                        Email professionnel
+                                    </Label>
                                     <Input
                                         id="email"
                                         type="email"
@@ -316,18 +366,27 @@ export function Contact() {
                                         onChange={(e) => setEmail(e.target.value)}
                                         placeholder="t.anderson@metacortex.com"
                                         required
-                                        className="bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-[#E67E22] rounded-none h-12 input-animate"
+                                        aria-invalid={!!fieldErrors.email}
+                                        aria-describedby={fieldErrors.email ? 'email-error' : undefined}
+                                        className="bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-[#E67E22] focus-visible:ring-2 focus-visible:ring-[#E67E22] focus-visible:ring-offset-1 focus-visible:ring-offset-black rounded-none h-12 input-animate"
                                     />
+                                    {fieldErrors.email && (
+                                        <p id="email-error" className="text-red-400 text-xs" role="alert">
+                                            {fieldErrors.email}
+                                        </p>
+                                    )}
                                 </div>
 
                                 <div className="space-y-2">
-                                    <Label htmlFor="company" className="text-gray-300 uppercase text-xs">Entreprise</Label>
+                                    <Label htmlFor="company" className="text-gray-300 uppercase text-xs">
+                                        Entreprise
+                                    </Label>
                                     <Input
                                         id="company"
                                         value={company}
                                         onChange={(e) => setCompany(e.target.value)}
                                         placeholder="MetaCortex"
-                                        className="bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-[#E67E22] rounded-none h-12 input-animate"
+                                        className="bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-[#E67E22] focus-visible:ring-2 focus-visible:ring-[#E67E22] focus-visible:ring-offset-1 focus-visible:ring-offset-black rounded-none h-12 input-animate"
                                     />
                                 </div>
 
@@ -340,10 +399,10 @@ export function Contact() {
                                                 type="button"
                                                 onClick={() => toggleInterest(interest)}
                                                 className={clsx(
-                                                    "text-xs px-3 py-2 border transition-all duration-200 uppercase tracking-wide cursor-pointer",
+                                                    'text-xs px-3 py-2 border transition-all duration-200 uppercase tracking-wide cursor-pointer',
                                                     selectedInterests.includes(interest)
-                                                        ? "bg-[#E67E22] border-[#E67E22] text-white"
-                                                        : "bg-transparent border-white/10 text-gray-400 hover:border-white/30 hover:text-white"
+                                                        ? 'bg-[#E67E22] border-[#E67E22] text-white'
+                                                        : 'bg-transparent border-white/10 text-gray-400 hover:border-white/30 hover:text-white'
                                                 )}
                                             >
                                                 {selectedInterests.includes(interest) && (
@@ -356,19 +415,32 @@ export function Contact() {
                                 </div>
 
                                 <div className="space-y-2">
-                                    <Label htmlFor="message" className="text-gray-300 uppercase text-xs">Message</Label>
+                                    <Label htmlFor="message" className="text-gray-300 uppercase text-xs">
+                                        Message
+                                    </Label>
                                     <Textarea
                                         id="message"
                                         value={message}
                                         onChange={(e) => setMessage(e.target.value)}
                                         placeholder="Je cherche à automatiser un flux complexe : extraction de données sur documents scannés (LLM), analyse et qualification des photos jointes (Vision), et injection propre en base de données SQL. Le volume devient ingérable manuellement..."
-                                        className="min-h-[120px] bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-[#E67E22] rounded-none input-animate"
+                                        className="min-h-[120px] bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-[#E67E22] focus-visible:ring-2 focus-visible:ring-[#E67E22] focus-visible:ring-offset-1 focus-visible:ring-offset-black rounded-none input-animate"
                                         required
+                                        aria-invalid={!!fieldErrors.message}
+                                        aria-describedby={fieldErrors.message ? 'message-error' : undefined}
                                     />
+                                    {fieldErrors.message && (
+                                        <p id="message-error" className="text-red-400 text-xs" role="alert">
+                                            {fieldErrors.message}
+                                        </p>
+                                    )}
                                 </div>
 
                                 {error && (
-                                    <div className="p-3 bg-red-500/10 border border-red-500/30 text-red-400 text-sm">
+                                    <div
+                                        className="p-3 bg-red-500/10 border border-red-500/30 text-red-400 text-sm"
+                                        role="alert"
+                                        aria-live="polite"
+                                    >
                                         {error}
                                     </div>
                                 )}
@@ -376,18 +448,19 @@ export function Contact() {
                                 <Button
                                     type="submit"
                                     className={clsx(
-                                        "w-full font-medium h-14 text-sm uppercase rounded-none tracking-wider border transition-all",
+                                        'w-full font-medium h-14 text-sm uppercase rounded-none tracking-wider border transition-all',
                                         isValid
-                                            ? "bg-white text-[#3D2314] hover:bg-[#F5F5F5] border-[#3D2314]"
-                                            : "bg-white/10 text-white/60 border-white/20 cursor-not-allowed"
+                                            ? 'bg-white text-[#3D2314] hover:bg-[#F5F5F5] border-[#3D2314]'
+                                            : 'bg-white/10 text-white/60 border-white/20 cursor-not-allowed'
                                     )}
                                     disabled={isSubmitting || !isValid}
                                 >
                                     {isSubmitting ? (
-                                        "ENVOI EN COURS..."
+                                        'ENVOI EN COURS...'
                                     ) : (
                                         <span className="flex items-center gap-2">
-                                            ENVOYER LE MESSAGE <DotIcon icon={leonardIcons.arrowRight} size={16} fillColor="#3D2314" />
+                                            ENVOYER LE MESSAGE{' '}
+                                            <DotIcon icon={leonardIcons.arrowRight} size={16} fillColor="#3D2314" />
                                         </span>
                                     )}
                                 </Button>

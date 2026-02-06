@@ -1,10 +1,10 @@
-
 import { Suspense, lazy, useState, useCallback } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { Navbar } from './components/layout/Navbar';
 import { FxProvider } from './components/fx';
 import { SectionLoader } from './components/ui/SectionLoader';
 import { SplashScreen } from './components/layout/SplashScreen';
+import { ErrorBoundary } from './components/ErrorBoundary';
 
 // Eager load Home since it's the main entry
 import Home from './pages/Home';
@@ -12,9 +12,23 @@ import Home from './pages/Home';
 // Lazy load Legal pages
 const CGV = lazy(() => import('./pages/Legal/CGV'));
 const MentionsLegales = lazy(() => import('./pages/Legal/MentionsLegales'));
-const Footer = lazy(() => import('./components/layout/Footer').then(m => ({ default: m.Footer })));
+const Footer = lazy(() => import('./components/layout/Footer').then((m) => ({ default: m.Footer })));
 
-// Lazy load Legal pages
+// 404 page component
+function NotFound() {
+    return (
+        <div className="min-h-screen flex flex-col items-center justify-center text-center px-6">
+            <h1 className="text-6xl font-mono font-bold text-white mb-4">404</h1>
+            <p className="text-gray-400 text-lg mb-8">Cette page n'existe pas.</p>
+            <a
+                href="/"
+                className="bg-[#E67E22] text-white px-6 py-3 font-normal uppercase text-sm inline-block transition-all hover:bg-white hover:text-[#E67E22]"
+            >
+                Retour a l'accueil
+            </a>
+        </div>
+    );
+}
 
 // Component to conditionally render layout based on route
 function AppLayout() {
@@ -23,28 +37,39 @@ function AppLayout() {
 
     return (
         <div className="min-h-screen bg-background text-foreground font-sans">
-            {/* Light Gradient Overlay */}
-            {/* Light Gradient Overlay - Removed as it was undefined and potentially blocking interactions */}
-            {/* <div className="gradient-overlay"></div> */}
+            {/* Skip to content link for accessibility */}
+            <a
+                href="#main-content"
+                className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[300] focus:bg-[#E67E22] focus:text-white focus:px-4 focus:py-2 focus:text-sm"
+            >
+                Aller au contenu principal
+            </a>
 
-            {/* Show Navbar only on non-legal pages */}
             {!isLegalPage && <Navbar />}
 
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/cgv" element={
-                    <Suspense fallback={<SectionLoader />}>
-                        <CGV />
-                    </Suspense>
-                } />
-                <Route path="/mentions-legales" element={
-                    <Suspense fallback={<SectionLoader />}>
-                        <MentionsLegales />
-                    </Suspense>
-                } />
-            </Routes>
+            <ErrorBoundary>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route
+                        path="/cgv"
+                        element={
+                            <Suspense fallback={<SectionLoader />}>
+                                <CGV />
+                            </Suspense>
+                        }
+                    />
+                    <Route
+                        path="/mentions-legales"
+                        element={
+                            <Suspense fallback={<SectionLoader />}>
+                                <MentionsLegales />
+                            </Suspense>
+                        }
+                    />
+                    <Route path="*" element={<NotFound />} />
+                </Routes>
+            </ErrorBoundary>
 
-            {/* Show Footer only on non-legal pages (legal pages have their own footer) */}
             {!isLegalPage && (
                 <Suspense fallback={null}>
                     <Footer />
@@ -56,7 +81,6 @@ function AppLayout() {
 
 export default function App() {
     const [splashComplete, setSplashComplete] = useState(() => {
-        // Check if splash has already been shown in this session
         if (typeof window !== 'undefined') {
             const params = new URLSearchParams(window.location.search);
             if (params.get('splash') === 'force') return false;
@@ -66,7 +90,7 @@ export default function App() {
     });
 
     const handleExitStart = useCallback(() => {
-        // No-op now as content is always visible
+        // No-op - content is always visible behind splash
     }, []);
 
     const handleSplashComplete = useCallback(() => {
@@ -79,11 +103,7 @@ export default function App() {
     return (
         <FxProvider>
             <Router>
-                {/* Splash Screen - Shows on first load */}
                 {!splashComplete && <SplashScreen onExitStart={handleExitStart} onComplete={handleSplashComplete} />}
-
-                {/* Main App Content */}
-                {/* Main App Content */}
                 <AppLayout />
             </Router>
         </FxProvider>

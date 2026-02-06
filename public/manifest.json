@@ -1,0 +1,22 @@
+{
+  "name": "Leonard Intelligence - Experts IA & Automatisation",
+  "short_name": "Leonard Intelligence",
+  "description": "Automatisez vos processus internes avec une IA souveraine et sécurisée.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "lang": "fr",
+  "icons": [
+    {
+      "src": "/logo_black_192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo_black_512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

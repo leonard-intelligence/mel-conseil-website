@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { FxImage } from '../fx/FxImage';
 import { useFxConfig } from '../fx/FxContext';
 
-
 interface SplashScreenProps {
     onExitStart: () => void;
     onComplete: () => void;
@@ -13,17 +12,17 @@ export function SplashScreen({ onExitStart, onComplete }: SplashScreenProps) {
     const [phase, setPhase] = useState<'visible' | 'exiting' | 'done'>('visible');
 
     useEffect(() => {
-        // Phase 1: Show logo for just a moment (100ms) before revealing site
+        // Phase 1: Show logo briefly (100ms) before revealing site
         const showTimer = setTimeout(() => {
             setPhase('exiting');
-            onExitStart(); // Reveal site almost immediately
+            onExitStart();
         }, 100);
 
-        // Phase 2: Exit animation takes 1s, then mark done
+        // Phase 2: Exit animation (800ms), then mark done
         const exitTimer = setTimeout(() => {
             setPhase('done');
             onComplete();
-        }, 2000);
+        }, 900);
 
         return () => {
             clearTimeout(showTimer);
@@ -31,16 +30,30 @@ export function SplashScreen({ onExitStart, onComplete }: SplashScreenProps) {
         };
     }, [onExitStart, onComplete]);
 
+    // Allow keyboard skip for accessibility
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') {
+                setPhase('done');
+                onComplete();
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [onComplete]);
+
     if (phase === 'done') return null;
 
     return (
         <div
-            className={`fixed inset-0 z-[200] flex items-center justify-center pointer-events-none transition-colors duration-700 ${phase === 'exiting' ? 'bg-transparent' : 'bg-black'
-                }`}
+            className={`fixed inset-0 z-[200] flex items-center justify-center pointer-events-none transition-colors duration-700 ${
+                phase === 'exiting' ? 'bg-transparent' : 'bg-black'
+            }`}
         >
             <div
-                className={`w-[60%] max-w-[300px] aspect-square transition-all duration-[1500ms] ease-out ${phase === 'visible' ? 'opacity-100 scale-100' : 'opacity-0 scale-[1.2]'
-                    }`}
+                className={`w-[60%] max-w-[300px] aspect-square transition-all duration-700 ease-out ${
+                    phase === 'visible' ? 'opacity-100 scale-100' : 'opacity-0 scale-[1.2]'
+                }`}
             >
                 <FxImage
                     src="/logo_white_512.png"
@@ -51,13 +64,22 @@ export function SplashScreen({ onExitStart, onComplete }: SplashScreenProps) {
                         width: '100%',
                         height: '100%',
                         objectFit: 'contain',
-                        objectPosition: 'center center'
+                        objectPosition: 'center center',
                     }}
-                    config={config || {
-                        fitMode: 'contain',
-                        duotone: { enabled: true, colorA: '#000000', colorB: '#ffffff', strength: 1 },
-                        interaction: { enabled: true, mode: 'shape', variant: 'push', radius: 0.15, softness: 0.5, activeSize: 15 }
-                    }}
+                    config={
+                        config || {
+                            fitMode: 'contain',
+                            duotone: { enabled: true, colorA: '#000000', colorB: '#ffffff', strength: 1 },
+                            interaction: {
+                                enabled: true,
+                                mode: 'shape',
+                                variant: 'push',
+                                radius: 0.15,
+                                softness: 0.5,
+                                activeSize: 15,
+                            },
+                        }
+                    }
                 />
             </div>
         </div>

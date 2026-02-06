@@ -3,6 +3,28 @@
 
 <head>
   <meta charset="UTF-8" />
+
+  <!-- SEO Fallback Meta Tags (overridden by react-helmet at runtime) -->
+  <title>Leonard Intelligence - Experts IA & Automatisation</title>
+  <meta name="description" content="Automatisez vos processus internes avec une IA souveraine et sécurisée. Texte, image, audio, vidéo. Déploiement Local ou Cloud UE." />
+  <meta name="theme-color" content="#000000" />
+  <link rel="canonical" href="https://leonardintelligence.com/" />
+
+  <!-- Open Graph Fallback -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://leonardintelligence.com/" />
+  <meta property="og:title" content="Leonard Intelligence - Experts IA & Automatisation" />
+  <meta property="og:description" content="Automatisez vos processus internes avec une IA souveraine et sécurisée. Texte, image, audio, vidéo. Déploiement Local ou Cloud UE." />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:image" content="https://leonardintelligence.com/logo_black_512.png" />
+  <meta property="og:site_name" content="Leonard Intelligence" />
+
+  <!-- Twitter Card Fallback -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Leonard Intelligence - Experts IA & Automatisation" />
+  <meta name="twitter:description" content="Automatisez vos processus internes avec une IA souveraine et sécurisée. Texte, image, audio, vidéo. Déploiement Local ou Cloud UE." />
+  <meta name="twitter:image" content="https://leonardintelligence.com/logo_black_512.png" />
+
   <!-- Favicon - SVG with dark/light mode support -->
   <link rel="icon" type="image/svg+xml" href="/logo_black.svg" media="(prefers-color-scheme: light)" />
   <link rel="icon" type="image/svg+xml" href="/logo_white.svg" media="(prefers-color-scheme: dark)" />
@@ -17,9 +39,22 @@
   <link rel="apple-touch-icon" href="/logo_white_192.png" sizes="192x192" media="(prefers-color-scheme: dark)" />
   <link rel="apple-touch-icon" href="/logo_white_512.png" sizes="512x512" media="(prefers-color-scheme: dark)" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Web App Manifest -->
+  <link rel="manifest" href="/manifest.json" />
+
+  <!-- Font preloading for critical rendering path -->
+  <link rel="preload" href="/fonts/Junicode-Italic.woff2" as="font" type="font/woff2" crossorigin />
+
+  <!-- Content Security Policy -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://assets.calendly.com; style-src 'self' 'unsafe-inline' https://assets.calendly.com; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://assets.mailerlite.com https://calendly.com; frame-src https://calendly.com;" />
 </head>
 
 <body>
+  <!-- Skip to content - noscript fallback for a11y -->
+  <noscript>
+    <style>.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }</style>
+  </noscript>
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
 </body>

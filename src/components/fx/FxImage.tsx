@@ -8,13 +8,20 @@ import { useEffect, useRef, useState, useCallback, useMemo, useContext, type CSS
 import type { FxConfig } from './fxConfig';
 import { hexToRgb } from './fxConfig';
 import { useFxConfig, FxContext } from './FxContext';
-import { VERTEX_SHADER, FRAGMENT_SHADER } from './shaders/fxShaders';
 
+// Lazy-loaded shader cache to avoid bloating the initial JS bundle
+let _shaderCache: { VERTEX_SHADER: string; FRAGMENT_SHADER: string } | null = null;
+async function loadShaders() {
+    if (_shaderCache) return _shaderCache;
+    const mod = await import('./shaders/fxShaders');
+    _shaderCache = { VERTEX_SHADER: mod.VERTEX_SHADER, FRAGMENT_SHADER: mod.FRAGMENT_SHADER };
+    return _shaderCache;
+}
 
 // Interface for click ripples
 export interface ClickRipple {
-    x: number;  // normalized 0-1
-    y: number;  // normalized 0-1
+    x: number; // normalized 0-1
+    y: number; // normalized 0-1
     startTime: number; // performance.now() when clicked
 }
 
@@ -27,7 +34,8 @@ interface FxImageProps {
     style?: CSSProperties; // Container style
     imgStyle?: CSSProperties; // Inner Image style override
     clickRipples?: ClickRipple[]; // New: Click ripples for expanding zoom effect
-    loading?: "lazy" | "eager";
+    loading?: 'lazy' | 'eager';
+    fetchPriority?: 'high' | 'low' | 'auto';
 }
 
 interface WebGLState {
@@ -36,7 +44,7 @@ interface WebGLState {
     texture: WebGLTexture;
     depthTexture?: WebGLTexture | null; // New
     uniforms: Record<string, WebGLUniformLocation | null>;
-    colorState?: { cA: number[], cB: number[] };
+    colorState?: { cA: number[]; cB: number[] };
 }
 
 /**
@@ -59,11 +67,11 @@ function compileShader(gl: WebGLRenderingContext, type: number, source: string):
 }
 
 /**
- * Create WebGL program from vertex and fragment shaders
+ * Create WebGL program from vertex and fragment shaders (loaded dynamically)
  */
-function createProgram(gl: WebGLRenderingContext): WebGLProgram | null {
-    const vertexShader = compileShader(gl, gl.VERTEX_SHADER, VERTEX_SHADER);
-    const fragmentShader = compileShader(gl, gl.FRAGMENT_SHADER, FRAGMENT_SHADER);
+function createProgram(gl: WebGLRenderingContext, vertexSource: string, fragmentSource: string): WebGLProgram | null {
+    const vertexShader = compileShader(gl, gl.VERTEX_SHADER, vertexSource);
+    const fragmentShader = compileShader(gl, gl.FRAGMENT_SHADER, fragmentSource);
 
     if (!vertexShader || !fragmentShader) return null;
 
@@ -88,12 +96,7 @@ function createProgram(gl: WebGLRenderingContext): WebGLProgram | null {
  */
 function setupQuad(gl: WebGLRenderingContext, program: WebGLProgram) {
     // Position buffer (clip space coordinates)
-    const positions = new Float32Array([
-        -1, -1,
-        1, -1,
-        -1, 1,
-        1, 1,
-    ]);
+    const positions = new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]);
 
     const posBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, posBuffer);
@@ -104,12 +107,7 @@ function setupQuad(gl: WebGLRenderingContext, program: WebGLProgram) {
     gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);
 
     // Texture coordinate buffer
-    const texCoords = new Float32Array([
-        0, 1,
-        1, 1,
-        0, 0,
-        1, 0,
-    ]);
+    const texCoords = new Float32Array([0, 1, 1, 1, 0, 0, 1, 0]);
 
     const texBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, texBuffer);
@@ -129,7 +127,8 @@ export function FxImage({
     style,
     imgStyle,
     clickRipples = [],
-    loading = "lazy"
+    loading = 'lazy',
+    fetchPriority,
 }: FxImageProps) {
     const containerRef = useRef<HTMLDivElement>(null);
     const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -152,21 +151,23 @@ export function FxImage({
     const contextConfig = useFxConfig();
 
     // Merge: context config (from debug panel) + explicit prop overrides
-    const mergedConfig: FxConfig = useMemo(() => ({
-        ...contextConfig,
-        ...config,
-        order: config?.order || contextConfig.order || ['beads', 'glassBeads', 'duotone'],
-        beads: { ...contextConfig.beads, ...config?.beads },
-        glassBeads: { ...contextConfig.glassBeads, ...config?.glassBeads },
-        duotone: { ...contextConfig.duotone, ...config?.duotone },
-        hover: { ...contextConfig.hover, ...config?.hover },
-        interaction: { ...contextConfig.interaction, ...config?.interaction },
-    }), [contextConfig, config]);
+    const mergedConfig: FxConfig = useMemo(
+        () => ({
+            ...contextConfig,
+            ...config,
+            order: config?.order || contextConfig.order || ['beads', 'glassBeads', 'duotone'],
+            beads: { ...contextConfig.beads, ...config?.beads },
+            glassBeads: { ...contextConfig.glassBeads, ...config?.glassBeads },
+            duotone: { ...contextConfig.duotone, ...config?.duotone },
+            hover: { ...contextConfig.hover, ...config?.hover },
+            interaction: { ...contextConfig.interaction, ...config?.interaction },
+        }),
+        [contextConfig, config]
+    );
 
     /**
      * Initialize WebGL context and program
      */
-
 
     // State for smooth transitions
     const shapeValueRef = useRef(0); // 0 = circle, 1 = square
@@ -219,9 +220,9 @@ export function FxImage({
         const containerAspect = width / height;
         const imageAspect = (img.naturalWidth || width) / (img.naturalHeight || height);
 
-        const orderMap: Record<string, number> = { 'beads': 1, 'duotone': 2 };
+        const orderMap: Record<string, number> = { beads: 1, duotone: 2 };
         const orderInts = (currentConfig.order || ['beads', 'duotone'])
-            .map(id => orderMap[id] || 0)
+            .map((id) => orderMap[id] || 0)
             .concat([0, 0, 0])
             .slice(0, 3);
 
@@ -249,8 +250,8 @@ export function FxImage({
         const my = (mouse.y - rect.top) / rect.height;
         gl.uniform2f(uniforms.u_mouse, mx, my);
 
-        const modeMap: Record<string, number> = { 'none': 0, 'reveal': 1, 'shape': 2 };
-        const mode = currentConfig.interaction?.enabled ? (modeMap[currentConfig.interaction?.mode] || 0) : 0;
+        const modeMap: Record<string, number> = { none: 0, reveal: 1, shape: 2 };
+        const mode = currentConfig.interaction?.enabled ? modeMap[currentConfig.interaction?.mode] || 0 : 0;
         gl.uniform1i(uniforms.u_interMode, mode);
         const variant = currentConfig.interaction?.variant === 'push' ? 1 : 0;
         gl.uniform1i(uniforms.u_interVariant, variant);
@@ -344,7 +345,7 @@ export function FxImage({
 
         if (imgStyle?.objectPosition) {
             const posStr = String(imgStyle.objectPosition).toLowerCase();
-            const parts = posStr.split(' ').filter(p => p.trim() !== '');
+            const parts = posStr.split(' ').filter((p) => p.trim() !== '');
 
             // Helper to parse keywords
             const parsePos = (val: string, isX: boolean) => {
@@ -358,10 +359,10 @@ export function FxImage({
                 }
                 if (val.endsWith('%')) return parseFloat(val) / 100;
                 return null; // No match for this axis
-            }
+            };
 
             // Identify which part is X and which is Y
-            parts.forEach(p => {
+            parts.forEach((p) => {
                 const xVal = parsePos(p, true);
                 const yVal = parsePos(p, false);
 
@@ -371,8 +372,9 @@ export function FxImage({
                 else if (['left', 'right'].includes(p)) objPosX = xVal ?? objPosX;
                 // If it's a percentage or center, assign based on first-available
                 else {
-                    if (p === 'center') { /* already default 0.5 */ }
-                    else if (p.endsWith('%')) {
+                    if (p === 'center') {
+                        /* already default 0.5 */
+                    } else if (p.endsWith('%')) {
                         // First numeric value is X in CSS unless specified
                         // Simple heuristic for now
                         if (parts.indexOf(p) === 0) objPosX = xVal ?? objPosX;
@@ -402,7 +404,7 @@ export function FxImage({
         if (!webgl.colorState) {
             webgl.colorState = {
                 cA: hexToRgb(currentConfig.duotone.colorA),
-                cB: hexToRgb(currentConfig.duotone.colorB)
+                cB: hexToRgb(currentConfig.duotone.colorB),
             };
         }
 
@@ -413,7 +415,7 @@ export function FxImage({
         const lerp3 = (a: number[], b: number[], t: number) => [
             a[0] + (b[0] - a[0]) * t,
             a[1] + (b[1] - a[1]) * t,
-            a[2] + (b[2] - a[2]) * t
+            a[2] + (b[2] - a[2]) * t,
         ];
 
         webgl.colorState.cA = lerp3(webgl.colorState.cA, targetCA, 0.1);
@@ -444,7 +446,7 @@ export function FxImage({
     /**
      * Initialize WebGL context and program
      */
-    const initWebGL = useCallback(() => {
+    const initWebGL = useCallback(async () => {
         const canvas = canvasRef.current;
 
         const img = imgRef.current;
@@ -455,7 +457,7 @@ export function FxImage({
 
         const gl = canvas.getContext('webgl', {
             premultipliedAlpha: false,
-            preserveDrawingBuffer: false // optimizing memory
+            preserveDrawingBuffer: false, // optimizing memory
         });
         if (!gl) {
             console.warn('WebGL not supported, falling back to original image');
@@ -467,24 +469,20 @@ export function FxImage({
         const handleContextLost = (e: Event) => {
             e.preventDefault();
             console.log('WebGL Context Lost', src);
-            // Animation frame usage will stop naturally as webglRef is likely invalidated or checking gl.isContextLost()
         };
 
         const handleContextRestored = () => {
-            // initWebGL depends on definition of initWebGL - hoisting of function expression issues?
-            // Actually, initWebGL is a const, so we cannot reference it inside itself unless it's defined.
-            // But we can reference a container or use a mutable ref for the recursive call in restore.
-            // Let's rely on React state/effects to re-trigger if needed, or just warn.
             console.log('WebGL Context Restored', src);
-            // Since initWebGL is a callback, it might be stale or not hoisted. 
-            // Ideally we should just set a state that triggers the effect again.
-            setImageLoaded(false); setTimeout(() => setImageLoaded(true), 10);
+            setImageLoaded(false);
+            setTimeout(() => setImageLoaded(true), 10);
         };
 
         canvas.addEventListener('webglcontextlost', handleContextLost, false);
         canvas.addEventListener('webglcontextrestored', handleContextRestored, false);
 
-        const program = createProgram(gl);
+        // Load shaders dynamically (deferred from initial bundle)
+        const shaders = await loadShaders();
+        const program = createProgram(gl, shaders.VERTEX_SHADER, shaders.FRAGMENT_SHADER);
         if (!program) {
             setWebglSupported(false);
             return;
@@ -608,19 +606,22 @@ export function FxImage({
 
     // Visibility Observer (Lazy Init + Animation Pause)
     useEffect(() => {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                // Update viewport ref for animation loop control
-                isInViewportRef.current = entry.isIntersecting;
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    // Update viewport ref for animation loop control
+                    isInViewportRef.current = entry.isIntersecting;
 
-                // Dynamic visibility: Create/Destroy context based on viewport
-                // This prevents "Too Many WebGL Contexts" error on pages with many FX images
-                setIsVisible(entry.isIntersecting);
+                    // Dynamic visibility: Create/Destroy context based on viewport
+                    // This prevents "Too Many WebGL Contexts" error on pages with many FX images
+                    setIsVisible(entry.isIntersecting);
 
-                // No need to manually restart loop here; initWebGL effect will trigger
-                // when isVisible becomes true and component mounts canvas.
-            });
-        }, { threshold: 0.0, rootMargin: '200px' }); // Load 200px before appearing
+                    // No need to manually restart loop here; initWebGL effect will trigger
+                    // when isVisible becomes true and component mounts canvas.
+                });
+            },
+            { threshold: 0.0, rootMargin: '200px' }
+        ); // Load 200px before appearing
 
         if (containerRef.current) {
             observer.observe(containerRef.current);
@@ -639,7 +640,7 @@ export function FxImage({
 
         // Cleanup
         return () => {
-            // We rely on Garbage Collection for the context. 
+            // We rely on Garbage Collection for the context.
             // Explicitly losing context can cause issues if the canvas is reused or rapidly remounted.
             const gl = webglRef.current?.gl;
             // Unbind textures to help GC
@@ -686,7 +687,7 @@ export function FxImage({
             ref={containerRef}
             className={`fx-image-container ${className}`}
             style={{ position: 'relative', display: 'inline-block', ...style }}
-        // Events removed here as we track window globally for background support
+            // Events removed here as we track window globally for background support
         >
             {/* Source image - always visible when effects disabled OR when canvas is hidden (e.g. out of viewport), hidden when effects active AND visible */}
             <img
@@ -696,6 +697,7 @@ export function FxImage({
                 crossOrigin="anonymous"
                 onLoad={handleImageLoad}
                 loading={loading}
+                fetchPriority={fetchPriority}
                 decoding="async"
                 style={{
                     display: 'block',
@@ -704,7 +706,7 @@ export function FxImage({
                     width: 'auto',
                     height: 'auto',
                     // Hide image immediately if effects are active to prevent FOUC (Flash of Unstyled Content)
-                    visibility: (effectsActive) ? 'hidden' : 'visible',
+                    visibility: effectsActive ? 'hidden' : 'visible',
                     pointerEvents: 'none', // Allow clicks to pass through to parent container
                     ...imgStyle,
                 }}
