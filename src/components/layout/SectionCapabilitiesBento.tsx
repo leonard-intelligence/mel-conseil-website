@@ -35,14 +35,14 @@ export function SectionCapabilitiesBento() {
                 </div>
 
                 {/* Bento Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                     {capabilities.map((item, index) => (
                         <TechCard
                             key={item.id}
                             className={cn(
-                                "group relative flex flex-col justify-between overflow-hidden bg-zinc-900/20 border border-white/5 p-8 backdrop-blur-sm transition-all duration-500 hover:bg-zinc-900/40",
+                                "group relative flex flex-col justify-between overflow-hidden bg-zinc-900/20 border border-white/5 p-4 sm:p-8 backdrop-blur-sm transition-all duration-500 hover:bg-zinc-900/40",
                                 // Highlight the first item significantly
-                                index === 0 ? "md:col-span-2 lg:col-span-2 bg-gradient-to-br from-zinc-900/50 to-black/50" : ""
+                                index === 0 ? "col-span-2 lg:col-span-2 bg-gradient-to-br from-zinc-900/50 to-black/50" : ""
                             )}
                             style={{ "--hover-border-color": "#E67E22" } as CSSProperties}
                         >

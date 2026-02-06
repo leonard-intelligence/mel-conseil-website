@@ -177,9 +177,10 @@
     /* standard reset usually included */
   }
 
+  html,
   body {
     overflow-x: hidden;
-    max-width: 1920px;
+    max-width: 100vw;
     margin-inline: auto;
   }
 

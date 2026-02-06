@@ -12,17 +12,17 @@ export function SplashScreen({ onExitStart, onComplete }: SplashScreenProps) {
     const [phase, setPhase] = useState<'visible' | 'exiting' | 'done'>('visible');
 
     useEffect(() => {
-        // Phase 1: Show logo for 1.5s
+        // Phase 1: Show logo for 2.5s
         const showTimer = setTimeout(() => {
             setPhase('exiting');
             onExitStart(); // Reveal site now
-        }, 1500);
+        }, 2500);
 
         // Phase 2: Exit animation takes 1s, then mark done
         const exitTimer = setTimeout(() => {
             setPhase('done');
             onComplete();
-        }, 2500);
+        }, 3500);
 
         return () => {
             clearTimeout(showTimer);

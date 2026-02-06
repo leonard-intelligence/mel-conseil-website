@@ -45,29 +45,29 @@ export function SectionSecurity() {
                 But let's just remove the block first. 
             */}
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                <div className="p-6 border-r border-white/10 flex flex-col items-center justify-center text-center hover:bg-white/5 transition-colors">
-                    <div className="mb-3">
-                        <DotIcon icon={leonardIcons.rgpdCompliant} size={24} fillColor="#E67E22" />
+                <div className="p-4 sm:p-6 border-r border-white/10 flex flex-col items-center justify-center text-center hover:bg-white/5 transition-colors">
+                    <div className="mb-2 sm:mb-3">
+                        <DotIcon icon={leonardIcons.rgpdCompliant} size={20} fillColor="#E67E22" />
                     </div>
-                    <span className="text-xs text-white uppercase tracking-wider">RGPD</span>
+                    <span className="text-[10px] sm:text-xs text-white uppercase tracking-wider">RGPD</span>
                 </div>
-                <div className="p-6 border-r border-white/10 flex flex-col items-center justify-center text-center hover:bg-white/5 transition-colors">
-                    <div className="mb-3">
-                        <DotIcon icon={leonardIcons.hebergementUE} size={24} fillColor="#E67E22" />
+                <div className="p-4 sm:p-6 border-r border-white/10 flex flex-col items-center justify-center text-center hover:bg-white/5 transition-colors">
+                    <div className="mb-2 sm:mb-3">
+                        <DotIcon icon={leonardIcons.hebergementUE} size={20} fillColor="#E67E22" />
                     </div>
-                    <span className="text-xs text-white uppercase tracking-wider">Héberg. UE</span>
+                    <span className="text-[10px] sm:text-xs text-white uppercase tracking-wider">Héberg. UE</span>
                 </div>
-                <div className="p-6 border-r border-white/10 flex flex-col items-center justify-center text-center hover:bg-white/5 transition-colors">
-                    <div className="mb-3">
-                        <DotIcon icon={leonardIcons.hdsReady} size={24} fillColor="#E67E22" />
+                <div className="p-4 sm:p-6 border-r border-white/10 flex flex-col items-center justify-center text-center hover:bg-white/5 transition-colors">
+                    <div className="mb-2 sm:mb-3">
+                        <DotIcon icon={leonardIcons.hdsReady} size={20} fillColor="#E67E22" />
                     </div>
-                    <span className="text-xs text-white uppercase tracking-wider">HDS Ready</span>
+                    <span className="text-[10px] sm:text-xs text-white uppercase tracking-wider">HDS Ready</span>
                 </div>
-                <div className="p-6 flex flex-col items-center justify-center text-center hover:bg-white/5 transition-colors">
-                    <div className="mb-3">
-                        <DotIcon icon={leonardIcons.onPremise} size={24} fillColor="#E67E22" />
+                <div className="p-4 sm:p-6 flex flex-col items-center justify-center text-center hover:bg-white/5 transition-colors">
+                    <div className="mb-2 sm:mb-3">
+                        <DotIcon icon={leonardIcons.onPremise} size={20} fillColor="#E67E22" />
                     </div>
-                    <span className="text-xs text-white uppercase tracking-wider">On-Premise</span>
+                    <span className="text-[10px] sm:text-xs text-white uppercase tracking-wider">On-Premise</span>
                 </div>
             </div>
 

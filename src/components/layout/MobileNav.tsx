@@ -27,9 +27,9 @@ export function MobileNav() {
                 className="relative z-[120] w-12 h-12 flex flex-col justify-center items-center group focus:outline-none cursor-pointer"
                 aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
             >
-                <span className={`block w-7 h-[3px] bg-white rounded-full transition-all duration-300 ease-out ${isOpen ? 'rotate-45 translate-y-[5px]' : '-translate-y-1.5'}`} />
-                <span className={`block w-7 h-[3px] bg-white rounded-full transition-all duration-300 ease-out ${isOpen ? 'opacity-0' : 'opacity-100'}`} />
-                <span className={`block w-7 h-[3px] bg-white rounded-full transition-all duration-300 ease-out ${isOpen ? '-rotate-45 -translate-y-[5px]' : 'translate-y-1.5'}`} />
+                <span className={`block w-7 h-[2px] bg-white rounded-full transition-all duration-300 ease-out ${isOpen ? 'rotate-45 translate-y-[6px]' : '-translate-y-1'}`} />
+                <span className={`block w-7 h-[2px] bg-white rounded-full transition-all duration-300 ease-out my-1 ${isOpen ? 'opacity-0' : 'opacity-100'}`} />
+                <span className={`block w-7 h-[2px] bg-white rounded-full transition-all duration-300 ease-out ${isOpen ? '-rotate-45 -translate-y-[6px]' : 'translate-y-1'}`} />
             </button>
 
             {/* Full Screen Overlay */}

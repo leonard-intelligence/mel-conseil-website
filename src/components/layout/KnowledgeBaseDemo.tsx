@@ -83,11 +83,15 @@ export function KnowledgeBaseDemo() {
 
     // Initialize Nodes
     useEffect(() => {
+        const isMobile = window.innerWidth < 640;
+        const baseDistance = isMobile ? 60 : 100;
+        const varDistance = isMobile ? 30 : 50;
+
         const newNodes: FileNode[] = [];
         for (let i = 0; i < 16; i++) {
             const fType = FILE_TYPES[i % FILE_TYPES.length];
             const angle = (i / 16) * Math.PI * 2;
-            const distance = 100 + Math.random() * 50; // Increased distance to avoid overlap
+            const distance = baseDistance + Math.random() * varDistance; // Increased distance to avoid overlap
 
             newNodes.push({
                 id: i,

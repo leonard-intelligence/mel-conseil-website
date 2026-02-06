@@ -26,8 +26,8 @@ export function TrustBar() {
     return (
         <section id="section-trustbar" className="bg-black w-full relative overflow-hidden" aria-label="Technologies et modèles partenaires">
             <div className="flex w-full overflow-hidden">
-                <div className="relative z-10 bg-black text-white px-6 py-6 text-sm border-r border-white/10 dark:text-white flex items-center whitespace-nowrap">
-                    Partenaires technologiques
+                <div className="relative z-10 bg-black text-white px-3 sm:px-6 py-4 sm:py-6 text-[10px] sm:text-sm border-r border-white/10 dark:text-white flex items-center whitespace-nowrap">
+                    PARTENAIRES
                 </div>
                 <div
                     className="flex flex-1 overflow-hidden items-center"
@@ -37,7 +37,7 @@ export function TrustBar() {
                         {duplicatedLogos.map((logo, index) => (
                             <div
                                 key={`${logo.name}-${index}`}
-                                className="flex-shrink-0 w-[150px] h-[80px] flex items-center justify-center hover:bg-white/5 transition-colors"
+                                className="flex-shrink-0 w-[100px] sm:w-[150px] h-[60px] sm:h-[80px] flex items-center justify-center hover:bg-white/5 transition-colors"
                                 title={logo.name}
                                 role="listitem"
                                 aria-label={logo.name}
@@ -45,7 +45,7 @@ export function TrustBar() {
                                 <img
                                     src={logo.src}
                                     alt={logo.name}
-                                    className="h-7 w-auto opacity-70 hover:opacity-100 transition-opacity"
+                                    className="h-4 sm:h-7 w-auto opacity-70 hover:opacity-100 transition-opacity"
                                     style={{ filter: 'brightness(0) invert(1)' }}
                                 />
                             </div>

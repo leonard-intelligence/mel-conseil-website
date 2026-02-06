@@ -11,7 +11,7 @@ export function Navbar() {
         >
             {/* Branding Area */}
             <div className="flex items-center h-full">
-                <div className="px-6 font-normal text-lg -tracking-[0.05em] flex items-center h-full border-r border-white/10">
+                <div className="px-4 sm:px-6 font-normal text-lg -tracking-[0.05em] flex items-center h-full border-r border-white/10">
                     <a href="/" className="flex items-center gap-1" aria-label="Retour à l'accueil">
                         <img
                             src={logo}

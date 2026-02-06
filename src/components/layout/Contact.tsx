@@ -194,18 +194,18 @@ export function Contact() {
                 <div id="contact-form-wrapper" className="relative min-h-[500px] flex flex-col justify-center">
 
                     {!showForm && !isSent ? (
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 group/container mt-8">
+                        <div className="grid grid-cols-2 gap-4 sm:gap-8 group/container mt-8">
                             {/* Option 1: Visio - The Direct Path */}
                             <button
                                 onClick={() => setIsModalOpen(true)}
-                                className="relative flex flex-col items-center justify-between p-16 text-center transition-all duration-500 bg-[#3D2314]/[0.15] border border-[#3D2314]/40 hover:border-[#3D2314]/80 hover:-translate-y-1 cursor-pointer group/item1 opacity-100 group-hover/container:opacity-60 hover:!opacity-100 shadow-2xl hover:shadow-[#3D2314]/30"
+                                className="relative flex flex-col items-center justify-between p-6 sm:p-16 text-center transition-all duration-500 bg-[#3D2314]/[0.15] border border-[#3D2314]/40 hover:border-[#3D2314]/80 hover:-translate-y-1 cursor-pointer group/item1 opacity-100 group-hover/container:opacity-60 hover:!opacity-100 shadow-2xl hover:shadow-[#3D2314]/30"
                             >
                                 {/* Accent Border Bottom */}
                                 <div className="absolute inset-x-0 bottom-0 h-[2px] bg-[#3D2314]/0 group-hover/item1:bg-[#3D2314]/100 transition-all duration-500" />
 
                                 <div className="relative z-10 w-full flex flex-col items-center space-y-8">
                                     <div className="relative">
-                                        <div className="w-24 h-24 rounded-full border border-[#3D2314]/30 overflow-hidden mb-2 group-hover/item1:border-[#3D2314]/60 transition-colors duration-500">
+                                        <div className="w-16 h-16 sm:w-24 sm:h-24 rounded-full border border-[#3D2314]/30 overflow-hidden mb-2 group-hover/item1:border-[#3D2314]/60 transition-colors duration-500">
                                             <img
                                                 src="/assets/images/team/melvin.webp"
                                                 alt="Melvin"
@@ -218,18 +218,18 @@ export function Contact() {
                                     </div>
 
                                     <div className="space-y-4">
-                                        <h4 className="text-xl font-mono uppercase font-normal tracking-[0.2em] text-white group-hover/item1:text-white transition-colors">
-                                            Parlons ensemble
+                                        <h4 className="text-sm sm:text-xl font-mono uppercase font-normal tracking-[0.2em] text-white group-hover/item1:text-white transition-colors">
+                                            Parlons
                                         </h4>
                                         <div className="h-[1px] w-10 mx-auto bg-[#3D2314]/30 group-hover/item1:w-14 group-hover/item1:bg-[#3D2314]/60 transition-all duration-500" />
-                                        <p className="text-xs font-mono uppercase tracking-[0.15em] text-gray-400 group-hover/item1:text-[#B1937F] transition-colors leading-relaxed">
-                                            Visio gratuite <br /> de 30 minutes
+                                        <p className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.15em] text-gray-400 group-hover/item1:text-[#B1937F] transition-colors leading-relaxed">
+                                            Visio <br className="sm:hidden" /> 30 min
                                         </p>
                                     </div>
                                 </div>
 
-                                <div className="mt-12 relative z-10 text-[10px] font-mono uppercase tracking-[0.4em] text-gray-500 group-hover/item1:text-[#E67E22] transition-colors flex items-center gap-2">
-                                    <span>Je prends rendez-vous</span>
+                                <div className="mt-8 sm:mt-12 relative z-10 text-[8px] sm:text-[10px] font-mono uppercase tracking-[0.4em] text-gray-500 group-hover/item1:text-[#E67E22] transition-colors flex items-center gap-2">
+                                    <span>RDV</span>
                                     <DotIcon icon={leonardIcons.arrowRight} size={12} className="text-[#3D2314] group-hover/item1:text-[#E67E22]" />
                                 </div>
                             </button>
@@ -237,29 +237,29 @@ export function Contact() {
                             {/* Option 2: Message - The Thoughtful Path */}
                             <button
                                 onClick={() => setShowForm(true)}
-                                className="relative flex flex-col items-center justify-between p-16 text-center transition-all duration-500 bg-white/[0.03] border border-white/25 hover:border-white/40 hover:-translate-y-1 cursor-pointer group/item2 opacity-100 group-hover/container:opacity-50 hover:!opacity-100 shadow-2xl"
+                                className="relative flex flex-col items-center justify-between p-6 sm:p-16 text-center transition-all duration-500 bg-white/[0.03] border border-white/25 hover:border-white/40 hover:-translate-y-1 cursor-pointer group/item2 opacity-100 group-hover/container:opacity-50 hover:!opacity-100 shadow-2xl"
                             >
                                 {/* Accent Border Bottom */}
                                 <div className="absolute inset-x-0 bottom-0 h-[2px] bg-white/0 group-hover/item2:bg-white/40 transition-all duration-500" />
 
                                 <div className="relative z-10 w-full flex flex-col items-center space-y-8">
-                                    <div className="w-24 h-24 flex items-center justify-center text-white/60 group-hover/item2:text-white transition-all duration-500">
-                                        <DotIcon icon={leonardIcons.solutionConversation} size={56} className="group-hover/item2:translate-y-[-4px] transition-transform duration-500" />
+                                    <div className="w-16 h-16 sm:w-24 sm:h-24 flex items-center justify-center text-white/60 group-hover/item2:text-white transition-all duration-500">
+                                        <DotIcon icon={leonardIcons.solutionConversation} size={40} className="sm:size-[56px] group-hover/item2:translate-y-[-4px] transition-transform duration-500" />
                                     </div>
 
                                     <div className="space-y-4">
-                                        <h4 className="text-xl font-mono uppercase font-normal tracking-[0.2em] text-white/80 group-hover/item2:text-white transition-colors">
+                                        <h4 className="text-sm sm:text-xl font-mono uppercase font-normal tracking-[0.2em] text-white/80 group-hover/item2:text-white transition-colors">
                                             Message
                                         </h4>
                                         <div className="h-[1px] w-10 mx-auto bg-white/20 group-hover/item2:w-14 group-hover/item2:bg-white/50 transition-all duration-500" />
-                                        <p className="text-xs font-mono uppercase tracking-[0.15em] text-gray-500 group-hover/item2:text-gray-400 transition-colors">
-                                            Réponse sous 24h
+                                        <p className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.15em] text-gray-500 group-hover/item2:text-gray-400 transition-colors">
+                                            24h
                                         </p>
                                     </div>
                                 </div>
 
-                                <div className="mt-12 relative z-10 text-[10px] font-mono uppercase tracking-[0.4em] text-gray-500 group-hover/item2:text-white transition-colors flex items-center gap-2">
-                                    <span>Envoyer ma demande</span>
+                                <div className="mt-8 sm:mt-12 relative z-10 text-[8px] sm:text-[10px] font-mono uppercase tracking-[0.4em] text-gray-500 group-hover/item2:text-white transition-colors flex items-center gap-2">
+                                    <span>ÉCRIRE</span>
                                     <span className="w-1.5 h-1.5 bg-white/40 rounded-full" />
                                 </div>
                             </button>
