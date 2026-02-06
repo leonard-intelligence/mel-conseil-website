@@ -17,10 +17,10 @@ export function Hero() {
     });
 
     useEffect(() => {
-        // Sequence: 5s of splash, then transition contents
+        // Sequence: Short splash (wait for logo exit trigger), then transition contents
         const timer = setTimeout(() => {
             setAnimationPhase('content');
-        }, 5000);
+        }, 150);
         return () => clearTimeout(timer);
     }, []);
 

@@ -13,11 +13,11 @@ export function SplashScreen({ onExitStart, onComplete }: SplashScreenProps) {
     const [phase, setPhase] = useState<'visible' | 'exiting' | 'done'>('visible');
 
     useEffect(() => {
-        // Phase 1: Show logo for 1s
+        // Phase 1: Show logo for just a moment (100ms) before revealing site
         const showTimer = setTimeout(() => {
             setPhase('exiting');
-            onExitStart(); // Reveal site now
-        }, 1000);
+            onExitStart(); // Reveal site almost immediately
+        }, 100);
 
         // Phase 2: Exit animation takes 1s, then mark done
         const exitTimer = setTimeout(() => {
@@ -39,7 +39,7 @@ export function SplashScreen({ onExitStart, onComplete }: SplashScreenProps) {
                 }`}
         >
             <div
-                className={`w-[60%] max-w-[300px] aspect-square transition-opacity duration-1000 ${phase === 'visible' ? 'opacity-100 scale-100' : 'opacity-0 scale-[5]'
+                className={`w-[60%] max-w-[300px] aspect-square transition-all duration-[1500ms] ease-out ${phase === 'visible' ? 'opacity-100 scale-100' : 'opacity-0 scale-[1.2]'
                     }`}
             >
                 <FxImage
