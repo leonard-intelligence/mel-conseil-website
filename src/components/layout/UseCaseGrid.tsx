@@ -35,7 +35,7 @@ export function UseCaseGrid() {
                 <div className="flex flex-col mb-8 md:mb-16">
                     <div className="mb-8">
                         <h2 className="text-4xl font-medium font-mono text-white mb-4">
-                            Solutions AI.
+                            Solutions Métier.
                         </h2>
                         <div className="flex items-center gap-3 text-gray-400 text-sm">
                             <span>Performance Monitor<span className="animate-pulse">_</span></span>
@@ -109,7 +109,7 @@ export function UseCaseGrid() {
                                 {item.features && (
                                     <div className="mt-auto pt-4 border-t border-white/5 grid grid-cols-2 gap-y-2 gap-x-4">
                                         {item.features.map((feat, i) => (
-                                            <div key={i} className="flex items-center gap-2 text-zinc-500 group-hover:text-zinc-400 transition-colors">
+                                            <div key={i} className="flex items-center gap-2 text-zinc-400 group-hover:text-zinc-400 transition-colors">
                                                 {/* Simple generic icon fallback */}
                                                 <div className="w-1 h-1 rounded-full bg-[#E67E22]" />
                                                 <span className="text-[10px] uppercase tracking-wide truncate">

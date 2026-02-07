@@ -3,7 +3,7 @@ import { TechIllustration } from "@/components/ui/TechIllustration";
 import { contactSignal } from "@/lib/contactSignal";
 import { Button } from "@/components/ui/button";
 
-import visionBg from '@/assets/images/illustrations/illustration-vision-massive-01.webp';
+import visionBg from '@/assets/images/illustrations/illustration-vision-massive-02.webp';
 
 export function SectionVision() {
     return (
@@ -44,7 +44,7 @@ export function SectionVision() {
                                     </span>
                                     <span className="text-xs text-[#E67E22] tracking-widest">STACK TECHNIQUE</span>
                                 </div>
-                                <span className="text-xs text-zinc-500">HYBRID</span>
+                                <span className="text-xs text-zinc-400">HYBRID</span>
                             </div>
 
                             <div className="flex justify-between items-start mb-4">
@@ -55,7 +55,7 @@ export function SectionVision() {
                                 YOLO · Stable Diffusion · Flux · Midjourney API · ComfyUI
                             </p>
 
-                            <div className="grid grid-cols-2 gap-2 text-[10px] text-zinc-500 bg-white/5 p-3 rounded border border-white/5">
+                            <div className="grid grid-cols-2 gap-2 text-[10px] text-zinc-400 bg-white/5 p-3 rounded border border-white/5">
                                 <div className="flex justify-between"><span>TYPE</span><span className="text-white">VISION</span></div>
                                 <div className="flex justify-between"><span>MODELS</span><span className="text-[#E67E22]">SOTA</span></div>
                                 <div className="flex justify-between"><span>LATENCE</span><span className="text-[#E67E22]">REALTIME</span></div>
@@ -98,7 +98,7 @@ export function SectionVision() {
                                 <DotIcon icon={leonardIcons.computerVision} size={20} fillColor="white" />
                             </div>
                             <h3 className="text-white font-mono text-sm sm:text-lg mb-2 uppercase tracking-[-0.02em]">Computer Vision</h3>
-                            <p className="text-zinc-500 text-[10px] sm:text-sm">Contrôle qualité, détection en temps réel, surveillance.</p>
+                            <p className="text-zinc-400 text-[10px] sm:text-sm">Contrôle qualité, détection en temps réel, surveillance.</p>
                         </div>
 
                         <div id="expertise-vision-item-2" className="border-b lg:border-b-0 p-4 sm:p-8 group hover:bg-white/5 transition-colors relative reveal-right stagger-2 hover-lift">
@@ -106,7 +106,7 @@ export function SectionVision() {
                                 <DotIcon icon={leonardIcons.imageGeneration} size={20} fillColor="white" />
                             </div>
                             <h3 className="text-white font-mono text-sm sm:text-lg mb-2 uppercase tracking-[-0.02em]">Image Gen</h3>
-                            <p className="text-zinc-500 text-[10px] sm:text-sm">Assets marketing, virtual staging, retouche auto.</p>
+                            <p className="text-zinc-400 text-[10px] sm:text-sm">Assets marketing, virtual staging, retouche auto.</p>
                         </div>
                     </div>
                 </div>

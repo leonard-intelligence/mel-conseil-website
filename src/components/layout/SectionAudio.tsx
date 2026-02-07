@@ -3,7 +3,7 @@ import { TechIllustration } from "@/components/ui/TechIllustration";
 import { contactSignal } from "@/lib/contactSignal";
 import { Button } from "@/components/ui/button";
 
-import audioBg from '@/assets/images/illustrations/illustration-conversation-tron-01.webp';
+import audioBg from '@/assets/images/illustrations/illustration-tech-blade-runner-04.webp';
 
 export function SectionAudio() {
     return (
@@ -40,7 +40,7 @@ export function SectionAudio() {
                                 <DotIcon icon={leonardIcons.speechToText} size={20} fillColor="white" />
                             </div>
                             <h3 className="text-white font-mono text-sm sm:text-lg mb-2 uppercase tracking-[-0.02em]">Speech-to-Text</h3>
-                            <p className="text-zinc-500 text-[10px] sm:text-sm">Transcription de réunions, analyse de sentiment, extraction de données.</p>
+                            <p className="text-zinc-400 text-[10px] sm:text-sm">Transcription de réunions, analyse de sentiment, extraction de données.</p>
                         </div>
 
                         <div id="expertise-audio-item-2" className="border-b lg:border-b-0 p-4 sm:p-8 group hover:bg-white/5 transition-colors relative reveal-right stagger-2 hover-lift">
@@ -48,7 +48,7 @@ export function SectionAudio() {
                                 <DotIcon icon={leonardIcons.textToSpeech} size={20} fillColor="white" />
                             </div>
                             <h3 className="text-white font-mono text-sm sm:text-lg mb-2 uppercase tracking-[-0.02em]">Audio Generation (TTS)</h3>
-                            <p className="text-zinc-500 text-[10px] sm:text-sm">Voix de synthèse pour vidéos, accueil téléphonique, doublage multilingue.</p>
+                            <p className="text-zinc-400 text-[10px] sm:text-sm">Voix de synthèse pour vidéos, accueil téléphonique, doublage multilingue.</p>
                         </div>
                     </div>
                 </div>
@@ -76,7 +76,7 @@ export function SectionAudio() {
 
                     {/* Bottom Right Card */}
                     <div className="mt-auto relative z-10">
-                        <div id="expertise-audio-card" className="max-w-lg border border-white/20 bg-black/60 backdrop-blur-md rounded transition-colors p-6 group reveal-scale stagger-2 hover-glow">
+                        <div id="expertise-audio-card" className="w-full max-w-[500px] border border-white/20 bg-black/60 backdrop-blur-md rounded transition-colors p-6 group reveal-scale stagger-2 hover-glow">
                             <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-3">
                                 <div className="flex items-center gap-2">
                                     <span className="relative flex h-2 w-2">
@@ -85,7 +85,7 @@ export function SectionAudio() {
                                     </span>
                                     <span className="text-xs text-[#E67E22] tracking-widest">STACK TECHNIQUE</span>
                                 </div>
-                                <span className="text-xs text-zinc-500">AUDIO</span>
+                                <span className="text-xs text-zinc-400">AUDIO</span>
                             </div>
 
                             <div className="flex justify-between items-start mb-4">
@@ -93,13 +93,13 @@ export function SectionAudio() {
                             </div>
 
                             <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                                Whisper · ElevenLabs · Azure Speech · Deepgram
+                                Whisper · ElevenLabs · Voxtral
                             </p>
 
-                            <div className="grid grid-cols-2 gap-2 text-[10px] text-zinc-500 bg-white/5 p-3 rounded border border-white/5">
-                                <div className="flex justify-between"><span>PRÉCISION</span><span className="text-white">&lt;5% WER</span></div>
-                                <div className="flex justify-between"><span>MULTILINGUE</span><span className="text-[#E67E22]">OUI</span></div>
-                                <div className="flex justify-between"><span>LATENCE</span><span className="text-[#E67E22]">FAIBLE</span></div>
+                            <div className="grid grid-cols-3 gap-2 text-[10px] text-zinc-400 bg-white/5 p-3 rounded border border-white/5">
+                                <div className="flex justify-between items-center"><span>PRÉCISION</span><span className="text-white">&lt;5% WER</span></div>
+                                <div className="flex justify-between items-center"><span>MULTILINGUE</span><span className="text-[#E67E22]">OUI</span></div>
+                                <div className="flex justify-between items-center"><span>LATENCE</span><span className="text-[#E67E22]">FAIBLE</span></div>
 
                             </div>
                         </div>
@@ -107,6 +107,6 @@ export function SectionAudio() {
                 </div>
 
             </div>
-        </section>
+        </section >
     );
 }

@@ -3,7 +3,7 @@ import { TechIllustration } from "@/components/ui/TechIllustration";
 import { contactSignal } from "@/lib/contactSignal";
 import { Button } from "@/components/ui/button";
 
-import agentBg from '@/assets/images/illustrations/illustration-infra-dark-side-02.webp';
+import agentBg from '@/assets/images/illustrations/illustration-expertise-agents-02.webp';
 
 export function SectionAgents() {
     return (
@@ -19,7 +19,7 @@ export function SectionAgents() {
                             </div>
                         </div>
                         <p className="text-gray-400 text-sm leading-relaxed mb-8">
-                            Des agents IA autonomes qui exécutent vos workflows métier de bout en bout. Ils lisent, classent, rédigent, décident et agissent — sur vos outils, avec vos règles.
+                            Déployez des agents IA autonomes qui exécutent vos workflows de bout en bout. Du traitement documentaire à la relation client, vos processus tournent en continu sans intervention humaine.
                         </p>
 
                         <Button
@@ -40,7 +40,7 @@ export function SectionAgents() {
                                 <DotIcon icon={leonardIcons.workflows} size={20} fillColor="white" />
                             </div>
                             <h3 className="text-white font-mono text-sm sm:text-lg mb-2 uppercase tracking-[-0.02em]">Workflows Agentiques</h3>
-                            <p className="text-zinc-500 text-[10px] sm:text-sm">Chaînes multi-étapes : un agent reçoit un email, extrait les données, met à jour le CRM, relance le client. Sans intervention.</p>
+                            <p className="text-zinc-400 text-[10px] sm:text-sm">Chaînes multi-étapes : un agent reçoit un email, extrait les données, met à jour le CRM, relance le client. Sans intervention.</p>
                         </div>
 
                         <div id="expertise-agents-item-2" className="border-b border-white/10 p-4 sm:p-8 group hover:bg-white/5 transition-colors relative reveal-left stagger-2 hover-lift">
@@ -48,7 +48,7 @@ export function SectionAgents() {
                                 <DotIcon icon={leonardIcons.saisieAutomatisee} size={20} fillColor="white" />
                             </div>
                             <h3 className="text-white font-mono text-sm sm:text-lg mb-2 uppercase tracking-[-0.02em]">Automatisation Documentaire</h3>
-                            <p className="text-zinc-500 text-[10px] sm:text-sm">Factures, contrats, bons de commande — traités, classés et routés automatiquement.</p>
+                            <p className="text-zinc-400 text-[10px] sm:text-sm">Factures, contrats, bons de commande : traités, classés et routés automatiquement.</p>
                         </div>
 
                         <div id="expertise-agents-item-3" className="col-span-2 lg:col-span-1 border-b lg:border-b-0 p-4 sm:p-8 group hover:bg-white/5 transition-colors relative reveal-left stagger-3 hover-lift">
@@ -56,7 +56,7 @@ export function SectionAgents() {
                                 <DotIcon icon={leonardIcons.users} size={20} fillColor="white" />
                             </div>
                             <h3 className="text-white font-mono text-sm sm:text-lg mb-2 uppercase tracking-[-0.02em]">Orchestration Multi-Agents</h3>
-                            <p className="text-zinc-500 text-[10px] sm:text-sm">Plusieurs agents spécialisés collaborent sur un même processus. Chacun son rôle, un seul objectif.</p>
+                            <p className="text-zinc-400 text-[10px] sm:text-sm">Plusieurs agents spécialisés collaborent sur un même processus. Chacun son rôle, un seul objectif.</p>
                         </div>
                     </div>
                 </div>
@@ -65,10 +65,9 @@ export function SectionAgents() {
                 <div className="lg:col-span-8 relative p-6 md:p-12 flex flex-col justify-between overflow-hidden order-1 lg:order-2">
                     {/* Header Area */}
                     <div className="relative z-10 mb-12 text-right reveal-right">
-                        <div className="text-[#E67E22] mb-2 text-lg">01 Agents & Automatisation.</div>
+                        <div className="text-[#E67E22] mb-2 text-lg">01 Agentic Workflow</div>
                         <h2 id="expertise-agents-heading" className="text-4xl md:text-5xl font-mono text-white leading-tight ml-auto max-w-4xl uppercase tracking-[-0.02em]">
-                            <span className="text-zinc-400">Vos processus tournent.</span><br />
-                            Même quand vous dormez.
+                            AUTOMATISEZ VOS PROCESSUS MÉTIER AVEC DES AGENTS IA.
                         </h2>
                     </div>
 
@@ -84,7 +83,7 @@ export function SectionAgents() {
 
                     {/* Bottom Right Card */}
                     <div className="mt-auto relative z-10 ml-auto">
-                        <div id="expertise-agents-card" className="max-w-lg border border-white/20 bg-black/60 backdrop-blur-md rounded transition-colors p-6 group reveal-scale stagger-2 hover-glow">
+                        <div id="expertise-agents-card" className="hidden lg:block w-full max-w-[500px] border border-white/20 bg-black/60 backdrop-blur-md rounded transition-colors p-6 group reveal-scale stagger-2 hover-glow">
                             <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-3">
                                 <div className="flex items-center gap-2">
                                     <span className="relative flex h-2 w-2">
@@ -93,7 +92,7 @@ export function SectionAgents() {
                                     </span>
                                     <span className="text-xs text-[#E67E22] tracking-widest">STACK TECHNIQUE</span>
                                 </div>
-                                <span className="text-xs text-zinc-500">AGENTS</span>
+                                <span className="text-xs text-zinc-400">AGENTS</span>
                             </div>
 
                             <div className="flex justify-between items-start mb-4">
@@ -104,9 +103,10 @@ export function SectionAgents() {
                                 LangGraph · CrewAI · Claude · Mistral · GPT
                             </p>
 
-                            <div className="grid grid-cols-2 gap-2 text-[10px] text-zinc-500 bg-white/5 p-3 rounded border border-white/5">
-                                <div className="flex justify-between"><span>MULTI-AGENTS</span><span className="text-white">OUI</span></div>
-                                <div className="flex justify-between"><span>TOOL USE</span><span className="text-[#E67E22]">ENABLED</span></div>
+                            <div className="grid grid-cols-3 gap-2 text-[10px] text-zinc-400 bg-white/5 p-3 rounded border border-white/5">
+                                <div className="flex justify-between items-center"><span>MULTI-AGENTS</span><span className="text-white">OUI</span></div>
+                                <div className="flex justify-between items-center"><span>TOOL USE</span><span className="text-[#E67E22]">ENABLED</span></div>
+                                {/* Empty 3rd column */}
                             </div>
                         </div>
                     </div>

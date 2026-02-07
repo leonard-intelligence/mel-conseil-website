@@ -8,15 +8,15 @@ interface CalendlyWidgetProps {
 
 export function CalendlyWidget({ className, style, url = "https://calendly.com/leonard-intelligence" }: CalendlyWidgetProps) {
     useEffect(() => {
+        const SCRIPT_SRC = 'https://assets.calendly.com/assets/external/widget.js';
+        const existingScript = document.querySelector(`script[src="${SCRIPT_SRC}"]`);
+        if (existingScript) return;
+
         const script = document.createElement('script');
         script.type = 'text/javascript';
-        script.src = 'https://assets.calendly.com/assets/external/widget.js';
+        script.src = SCRIPT_SRC;
         script.async = true;
         document.body.appendChild(script);
-
-        return () => {
-            document.body.removeChild(script);
-        };
     }, []);
 
     return (

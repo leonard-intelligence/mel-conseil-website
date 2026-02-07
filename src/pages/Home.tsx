@@ -26,9 +26,7 @@ const SectionSecurity = lazy(() =>
     import('../components/layout/SectionSecurity').then((m) => ({ default: m.SectionSecurity }))
 );
 
-const SectionCapabilitiesBento = lazy(() =>
-    import('../components/layout/SectionCapabilitiesBento').then((m) => ({ default: m.SectionCapabilitiesBento }))
-);
+
 const InterimCTA = lazy(() => import('../components/layout/InterimCTA').then((m) => ({ default: m.InterimCTA })));
 const SectionStrategy = lazy(() =>
     import('../components/layout/SectionStrategy').then((m) => ({ default: m.SectionStrategy }))
@@ -106,7 +104,17 @@ export function Home() {
                 </Suspense>
             </ErrorBoundary>
 
-            {/* Methodology */}
+            {/* SPACER */}
+            <div className="h-24" />
+
+            {/* PROOFS / ROI - Moved here as requested */}
+            <ErrorBoundary>
+                <Suspense fallback={<SectionLoader />}>
+                    <SectionROI />
+                </Suspense>
+            </ErrorBoundary>
+
+            {/* Methodology - Moved here as requested */}
             <ErrorBoundary>
                 <Suspense fallback={<SectionLoader />}>
                     <section id="section-methodology" aria-label="Notre Méthodologie">
@@ -132,9 +140,8 @@ export function Home() {
                         className="space-y-16 py-16 bg-pattern-grid"
                         aria-label="Impact Stratégique"
                     >
-                        <SectionROI />
                         <SectionSecurity />
-                        <SectionCapabilitiesBento />
+
                         <SectionStrategy />
                     </section>
                 </Suspense>

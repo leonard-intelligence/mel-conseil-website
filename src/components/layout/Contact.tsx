@@ -155,20 +155,18 @@ export function Contact() {
 
     return (
         <section id="section-contact" className="py-24 bg-black relative border-t border-white/10 reveal-up">
-            {/* Calendly Modal */}
-            {isModalOpen && (
-                <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} fullScreen persist>
-                    <CalendlyWidget
-                        className="mt-0 h-full"
-                        style={{ minWidth: '320px', height: '100%' }}
-                        url={CALENDLY_URL}
-                    />
-                </Modal>
-            )}
+            {/* Calendly Modal (pre-rendered hidden via persist mode) */}
+            <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} fullScreen persist>
+                <CalendlyWidget
+                    className="mt-0 h-full"
+                    style={{ minWidth: '320px', height: '100%' }}
+                    url={CALENDLY_URL}
+                />
+            </Modal>
 
-            <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16">
                 {/* Contact Info */}
-                <div>
+                <div className="lg:col-span-5">
                     <h2
                         id="contact-heading"
                         className="text-4xl md:text-5xl font-normal font-mono uppercase text-white mb-6"
@@ -219,7 +217,7 @@ export function Contact() {
                 </div>
 
                 {/* Right Column: Choices or Form */}
-                <div id="contact-form-wrapper" className="relative min-h-[500px] flex flex-col justify-center">
+                <div id="contact-form-wrapper" className="lg:col-span-7 relative min-h-[500px] flex flex-col justify-center">
                     {!showForm && !isSent ? (
                         <div className="grid grid-cols-2 gap-4 sm:gap-8 group/container mt-8">
                             {/* Option 1: Visio - The Direct Path */}

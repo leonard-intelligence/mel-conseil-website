@@ -34,10 +34,10 @@ export function Footer() {
                     <nav aria-label="Expertises" className="flex flex-col">
                         <h4 className="font-mono font-normal text-white mb-6 uppercase text-xs tracking-wider">Expertises</h4>
                         <ul className="space-y-3 text-gray-500 text-xs">
-                            <li><Link to="/#section-expertises" className="hover:text-white transition-colors">Visual Intelligence</Link></li>
-                            <li><Link to="/#section-expertises" className="hover:text-white transition-colors">Language & Process</Link></li>
-                            <li><Link to="/#section-expertises" className="hover:text-white transition-colors">Audio & Signal</Link></li>
-                            <li><Link to="/#section-methodology" className="hover:text-white transition-colors">Architecture</Link></li>
+                            <li><Link to="/#section-expertises" className="hover:text-white transition-colors">Agents & Automatisation</Link></li>
+                            <li><Link to="/#section-expertises" className="hover:text-white transition-colors">Mémoire & Connaissance</Link></li>
+                            <li><Link to="/#section-expertises" className="hover:text-white transition-colors">Voix & Relation Client</Link></li>
+                            <li><Link to="/#section-expertises" className="hover:text-white transition-colors">Création & Production</Link></li>
                         </ul>
                     </nav>
 
@@ -90,7 +90,7 @@ export function Footer() {
                 {/* Bottom Bar */}
                 <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
                     <div className="text-xs text-gray-500">
-                        © 2025 Leonard Intelligence. Tous droits réservés.
+                        © 2026 Leonard Intelligence. Tous droits réservés.
                     </div>
                     <div className="flex items-center gap-6">
                         <span id="footer-status" className="flex items-center gap-2 text-[#E67E22] text-xs">

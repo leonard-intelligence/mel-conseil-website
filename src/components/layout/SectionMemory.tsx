@@ -5,11 +5,11 @@ import { contactSignal } from "@/lib/contactSignal";
 
 import { Button } from "@/components/ui/button";
 
-import { PassiveDocumentationDemo } from "./PassiveDocumentationDemo";
+
 import { useEffect, useState } from "react";
 import { KnowledgeBaseDemo } from "./KnowledgeBaseDemo";
 
-import memoryBg from '@/assets/images/illustrations/illustration-doc-matrix-01.webp';
+import memoryBg from '@/assets/images/illustrations/illustration-vision-massive-01.webp';
 
 // --- Types & Data ---
 
@@ -222,7 +222,7 @@ export function SectionMemory() {
 
                         {/* Bottom Left Card */}
                         <div className="mt-auto relative z-10">
-                            <div id="expertise-memory-card" className="max-w-lg border border-white/20 bg-black/60 backdrop-blur-md rounded transition-colors p-6 group reveal-scale stagger-2 hover-glow">
+                            <div id="expertise-memory-card" className="w-full max-w-[500px] border border-white/20 bg-black/60 backdrop-blur-md rounded transition-colors p-6 group reveal-scale stagger-2 hover-glow">
                                 <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-3">
                                     <div className="flex items-center gap-2">
                                         <span className="relative flex h-2 w-2">
@@ -231,7 +231,7 @@ export function SectionMemory() {
                                         </span>
                                         <span className="text-xs text-[#E67E22] tracking-widest">STACK TECHNIQUE</span>
                                     </div>
-                                    <span className="text-xs text-zinc-500">RAG</span>
+                                    <span className="text-xs text-zinc-400">RAG</span>
                                 </div>
 
                                 <div className="flex justify-between items-start mb-4">
@@ -242,9 +242,10 @@ export function SectionMemory() {
                                     Mistral · Claude · LlamaIndex · LangChain · Qdrant
                                 </p>
 
-                                <div className="grid grid-cols-2 gap-2 text-[10px] text-zinc-500 bg-white/5 p-3 rounded border border-white/5">
-                                    <div className="flex justify-between"><span>CONTEXTE</span><span className="text-white">1M</span></div>
-                                    <div className="flex justify-between"><span>HYBRID SEARCH</span><span className="text-[#E67E22]">ENABLED</span></div>
+                                <div className="grid grid-cols-3 gap-2 text-[10px] text-zinc-400 bg-white/5 p-3 rounded border border-white/5">
+                                    <div className="flex justify-between items-center"><span>CONTEXTE</span><span className="text-white">1M</span></div>
+                                    <div className="flex justify-between items-center"><span>HYBRID SEARCH</span><span className="text-[#E67E22]">ENABLED</span></div>
+                                    {/* Empty 3rd column */}
                                 </div>
                             </div>
                         </div>
@@ -260,8 +261,8 @@ export function SectionMemory() {
                                 /// MODULE 02 ///
                                 </div>
                             </div>
-                            <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                                Votre IA indexe vos procédures, vos documents, votre expertise métier. Vos équipes posent leurs questions en langage naturel — et obtiennent des réponses sourcées en secondes.
+                            <p className="text-zinc-400 text-sm leading-relaxed mb-8 relative z-10">
+                                Votre IA indexe vos procédures, vos documents, votre expertise métier. Vos équipes posent leurs questions en langage naturel et obtiennent des réponses sourcées en secondes.
                             </p>
 
                             <Button
@@ -283,7 +284,7 @@ export function SectionMemory() {
                                     <DotIcon icon={leonardIcons.ragChatbot} size={20} fillColor="white" />
                                 </div>
                                 <h3 className="text-white font-mono text-sm sm:text-lg mb-2 uppercase tracking-[-0.02em]">RAG & Base de Connaissances</h3>
-                                <p className="text-zinc-500 text-[10px] sm:text-sm">Vos documents internes deviennent un assistant interrogeable.</p>
+                                <p className="text-zinc-400 text-[10px] sm:text-sm">Vos documents internes deviennent un assistant interrogeable.</p>
                             </div>
 
                             <div id="expertise-memory-item-2" className="border-b lg:border-b border-white/10 p-4 sm:p-8 group hover:bg-white/5 transition-colors relative reveal-right stagger-2 hover-lift">
@@ -291,7 +292,7 @@ export function SectionMemory() {
                                     <DotIcon icon={leonardIcons.memoireEntreprise} size={20} fillColor="white" />
                                 </div>
                                 <h3 className="text-white font-mono text-sm sm:text-lg mb-2 uppercase tracking-[-0.02em]">Documentation Automatique</h3>
-                                <p className="text-zinc-500 text-[10px] sm:text-sm">Capture de process et génération de guides en temps réel.</p>
+                                <p className="text-zinc-400 text-[10px] sm:text-sm">Capture de process et génération de guides en temps réel.</p>
                             </div>
 
                             <div id="expertise-memory-item-3" className="border-b lg:border-b-0 p-4 sm:p-8 group hover:bg-white/5 transition-colors relative reveal-right stagger-3 hover-lift">
@@ -299,18 +300,17 @@ export function SectionMemory() {
                                     <DotIcon icon={leonardIcons.fineTuning} size={20} fillColor="white" />
                                 </div>
                                 <h3 className="text-white font-mono text-sm sm:text-lg mb-2 uppercase tracking-[-0.02em]">Fine-Tuning Métier</h3>
-                                <p className="text-zinc-500 text-[10px] sm:text-sm">Le modèle parle votre langue et adopte votre ton.</p>
+                                <p className="text-zinc-400 text-[10px] sm:text-sm">Le modèle parle votre langue et adopte votre ton.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            {/* ROW 2: Active Documentation Feature (Passive Documentation) */}
-            <PassiveDocumentationDemo />
+
 
             {/* ROW 3: Interactive Demos */}
-            <div className="flex flex-col lg:grid lg:grid-cols-2">
+            <div className="flex flex-col lg:grid lg:grid-cols-2 border-t border-white/10">
 
                 {/* LEFT BENTO: Chat Interface */}
                 <div className="border-b lg:border-b-0 lg:border-r border-white/10 p-4 lg:p-12 bg-zinc-900/10 flex flex-col justify-center min-h-0 lg:min-h-[500px]">

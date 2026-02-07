@@ -3,7 +3,7 @@ import { TechIllustration } from "@/components/ui/TechIllustration";
 import { contactSignal } from "@/lib/contactSignal";
 import { Button } from "@/components/ui/button";
 
-import visionBg from '@/assets/images/illustrations/illustration-vision-massive-01.webp';
+import visionBg from '@/assets/images/illustrations/illustration-expertise-codegen-04.webp';
 
 export function SectionCreation() {
     return (
@@ -14,10 +14,10 @@ export function SectionCreation() {
                 <div className="lg:col-span-8 border-r border-white/10 relative p-6 md:p-12 flex flex-col justify-between overflow-hidden">
                     {/* Header Area */}
                     <div className="relative z-10 mb-12 reveal-left">
-                        <div className="text-[#E67E22] mb-2 text-lg">04 Création & Production.</div>
+                        <div className="text-[#E67E22] mb-2 text-lg">4 Création & Production.</div>
                         <h2 id="expertise-creation-heading" className="text-4xl md:text-5xl font-mono text-white max-w-4xl leading-tight uppercase tracking-[-0.02em]">
                             <span className="text-muted-foreground">Du brief au livrable.</span><br />
-                            Sans équipe de 10.
+                            Avec une équipe réduite.
                         </h2>
                     </div>
 
@@ -33,7 +33,7 @@ export function SectionCreation() {
 
                     {/* Bottom Left Card */}
                     <div className="mt-auto relative z-10">
-                        <div id="expertise-creation-card" className="max-w-lg border border-white/20 bg-black/60 backdrop-blur-md rounded transition-colors p-6 group reveal-scale stagger-2 hover-glow">
+                        <div id="expertise-creation-card" className="w-full max-w-[500px] border border-white/20 bg-black/60 backdrop-blur-md rounded transition-colors p-6 group reveal-scale stagger-2 hover-glow">
                             <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-3">
                                 <div className="flex items-center gap-2">
                                     <span className="relative flex h-2 w-2">
@@ -42,7 +42,7 @@ export function SectionCreation() {
                                     </span>
                                     <span className="text-xs text-[#E67E22] tracking-widest">STACK TECHNIQUE</span>
                                 </div>
-                                <span className="text-xs text-zinc-500">CREATIVE</span>
+                                <span className="text-xs text-zinc-400">CREATIVE</span>
                             </div>
 
                             <div className="flex justify-between items-start mb-4">
@@ -53,9 +53,10 @@ export function SectionCreation() {
                                 YOLO · Flux · Runway · Kling · HeyGen · ComfyUI
                             </p>
 
-                            <div className="grid grid-cols-2 gap-2 text-[10px] text-zinc-500 bg-white/5 p-3 rounded border border-white/5">
-                                <div className="flex justify-between"><span>TYPE</span><span className="text-white">HYBRID</span></div>
-                                <div className="flex justify-between"><span>QUALITY</span><span className="text-[#E67E22]">CINEMATIC</span></div>
+                            <div className="grid grid-cols-3 gap-2 text-[10px] text-zinc-400 bg-white/5 p-3 rounded border border-white/5">
+                                <div className="flex justify-between items-center"><span>TYPE</span><span className="text-white">HYBRID</span></div>
+                                <div className="flex justify-between items-center"><span>QUALITY</span><span className="text-[#E67E22]">CINEMATIC</span></div>
+                                {/* Empty 3rd column */}
                             </div>
                         </div>
                     </div>
@@ -72,7 +73,7 @@ export function SectionCreation() {
                             </div>
                         </div>
                         <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                            Visuels marketing, vidéos produit, avatars de formation — l'IA produit en heures ce qui prenait des semaines. Contrôle qualité, détection de défauts : elle voit aussi ce que vous ne voyez plus.
+                            Visuels marketing, vidéos produit, avatars de formation : l'IA produit en heures ce qui prenait des semaines. Contrôle qualité, détection de défauts : elle voit aussi ce que vous ne voyez plus.
                         </p>
 
                         <Button
@@ -94,7 +95,7 @@ export function SectionCreation() {
                                 <DotIcon icon={leonardIcons.imageGeneration} size={20} fillColor="white" />
                             </div>
                             <h3 className="text-white font-mono text-sm sm:text-lg mb-2 uppercase tracking-[-0.02em]">Génération Visuelle</h3>
-                            <p className="text-zinc-500 text-[10px] sm:text-sm">Packshots, assets sociaux, virtual staging — du prompt au livrable, qualité pro.</p>
+                            <p className="text-zinc-400 text-[10px] sm:text-sm">Packshots, assets sociaux, virtual staging : du prompt au livrable, qualité pro.</p>
                         </div>
 
                         <div id="expertise-creation-item-2" className="border-b lg:border-b border-white/10 p-4 sm:p-8 group hover:bg-white/5 transition-colors relative reveal-right stagger-2 hover-lift">
@@ -102,7 +103,7 @@ export function SectionCreation() {
                                 <DotIcon icon={leonardIcons.avatarsIA} size={20} fillColor="white" />
                             </div>
                             <h3 className="text-white font-mono text-sm sm:text-lg mb-2 uppercase tracking-[-0.02em]">Vidéo & Avatars</h3>
-                            <p className="text-zinc-500 text-[10px] sm:text-sm">Clips marketing, formations, onboarding — des avatars réalistes dans toutes les langues.</p>
+                            <p className="text-zinc-400 text-[10px] sm:text-sm">Clips marketing, formations, onboarding : des avatars réalistes dans toutes les langues.</p>
                         </div>
 
                         <div id="expertise-creation-item-3" className="border-b lg:border-b-0 p-4 sm:p-8 group hover:bg-white/5 transition-colors relative reveal-right stagger-3 hover-lift">
@@ -110,7 +111,7 @@ export function SectionCreation() {
                                 <DotIcon icon={leonardIcons.computerVision} size={20} fillColor="white" />
                             </div>
                             <h3 className="text-white font-mono text-sm sm:text-lg mb-2 uppercase tracking-[-0.02em]">Vision Industrielle</h3>
-                            <p className="text-zinc-500 text-[10px] sm:text-sm">Contrôle qualité en temps réel, détection de défauts, surveillance de ligne automatisée.</p>
+                            <p className="text-zinc-400 text-[10px] sm:text-sm">Contrôle qualité en temps réel, détection de défauts, surveillance de ligne automatisée.</p>
                         </div>
                     </div>
                 </div>

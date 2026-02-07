@@ -36,7 +36,7 @@ export function Navbar() {
                     href="#section-methodology"
                     className="group flex items-center gap-3 px-6 h-full text-muted-foreground no-underline text-[0.85rem] border-r border-white/10 transition-all bg-white/[0.02] hover:bg-white/[0.08] hover:text-white "
                 >
-                    <span className="font-normal tracking-tight">MÉTHODOLOGIE</span>
+                    <span className="font-normal tracking-tight">APPROCHE</span>
                     <span className="opacity-40 text-xs">02</span>
                 </a>
 

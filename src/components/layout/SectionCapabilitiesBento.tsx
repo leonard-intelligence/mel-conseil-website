@@ -26,7 +26,7 @@ export function SectionCapabilitiesBento() {
                         Expertise Technique
                     </span>
                     <h2 className="text-4xl md:text-5xl font-medium font-mono text-white mb-6">
-                        Construisez <span className="text-zinc-500">le futur.</span>
+                        Construisez <span className="text-zinc-400">le futur.</span>
                     </h2>
                     <p className="text-gray-400 max-w-2xl text-sm leading-relaxed">
                         Intégrez les dernières avancées de l'IA générative directement dans vos produits.
@@ -52,7 +52,7 @@ export function SectionCapabilitiesBento() {
                                     <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-[#E67E22] group-hover:scale-110 transition-transform duration-300">
                                         <DotIcon icon={leonardIcons.sparkles} size={20} fillColor="#E67E22" />
                                     </div>
-                                    <span className="text-[10px] uppercase tracking-widest text-zinc-500 border border-white/5 px-2 py-1 rounded bg-black/20">
+                                    <span className="text-[10px] uppercase tracking-widest text-zinc-400 border border-white/5 px-2 py-1 rounded bg-black/20">
                                         {item.sector}
                                     </span>
                                 </div>
@@ -69,7 +69,7 @@ export function SectionCapabilitiesBento() {
                                     {/* Features */}
                                     <div className="grid grid-cols-2 gap-4 border-t border-white/5 pt-4">
                                         {item.features?.map((feat, i) => (
-                                            <div key={i} className="flex items-center gap-2 text-zinc-500 text-[10px] uppercase tracking-wide">
+                                            <div key={i} className="flex items-center gap-2 text-zinc-400 text-[10px] uppercase tracking-wide">
                                                 <div className="w-1 h-1 bg-[#E67E22] rounded-full" />
                                                 {feat.label}
                                             </div>

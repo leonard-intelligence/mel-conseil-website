@@ -14,11 +14,11 @@ export function SectionStrategy() {
                     id="strategy-heading"
                     className="text-4xl md:text-5xl font-mono text-white leading-tight uppercase tracking-[-0.02em] mb-4"
                 >
-                    <span className="text-zinc-400">Vos concurrents s'équipent,</span><br />
-                    prenez l'avantage.
+                    <span className="text-zinc-400">Vos pairs s'y mettent.</span><br />
+                    Et vous ?
                 </h2>
                 <p className="text-sm text-gray-400 max-w-lg mx-auto mb-8">
-                    Chaque jour qui passe creuse l'écart. L'hésitation a un coût.
+                    Pas de promesses magiques. Juste un diagnostic clair de ce qui est possible.
                 </p>
 
                 {/* CTA in header */}
@@ -27,7 +27,7 @@ export function SectionStrategy() {
                     className="group inline-flex items-center gap-3 bg-[#E67E22] hover:bg-[#D35400] text-[#3D2314] px-8 py-4 font-medium uppercase text-sm transition-all hover:-translate-y-0.5 border border-[#E67E22]"
                 >
 
-                    Prendre l'avantage
+                    Voir ce qu'on peut construire
                     <div className="group-hover:translate-x-1 transition-transform">
                         <DotIcon icon={leonardIcons.arrowRight} size={16} fillColor="#3D2314" />
                     </div>
@@ -65,7 +65,7 @@ export function SectionStrategy() {
                     <div className="mb-3">
                         <DotIcon icon={leonardIcons.performanceMonitor} size={20} fillColor="#E67E22" />
                     </div>
-                    <div className="text-2xl font-medium text-white mb-1">2025-27</div>
+                    <div className="text-2xl font-medium text-white mb-1">2026-27</div>
                     <div className="text-xs text-zinc-400">Fenêtre critique</div>
                 </div>
 
@@ -86,7 +86,7 @@ export function SectionStrategy() {
                         <DotIcon icon={leonardIcons.avantageConcurrentiel} size={20} fillColor="#E67E22" />
                     </div>
                     <p className="text-xs text-white/70 leading-relaxed">
-                        "Les premiers à s'équiper captent l'avantage concurrentiel"
+                        "Vous avez les données. On a le savoir-faire."
                     </p>
                 </div>
             </div>

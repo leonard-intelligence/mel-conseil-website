@@ -43,7 +43,7 @@ export function SectionVideo() {
                                     </span>
                                     <span className="text-xs text-[#E67E22] tracking-widest">STACK TECHNIQUE</span>
                                 </div>
-                                <span className="text-xs text-zinc-500">GENERATIVE</span>
+                                <span className="text-xs text-zinc-400">GENERATIVE</span>
                             </div>
 
                             <div className="flex justify-between items-start mb-4">
@@ -54,7 +54,7 @@ export function SectionVideo() {
                                 Runway · Pika · HeyGen · Sora · Kling
                             </p>
 
-                            <div className="grid grid-cols-2 gap-2 text-[10px] text-zinc-500 bg-white/5 p-3 rounded border border-white/5">
+                            <div className="grid grid-cols-2 gap-2 text-[10px] text-zinc-400 bg-white/5 p-3 rounded border border-white/5">
                                 <div className="flex justify-between"><span>TYPE</span><span className="text-white">MOTION</span></div>
                                 <div className="flex justify-between"><span>QUALITY</span><span className="text-[#E67E22]">CINEMATIC</span></div>
                                 <div className="flex justify-between"><span>FPS</span><span className="text-[#E67E22]">60+</span></div>
@@ -97,7 +97,7 @@ export function SectionVideo() {
                                 <DotIcon icon={leonardIcons.avatarsIA} size={20} fillColor="white" />
                             </div>
                             <h3 className="text-white font-mono text-sm sm:text-lg mb-2 uppercase tracking-[-0.02em]">Avatars IA</h3>
-                            <p className="text-zinc-500 text-[10px] sm:text-sm">Formation, personnalisation vidéo.</p>
+                            <p className="text-zinc-400 text-[10px] sm:text-sm">Formation, personnalisation vidéo.</p>
                         </div>
 
                         <div id="expertise-video-item-2" className="border-b lg:border-b-0 p-4 sm:p-8 group hover:bg-white/5 transition-colors relative reveal-left stagger-2 hover-lift">
@@ -105,7 +105,7 @@ export function SectionVideo() {
                                 <DotIcon icon={leonardIcons.productionAutomatisee} size={20} fillColor="white" />
                             </div>
                             <h3 className="text-white font-mono text-sm sm:text-lg mb-2 uppercase tracking-[-0.02em]">Vidéo Auto</h3>
-                            <p className="text-zinc-500 text-[10px] sm:text-sm">Montage assisté, clips marketing.</p>
+                            <p className="text-zinc-400 text-[10px] sm:text-sm">Montage assisté, clips marketing.</p>
                         </div>
                     </div>
                 </div>

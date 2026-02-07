@@ -3,7 +3,7 @@ import { TechIllustration } from "@/components/ui/TechIllustration";
 import { contactSignal } from "@/lib/contactSignal";
 import { Button } from "@/components/ui/button";
 
-import audioBg from '@/assets/images/illustrations/illustration-conversation-tron-01.webp';
+import audioBg from '@/assets/images/illustrations/illustration-expertise-agents-04.webp';
 
 export function SectionVoice() {
     return (
@@ -11,7 +11,7 @@ export function SectionVoice() {
             <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[400px] lg:min-h-[600px]">
 
                 {/* LEFT COLUMN: List / Descriptions - Spans 4 cols */}
-                <div className="lg:col-span-4 flex flex-col order-2 lg:order-2">
+                <div className="lg:col-span-4 flex flex-col border-r border-white/10 order-2 lg:order-1">
                     <div className="p-6 md:p-12 border-b border-white/10 bg-zinc-900/20 bg-pattern-diagonal relative overflow-hidden group">
                         <div className="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-40 transition-opacity pointer-events-none">
                             <div className="text-[10px] text-white tracking-widest leading-none">
@@ -35,38 +35,38 @@ export function SectionVoice() {
                     </div>
 
                     <div className="flex-1 grid grid-cols-2 lg:flex lg:flex-col">
-                        <div id="expertise-voice-item-1" className="border-b lg:border-b border-r lg:border-r-0 border-white/10 p-4 sm:p-8 group hover:bg-white/5 transition-colors relative reveal-right stagger-1 hover-lift">
+                        <div id="expertise-voice-item-1" className="border-b border-r lg:border-r-0 border-white/10 p-4 sm:p-8 group hover:bg-white/5 transition-colors relative reveal-left stagger-1 hover-lift">
                             <div className="w-8 h-8 bg-black border border-white/10 flex items-center justify-center mb-4 text-white icon-bounce">
                                 <DotIcon icon={leonardIcons.reponse24h} size={20} fillColor="white" />
                             </div>
                             <h3 className="text-white font-mono text-sm sm:text-lg mb-2 uppercase tracking-[-0.02em]">Agents Vocaux 24/7</h3>
-                            <p className="text-zinc-500 text-[10px] sm:text-sm">Prise de commande, qualification, support niveau 1 — une voix naturelle qui ne dort jamais.</p>
+                            <p className="text-zinc-400 text-[10px] sm:text-sm">Prise de commande, qualification, support niveau 1 : une voix naturelle qui ne dort jamais.</p>
                         </div>
 
-                        <div id="expertise-voice-item-2" className="border-b lg:border-b-0 p-4 sm:p-8 group hover:bg-white/5 transition-colors relative reveal-right stagger-2 hover-lift">
+                        <div id="expertise-voice-item-2" className="border-b border-white/10 p-4 sm:p-8 group hover:bg-white/5 transition-colors relative reveal-left stagger-2 hover-lift">
                             <div className="w-8 h-8 bg-black border border-white/10 flex items-center justify-center mb-4 text-white">
                                 <DotIcon icon={leonardIcons.speechToText} size={20} fillColor="white" />
                             </div>
                             <h3 className="text-white font-mono text-sm sm:text-lg mb-2 uppercase tracking-[-0.02em]">Transcription & Analyse</h3>
-                            <p className="text-zinc-500 text-[10px] sm:text-sm">Réunions, appels, consultations — transcrits, résumés et transformés en actions.</p>
+                            <p className="text-zinc-400 text-[10px] sm:text-sm">Réunions, appels, consultations : transcrits, résumés et transformés en actions.</p>
                         </div>
 
-                        <div id="expertise-voice-item-3" className="col-span-2 lg:col-span-1 border-t lg:border-t-0 p-4 sm:p-8 group hover:bg-white/5 transition-colors relative reveal-right stagger-3 hover-lift">
+                        <div id="expertise-voice-item-3" className="col-span-2 lg:col-span-1 border-b lg:border-b-0 p-4 sm:p-8 group hover:bg-white/5 transition-colors relative reveal-left stagger-3 hover-lift">
                             <div className="w-8 h-8 bg-black border border-white/10 flex items-center justify-center mb-4 text-white">
                                 <DotIcon icon={leonardIcons.sparkles} size={20} fillColor="white" />
                             </div>
                             <h3 className="text-white font-mono text-sm sm:text-lg mb-2 uppercase tracking-[-0.02em]">Intelligence Conversationnelle</h3>
-                            <p className="text-zinc-500 text-[10px] sm:text-sm">Sentiment, intentions, coaching commercial — insights extraits de chaque interaction.</p>
+                            <p className="text-zinc-400 text-[10px] sm:text-sm">Sentiment, intentions, coaching commercial : insights extraits de chaque interaction.</p>
                         </div>
                     </div>
                 </div>
 
                 {/* RIGHT COLUMN: Main Visual - Spans 8 cols */}
-                <div className="lg:col-span-8 border-r border-white/10 relative p-6 md:p-12 flex flex-col justify-between overflow-hidden order-1 lg:order-1">
+                <div className="lg:col-span-8 relative p-6 md:p-12 flex flex-col justify-between overflow-hidden order-1 lg:order-2">
                     {/* Header Area */}
-                    <div className="relative z-10 mb-12 reveal-left">
+                    <div className="relative z-10 mb-12 text-right reveal-right">
                         <div className="text-[#E67E22] mb-2 text-lg">03 Voix & Relation Client.</div>
-                        <h2 id="expertise-voice-heading" className="text-4xl md:text-5xl font-mono text-white leading-tight max-w-4xl uppercase tracking-[-0.02em]">
+                        <h2 id="expertise-voice-heading" className="text-4xl md:text-5xl font-mono text-white leading-tight ml-auto max-w-4xl uppercase tracking-[-0.02em]">
                             <span className="text-zinc-400">Chaque appel capturé.</span><br />
                             Chaque client compris.
                         </h2>
@@ -83,7 +83,7 @@ export function SectionVoice() {
                     </div>
 
                     {/* Bottom Right Card */}
-                    <div className="mt-auto relative z-10">
+                    <div className="mt-auto relative z-10 ml-auto">
                         <div id="expertise-voice-card" className="max-w-lg border border-white/20 bg-black/60 backdrop-blur-md rounded transition-colors p-6 group reveal-scale stagger-2 hover-glow">
                             <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-3">
                                 <div className="flex items-center gap-2">
@@ -93,7 +93,7 @@ export function SectionVoice() {
                                     </span>
                                     <span className="text-xs text-[#E67E22] tracking-widest">STACK TECHNIQUE</span>
                                 </div>
-                                <span className="text-xs text-zinc-500">VOICE</span>
+                                <span className="text-xs text-zinc-400">VOICE</span>
                             </div>
 
                             <div className="flex justify-between items-start mb-4">
@@ -101,10 +101,10 @@ export function SectionVoice() {
                             </div>
 
                             <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                                Whisper · ElevenLabs · Deepgram · Azure Speech
+                                Whisper · ElevenLabs · Voxtral
                             </p>
 
-                            <div className="grid grid-cols-2 gap-2 text-[10px] text-zinc-500 bg-white/5 p-3 rounded border border-white/5">
+                            <div className="grid grid-cols-2 gap-2 text-[10px] text-zinc-400 bg-white/5 p-3 rounded border border-white/5">
                                 <div className="flex justify-between"><span>PRÉCISION</span><span className="text-white">&lt;5% WER</span></div>
                                 <div className="flex justify-between"><span>MULTILINGUE</span><span className="text-[#E67E22]">OUI</span></div>
                             </div>

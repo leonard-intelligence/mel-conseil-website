@@ -1,8 +1,8 @@
 import { DotIcon, leonardIcons } from "@/components/ui/LeonardIcons";
 import { TechIllustration } from "@/components/ui/TechIllustration";
 import { useAnimatedCounter } from '@/hooks/useAnimatedCounter';
-import abstractFinance from '../../assets/images/illustrations/illustration-doc-matrix-03.webp';
-import abstractNetwork from '../../assets/images/illustrations/illustration-video-element.webp';
+import abstractFinance from '../../assets/images/illustrations/illustration-expertise-rag-04.webp';
+import abstractNetwork from '../../assets/images/illustrations/illustration-infra-massive-01.webp';
 
 export function SectionROI() {
     // Animated counters for stats
@@ -59,7 +59,7 @@ export function SectionROI() {
                             <div className="text-sm text-white uppercase tracking-widest mb-1">
                                 Par collaborateur
                             </div>
-                            <div className="text-xs text-zinc-500 uppercase tracking-widest">
+                            <div className="text-xs text-zinc-400 uppercase tracking-widest">
                                 Libérées / semaine
                             </div>
                         </div>
@@ -100,7 +100,7 @@ export function SectionROI() {
                         <div className="text-sm text-white uppercase tracking-widest mb-1">
                             ROI Médian
                         </div>
-                        <div className="text-xs text-zinc-500 uppercase tracking-widest">
+                        <div className="text-xs text-zinc-400 uppercase tracking-widest">
                             Sur 12 mois
                         </div>
                     </div>
@@ -125,7 +125,7 @@ export function SectionROI() {
                             <span className="text-zinc-300 text-xs uppercase tracking-wider">Croissance</span>
                         </div>
                         <h2 className="text-4xl md:text-5xl lg:text-6xl text-white leading-tight uppercase tracking-[-0.03em]">
-                            Augmentez votre<br /><span className="text-zinc-500">productivité</span>
+                            Augmentez votre<br /><span className="text-zinc-400">productivité</span>
                         </h2>
                         <p className="mt-4 text-zinc-400 text-sm leading-relaxed max-w-md lg:ml-auto">
                             Des gains constatés sur plus de 200 déploiements. L'IA transforme vos opérations en levier de croissance.

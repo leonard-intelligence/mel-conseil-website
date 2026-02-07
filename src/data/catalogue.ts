@@ -5,7 +5,7 @@
 // 1. CONVERSATION IA (Theme: Tron / Futuristic Night - Digital Signal)
 import conv1 from '../assets/images/illustrations/illustration-conversation-tron-01.webp';
 import conv2 from '../assets/images/illustrations/illustration-conversation-tron-02.webp';
-import conv3 from '../assets/images/illustrations/illustration-conversation-tron-01.webp'; // Reusing 01
+import conv3 from '../assets/images/illustrations/illustration-tech-blade-runner-02.webp';
 import conv4 from '../assets/images/illustrations/illustration-conversation-night-01.webp';
 import conv5 from '../assets/images/illustrations/illustration-conversation-night-02.webp';
 
@@ -20,11 +20,11 @@ import doc1 from '../assets/images/illustrations/illustration-doc-matrix-01.webp
 import doc2 from '../assets/images/illustrations/illustration-doc-matrix-02.webp';
 import doc3 from '../assets/images/illustrations/illustration-doc-matrix-03.webp';
 import doc4 from '../assets/images/illustrations/illustration-doc-matrix-04.webp';
-import doc5 from '../assets/images/illustrations/illustration-doc-matrix-01.webp'; // Reusing 01
+import doc5 from '../assets/images/illustrations/illustration-expertise-agents-03.webp';
 
 // 4. INFRASTRUCTURE & SÉCURITÉ (Theme: Dark Side Building - Fortress)
 import infra1 from '../assets/images/illustrations/illustration-infra-dark-side-01.webp';
-import infra2 from '../assets/images/illustrations/illustration-infra-dark-side-02.webp'; // Using _2 for variation
+import infra2 from '../assets/images/illustrations/illustration-infra-dark-side-02.webp';
 
 // 5. MARKETING & VENTES (Theme: Inception - Creative Structure)
 import mark1 from '../assets/images/illustrations/illustration-marketing-inception-01.webp';

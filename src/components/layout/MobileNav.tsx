@@ -70,7 +70,7 @@ export function MobileNav() {
                             onClick={closeMenu}
                             className="text-2xl text-white hover:text-[#E67E22] transition-colors tracking-tight"
                         >
-                            MÉTHODOLOGIE
+                            APPROCHE
                         </a>
                         <a
                             href="#section-solutions"
