@@ -1,7 +1,6 @@
-import { useState, useEffect, lazy, Suspense } from 'react';
+import { useState, useEffect } from 'react';
+import { FxImage } from '../fx/FxImage';
 import { TrustBar } from './TrustBar';
-
-const FxImage = lazy(() => import('../fx/FxImage'));
 
 export function Hero() {
     const [animationPhase, setAnimationPhase] = useState<'intro' | 'content'>(() => {
@@ -15,31 +14,14 @@ export function Hero() {
         return 'intro';
     });
 
-    // Defer FxImage loading until after initial paint to unblock LCP
-    const [fxReady, setFxReady] = useState(false);
-
     useEffect(() => {
-        // Sequence: Short splash (wait for logo exit trigger), then transition contents
         const timer = setTimeout(() => {
             setAnimationPhase('content');
         }, 150);
         return () => clearTimeout(timer);
     }, []);
 
-    useEffect(() => {
-        // Load FxImage after idle to avoid blocking LCP
-        if ('requestIdleCallback' in window) {
-            const id = requestIdleCallback(() => setFxReady(true), { timeout: 3000 });
-            return () => cancelIdleCallback(id);
-        } else {
-            const timer = setTimeout(() => setFxReady(true), 1500);
-            return () => clearTimeout(timer);
-        }
-    }, []);
-
     return (
-        /* Root Container: Full Viewport Height, Vertical Column */
-        /* Replaced .hero-section with direct styles */
         <section
             id="section-hero"
             className="relative min-h-[100dvh] w-full flex flex-col group bg-pattern-grid overflow-hidden"
@@ -54,7 +36,7 @@ export function Hero() {
                     }`}
                 >
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 w-full">
-                        {/* LEFT COLUMN: Content - Added padding here since parent container padding was removed */}
+                        {/* LEFT COLUMN: Content */}
                         <div className="lg:col-span-7 flex flex-col items-start text-left pl-6 pb-12 pt-32 lg:pt-20">
                             {/* Status Badge */}
                             <div className="inline-flex items-center gap-2 bg-black/80 px-4 py-2 rounded-full text-[0.8rem] border border-white/10 mb-8 lg:mb-10 text-[#E67E22]">
@@ -96,73 +78,52 @@ export function Hero() {
                     </div>
                 </div>
 
-                {/* RIGHT COLUMN: Visual (Hero Image) - Properly anchored to bottom-right */}
-                <div className="hidden lg:block absolute bottom-0 right-0 h-[90%] w-[65%] z-10 pointer-events-none">
-                    {fxReady ? (
-                        <Suspense fallback={
-                            <img
-                                src="/assets/hero-concepts/licorne 3.webp"
-                                alt="Une licorne stylisée représentant la créativité de l'IA générative"
-                                width={800}
-                                height={1000}
-                                className="w-full h-full object-contain object-bottom-right grayscale"
-                                style={{ objectPosition: 'bottom right' }}
-                            />
-                        }>
-                            <FxImage
-                                src={'/assets/hero-concepts/licorne 3.webp'}
-                                alt="Une licorne stylisée représentant la créativité de l'IA générative"
-                                loading="eager"
-                                fetchPriority="high"
-                                className="w-full h-full"
-                                style={{ width: '100%', height: '100%' }}
-                                imgStyle={{
-                                    width: '100%',
-                                    height: '100%',
-                                    objectFit: 'contain',
-                                    objectPosition: 'bottom right',
-                                }}
-                                config={{
-                                    fitMode: 'contain',
-                                    duotone: { enabled: true, colorA: '#000000', colorB: '#ffffff', strength: 1 },
-                                    interaction: {
-                                        enabled: true,
-                                        mode: 'shape',
-                                        variant: 'push',
-                                        radius: 0.15,
-                                        softness: 0.5,
-                                        activeSize: 15,
-                                    },
-                                }}
-                            />
-                        </Suspense>
-                    ) : (
-                        <img
-                            src="/assets/hero-concepts/licorne 3.webp"
-                            alt="Une licorne stylisée représentant la créativité de l'IA générative"
-                            loading="eager"
-                            fetchPriority="high"
-                            width={800}
-                            height={1000}
-                            className="w-full h-full object-contain grayscale"
-                            style={{ objectPosition: 'bottom right' }}
-                        />
-                    )}
+                {/* RIGHT COLUMN: Visual (Hero Image) - Desktop
+                    FxImage is the sole element. Its internal <img> serves as the texture source
+                    and LCP fallback (benefits from the <link rel="preload"> in index.html).
+                    Once WebGL compiles, the canvas renders the duotone + interaction effect. */}
+                <div className="hidden lg:block absolute bottom-0 right-0 h-[90%] w-[65%] z-10">
+                    <FxImage
+                        src={'/assets/hero-concepts/licorne-3-lg.webp'}
+                        alt="Une licorne stylisée représentant la créativité de l'IA générative"
+                        loading="eager"
+                        fetchPriority="high"
+                        className="w-full h-full"
+                        style={{ width: '100%', height: '100%' }}
+                        imgStyle={{
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'contain',
+                            objectPosition: 'bottom right',
+                        }}
+                        config={{
+                            fitMode: 'contain',
+                            duotone: { enabled: true, colorA: '#000000', colorB: '#ffffff', strength: 1 },
+                            interaction: {
+                                enabled: true,
+                                mode: 'shape',
+                                variant: 'push',
+                                radius: 0.15,
+                                softness: 0.5,
+                                activeSize: 15,
+                            },
+                        }}
+                    />
                 </div>
 
-                {/* MOBILE OVERLAY - Door illustration (no WebGL on mobile for performance) */}
+                {/* MOBILE OVERLAY - Plain image with grayscale (no WebGL for performance) */}
                 <div
                     className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[65%] max-w-[280px] aspect-[3/4] z-10 lg:hidden rounded-2xl overflow-hidden ${
                         animationPhase === 'intro' ? 'animate-fade-in' : 'animate-hero-exit pointer-events-none'
                     }`}
                 >
                     <img
-                        src="/assets/hero-concepts/licorne 3.webp"
+                        src="/assets/hero-concepts/licorne-3-sm.webp"
                         alt="Une licorne stylisée représentant la créativité de l'IA générative (version mobile)"
                         loading="eager"
                         fetchPriority="high"
-                        width={280}
-                        height={373}
+                        width={400}
+                        height={400}
                         className="w-full h-full object-cover grayscale"
                     />
                 </div>

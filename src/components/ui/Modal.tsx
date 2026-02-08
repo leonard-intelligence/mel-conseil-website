@@ -35,6 +35,7 @@ export function Modal({ isOpen, onClose, children, fullScreen = false, persist =
         <div
             className={`fixed inset-0 z-[200] flex items-center justify-center transition-opacity duration-300 ${fullScreen ? '' : 'p-4 sm:p-6'} ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
             aria-hidden={!isVisible}
+            {...(!isVisible && { inert: '' as unknown as boolean })}
         >
             {/* Backdrop */}
             <div
@@ -57,6 +58,7 @@ export function Modal({ isOpen, onClose, children, fullScreen = false, persist =
                     onClick={onClose}
                     className="absolute top-6 right-6 text-gray-400 hover:text-white transition-colors z-50 p-2 bg-black/50 rounded-full cursor-pointer"
                     aria-label="Close modal"
+                    tabIndex={isVisible ? 0 : -1}
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <line x1="18" y1="6" x2="6" y2="18"></line>

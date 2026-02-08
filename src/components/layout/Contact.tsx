@@ -161,6 +161,7 @@ export function Contact() {
                     className="mt-0 h-full"
                     style={{ minWidth: '320px', height: '100%' }}
                     url={CALENDLY_URL}
+                    active={isModalOpen}
                 />
             </Modal>
 
