@@ -14,7 +14,7 @@ export function SectionStrategy() {
                     id="strategy-heading"
                     className="text-4xl md:text-5xl font-mono text-white leading-tight uppercase tracking-[-0.02em] mb-4"
                 >
-                    <span className="text-zinc-400">Vos pairs s'y mettent.</span><br />
+                    <span className="text-zinc-400">Vos concurrents s'y mettent.</span><br />
                     Et vous ?
                 </h2>
                 <p className="text-sm text-gray-400 max-w-lg mx-auto mb-8">
