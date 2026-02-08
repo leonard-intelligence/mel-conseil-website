@@ -51,7 +51,7 @@ export function MobileNav() {
             {/* Full Screen Overlay */}
             {typeof document !== 'undefined' && createPortal(
                 <div
-                    className={`fixed inset-0 z-[200] bg-black/95 backdrop-blur-xl transition-all duration-500 flex flex-col justify-center items-center cursor-pointer ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
+                    className={`fixed inset-0 z-[200] bg-black/95 backdrop-blur-xl transition-opacity duration-500 flex flex-col justify-center items-center cursor-pointer ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
                         }`}
                     onClick={(e) => {
                         if (e.target === e.currentTarget) closeMenu();

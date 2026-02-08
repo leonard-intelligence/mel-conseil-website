@@ -1,15 +1,13 @@
 import { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { Navbar } from './components/layout/Navbar';
-import { FxProvider } from './components/fx';
+import { FxProvider } from './components/fx/FxProvider';
 import { SectionLoader } from './components/ui/SectionLoader';
 
 import { ErrorBoundary } from './components/ErrorBoundary';
 
-// Eager load Home since it's the main entry
-import Home from './pages/Home';
-
-// Lazy load Legal pages
+// Lazy load all pages to reduce initial bundle size
+const Home = lazy(() => import('./pages/Home'));
 const CGV = lazy(() => import('./pages/Legal/CGV'));
 const MentionsLegales = lazy(() => import('./pages/Legal/MentionsLegales'));
 const Footer = lazy(() => import('./components/layout/Footer').then((m) => ({ default: m.Footer })));
@@ -49,7 +47,7 @@ function AppLayout() {
 
             <ErrorBoundary>
                 <Routes>
-                    <Route path="/" element={<Home />} />
+                    <Route path="/" element={<Suspense fallback={<SectionLoader />}><Home /></Suspense>} />
                     <Route
                         path="/cgv"
                         element={

@@ -1,6 +1,8 @@
 
-import { FxImage } from '../fx/FxImage';
+import { Suspense, lazy } from 'react';
 import { TrustBar } from './TrustBar';
+
+const FxImage = lazy(() => import('../fx/FxImage').then(m => ({ default: m.FxImage })));
 
 export function Hero() {
 
@@ -65,32 +67,40 @@ export function Hero() {
                     and LCP fallback (benefits from the <link rel="preload"> in index.html).
                     Once WebGL compiles, the canvas renders the duotone + interaction effect. */}
                 <div className="hidden lg:block absolute bottom-0 right-0 h-[90%] w-[65%] z-10">
-                    <FxImage
-                        src={'/assets/hero-concepts/licorne-3-lg.webp'}
-                        alt="Une licorne stylisée représentant la créativité de l'IA générative"
-                        loading="eager"
-                        fetchPriority="high"
-                        className="w-full h-full"
-                        style={{ width: '100%', height: '100%' }}
-                        imgStyle={{
-                            width: '100%',
-                            height: '100%',
-                            objectFit: 'contain',
-                            objectPosition: 'bottom right',
-                        }}
-                        config={{
-                            fitMode: 'contain',
-                            duotone: { enabled: true, colorA: '#000000', colorB: '#ffffff', strength: 1 },
-                            interaction: {
-                                enabled: true,
-                                mode: 'shape',
-                                variant: 'push',
-                                radius: 0.15,
-                                softness: 0.5,
-                                activeSize: 15,
-                            },
-                        }}
-                    />
+                    <Suspense fallback={
+                        <img
+                            src="/assets/hero-concepts/licorne-3-md.webp"
+                            alt="Une licorne stylisée représentant la créativité de l'IA générative"
+                            style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: 'bottom right' }}
+                        />
+                    }>
+                        <FxImage
+                            src={'/assets/hero-concepts/licorne-3-md.webp'}
+                            alt="Une licorne stylisée représentant la créativité de l'IA générative"
+                            loading="eager"
+                            fetchPriority="high"
+                            className="w-full h-full"
+                            style={{ width: '100%', height: '100%' }}
+                            imgStyle={{
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'contain',
+                                objectPosition: 'bottom right',
+                            }}
+                            config={{
+                                fitMode: 'contain',
+                                duotone: { enabled: true, colorA: '#000000', colorB: '#ffffff', strength: 1 },
+                                interaction: {
+                                    enabled: true,
+                                    mode: 'shape',
+                                    variant: 'push',
+                                    radius: 0.15,
+                                    softness: 0.5,
+                                    activeSize: 15,
+                                },
+                            }}
+                        />
+                    </Suspense>
                 </div>
 
 

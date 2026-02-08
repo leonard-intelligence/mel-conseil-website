@@ -23,6 +23,8 @@ export default defineConfig({
             output: {
                 manualChunks: {
                     vendor: ['react', 'react-dom'],
+                    router: ['react-router-dom'],
+                    helmet: ['react-helmet-async'],
                     ui: ['radix-ui', 'lucide-react', 'class-variance-authority', 'clsx', 'tailwind-merge'],
                     fonts: ['@fontsource/geist-sans', '@fontsource-variable/jetbrains-mono', '@fontsource/jacquard-24'],
                 },

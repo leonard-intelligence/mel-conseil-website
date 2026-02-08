@@ -1,8 +1,9 @@
 import { cn } from "@/lib/utils";
-import React, { useState } from "react";
-import { FxImage } from "@/components/fx";
+import React, { Suspense, lazy, useState } from "react";
 import styles from "./TechCard.module.css";
 import { useFxConfig } from "@/components/fx/FxContext";
+
+const FxImage = lazy(() => import("@/components/fx/FxImage").then(m => ({ default: m.FxImage })));
 
 import { TechCardContext, useTechCardContext } from "./TechCardContext";
 
@@ -93,13 +94,15 @@ export const TechCardImage = ({ src, alt, className, useFx = true, layout = 'con
         // Local handlers removed, rely on parent context
         >
             {useFx ? (
-                <FxImage
-                    src={src}
-                    alt={alt}
-                    className={styles.image} // Using module class
-                    imgStyle={layout === 'full' ? { objectFit: 'cover', width: '100%', height: '100%' } : undefined}
-                    config={configOverrides}
-                />
+                <Suspense fallback={<img src={src} alt={alt} className={styles.image} />}>
+                    <FxImage
+                        src={src}
+                        alt={alt}
+                        className={styles.image} // Using module class
+                        imgStyle={layout === 'full' ? { objectFit: 'cover', width: '100%', height: '100%' } : undefined}
+                        config={configOverrides}
+                    />
+                </Suspense>
             ) : (
                 <img
                     src={src}
