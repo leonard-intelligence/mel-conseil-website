@@ -31,10 +31,14 @@ function getHexPath(cx: number, cy: number, radius: number): string {
     return points.map((p, i) => `${i === 0 ? "M" : "L"}${p[0]},${p[1]}`).join(" ") + " Z";
 }
 
+const FRAME_INTERVAL = 1000 / 30; // Target ~30fps
+
 export function ServerVaultDemo() {
     const containerRef = useRef<HTMLDivElement>(null);
     const rafRef = useRef<number>(0);
     const startTimeRef = useRef(Date.now());
+    const lastFrameRef = useRef<number>(0);
+    const isVisibleRef = useRef(false);
     const [dashOffset, setDashOffset] = useState(0);
     const [packets, setPackets] = useState<DataPacket[]>(() =>
         Array.from({ length: PACKET_COUNT }, (_, i) => ({
@@ -49,7 +53,17 @@ export function ServerVaultDemo() {
     const [pulse, setPulse] = useState(1);
 
     const animate = useCallback(() => {
-        const elapsed = Date.now() - startTimeRef.current;
+        // Throttle to ~30fps
+        const now = Date.now();
+        if (now - lastFrameRef.current < FRAME_INTERVAL) {
+            if (isVisibleRef.current) {
+                rafRef.current = requestAnimationFrame(animate);
+            }
+            return;
+        }
+        lastFrameRef.current = now;
+
+        const elapsed = now - startTimeRef.current;
 
         setDashOffset(elapsed * 0.015);
         setPulse(1 + Math.sin(elapsed * 0.002) * 0.06);
@@ -88,15 +102,39 @@ export function ServerVaultDemo() {
             .filter(t => t.flashOpacity > 0.01 || t.distance > PERIMETER_RADIUS + 8)
         );
 
-        rafRef.current = requestAnimationFrame(animate);
+        if (isVisibleRef.current) {
+            rafRef.current = requestAnimationFrame(animate);
+        }
     }, []);
+
+    // IntersectionObserver to pause animation when not visible
+    useEffect(() => {
+        const el = containerRef.current;
+        if (!el) return;
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                isVisibleRef.current = entry.isIntersecting;
+                if (entry.isIntersecting && !rafRef.current) {
+                    rafRef.current = requestAnimationFrame(animate);
+                }
+            },
+            { threshold: 0 }
+        );
+        observer.observe(el);
+        return () => observer.disconnect();
+    }, [animate]);
 
     useEffect(() => {
         const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         if (prefersReduced) return;
 
+        isVisibleRef.current = true;
         rafRef.current = requestAnimationFrame(animate);
-        return () => cancelAnimationFrame(rafRef.current);
+        return () => {
+            cancelAnimationFrame(rafRef.current);
+            rafRef.current = 0;
+        };
     }, [animate]);
 
     const hexPath = getHexPath(CENTER_X, CENTER_Y, PERIMETER_RADIUS);
@@ -270,14 +308,14 @@ export function ServerVaultDemo() {
             {/* HUD Labels */}
             <div className="absolute top-4 left-4 flex items-center gap-1.5">
                 <div className="w-1 h-1 bg-green-500 rounded-full animate-pulse" />
-                <span className="text-[8px] text-white/40 uppercase tracking-[0.3em] font-mono">Hébergement FR</span>
+                <span className="text-[8px] text-white/60 uppercase tracking-[0.3em] font-mono">Déploiement local</span>
             </div>
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1">
                 <div className="flex items-center gap-1.5">
                     <div className="w-1 h-1 bg-[#E67E22] rounded-full animate-pulse" />
                     <span className="text-[7px] text-[#E67E22] uppercase tracking-widest font-bold font-mono">Périmètre chiffré // AES-256</span>
                 </div>
-                <span className="text-[7px] text-white/30 uppercase tracking-[0.2em] font-mono">Données : 100% on-premise</span>
+                <span className="text-[7px] text-white/30 uppercase tracking-[0.2em] font-mono">100% on-premise · vos serveurs</span>
             </div>
         </div>
     );

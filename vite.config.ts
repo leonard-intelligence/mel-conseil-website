@@ -24,6 +24,7 @@ export default defineConfig({
                 manualChunks: {
                     vendor: ['react', 'react-dom'],
                     ui: ['radix-ui', 'lucide-react', 'class-variance-authority', 'clsx', 'tailwind-merge'],
+                    fonts: ['@fontsource/geist-sans', '@fontsource-variable/jetbrains-mono', '@fontsource/jacquard-24'],
                 },
             },
         },

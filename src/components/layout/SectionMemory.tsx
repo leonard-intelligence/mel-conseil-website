@@ -135,7 +135,7 @@ function ChatInterface() {
                 </div>
                 <div className="min-w-0 flex-1">
                     <div className="text-xs text-white font-medium truncate">Assistant Documentaire</div>
-                    <div className="text-[10px] text-white/40 truncate">584 documents connectés</div>
+                    <div className="text-[10px] text-white/60 truncate">584 documents connectés</div>
                 </div>
                 <div className="flex-shrink-0 ml-auto flex items-center gap-2">
                     {/* Status removed as per user request */}
@@ -166,7 +166,7 @@ function ChatInterface() {
                                     {msg.content}
                                 </p>
                                 {msg.metadata && (
-                                    <div className="mt-2 pt-2 border-t border-white/5 flex items-center gap-3 text-[10px] text-white/40">
+                                    <div className="mt-2 pt-2 border-t border-white/5 flex items-center gap-3 text-[10px] text-white/60">
                                         {msg.metadata.sourcesCount && <span>✓ {msg.metadata.sourcesCount} sources</span>}
                                         {msg.metadata.confidence && <span className="text-[#E67E22]">{msg.metadata.confidence}</span>}
                                     </div>
@@ -222,7 +222,7 @@ export function SectionMemory() {
 
                         {/* Bottom Left Card */}
                         <div className="mt-auto relative z-10">
-                            <div id="expertise-memory-card" className="w-full max-w-[500px] border border-white/20 bg-black/60 backdrop-blur-md rounded transition-colors p-6 group reveal-scale stagger-2 hover-glow">
+                            <div id="expertise-memory-card" className="hidden lg:block w-full max-w-[500px] border border-white/20 bg-black/60 backdrop-blur-md rounded transition-colors p-6 group reveal-scale stagger-2 hover-glow">
                                 <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-3">
                                     <div className="flex items-center gap-2">
                                         <span className="relative flex h-2 w-2">

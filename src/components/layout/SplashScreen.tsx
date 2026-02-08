@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react';
-import { FxImage } from '../fx/FxImage';
-import { useFxConfig } from '../fx/FxContext';
 
 interface SplashScreenProps {
     onExitStart: () => void;
@@ -8,7 +6,6 @@ interface SplashScreenProps {
 }
 
 export function SplashScreen({ onExitStart, onComplete }: SplashScreenProps) {
-    const config = useFxConfig();
     const [phase, setPhase] = useState<'visible' | 'exiting' | 'done'>('visible');
 
     useEffect(() => {
@@ -55,31 +52,12 @@ export function SplashScreen({ onExitStart, onComplete }: SplashScreenProps) {
                     phase === 'visible' ? 'opacity-100 scale-100' : 'opacity-0 scale-[1.2]'
                 }`}
             >
-                <FxImage
+                <img
                     src="/logo_white_512.png"
                     alt="Leonard Intelligence"
-                    className="w-full h-full"
-                    style={{ width: '100%', height: '100%' }}
-                    imgStyle={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'contain',
-                        objectPosition: 'center center',
-                    }}
-                    config={
-                        config || {
-                            fitMode: 'contain',
-                            duotone: { enabled: true, colorA: '#000000', colorB: '#ffffff', strength: 1 },
-                            interaction: {
-                                enabled: true,
-                                mode: 'shape',
-                                variant: 'push',
-                                radius: 0.15,
-                                softness: 0.5,
-                                activeSize: 15,
-                            },
-                        }
-                    }
+                    width={512}
+                    height={512}
+                    className="w-full h-full object-contain"
                 />
             </div>
         </div>

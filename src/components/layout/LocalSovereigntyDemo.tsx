@@ -86,7 +86,7 @@ export function LocalSovereigntyDemo() {
 
                 {/* 5. LABELS */}
                 <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 group">
-                    <span className="text-[9px] text-white/40 uppercase tracking-[0.4em] font-mono group-hover:text-white transition-colors">Local Vault System v4.2</span>
+                    <span className="text-[9px] text-white/60 uppercase tracking-[0.4em] font-mono group-hover:text-white transition-colors">Local Vault System v4.2</span>
                     <div className="flex gap-2">
                         <div className="w-1 h-1 bg-[#E67E22] rounded-full animate-pulse" />
                         <span className="text-[7px] text-[#E67E22] uppercase tracking-widest font-bold">Encrypted & Sovereign</span>

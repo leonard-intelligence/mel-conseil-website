@@ -40,8 +40,8 @@ export function SectionStrategy() {
                 {/* Large stat card - spans 2 cols */}
                 <div className="col-span-2 p-8 border-r border-white/10 bg-[#E67E22]/5 flex items-center gap-8">
                     <div className="text-center">
-                        <div className="text-6xl font-medium text-white/30 mb-1">23%</div>
-                        <div className="text-xs text-white/40 uppercase">Aujourd'hui</div>
+                        <div className="text-6xl font-medium text-white/50 mb-1">23%</div>
+                        <div className="text-xs text-white/60 uppercase">Aujourd'hui</div>
                     </div>
                     <div className="flex-1 flex items-center justify-center">
                         <DotIcon icon={leonardIcons.arrowRight} size={32} fillColor="#E67E22" />

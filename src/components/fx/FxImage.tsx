@@ -9,6 +9,13 @@ import type { FxConfig } from './fxConfig';
 import { hexToRgb } from './fxConfig';
 import { useFxConfig, FxContext } from './FxContext';
 
+// Detect mobile/low-end devices to disable WebGL
+const isMobileDevice = typeof window !== 'undefined' &&
+    (window.matchMedia('(max-width: 768px)').matches || navigator.maxTouchPoints > 0);
+
+// Throttle interval for desktop RAF loop (target ~30fps)
+const FRAME_INTERVAL = 1000 / 30;
+
 // Lazy-loaded shader cache to avoid bloating the initial JS bundle
 let _shaderCache: { VERTEX_SHADER: string; FRAGMENT_SHADER: string } | null = null;
 async function loadShaders() {
@@ -183,6 +190,9 @@ export function FxImage({
     // Animation Frame ID ref
     const requestRef = useRef<number>(0);
 
+    // Throttle: track last frame time for 30fps cap
+    const lastFrameTimeRef = useRef<number>(0);
+
     // Visibility tracking for animation pause (performance optimization)
     const isInViewportRef = useRef(false);
 
@@ -190,13 +200,23 @@ export function FxImage({
     const webglReadyRef = useRef(false);
 
     /**
-     * Render the effect
+     * Render the effect (throttled to ~30fps on desktop)
      */
     const render = useCallback(() => {
         const webgl = webglRef.current;
         const canvas = canvasRef.current;
         const img = imgRef.current;
         if (!webgl || !canvas || !img) return;
+
+        // Throttle to ~30fps to reduce TBT
+        const now = performance.now();
+        if (now - lastFrameTimeRef.current < FRAME_INTERVAL) {
+            if (isInViewportRef.current) {
+                requestRef.current = requestAnimationFrame(render);
+            }
+            return;
+        }
+        lastFrameTimeRef.current = now;
 
         // ALWAYS READ FROM REF inside the loop
         const currentConfig = configRef.current;
@@ -297,7 +317,7 @@ export function FxImage({
         gl.uniform1f(uniforms.u_rippleStrength, rain?.rippleStrength ?? 0.8);
 
         // Click Ripples - pass up to 4 ripples to shader
-        const now = performance.now();
+        const rippleNow = performance.now();
         const rippleTimes = [0, 0, 0, 0];
         const ripplePos = [0, 0, 0, 0]; // x1, y1, x2, y2 for first 2 ripples
         const ripplePos2 = [0, 0, 0, 0]; // x3, y3, x4, y4 for ripples 3-4
@@ -305,7 +325,7 @@ export function FxImage({
         // Get the last 4 ripples (most recent)
         const recentRipples = clickRipples.slice(-4);
         recentRipples.forEach((ripple, i) => {
-            const elapsed = (now - ripple.startTime) / 1000; // seconds
+            const elapsed = (rippleNow - ripple.startTime) / 1000; // seconds
             rippleTimes[i] = elapsed;
             if (i < 2) {
                 ripplePos[i * 2] = ripple.x;
@@ -598,9 +618,9 @@ export function FxImage({
     }, [src, depthSrc]);
 
     // Check if effects should be applied
-    // Disable WebGL for GIFs to allow animation
+    // Disable WebGL for GIFs to allow animation, and on mobile devices for performance
     const isGif = src.toLowerCase().endsWith('.gif');
-    const effectsActive = mergedConfig.enabled && webglSupported && !isGif;
+    const effectsActive = mergedConfig.enabled && webglSupported && !isGif && !isMobileDevice;
 
     const [isVisible, setIsVisible] = useState(false);
 
@@ -707,6 +727,8 @@ export function FxImage({
                     height: 'auto',
                     // Hide image immediately if effects are active to prevent FOUC (Flash of Unstyled Content)
                     visibility: effectsActive ? 'hidden' : 'visible',
+                    // On mobile, simulate duotone with CSS grayscale when WebGL is disabled
+                    filter: isMobileDevice && mergedConfig.duotone?.enabled ? 'grayscale(1)' : undefined,
                     pointerEvents: 'none', // Allow clicks to pass through to parent container
                     ...imgStyle,
                 }}

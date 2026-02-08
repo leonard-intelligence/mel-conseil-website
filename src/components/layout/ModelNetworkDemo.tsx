@@ -20,41 +20,46 @@ type Pulse = {
 const CENTER_X = 160;
 const CENTER_Y = 150;
 
+// Nœuds éloignés ~15% du centre vs version précédente pour éviter chevauchement
 const MODELS: ModelNode[] = [
-    { id: "gpt", icon: leonardIcons.sparkles, x: CENTER_X + 95, y: CENTER_Y - 55, label: "GPT-5", specialty: "LLM" },
-    { id: "claude", icon: leonardIcons.visualIntelligence, x: CENTER_X + 80, y: CENTER_Y + 65, label: "Claude 4.5", specialty: "Code" },
-    { id: "gemini", icon: leonardIcons.languageProcess, x: CENTER_X - 15, y: CENTER_Y - 90, label: "Gemini 3", specialty: "Vision" },
-    { id: "mistral", icon: leonardIcons.openSourceFirst, x: CENTER_X - 100, y: CENTER_Y - 30, label: "Mistral L3", specialty: "LLM 🇫🇷" },
-    { id: "flux", icon: leonardIcons.imageGeneration, x: CENTER_X - 80, y: CENTER_Y + 70, label: "Flux 2", specialty: "Image" },
-    { id: "sora", icon: leonardIcons.videoIntelligence, x: CENTER_X + 10, y: CENTER_Y + 95, label: "Sora 2", specialty: "Video" },
+    { id: "gpt", icon: leonardIcons.sparkles, x: CENTER_X + 110, y: CENTER_Y - 65, label: "GPT-5", specialty: "LLM" },
+    { id: "claude", icon: leonardIcons.visualIntelligence, x: CENTER_X + 95, y: CENTER_Y + 75, label: "Claude 4.5", specialty: "Code" },
+    { id: "gemini", icon: leonardIcons.languageProcess, x: CENTER_X - 15, y: CENTER_Y - 105, label: "Gemini 3", specialty: "Vision" },
+    { id: "mistral", icon: leonardIcons.openSourceFirst, x: CENTER_X - 115, y: CENTER_Y - 35, label: "Mistral L3", specialty: "LLM 🇫🇷" },
+    { id: "flux", icon: leonardIcons.imageGeneration, x: CENTER_X - 95, y: CENTER_Y + 80, label: "Flux 2", specialty: "Image" },
+    { id: "sora", icon: leonardIcons.videoIntelligence, x: CENTER_X + 10, y: CENTER_Y + 110, label: "Sora 2", specialty: "Video" },
 ];
 
-const LOG_MESSAGES = [
-    "Claude 4.5 → Code generation",
-    "Gemini 3 → Document analysis",
-    "GPT-5 → Client reasoning",
-    "Mistral L3 → Traitement FR",
-    "Flux 2 → Visual creation",
-    "Sora 2 → Video synthesis",
-];
+const FRAME_INTERVAL = 1000 / 30; // Target ~30fps
 
 export function ModelNetworkDemo() {
     const rafRef = useRef<number>(0);
     const startTimeRef = useRef(Date.now());
+    const lastFrameRef = useRef<number>(0);
+    const isVisibleRef = useRef(false);
+    const containerRef = useRef<HTMLDivElement>(null);
     const [activeIndex, setActiveIndex] = useState(0);
     const [pulses, setPulses] = useState<Pulse[]>([]);
-    const [logIndex, setLogIndex] = useState(0);
     const [selectionRing, setSelectionRing] = useState(0);
 
     const animate = useCallback(() => {
-        const elapsed = Date.now() - startTimeRef.current;
+        // Throttle to ~30fps
+        const now = Date.now();
+        if (now - lastFrameRef.current < FRAME_INTERVAL) {
+            if (isVisibleRef.current) {
+                rafRef.current = requestAnimationFrame(animate);
+            }
+            return;
+        }
+        lastFrameRef.current = now;
+
+        const elapsed = now - startTimeRef.current;
 
         // Rotate active model every 4 seconds
         const newActiveIndex = Math.floor(elapsed / 4000) % MODELS.length;
         setActiveIndex(prev => {
             if (prev !== newActiveIndex) {
                 setSelectionRing(1);
-                setLogIndex(newActiveIndex);
             }
             return newActiveIndex;
         });
@@ -88,19 +93,43 @@ export function ModelNetworkDemo() {
             return updated;
         });
 
-        rafRef.current = requestAnimationFrame(animate);
+        if (isVisibleRef.current) {
+            rafRef.current = requestAnimationFrame(animate);
+        }
     }, []);
+
+    // IntersectionObserver to pause animation when not visible
+    useEffect(() => {
+        const el = containerRef.current;
+        if (!el) return;
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                isVisibleRef.current = entry.isIntersecting;
+                if (entry.isIntersecting && !rafRef.current) {
+                    rafRef.current = requestAnimationFrame(animate);
+                }
+            },
+            { threshold: 0 }
+        );
+        observer.observe(el);
+        return () => observer.disconnect();
+    }, [animate]);
 
     useEffect(() => {
         const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         if (prefersReduced) return;
 
+        isVisibleRef.current = true;
         rafRef.current = requestAnimationFrame(animate);
-        return () => cancelAnimationFrame(rafRef.current);
+        return () => {
+            cancelAnimationFrame(rafRef.current);
+            rafRef.current = 0;
+        };
     }, [animate]);
 
     return (
-        <div className="relative w-full h-full flex items-center justify-center overflow-hidden bg-[#0A0A0A]">
+        <div ref={containerRef} className="relative w-full h-full flex items-center justify-center overflow-hidden bg-[#0A0A0A]">
             {/* Background */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.04)_0%,transparent_70%)]" />
 
@@ -191,13 +220,14 @@ export function ModelNetworkDemo() {
                         <animate attributeName="r" values="2.5;3.5;2.5" dur="2.5s" repeatCount="indefinite" />
                         <animate attributeName="opacity" values="0.6;1;0.6" dur="2.5s" repeatCount="indefinite" />
                     </circle>
+                    {/* Leonard label directly in SVG to avoid overlap issues */}
+                    <text x={CENTER_X} y={CENTER_Y + 28} textAnchor="middle" className="text-[8px] fill-[#3B82F6]/50 font-mono uppercase tracking-widest">Leonard</text>
                 </g>
             </svg>
 
             {/* Model nodes rendered as DOM elements for DotIcon compatibility */}
             {MODELS.map((model, i) => {
                 const isActive = i === activeIndex;
-                // Convert SVG coords to percentage-based positioning
                 const leftPct = (model.x / 320) * 100;
                 const topPct = (model.y / 300) * 100;
 
@@ -213,48 +243,21 @@ export function ModelNetworkDemo() {
                             zIndex: isActive ? 30 : 20,
                         }}
                     >
-                        <div className={`w-9 h-9 rounded-lg bg-[#121110] border flex items-center justify-center transition-all duration-500 ${isActive ? "border-[#3B82F6] shadow-[0_0_16px_rgba(59,130,246,0.35)]" : "border-white/10"}`}>
-                            <DotIcon icon={model.icon} size={18} fillColor={isActive ? "#3B82F6" : "white"} />
+                        {/* Icône — rounded-full, pas de bordure visible, juste un glow subtil quand actif */}
+                        <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 ${isActive ? "bg-[#0A0A0A] shadow-[0_0_20px_rgba(59,130,246,0.3)]" : "bg-[#0A0A0A]/80"}`}>
+                            <DotIcon icon={model.icon} size={20} fillColor={isActive ? "#3B82F6" : "white"} />
                         </div>
 
-                        {/* Label and specialty */}
-                        <div className={`mt-1.5 flex flex-col items-center transition-all duration-500 ${isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-1"}`}>
-                            <span className="text-[7px] text-white font-mono uppercase tracking-widest whitespace-nowrap">{model.label}</span>
-                            <span className={`text-[6px] font-bold uppercase tracking-wider whitespace-nowrap ${isActive ? "text-[#3B82F6]" : "text-white/40"}`}>{model.specialty}</span>
-                        </div>
-
-                        {/* Benchmark micro-bar */}
-                        <div className={`mt-1 w-7 h-[2px] bg-white/10 rounded-full overflow-hidden transition-opacity duration-500 ${isActive ? "opacity-100" : "opacity-0"}`}>
-                            <div
-                                className="h-full bg-[#3B82F6] rounded-full transition-all duration-700"
-                                style={{ width: `${70 + (i * 5)}%` }}
-                            />
+                        {/* Label et spécialité — toujours visibles, taille lisible */}
+                        <div className={`mt-2 flex flex-col items-center transition-all duration-500 ${isActive ? "opacity-100 translate-y-0" : "opacity-40 translate-y-0"}`}>
+                            <span className="text-[9px] text-white font-mono uppercase tracking-widest whitespace-nowrap">{model.label}</span>
+                            <span className={`text-[8px] font-bold uppercase tracking-wider whitespace-nowrap ${isActive ? "text-[#3B82F6]" : "text-white/60"}`}>{model.specialty}</span>
                         </div>
                     </div>
                 );
             })}
 
-            {/* Leonard label under center */}
-            <div className="absolute" style={{ left: '50%', top: '55%', transform: 'translateX(-50%)' }}>
-                <span className="text-[7px] text-[#3B82F6]/60 font-mono uppercase tracking-[0.3em]">Leonard</span>
-            </div>
-
-            {/* HUD — top right */}
-            <div className="absolute top-3 right-3 flex items-center gap-1.5">
-                <div className="w-1 h-1 bg-green-500 rounded-full animate-pulse" />
-                <span className="text-[7px] text-white/30 font-mono uppercase tracking-wider">Tous modèles accessibles</span>
-            </div>
-
-            {/* HUD — bottom left log */}
-            <div className="absolute bottom-3 left-3 overflow-hidden h-4">
-                <div className="flex items-center gap-1.5 transition-all duration-500" style={{ transform: `translateY(0)` }}>
-                    <span className="text-[6px] text-white/20 font-mono whitespace-nowrap">
-                        {`> ${LOG_MESSAGES[logIndex]}`}
-                    </span>
-                </div>
-            </div>
-
-            {/* Bottom center label */}
+            {/* Seul HUD restant — bottom center */}
             <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5">
                 <div className="w-1 h-1 bg-[#3B82F6] rounded-full animate-pulse" />
                 <span className="text-[7px] text-[#3B82F6] uppercase tracking-widest font-bold font-mono">Agnostique · Sur-mesure</span>

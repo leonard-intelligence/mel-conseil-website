@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
-import { FxImage } from '../fx/FxImage';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { TrustBar } from './TrustBar';
+
+const FxImage = lazy(() => import('../fx/FxImage'));
 
 export function Hero() {
     const [animationPhase, setAnimationPhase] = useState<'intro' | 'content'>(() => {
@@ -14,12 +15,26 @@ export function Hero() {
         return 'intro';
     });
 
+    // Defer FxImage loading until after initial paint to unblock LCP
+    const [fxReady, setFxReady] = useState(false);
+
     useEffect(() => {
         // Sequence: Short splash (wait for logo exit trigger), then transition contents
         const timer = setTimeout(() => {
             setAnimationPhase('content');
         }, 150);
         return () => clearTimeout(timer);
+    }, []);
+
+    useEffect(() => {
+        // Load FxImage after idle to avoid blocking LCP
+        if ('requestIdleCallback' in window) {
+            const id = requestIdleCallback(() => setFxReady(true), { timeout: 3000 });
+            return () => cancelIdleCallback(id);
+        } else {
+            const timer = setTimeout(() => setFxReady(true), 1500);
+            return () => clearTimeout(timer);
+        }
     }, []);
 
     return (
@@ -81,67 +96,74 @@ export function Hero() {
                     </div>
                 </div>
 
-                {/* RIGHT COLUMN: Visual (Hero Image) - Properly anchored to bottom-right. Managed by fixed 'contain' mode in shader */}
+                {/* RIGHT COLUMN: Visual (Hero Image) - Properly anchored to bottom-right */}
                 <div className="hidden lg:block absolute bottom-0 right-0 h-[90%] w-[65%] z-10 pointer-events-none">
-                    <FxImage
-                        src={'/assets/hero-concepts/licorne 3.webp'}
-                        alt="Une licorne stylisée représentant la créativité de l'IA générative"
-                        loading="eager"
-                        fetchPriority="high"
-                        className="w-full h-full"
-                        style={{ width: '100%', height: '100%' }}
-                        imgStyle={{
-                            width: '100%',
-                            height: '100%',
-                            objectFit: 'contain',
-                            objectPosition: 'bottom right',
-                        }}
-                        config={{
-                            fitMode: 'contain',
-                            duotone: { enabled: true, colorA: '#000000', colorB: '#ffffff', strength: 1 },
-                            interaction: {
-                                enabled: true,
-                                mode: 'shape',
-                                variant: 'push',
-                                radius: 0.15,
-                                softness: 0.5,
-                                activeSize: 15,
-                            },
-                        }}
-                    />
+                    {fxReady ? (
+                        <Suspense fallback={
+                            <img
+                                src="/assets/hero-concepts/licorne 3.webp"
+                                alt="Une licorne stylisée représentant la créativité de l'IA générative"
+                                width={800}
+                                height={1000}
+                                className="w-full h-full object-contain object-bottom-right grayscale"
+                                style={{ objectPosition: 'bottom right' }}
+                            />
+                        }>
+                            <FxImage
+                                src={'/assets/hero-concepts/licorne 3.webp'}
+                                alt="Une licorne stylisée représentant la créativité de l'IA générative"
+                                loading="eager"
+                                fetchPriority="high"
+                                className="w-full h-full"
+                                style={{ width: '100%', height: '100%' }}
+                                imgStyle={{
+                                    width: '100%',
+                                    height: '100%',
+                                    objectFit: 'contain',
+                                    objectPosition: 'bottom right',
+                                }}
+                                config={{
+                                    fitMode: 'contain',
+                                    duotone: { enabled: true, colorA: '#000000', colorB: '#ffffff', strength: 1 },
+                                    interaction: {
+                                        enabled: true,
+                                        mode: 'shape',
+                                        variant: 'push',
+                                        radius: 0.15,
+                                        softness: 0.5,
+                                        activeSize: 15,
+                                    },
+                                }}
+                            />
+                        </Suspense>
+                    ) : (
+                        <img
+                            src="/assets/hero-concepts/licorne 3.webp"
+                            alt="Une licorne stylisée représentant la créativité de l'IA générative"
+                            loading="eager"
+                            fetchPriority="high"
+                            width={800}
+                            height={1000}
+                            className="w-full h-full object-contain grayscale"
+                            style={{ objectPosition: 'bottom right' }}
+                        />
+                    )}
                 </div>
 
-                {/* MOBILE OVERLAY - Door illustration with FX effects */}
+                {/* MOBILE OVERLAY - Door illustration (no WebGL on mobile for performance) */}
                 <div
                     className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[65%] max-w-[280px] aspect-[3/4] z-10 lg:hidden rounded-2xl overflow-hidden ${
                         animationPhase === 'intro' ? 'animate-fade-in' : 'animate-hero-exit pointer-events-none'
                     }`}
                 >
-                    <FxImage
-                        src={'/assets/hero-concepts/licorne 3.webp'}
+                    <img
+                        src="/assets/hero-concepts/licorne 3.webp"
                         alt="Une licorne stylisée représentant la créativité de l'IA générative (version mobile)"
                         loading="eager"
                         fetchPriority="high"
-                        className="w-full h-full"
-                        style={{ width: '100%', height: '100%' }}
-                        imgStyle={{
-                            width: '100%',
-                            height: '100%',
-                            objectFit: 'cover',
-                            objectPosition: 'center center',
-                        }}
-                        config={{
-                            fitMode: 'cover',
-                            duotone: { enabled: true, colorA: '#000000', colorB: '#ffffff', strength: 1 },
-                            interaction: {
-                                enabled: true,
-                                mode: 'shape',
-                                variant: 'push',
-                                radius: 0.15,
-                                softness: 0.5,
-                                activeSize: 15,
-                            },
-                        }}
+                        width={280}
+                        height={373}
+                        className="w-full h-full object-cover grayscale"
                     />
                 </div>
             </div>

@@ -100,7 +100,7 @@ export function AgentWorkflowDemo() {
                     <div className="w-2 h-2 rounded-full bg-[#E67E22] animate-pulse" />
                     <span className="text-[10px] text-white/60 tracking-wider uppercase">Workflow Actif</span>
                 </div>
-                <div className="text-[10px] text-white/40">
+                <div className="text-[10px] text-white/60">
                     Mission #{2490 + currentStepIndex}
                 </div>
             </div>
