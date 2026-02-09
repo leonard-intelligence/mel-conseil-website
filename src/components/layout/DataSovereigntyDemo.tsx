@@ -89,7 +89,7 @@ export function DataSovereigntyDemo() {
     }, []);
 
     return (
-        <div className="relative w-full h-[300px] flex items-center justify-center overflow-hidden bg-zinc-900/50 rounded-xl border border-white/10">
+        <div ref={containerRef} className="relative w-full h-[300px] flex items-center justify-center overflow-hidden bg-zinc-900/50 rounded-xl border border-white/10">
             {/* Background Grid */}
             <div className="absolute inset-0 bg-[linear-gradient(rgba(230,126,34,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(230,126,34,0.03)_1px,transparent_1px)] bg-[size:20px_20px]" />
 

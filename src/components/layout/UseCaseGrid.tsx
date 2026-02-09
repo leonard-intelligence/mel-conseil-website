@@ -59,8 +59,8 @@ export function UseCaseGrid() {
                                     icon={getIconForCategory(cat)}
                                     size={16}
                                     gap={0.12}
-                                    className={activeTab === cat ? "text-[#E67E22]" : "text-zinc-600 group-hover:text-zinc-400"}
-                                    fillColor={activeTab === cat ? "#E67E22" : undefined}
+                                    className={activeTab === cat ? "text-[#e67d23]" : "text-zinc-600 group-hover:text-zinc-400"}
+                                    fillColor={activeTab === cat ? "#e67d23" : undefined}
                                 />
                                 {cat}
                             </button>
@@ -97,7 +97,7 @@ export function UseCaseGrid() {
                             {/* Content */}
                             <div className="px-6 pb-6 pt-6 flex flex-col flex-grow">
                                 <div className="mb-6">
-                                    <h3 className="text-xs text-[#E67E22] uppercase tracking-wider mb-3">
+                                    <h3 className="text-xs text-[#e67d23] uppercase tracking-wider mb-3">
                                         {item.sector}
                                     </h3>
                                     <p className="text-zinc-300 font-normal text-base leading-relaxed">
@@ -111,7 +111,7 @@ export function UseCaseGrid() {
                                         {item.features.map((feat, i) => (
                                             <div key={i} className="flex items-center gap-2 text-zinc-400 group-hover:text-zinc-400 transition-colors">
                                                 {/* Simple generic icon fallback */}
-                                                <div className="w-1 h-1 rounded-full bg-[#E67E22]" />
+                                                <div className="w-1 h-1 rounded-full bg-[#e67d23]" />
                                                 <span className="text-[10px] uppercase tracking-wide truncate">
                                                     {feat.label}
                                                 </span>

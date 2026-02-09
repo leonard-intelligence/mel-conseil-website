@@ -35,8 +35,8 @@ export function SectionROI() {
                         </div>
 
                         <div className="relative z-10 max-w-xl">
-                            <div className="bg-[#E67E22]/20 backdrop-blur-sm w-fit px-3 py-1 rounded-full mb-6 border border-[#E67E22]/30">
-                                <span className="text-[#E67E22] text-xs uppercase tracking-wider">Optimisation</span>
+                            <div className="bg-[#e67d23]/20 backdrop-blur-sm w-fit px-3 py-1 rounded-full mb-6 border border-[#e67d23]/30">
+                                <span className="text-[#e67d23] text-xs uppercase tracking-wider">Optimisation</span>
                             </div>
                             <h2 className="text-4xl md:text-5xl lg:text-6xl font-mono text-white leading-tight uppercase tracking-[-0.03em]">
                                 Réduisez<br />vos coûts
@@ -49,11 +49,11 @@ export function SectionROI() {
 
                     {/* Mini Card Block */}
                     <div className="bg-black flex flex-col justify-between p-8 md:p-12 border-l border-white/10 reveal-up stagger-1 group hover:bg-white/5 transition-colors">
-                        <div className="w-10 h-10 bg-black border border-white/10 flex items-center justify-center mb-6 text-[#E67E22] icon-bounce">
-                            <DotIcon icon={leonardIcons.saisieAutomatisee} size={24} fillColor="#E67E22" />
+                        <div className="w-10 h-10 bg-black border border-white/10 flex items-center justify-center mb-6 text-[#e67d23] icon-bounce">
+                            <DotIcon icon={leonardIcons.saisieAutomatisee} size={24} fillColor="#e67d23" />
                         </div>
                         <div>
-                            <div ref={counterCosts.ref} className="text-5xl md:text-6xl font-mono font-medium text-[#E67E22] mb-2 tracking-tighter">
+                            <div ref={counterCosts.ref} className="text-5xl md:text-6xl font-mono font-medium text-[#e67d23] mb-2 tracking-tighter">
                                 {counterCosts.displayValue}
                             </div>
                             <div className="text-sm text-white uppercase tracking-widest mb-1">
@@ -71,7 +71,7 @@ export function SectionROI() {
             {/* MIDDLE BAR: ROI GLOBAL */}
             <div className="bg-zinc-900 border-y border-white/10 p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 reveal-up relative z-20">
                 <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-[#E67E22] flex items-center justify-center shadow-[0_0_20px_rgba(230,126,34,0.3)] animate-pulse-glow">
+                    <div className="w-12 h-12 bg-[#e67d23] flex items-center justify-center shadow-[0_0_20px_rgba(230,126,34,0.3)] animate-pulse-glow">
                         <DotIcon icon={leonardIcons.roi} size={24} fillColor="#000000" />
                     </div>
                     <div>
@@ -82,7 +82,7 @@ export function SectionROI() {
 
                 <div className="flex items-baseline gap-3" ref={counterROI.ref}>
                     <span className="text-4xl md:text-5xl font-mono font-medium text-white tracking-tighter">{counterROI.displayValue}</span>
-                    <span className="text-[#E67E22] text-sm uppercase tracking-widest">pour être rentable</span>
+                    <span className="text-[#e67d23] text-sm uppercase tracking-widest">pour être rentable</span>
                 </div>
             </div>
 

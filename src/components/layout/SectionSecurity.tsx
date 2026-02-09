@@ -12,7 +12,7 @@ export function SectionSecurity() {
             <div className="grid grid-cols-1 lg:grid-cols-12">
                 {/* Left: Content */}
                 <div className="lg:col-span-7 p-12 border-r border-b border-white/10">
-                    <div className="text-[#E67E22] mb-2 text-lg">Souveraineté Numérique.</div>
+                    <div className="text-[#e67d23] mb-2 text-lg">Souveraineté Numérique.</div>
                     <h2
                         id="security-heading"
                         className="text-4xl md:text-5xl font-mono text-white max-w-xl leading-tight uppercase tracking-[-0.02em] mb-6"
@@ -26,7 +26,7 @@ export function SectionSecurity() {
                 </div>
 
                 {/* Right: Data Sovereignty Demo visually demonstrating 'No data leak' */}
-                <div className="lg:col-span-5 p-6 lg:p-12 border-b border-white/10 flex items-center justify-center bg-[#E67E22]/5">
+                <div className="lg:col-span-5 p-6 lg:p-12 border-b border-white/10 flex items-center justify-center bg-[#e67d23]/5">
                     <DataSovereigntyDemo />
                 </div>
             </div>
@@ -47,34 +47,34 @@ export function SectionSecurity() {
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                 <div className="p-4 sm:p-6 border-r border-white/10 flex flex-col items-center justify-center text-center hover:bg-white/5 transition-colors">
                     <div className="mb-2 sm:mb-3">
-                        <DotIcon icon={leonardIcons.rgpdCompliant} size={20} fillColor="#E67E22" />
+                        <DotIcon icon={leonardIcons.rgpdCompliant} size={20} fillColor="#e67d23" />
                     </div>
                     <span className="text-[10px] sm:text-xs text-white uppercase tracking-wider">RGPD</span>
                 </div>
                 <div className="p-4 sm:p-6 border-r border-white/10 flex flex-col items-center justify-center text-center hover:bg-white/5 transition-colors">
                     <div className="mb-2 sm:mb-3">
-                        <DotIcon icon={leonardIcons.hebergementUE} size={20} fillColor="#E67E22" />
+                        <DotIcon icon={leonardIcons.hebergementUE} size={20} fillColor="#e67d23" />
                     </div>
                     <span className="text-[10px] sm:text-xs text-white uppercase tracking-wider">Héberg. UE</span>
                 </div>
                 <div className="p-4 sm:p-6 border-r border-white/10 flex flex-col items-center justify-center text-center hover:bg-white/5 transition-colors">
                     <div className="mb-2 sm:mb-3">
-                        <DotIcon icon={leonardIcons.hdsReady} size={20} fillColor="#E67E22" />
+                        <DotIcon icon={leonardIcons.hdsReady} size={20} fillColor="#e67d23" />
                     </div>
                     <span className="text-[10px] sm:text-xs text-white uppercase tracking-wider">HDS Ready</span>
                 </div>
                 <div className="p-4 sm:p-6 flex flex-col items-center justify-center text-center hover:bg-white/5 transition-colors">
                     <div className="mb-2 sm:mb-3">
-                        <DotIcon icon={leonardIcons.onPremise} size={20} fillColor="#E67E22" />
+                        <DotIcon icon={leonardIcons.onPremise} size={20} fillColor="#e67d23" />
                     </div>
                     <span className="text-[10px] sm:text-xs text-white uppercase tracking-wider">On-Premise</span>
                 </div>
             </div>
 
             {/* BOTTOM: Infrastructure note */}
-            <div className="p-6 border-t border-white/10 bg-[#E67E22]/5">
+            <div className="p-6 border-t border-white/10 bg-[#e67d23]/5">
                 <p className="text-xs text-center text-white/60">
-                    Infrastructure dédiée chez <span className="text-[#E67E22]">OVH</span>, <span className="text-[#E67E22]">NumSpot</span> ou <span className="text-[#E67E22]">Outscale</span>
+                    Infrastructure dédiée chez <span className="text-[#e67d23]">OVH</span>, <span className="text-[#e67d23]">NumSpot</span> ou <span className="text-[#e67d23]">Outscale</span>
                 </p>
             </div>
         </section>

@@ -173,7 +173,7 @@ export function Contact() {
                         className="text-4xl md:text-5xl font-normal font-mono uppercase text-white mb-6"
                     >
                         Avançons <br />
-                        <span className="text-[#E67E22]">ensemble.</span>
+                        <span className="text-[#e67d23]">ensemble.</span>
                     </h2>
                     <p className="text-gray-400 text-lg mb-12 leading-relaxed font-sans">
                         Transformation IA, valorisation de vos données, déploiement souverain ? Décrivez-nous votre
@@ -183,7 +183,7 @@ export function Contact() {
                     <div className="space-y-8">
                         <div className="flex items-start gap-4 group">
                             <div className="p-3 bg-white/5 border border-white/10 group-hover:bg-white/10 transition-colors">
-                                <DotIcon icon={leonardIcons.emailsTries} size={24} fillColor="#E67E22" />
+                                <DotIcon icon={leonardIcons.emailsTries} size={24} fillColor="#e67d23" />
                             </div>
                             <div>
                                 <h3 className="text-white font-normal mb-1 font-mono uppercase">Email</h3>
@@ -197,19 +197,19 @@ export function Contact() {
                             <p className="text-xs text-gray-400 mb-6 uppercase tracking-wider">Conformité</p>
                             <div className="grid grid-cols-2 gap-4">
                                 <div className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
-                                    <DotIcon icon={leonardIcons.aiActReady} size={16} fillColor="#E67E22" />
+                                    <DotIcon icon={leonardIcons.aiActReady} size={16} fillColor="#e67d23" />
                                     <span className="text-xs">AI ACT READY</span>
                                 </div>
                                 <div className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
-                                    <DotIcon icon={leonardIcons.rgpdCompliant} size={16} fillColor="#E67E22" />
+                                    <DotIcon icon={leonardIcons.rgpdCompliant} size={16} fillColor="#e67d23" />
                                     <span className="text-xs">RGPD COMPLIANT</span>
                                 </div>
                                 <div className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
-                                    <DotIcon icon={leonardIcons.hdsReady} size={16} fillColor="#E67E22" />
+                                    <DotIcon icon={leonardIcons.hdsReady} size={16} fillColor="#e67d23" />
                                     <span className="text-xs">HDS COMPATIBLE</span>
                                 </div>
                                 <div className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
-                                    <DotIcon icon={leonardIcons.hebergementUE} size={16} fillColor="#E67E22" />
+                                    <DotIcon icon={leonardIcons.hebergementUE} size={16} fillColor="#e67d23" />
                                     <span className="text-xs">HÉBERGEMENT UE</span>
                                 </div>
                             </div>
@@ -250,7 +250,7 @@ export function Contact() {
                                             <p className="text-white font-mono text-sm uppercase tracking-wider">
                                                 Guillaume
                                             </p>
-                                            <p className="text-[#E67E22] text-[10px] font-mono uppercase tracking-widest">
+                                            <p className="text-[#e67d23] text-[10px] font-mono uppercase tracking-widest">
                                                 Consultant IA
                                             </p>
                                         </div>
@@ -267,12 +267,12 @@ export function Contact() {
                                     </div>
                                 </div>
 
-                                <div className="mt-8 sm:mt-12 relative z-10 text-[10px] font-mono uppercase tracking-[0.4em] text-gray-300 group-hover/item1:text-[#E67E22] transition-colors flex items-center gap-2">
+                                <div className="mt-8 sm:mt-12 relative z-10 text-[10px] font-mono uppercase tracking-[0.4em] text-gray-300 group-hover/item1:text-[#e67d23] transition-colors flex items-center gap-2">
                                     <span>Je prends rendez-vous</span>
                                     <DotIcon
                                         icon={leonardIcons.arrowRight}
                                         size={12}
-                                        className="text-[#3D2314] group-hover/item1:text-[#E67E22]"
+                                        className="text-[#3D2314] group-hover/item1:text-[#e67d23]"
                                     />
                                 </div>
                             </button>
@@ -313,7 +313,7 @@ export function Contact() {
                         </div>
                     ) : isSent ? (
                         <div className="h-full flex flex-col items-center justify-center text-center py-12">
-                            <DotIcon icon={leonardIcons.check} size={64} fillColor="#E67E22" className="mb-6" />
+                            <DotIcon icon={leonardIcons.check} size={64} fillColor="#e67d23" className="mb-6" />
                             <h3 className="text-2xl font-normal font-mono text-white mb-2 uppercase">Message envoyé</h3>
                             <p className="text-gray-400 font-sans">
                                 Merci de nous avoir contactés. Nous reviendrons vers vous très rapidement.
@@ -347,7 +347,7 @@ export function Contact() {
                                         required
                                         aria-invalid={!!fieldErrors.fullName}
                                         aria-describedby={fieldErrors.fullName ? 'fullName-error' : undefined}
-                                        className="bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-[#E67E22] focus-visible:ring-2 focus-visible:ring-[#E67E22] focus-visible:ring-offset-1 focus-visible:ring-offset-black rounded-none h-12 input-animate"
+                                        className="bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-[#e67d23] focus-visible:ring-2 focus-visible:ring-[#e67d23] focus-visible:ring-offset-1 focus-visible:ring-offset-black rounded-none h-12 input-animate"
                                     />
                                     {fieldErrors.fullName && (
                                         <p id="fullName-error" className="text-red-400 text-xs" role="alert">
@@ -369,7 +369,7 @@ export function Contact() {
                                         required
                                         aria-invalid={!!fieldErrors.email}
                                         aria-describedby={fieldErrors.email ? 'email-error' : undefined}
-                                        className="bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-[#E67E22] focus-visible:ring-2 focus-visible:ring-[#E67E22] focus-visible:ring-offset-1 focus-visible:ring-offset-black rounded-none h-12 input-animate"
+                                        className="bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-[#e67d23] focus-visible:ring-2 focus-visible:ring-[#e67d23] focus-visible:ring-offset-1 focus-visible:ring-offset-black rounded-none h-12 input-animate"
                                     />
                                     {fieldErrors.email && (
                                         <p id="email-error" className="text-red-400 text-xs" role="alert">
@@ -387,7 +387,7 @@ export function Contact() {
                                         value={company}
                                         onChange={(e) => setCompany(e.target.value)}
                                         placeholder="MetaCortex"
-                                        className="bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-[#E67E22] focus-visible:ring-2 focus-visible:ring-[#E67E22] focus-visible:ring-offset-1 focus-visible:ring-offset-black rounded-none h-12 input-animate"
+                                        className="bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-[#e67d23] focus-visible:ring-2 focus-visible:ring-[#e67d23] focus-visible:ring-offset-1 focus-visible:ring-offset-black rounded-none h-12 input-animate"
                                     />
                                 </div>
 
@@ -402,7 +402,7 @@ export function Contact() {
                                                 className={clsx(
                                                     'text-xs px-3 py-2 border transition-all duration-200 uppercase tracking-wide cursor-pointer',
                                                     selectedInterests.includes(interest)
-                                                        ? 'bg-[#D35400] border-[#D35400] text-white font-semibold'
+                                                        ? 'bg-[#e67d23] border-[#e67d23] text-white font-semibold'
                                                         : 'bg-transparent border-white/10 text-gray-400 hover:border-white/30 hover:text-white'
                                                 )}
                                             >
@@ -424,7 +424,7 @@ export function Contact() {
                                         value={message}
                                         onChange={(e) => setMessage(e.target.value)}
                                         placeholder="Je cherche à automatiser un flux complexe : extraction de données sur documents scannés (LLM), analyse et qualification des photos jointes (Vision), et injection propre en base de données SQL. Le volume devient ingérable manuellement..."
-                                        className="min-h-[120px] bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-[#E67E22] focus-visible:ring-2 focus-visible:ring-[#E67E22] focus-visible:ring-offset-1 focus-visible:ring-offset-black rounded-none input-animate"
+                                        className="min-h-[120px] bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-[#e67d23] focus-visible:ring-2 focus-visible:ring-[#e67d23] focus-visible:ring-offset-1 focus-visible:ring-offset-black rounded-none input-animate"
                                         required
                                         aria-invalid={!!fieldErrors.message}
                                         aria-describedby={fieldErrors.message ? 'message-error' : undefined}
