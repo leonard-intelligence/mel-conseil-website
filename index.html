@@ -4,6 +4,16 @@
 <head>
   <meta charset="UTF-8" />
 
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-94893JEW4F"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-94893JEW4F');
+  </script>
+
   <!-- SEO Fallback Meta Tags (overridden by react-helmet at runtime) -->
   <title>Leonard Intelligence - Experts IA & Automatisation</title>
   <meta name="description" content="Automatisez vos processus internes avec une IA souveraine et sécurisée. Texte, image, audio, vidéo. Déploiement Local ou Cloud UE." />
@@ -50,7 +60,7 @@
         imagesizes="65vw" />
 
   <!-- Content Security Policy -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://assets.calendly.com; style-src 'self' 'unsafe-inline' https://assets.calendly.com; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://assets.mailerlite.com https://calendly.com; frame-src https://calendly.com;" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://assets.calendly.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://assets.calendly.com; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://assets.mailerlite.com https://calendly.com https://www.google-analytics.com https://www.googletagmanager.com; frame-src https://calendly.com;" />
 </head>
 
 <body>
