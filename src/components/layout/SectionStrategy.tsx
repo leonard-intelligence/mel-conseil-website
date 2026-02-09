@@ -27,7 +27,7 @@ export function SectionStrategy() {
                     className="group inline-flex items-center gap-3 bg-[#e67d23] hover:bg-[#cc6d1e] text-white px-8 py-4 font-medium uppercase text-sm transition-all hover:-translate-y-0.5 border border-[#e67d23]"
                 >
 
-                    Voir ce qu'on peut construire
+                    PARLONS ENSEMBLE
                     <div className="group-hover:translate-x-1 transition-transform">
                         <DotIcon icon={leonardIcons.arrowRight} size={16} fillColor="white" />
                     </div>

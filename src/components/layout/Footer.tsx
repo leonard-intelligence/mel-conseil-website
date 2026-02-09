@@ -38,7 +38,7 @@ export function Footer() {
                         <ul className="space-y-3 text-gray-400 text-xs">
                             <li><Link to="/#section-expertises" className="hover:text-white transition-colors">Agents & Automatisation</Link></li>
                             <li><Link to="/#section-expertises" className="hover:text-white transition-colors">Mémoire & Connaissance</Link></li>
-                            <li><Link to="/#section-expertises" className="hover:text-white transition-colors">Voix & Relation Client</Link></li>
+                            <li><Link to="/#section-expertises" className="hover:text-white transition-colors">Audio & Réunions</Link></li>
                             <li><Link to="/#section-expertises" className="hover:text-white transition-colors">Création & Production</Link></li>
                         </ul>
                     </nav>

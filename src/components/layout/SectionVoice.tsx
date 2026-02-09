@@ -22,7 +22,7 @@ export function SectionVoice() {
                         </p>
 
                         <button
-                            onClick={() => contactSignal.trigger('Voix & Relation Client')}
+                            onClick={() => contactSignal.trigger('Audio & Réunions')}
                             className="text-[#e67d23] hover:text-[#cc6d1e] text-xs font-medium uppercase tracking-wider flex items-center gap-2 transition-colors w-fit border-none bg-transparent p-0 mb-2"
                         >
                             En savoir plus
@@ -32,14 +32,6 @@ export function SectionVoice() {
 
                     <div className="flex-1 grid grid-cols-2 lg:flex lg:flex-col">
                         <div id="expertise-voice-item-1" className="border-b border-r lg:border-r-0 border-white/10 p-4 sm:p-8 group hover:bg-white/5 transition-colors relative reveal-left stagger-1 hover-lift">
-                            <div className="w-8 h-8 bg-black border border-white/10 flex items-center justify-center mb-4 text-white icon-bounce">
-                                <DotIcon icon={leonardIcons.reponse24h} size={20} fillColor="white" />
-                            </div>
-                            <p className="text-white font-mono text-sm sm:text-lg mb-2 uppercase tracking-[-0.02em]">Agents Vocaux 24/7</p>
-                            <p className="text-zinc-400 text-[10px] sm:text-sm">Prise de commande, qualification, support niveau 1 : une voix naturelle qui ne dort jamais.</p>
-                        </div>
-
-                        <div id="expertise-voice-item-2" className="border-b border-white/10 p-4 sm:p-8 group hover:bg-white/5 transition-colors relative reveal-left stagger-2 hover-lift">
                             <div className="w-8 h-8 bg-black border border-white/10 flex items-center justify-center mb-4 text-white">
                                 <DotIcon icon={leonardIcons.speechToText} size={20} fillColor="white" />
                             </div>
@@ -47,12 +39,20 @@ export function SectionVoice() {
                             <p className="text-zinc-400 text-[10px] sm:text-sm">Réunions, appels, consultations : transcrits, résumés et transformés en actions.</p>
                         </div>
 
-                        <div id="expertise-voice-item-3" className="col-span-2 lg:col-span-1 border-b lg:border-b-0 p-4 sm:p-8 group hover:bg-white/5 transition-colors relative reveal-left stagger-3 hover-lift">
+                        <div id="expertise-voice-item-2" className="border-b border-white/10 p-4 sm:p-8 group hover:bg-white/5 transition-colors relative reveal-left stagger-2 hover-lift">
                             <div className="w-8 h-8 bg-black border border-white/10 flex items-center justify-center mb-4 text-white">
                                 <DotIcon icon={leonardIcons.sparkles} size={20} fillColor="white" />
                             </div>
                             <p className="text-white font-mono text-sm sm:text-lg mb-2 uppercase tracking-[-0.02em]">Intelligence Conversationnelle</p>
                             <p className="text-zinc-400 text-[10px] sm:text-sm">Sentiment, intentions, coaching commercial : insights extraits de chaque interaction.</p>
+                        </div>
+
+                        <div id="expertise-voice-item-3" className="col-span-2 lg:col-span-1 border-b lg:border-b-0 p-4 sm:p-8 group hover:bg-white/5 transition-colors relative reveal-left stagger-3 hover-lift">
+                            <div className="w-8 h-8 bg-black border border-white/10 flex items-center justify-center mb-4 text-white icon-bounce">
+                                <DotIcon icon={leonardIcons.reponse24h} size={20} fillColor="white" />
+                            </div>
+                            <p className="text-white font-mono text-sm sm:text-lg mb-2 uppercase tracking-[-0.02em]">Agents Vocaux 24/7</p>
+                            <p className="text-zinc-400 text-[10px] sm:text-sm">Prise de commande, qualification, support niveau 1 : une voix naturelle qui ne dort jamais.</p>
                         </div>
                     </div>
                 </div>

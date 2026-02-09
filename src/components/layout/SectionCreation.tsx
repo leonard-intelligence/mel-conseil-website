@@ -15,8 +15,7 @@ export function SectionCreation() {
                     <div className="relative z-10 mb-12 reveal-left">
                         <div className="text-[#e67d23] mb-2 text-lg">4 Création & Production.</div>
                         <h2 id="expertise-creation-heading" className="text-4xl md:text-5xl font-mono text-white max-w-4xl leading-tight uppercase tracking-[-0.02em]">
-                            <span className="text-muted-foreground">Du brief au livrable.</span><br />
-                            Avec une équipe réduite.
+                            PRODUISEZ EN HEURES CE QUI PRENAIT DES SEMAINES.
                         </h2>
                     </div>
 

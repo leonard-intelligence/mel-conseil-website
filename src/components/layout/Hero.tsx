@@ -45,7 +45,7 @@ export function Hero() {
                                     id="hero-cta-primary"
                                     className="bg-[#e67d23] text-white border border-[#e67d23] px-6 py-3 font-semibold uppercase text-sm sm:text-base inline-block transition-all hover:bg-white hover:text-[#e67d23] hover:-translate-y-0.5 shadow-lg shadow-[#e67d23]/20 text-center whitespace-nowrap backdrop-blur-sm"
                                 >
-                                    PARLONS DE VOTRE PROJET
+                                    PARLONS ENSEMBLE →
                                 </a>
                                 <a
                                     href="#section-solutions"

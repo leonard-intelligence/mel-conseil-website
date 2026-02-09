@@ -15,7 +15,7 @@ export function InterimCTA() {
                         href="#section-contact"
                         className="group relative px-8 py-4 bg-[#e67d23] text-white font-semibold uppercase text-sm tracking-wider hover:bg-white hover:text-[#e67d23] transition-colors duration-300 flex items-center gap-3"
                     >
-                        <span>Réserver un créneau</span>
+                        <span>PARLONS ENSEMBLE</span>
                         <div className="group-hover:translate-x-1 transition-transform">
                             <DotIcon icon={leonardIcons.arrowRight} size={16} fillColor="currentColor" />
                         </div>
