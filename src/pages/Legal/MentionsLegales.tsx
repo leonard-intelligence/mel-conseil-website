@@ -19,20 +19,6 @@ function Section({ title, children }: SectionProps) {
     );
 }
 
-interface InfoItemProps {
-    label: string;
-    value: string | React.ReactNode;
-}
-
-function InfoItem({ label, value }: InfoItemProps) {
-    return (
-        <div className="flex flex-col sm:flex-row sm:gap-2 py-2 border-b border-white/5 last:border-0">
-            <span className="text-gray-500 text-sm sm:min-w-[200px]">{label}</span>
-            <span className="text-gray-300">{value}</span>
-        </div>
-    );
-}
-
 export function MentionsLegales() {
     return (
         <LegalPageLayout title="Mentions Légales" path="/mentions-legales">
