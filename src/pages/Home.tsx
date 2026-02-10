@@ -13,6 +13,7 @@ const UseCaseGrid = lazy(() => import('../components/layout/UseCaseGrid').then((
 const SectionAgents = lazy(() =>
     import('../components/layout/SectionAgents').then((m) => ({ default: m.SectionAgents }))
 );
+
 const SectionMemory = lazy(() =>
     import('../components/layout/SectionMemory').then((m) => ({ default: m.SectionMemory }))
 );
@@ -94,10 +95,13 @@ export function Home() {
                         className="flex flex-col gap-24 py-24 expertises"
                         aria-label="Nos Expertises"
                     >
+
                         <SectionAgents />
                         <SectionMemory />
                         <SectionVoice />
                         <SectionCreation />
+
+
                     </section>
 
                     <InterimCTA />

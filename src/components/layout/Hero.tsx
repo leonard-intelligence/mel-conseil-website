@@ -1,11 +1,17 @@
 
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useState, useEffect } from 'react';
 import { TrustBar } from './TrustBar';
 
 const FxImage = lazy(() => import('../fx/FxImage').then(m => ({ default: m.FxImage })));
 
 export function Hero() {
+    const [heroReady, setHeroReady] = useState(false);
 
+    // Safety timeout: show image after 5s even if WebGL fails to init
+    useEffect(() => {
+        const timer = setTimeout(() => setHeroReady(true), 5000);
+        return () => clearTimeout(timer);
+    }, []);
 
     return (
         <section
@@ -65,19 +71,21 @@ export function Hero() {
                     FxImage is the sole element. Its internal <img> serves as the texture source
                     and LCP fallback (benefits from the <link rel="preload"> in index.html).
                     Once WebGL compiles, the canvas renders the duotone + interaction effect. */}
-                <div className="hidden lg:block absolute bottom-0 right-0 h-[90%] w-[65%] z-10">
-                    <Suspense fallback={
-                        <img
-                            src="/assets/hero-concepts/licorne-3-md.webp"
-                            alt="Une licorne stylisée représentant la créativité de l'IA générative"
-                            style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: 'bottom right' }}
-                        />
-                    }>
+                <div
+                    className="hidden lg:block absolute bottom-0 right-0 h-[90%] w-[65%] z-10"
+                    style={{
+                        opacity: heroReady ? 1 : 0,
+                        transition: 'opacity 0.6s ease-out',
+                    }}
+                >
+                    <Suspense fallback={null}>
                         <FxImage
                             src={'/assets/hero-concepts/licorne-3-md.webp'}
                             alt="Une licorne stylisée représentant la créativité de l'IA générative"
                             loading="eager"
                             fetchPriority="high"
+                            priority={true}
+                            onReady={() => setHeroReady(true)}
                             className="w-full h-full"
                             style={{ width: '100%', height: '100%' }}
                             imgStyle={{

@@ -43,6 +43,8 @@ interface FxImageProps {
     clickRipples?: ClickRipple[]; // New: Click ripples for expanding zoom effect
     loading?: 'lazy' | 'eager';
     fetchPriority?: 'high' | 'low' | 'auto';
+    onReady?: () => void;    // Callback when WebGL is ready (first draw)
+    priority?: boolean;       // Skip requestIdleCallback, init WebGL immediately
 }
 
 interface WebGLState {
@@ -136,6 +138,8 @@ export function FxImage({
     clickRipples = [],
     loading = 'lazy',
     fetchPriority,
+    onReady,
+    priority,
 }: FxImageProps) {
     const containerRef = useRef<HTMLDivElement>(null);
     const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -198,6 +202,10 @@ export function FxImage({
 
     // Ref to track webglReady for closure in render callback
     const webglReadyRef = useRef(false);
+
+    // Stable ref for onReady callback (used inside render loop which has empty deps)
+    const onReadyRef = useRef(onReady);
+    useEffect(() => { onReadyRef.current = onReady; }, [onReady]);
 
     /**
      * Render the effect (throttled to ~30fps on desktop)
@@ -452,6 +460,7 @@ export function FxImage({
         if (!webglReadyRef.current) {
             webglReadyRef.current = true;
             setWebglReady(true);
+            onReadyRef.current?.();
         }
 
         // Only continue loop if visible in viewport (performance optimization)
@@ -622,6 +631,13 @@ export function FxImage({
     const isGif = src.toLowerCase().endsWith('.gif');
     const effectsActive = mergedConfig.enabled && webglSupported && !isGif && !isMobileDevice;
 
+    // Signal ready immediately if effects are disabled (mobile, GIF, WebGL unsupported)
+    useEffect(() => {
+        if (!effectsActive && imageLoaded) {
+            onReadyRef.current?.();
+        }
+    }, [effectsActive, imageLoaded]);
+
     const [isVisible, setIsVisible] = useState(false);
 
     // Visibility Observer (Lazy Init + Animation Pause)
@@ -655,14 +671,29 @@ export function FxImage({
      */
     useEffect(() => {
         if (imageLoaded && effectsActive && isVisible) {
-            // Defer WebGL init (shader compilation) to idle time to avoid blocking main thread TBT
-            const rIC = typeof requestIdleCallback === 'function'
-                ? requestIdleCallback
-                : (cb: IdleRequestCallback, _opts?: IdleRequestOptions) => setTimeout(cb as unknown as () => void, 1) as unknown as number;
-            const id = rIC(() => initWebGL(), { timeout: 3000 });
-            const cancel = typeof cancelIdleCallback === 'function' ? cancelIdleCallback : clearTimeout;
+            if (priority) {
+                // Priority mode (hero above-the-fold): init WebGL immediately
+                initWebGL();
+            } else {
+                // Normal mode: defer WebGL init to idle time to avoid blocking TBT
+                const rIC = typeof requestIdleCallback === 'function'
+                    ? requestIdleCallback
+                    : (cb: IdleRequestCallback, _opts?: IdleRequestOptions) => setTimeout(cb as unknown as () => void, 1) as unknown as number;
+                const id = rIC(() => initWebGL(), { timeout: 3000 });
+                const cancel = typeof cancelIdleCallback === 'function' ? cancelIdleCallback : clearTimeout;
+                return () => {
+                    cancel(id);
+                    const gl = webglRef.current?.gl;
+                    if (gl) {
+                        gl.bindTexture(gl.TEXTURE_2D, null);
+                        gl.useProgram(null);
+                    }
+                    webglRef.current = null;
+                };
+            }
+
+            // Cleanup for priority mode
             return () => {
-                cancel(id);
                 const gl = webglRef.current?.gl;
                 if (gl) {
                     gl.bindTexture(gl.TEXTURE_2D, null);
@@ -681,7 +712,7 @@ export function FxImage({
             }
             webglRef.current = null;
         };
-    }, [imageLoaded, depthLoaded, effectsActive, isVisible, initWebGL]);
+    }, [imageLoaded, depthLoaded, effectsActive, isVisible, initWebGL, priority]);
 
     /**
      * Re-render when config changes

@@ -224,7 +224,7 @@ export function Contact() {
                             {/* Option 1: Visio - The Direct Path */}
                             <button
                                 onClick={() => setIsModalOpen(true)}
-                                className="relative flex flex-col items-center justify-between p-6 sm:p-16 text-center transition-all duration-500 bg-[#3D2314]/[0.15] border border-[#3D2314]/40 hover:border-[#3D2314]/80 hover:-translate-y-1 cursor-pointer group/item1 opacity-100 group-hover/container:opacity-60 hover:!opacity-100 shadow-2xl hover:shadow-[#3D2314]/30"
+                                className="relative flex flex-col items-center justify-center p-6 sm:p-16 text-center transition-all duration-500 bg-[#3D2314]/[0.15] border border-[#3D2314]/40 hover:border-[#3D2314]/80 hover:-translate-y-1 cursor-pointer group/item1 opacity-100 group-hover/container:opacity-60 hover:!opacity-100 shadow-2xl hover:shadow-[#3D2314]/30"
                             >
                                 {/* Accent Border Bottom */}
                                 <div className="absolute inset-x-0 bottom-0 h-[2px] bg-[#3D2314]/0 group-hover/item1:bg-[#3D2314]/100 transition-all duration-500" />
@@ -261,31 +261,26 @@ export function Contact() {
                                             Parlons <br /> ensemble
                                         </h4>
                                         <div className="h-[1px] w-10 mx-auto bg-[#3D2314]/30 group-hover/item1:w-14 group-hover/item1:bg-[#3D2314]/60 transition-all duration-500" />
-                                        <p className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.15em] text-gray-400 group-hover/item1:text-[#B1937F] transition-colors leading-relaxed">
-                                            Visio gratuite <br /> de 30 minutes
-                                        </p>
+                                        <div className="flex flex-col items-center gap-3">
+                                            <p className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.15em] text-gray-400 group-hover/item1:text-[#B1937F] transition-colors leading-relaxed">
+                                                Visio gratuite <br /> de 30 minutes
+                                            </p>
+                                            <DotIcon
+                                                icon={leonardIcons.arrowRight}
+                                                size={12}
+                                                className="text-[#3D2314] group-hover/item1:text-[#e67d23]"
+                                            />
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div className="mt-8 sm:mt-12 relative z-10 text-[10px] font-mono uppercase tracking-[0.4em] text-gray-300 group-hover/item1:text-[#e67d23] transition-colors flex flex-col items-center gap-4">
-                                    <div className="flex items-center gap-2">
-                                        <span>Réserver mon créneau — c'est gratuit</span>
-                                        <DotIcon
-                                            icon={leonardIcons.arrowRight}
-                                            size={12}
-                                            className="text-[#3D2314] group-hover/item1:text-[#e67d23]"
-                                        />
-                                    </div>
-                                    <span className="text-[9px] tracking-[0.1em] text-gray-400 group-hover/item1:text-[#e67d23]/80 lowercase normal-case">
-                                        30 min de visio. Pas de commercial. Un vrai expert IA.
-                                    </span>
-                                </div>
+
                             </button>
 
                             {/* Option 2: Message - The Thoughtful Path */}
                             <button
                                 onClick={() => setShowForm(true)}
-                                className="relative flex flex-col items-center justify-between p-6 sm:p-16 text-center transition-all duration-500 bg-white/[0.03] border border-white/25 hover:border-white/40 hover:-translate-y-1 cursor-pointer group/item2 opacity-100 group-hover/container:opacity-50 hover:!opacity-100 shadow-2xl"
+                                className="relative flex flex-col items-center justify-center p-6 sm:p-16 text-center transition-all duration-500 bg-white/[0.03] border border-white/25 hover:border-white/40 hover:-translate-y-1 cursor-pointer group/item2 opacity-100 group-hover/container:opacity-50 hover:!opacity-100 shadow-2xl"
                             >
                                 {/* Accent Border Bottom */}
                                 <div className="absolute inset-x-0 bottom-0 h-[2px] bg-white/0 group-hover/item2:bg-white/40 transition-all duration-500" />
@@ -304,16 +299,21 @@ export function Contact() {
                                             Message
                                         </h4>
                                         <div className="h-[1px] w-10 mx-auto bg-white/20 group-hover/item2:w-14 group-hover/item2:bg-white/50 transition-all duration-500" />
-                                        <p className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.15em] text-gray-300 group-hover/item2:text-gray-200 transition-colors">
-                                            Réponse sous 24h
-                                        </p>
+                                        <div className="flex flex-col items-center gap-3">
+                                            <p className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.15em] text-gray-300 group-hover/item2:text-gray-200 transition-colors">
+                                                Expliquez-nous <br /> votre projet
+                                            </p>
+                                            <div className="text-white/40 group-hover/item2:text-white transition-colors">
+                                                <DotIcon
+                                                    icon={leonardIcons.arrowRight}
+                                                    size={12}
+                                                />
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div className="mt-8 sm:mt-12 relative z-10 text-[10px] font-mono uppercase tracking-[0.4em] text-gray-300 group-hover/item2:text-white transition-colors flex items-center gap-2">
-                                    <span>Envoyer un message</span>
-                                    <span className="w-1.5 h-1.5 bg-white/40 rounded-full" />
-                                </div>
+
                             </button>
                         </div>
                     ) : isSent ? (
