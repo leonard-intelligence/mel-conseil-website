@@ -31,7 +31,7 @@ export function TechIllustration({
                 className={cn(
                     "w-full h-full object-cover transition-[transform,opacity] duration-700 ease-out",
                     "opacity-50 group-hover:opacity-70",
-                    "scale-100 group-hover:scale-105"
+                    "scale-100"
                 )}
             />
 
