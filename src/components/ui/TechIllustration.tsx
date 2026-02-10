@@ -27,8 +27,9 @@ export function TechIllustration({
                 alt={alt}
                 loading={loading}
                 decoding="async"
+                sizes="(max-width: 768px) 100vw, 550px"
                 className={cn(
-                    "w-full h-full object-cover transition-all duration-700 ease-out",
+                    "w-full h-full object-cover transition-[transform,opacity] duration-700 ease-out",
                     "opacity-50 group-hover:opacity-70",
                     "scale-100 group-hover:scale-105"
                 )}

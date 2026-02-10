@@ -30,9 +30,9 @@ export function MobileNav() {
                         className="fixed top-[6px] right-4 z-[210] w-12 h-12 flex flex-col justify-center items-center group focus:outline-none cursor-pointer"
                         aria-label="Fermer le menu"
                     >
-                        <span className="block w-6 h-[2px] bg-white rounded-full transition-all duration-300 ease-out translate-y-[7px] rotate-45" />
-                        <span className="block w-6 h-[2px] bg-white rounded-full transition-all duration-300 ease-out my-1.5 opacity-0" />
-                        <span className="block w-6 h-[2px] bg-white rounded-full transition-all duration-300 ease-out -translate-y-[7px] -rotate-45" />
+                        <span className="block w-6 h-[2px] bg-white rounded-full transition-[transform,opacity] duration-300 ease-out translate-y-[7px] rotate-45" />
+                        <span className="block w-6 h-[2px] bg-white rounded-full transition-[transform,opacity] duration-300 ease-out my-1.5 opacity-0" />
+                        <span className="block w-6 h-[2px] bg-white rounded-full transition-[transform,opacity] duration-300 ease-out -translate-y-[7px] -rotate-45" />
                     </button>,
                     document.body
                 )
@@ -42,9 +42,9 @@ export function MobileNav() {
                     className="relative z-[120] w-12 h-12 flex flex-col justify-center items-center group focus:outline-none cursor-pointer"
                     aria-label="Ouvrir le menu"
                 >
-                    <span className="block w-6 h-[2px] bg-white rounded-full transition-all duration-300 ease-out translate-y-0" />
-                    <span className="block w-6 h-[2px] bg-white rounded-full transition-all duration-300 ease-out my-1.5 opacity-100" />
-                    <span className="block w-6 h-[2px] bg-white rounded-full transition-all duration-300 ease-out translate-y-0" />
+                    <span className="block w-6 h-[2px] bg-white rounded-full transition-[transform,opacity] duration-300 ease-out translate-y-0" />
+                    <span className="block w-6 h-[2px] bg-white rounded-full transition-[transform,opacity] duration-300 ease-out my-1.5 opacity-100" />
+                    <span className="block w-6 h-[2px] bg-white rounded-full transition-[transform,opacity] duration-300 ease-out translate-y-0" />
                 </button>
             )}
 
@@ -83,7 +83,7 @@ export function MobileNav() {
                         <a
                             href="#section-contact"
                             onClick={closeMenu}
-                            className="text-xl text-[#e67d23] border border-[#e67d23] px-6 py-3 hover:bg-[#e67d23] hover:text-black transition-all"
+                            className="text-xl text-[#e67d23] border border-[#e67d23] px-6 py-3 hover:bg-[#e67d23] hover:text-black transition-colors"
                         >
                             CONTACT
                         </a>

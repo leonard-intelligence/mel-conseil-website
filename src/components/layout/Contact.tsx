@@ -220,7 +220,7 @@ export function Contact() {
                 {/* Right Column: Choices or Form */}
                 <div id="contact-form-wrapper" className="lg:col-span-7 relative min-h-[500px] flex flex-col justify-center">
                     {!showForm && !isSent ? (
-                        <div className="grid grid-cols-2 gap-4 sm:gap-8 group/container mt-8">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 group/container mt-8">
                             {/* Option 1: Visio - The Direct Path */}
                             <button
                                 onClick={() => setIsModalOpen(true)}
@@ -234,7 +234,7 @@ export function Contact() {
                                         <div className="relative">
                                             <div className="w-16 h-16 sm:w-24 sm:h-24 rounded-full border border-[#3D2314]/30 overflow-hidden mb-2 group-hover/item1:border-[#3D2314]/60 transition-colors duration-500">
                                                 <img
-                                                    src="/assets/images/team/melvin.webp"
+                                                    src="/assets/images/team/melvin-sm.webp"
                                                     alt="Guillaume"
                                                     width={96}
                                                     height={96}

@@ -94,7 +94,7 @@ export const TechCardImage = ({ src, alt, className, useFx = true, layout = 'con
         // Local handlers removed, rely on parent context
         >
             {useFx ? (
-                <Suspense fallback={<img src={src} alt={alt} className={styles.image} />}>
+                <Suspense fallback={<img src={src} alt={alt} className={styles.image} sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 250px" />}>
                     <FxImage
                         src={src}
                         alt={alt}
@@ -108,6 +108,7 @@ export const TechCardImage = ({ src, alt, className, useFx = true, layout = 'con
                     src={src}
                     alt={alt}
                     className={styles.image}
+                    sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 250px"
                 />
             )}
         </div>
