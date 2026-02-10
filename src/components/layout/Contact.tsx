@@ -332,7 +332,7 @@ export function Contact() {
                             </Button>
                         </div>
                     ) : (
-                        <div className="animate-in fade-in slide-in-from-right-4 duration-300">
+                        <div className="anim-fade-right">
                             <button
                                 onClick={() => setShowForm(false)}
                                 className="flex items-center gap-2 text-gray-400 hover:text-white mb-6 text-sm uppercase tracking-wide transition-colors"

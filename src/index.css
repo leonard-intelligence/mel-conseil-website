@@ -474,6 +474,43 @@
   transform: scale(1.15);
 }
 
+/* COMPOSITED ENTER ANIMATIONS (no filter property — replaces tw-animate-css animate-in) */
+@keyframes enter-fade-up {
+  from { opacity: 0; transform: translateY(0.5rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes enter-fade-zoom {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes enter-fade-right {
+  from { opacity: 0; transform: translateX(1rem); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes enter-fade-bottom-lg {
+  from { opacity: 0; transform: translateY(2rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.anim-fade-up {
+  animation: enter-fade-up 0.3s ease-out both;
+}
+
+.anim-fade-zoom {
+  animation: enter-fade-zoom 0.2s ease-out both;
+}
+
+.anim-fade-right {
+  animation: enter-fade-right 0.3s ease-out both;
+}
+
+.anim-fade-bottom-lg {
+  animation: enter-fade-bottom-lg 0.3s ease-out both;
+}
+
 /* FADE IN KEYFRAME */
 @keyframes fade-in-up {
   from {

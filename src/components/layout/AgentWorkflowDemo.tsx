@@ -159,7 +159,7 @@ export function AgentWorkflowDemo() {
 
                         {/* Message */}
                         <div className="min-h-[80px]">
-                            <p className="text-sm md:text-base text-white leading-relaxed animate-in fade-in slide-in-from-bottom-2 duration-300 key={currentStep.id}">
+                            <p className="text-sm md:text-base text-white leading-relaxed anim-fade-up key={currentStep.id}">
                                 {(currentStep.role === "PM" || currentStep.role === "UX") ? (
                                     <>
                                         <span className="opacity-50 text-xs block mb-1 uppercase tracking-widest">{currentStep.message.split(":")[0]}</span>

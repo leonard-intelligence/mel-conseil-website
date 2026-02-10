@@ -126,7 +126,7 @@ export function PassiveDocumentationDemo() {
 
                     {/* Step 3 Animation: Final Document */}
                     <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-700 ${activeStep === 2 ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-                        <div className="relative w-56 h-72 bg-zinc-800 border border-white/20 rounded shadow-2xl overflow-hidden flex flex-col p-6 animate-in slide-in-from-bottom-8">
+                        <div className="relative w-56 h-72 bg-zinc-800 border border-white/20 rounded shadow-2xl overflow-hidden flex flex-col p-6 anim-fade-bottom-lg">
                             {/* Doc Header */}
                             <div className="flex items-center gap-3 mb-6">
                                 <div className="w-8 h-8 bg-[#e67d23]/20 rounded flex items-center justify-center">

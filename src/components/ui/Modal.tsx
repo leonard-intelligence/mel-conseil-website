@@ -46,7 +46,7 @@ export function Modal({ isOpen, onClose, children, fullScreen = false, persist =
 
             {/* Modal Content */}
             <div
-                className={`relative bg-black border border-white/10 shadow-2xl overflow-y-auto animate-in fade-in zoom-in-95 duration-200 ${fullScreen
+                className={`relative bg-black border border-white/10 shadow-2xl overflow-y-auto anim-fade-zoom ${fullScreen
                     ? 'fixed inset-0 w-full h-full rounded-none'
                     : 'w-full max-w-4xl max-h-[90vh] rounded-xl'
                     } ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}

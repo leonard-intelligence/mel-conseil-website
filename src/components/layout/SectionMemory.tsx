@@ -127,7 +127,7 @@ function ChatInterface() {
             {/* Chat messages area */}
             <div className="p-2 lg:p-4 space-y-4 flex-1 overflow-y-auto flex flex-col justify-end min-h-0">
                 {visibleMessages.map((msg) => (
-                    <div key={msg.id} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"} animate-in fade-in slide-in-from-bottom-2 duration-300`}>
+                    <div key={msg.id} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"} anim-fade-up`}>
                         {msg.role === "user" ? (
                             // USER BUBBLE
                             <div className="bg-[#e67d23]/20 border border-[#e67d23]/30 rounded-xl rounded-br-sm px-3 py-2 max-w-[95%] md:max-w-xs">
@@ -160,7 +160,7 @@ function ChatInterface() {
 
                 {/* Typing Indicator */}
                 {isTyping && (
-                    <div className="flex justify-start animate-in fade-in zoom-in duration-200">
+                    <div className="flex justify-start anim-fade-zoom">
                         <div className="bg-white/5 border border-white/10 rounded-xl rounded-bl-sm px-3 py-3 w-12 flex items-center justify-center gap-1">
                             <span className="w-1.5 h-1.5 bg-white/40 rounded-full animate-[bounce_1s_infinite_100ms] will-change-transform"></span>
                             <span className="w-1.5 h-1.5 bg-white/40 rounded-full animate-[bounce_1s_infinite_200ms] will-change-transform"></span>
