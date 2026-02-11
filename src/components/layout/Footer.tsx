@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import logo from '../../assets/images/logos/leonard-logo-white.webp';
+import { contactSignal } from '../../lib/contactSignal';
 
 export function Footer() {
     return (
@@ -83,9 +84,12 @@ export function Footer() {
                         <p className="text-gray-400 text-xs mb-4">
                             Identification des opportunités d'automatisation pour votre entreprise.
                         </p>
-                        <a href="#contact" className="inline-block border border-white/20 hover:bg-white hover:text-black hover:border-white text-center text-white text-xs px-4 py-2 uppercase transition-all">
+                        <button
+                            onClick={() => contactSignal.trigger('Audit', 'calendly')}
+                            className="inline-block border border-white/20 hover:bg-white hover:text-black hover:border-white text-center text-white text-xs px-4 py-2 uppercase transition-all"
+                        >
                             Parlons de votre projet
-                        </a>
+                        </button>
                     </div>
                 </div>
 

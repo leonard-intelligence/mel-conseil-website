@@ -65,15 +65,19 @@ export function Contact() {
     };
 
     useEffect(() => {
-        return contactSignal.subscribe((subject) => {
+        return contactSignal.subscribe((subject, mode = 'form') => {
             // 1. Scroll to contact section
             const contactSection = document.getElementById('section-contact');
             if (contactSection) {
                 contactSection.scrollIntoView({ behavior: 'smooth' });
             }
 
-            // 2. Open form view
-            setShowForm(true);
+            // 2. Open form view or calendly
+            if (mode === 'calendly') {
+                setIsModalOpen(true);
+            } else {
+                setShowForm(true);
+            }
 
             // 3. Select the interest tag
             setSelectedInterests((prev) => {
